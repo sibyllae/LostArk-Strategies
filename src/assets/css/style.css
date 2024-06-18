@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+#root {
+  height: 100%;
+  width: 100%;
+  color: whitesmoke;
+}
+.ant-menu-dark.ant-menu-inline .ant-menu-sub.ant-menu-inline {
+  background: none;
+}
+.ant-menu-submenu-title {
+  margin: 0 !important;
+}
+.ant-table-cell {
+  color: whitesmoke !important;
+  background-color: rgb(24, 24, 27, 0.95) !important;
+  border-radius: 0px !important;
+}
+.ant-empty-description {
+  color: whitesmoke !important;
+}
+.ant-table-cell-row-hover {
+  background-color: rgb(24, 24, 27, 0.85) !important;
+}
+
+.ant-drawer-body {
+  padding: 4px !important;
+  background-color: rgba(0, 0, 0, 0.9) !important;
+}
+.ant-spin-blur {
+  opacity: 0.2 !important;
+}
+.ant-spin-spinning {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
