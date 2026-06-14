@@ -1,0 +1,492 @@
+[
+  {
+    "attention": "航海船帆標誌",
+    "friendly": "巨人心臟#2、體力增加藥水",
+    "location": "特利希溫",
+    "love": "",
+    "maxAffinity": "77700",
+    "normal": "15k銀",
+    "npc": "薇亞特莉絲",
+    "trust": "薇亞特莉絲卡片、魅力增加藥水"
+  },
+  {
+    "attention": "20k銀",
+    "friendly": "莎夏卡片、500金",
+    "location": "修泰倫/阿爾德塔因",
+    "love": "大型體力增加藥水、1.8k金、復活羽毛、100k銀",
+    "maxAffinity": "103700",
+    "normal": "15k銀",
+    "npc": "莎夏",
+    "trust": "巨人心臟#3、1.2k金、共通刻印包(高級)"
+  },
+  {
+    "attention": "海盜幣*1000",
+    "friendly": "體力增加藥水、藍眼凱巴索斯卡片",
+    "location": "修普諾斯之眼",
+    "love": "",
+    "maxAffinity": "37900",
+    "normal": "8k銀",
+    "npc": "藍眼凱巴索斯",
+    "trust": "眠曲島島之心、巨人心臟#9、偉大的藝術品#29、特拉坤船藍圖"
+  },
+  {
+    "attention": "能力值增加藥水、100金、銀幣160k",
+    "friendly": "1k金、340k銀、回復藥水箱",
+    "location": "低語小島",
+    "love": "",
+    "maxAffinity": "102200",
+    "normal": "100k銀",
+    "npc": "妮娜芙",
+    "trust": "巨人心臟#14、低語小島島之心、妮娜芙卡片"
+  },
+  {
+    "attention": "20k銀、500金",
+    "friendly": "航海船帆標誌、500金、能力值增加藥水",
+    "location": "盧特蘭城/盧特蘭東部",
+    "love": "",
+    "maxAffinity": "77700",
+    "normal": "15k銀",
+    "npc": "席利安",
+    "trust": "國王席利安卡片、親切增加藥水"
+  },
+  {
+    "attention": "15k銀",
+    "friendly": "碎浪港口納莉雅卡片",
+    "location": "碎浪港口/盧特蘭東部",
+    "love": "",
+    "maxAffinity": "37900",
+    "normal": "8k銀",
+    "npc": "納莉雅",
+    "trust": "製作書：釣魚桌、600金"
+  },
+  {
+    "attention": "15k銀",
+    "friendly": "修泰倫納莉雅卡片",
+    "location": "修泰倫/阿爾德塔因",
+    "love": "",
+    "maxAffinity": "37900",
+    "normal": "8k銀",
+    "npc": "納莉雅",
+    "trust": "600金、共通刻印包(高級)"
+  },
+  {
+    "attention": "能力值增加藥水、被孤立的永恆島隱藏副本入場票、100k銀",
+    "friendly": "瑪莉卡片、被孤立的永恆島隱藏副本入場票、1k金",
+    "location": "被孤立的永恆島",
+    "love": "",
+    "maxAffinity": "87700",
+    "normal": "60k銀",
+    "npc": "瑪莉",
+    "trust": "被孤立的永恆島島之心、體力增加藥水、審判符文(英雄)"
+  },
+  {
+    "attention": "200金、航海船帆標誌",
+    "friendly": "500金、黑牙卡片",
+    "location": "黑牙駐地",
+    "love": "",
+    "maxAffinity": "77700",
+    "normal": "15k銀",
+    "npc": "黑牙",
+    "trust": "船員招募書、黑牙駐地島之心"
+  },
+  {
+    "attention": "200金",
+    "friendly": "愛妲琳卡片、能力值增加藥水",
+    "location": "貝倫城/貝倫北部",
+    "love": "高級能力值增加藥水、800金、100k銀",
+    "maxAffinity": "103700",
+    "normal": "15k銀",
+    "npc": "愛妲琳",
+    "trust": "審判符文(稀有)、航海船帆標誌、膽量增加藥水"
+  },
+  {
+    "attention": "體力增加藥水",
+    "friendly": "500金、愛黛兒卡片",
+    "location": "貝倫城/貝倫北部",
+    "love": "",
+    "maxAffinity": "77700",
+    "normal": "15k銀",
+    "npc": "愛黛兒",
+    "trust": "900金、共通刻印包(高級)、普通木材"
+  },
+  {
+    "attention": "魅力增加藥水、共通刻印包(稀有)",
+    "friendly": "體力增加藥水、集中符文(稀有)",
+    "location": "皇后花園/洛漢德",
+    "love": "",
+    "maxAffinity": "77700",
+    "normal": "20k銀",
+    "npc": "雅蒂娜",
+    "trust": "雅蒂娜\u0026伊南娜卡片、暴擊藥水"
+  },
+  {
+    "attention": "1.4k金",
+    "friendly": "尼亞卡片、能力值增加藥水",
+    "location": "尼亞村/帕夫尼卡",
+    "love": "",
+    "maxAffinity": "57800",
+    "normal": "80k銀",
+    "npc": "尼亞",
+    "trust": "魅力增加藥水、奧菲斯之星#3"
+  },
+  {
+    "attention": "烏勒勒卡片",
+    "friendly": "太初碎片",
+    "location": "雷克巴/盧特蘭西部",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "3k銀",
+    "npc": "工匠烏勒勒",
+    "trust": "製作書：武器展示架、秘密地圖#15"
+  },
+  {
+    "attention": "太初碎片",
+    "friendly": "莎莉卡片",
+    "location": "破碎冰河島",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "3k銀",
+    "npc": "莎莉",
+    "trust": "能力值增加藥水、秘密地圖#16"
+  },
+  {
+    "attention": "娜絲卡片、太初碎片",
+    "friendly": "復活羽毛",
+    "location": "希望島",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "3k銀",
+    "npc": "娜絲",
+    "trust": "體力增加藥水、秘密地圖#19"
+  },
+  {
+    "attention": "海盜幣*300",
+    "friendly": "塔內卡片、海盜幣*1k",
+    "location": "海上樂園佩托",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "海盜幣*150",
+    "npc": "塔娜‧班登",
+    "trust": "海盜幣*1k、秘密地圖#24"
+  },
+  {
+    "attention": "900金、回復藥水箱",
+    "friendly": "膽量增加藥水、復活羽毛、900金",
+    "location": "無名峽谷/費伊頓",
+    "love": "",
+    "maxAffinity": "57800",
+    "normal": "40k銀",
+    "npc": "佩得里柯",
+    "trust": "製作書：桌案、佩得里柯卡片、秘密地圖#17"
+  },
+  {
+    "attention": "復活羽毛、300金",
+    "friendly": "500金、比歐雷卡片",
+    "location": "卡拉札村/費伊頓",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "13k銀",
+    "npc": "比歐雷",
+    "trust": "能力值增加藥水、秘密地圖#12"
+  },
+  {
+    "attention": "100k銀",
+    "friendly": "札夏菈卡片、體力增加藥水",
+    "location": "尼亞村/帕夫尼卡",
+    "love": "",
+    "maxAffinity": "37900",
+    "normal": "40k銀",
+    "npc": "札夏菈",
+    "trust": "知性增加藥水、秘密地圖#13"
+  },
+  {
+    "attention": "共通刻印包(英雄)",
+    "friendly": "體力增加藥水、利露卡片",
+    "location": "尼亞村/帕夫尼卡",
+    "love": "",
+    "maxAffinity": "37900",
+    "normal": "40k銀",
+    "npc": "利露",
+    "trust": "膽量增加藥水、秘密地圖#14"
+  },
+  {
+    "attention": "120k銀、共通刻印包(英雄)",
+    "friendly": "體力增加藥水、太初碎片、坎達利亞納莉雅卡片",
+    "location": "坎達利亞領地/貝倫南部",
+    "love": "",
+    "maxAffinity": "37900",
+    "normal": "40k銀",
+    "npc": "納莉雅",
+    "trust": "魅力增加藥水、偉大的藝術品#52"
+  },
+  {
+    "attention": "15k銀",
+    "friendly": "雷溫哈特納莉雅卡片",
+    "location": "雷溫哈特/亞爾特米斯",
+    "love": "",
+    "maxAffinity": "37900",
+    "normal": "8k銀",
+    "npc": "納莉雅",
+    "trust": "共通刻印包(高級)、魅力增加藥水、體力增加藥水"
+  },
+  {
+    "attention": "5k銀",
+    "friendly": "100金",
+    "location": "迪奧利卡平原/盧特蘭東部",
+    "love": "",
+    "maxAffinity": "5900",
+    "normal": "2k銀",
+    "npc": "艾麗婕‧羅納文",
+    "trust": "共通刻印包(高級)、魅力增加藥水"
+  },
+  {
+    "attention": "太初碎片",
+    "friendly": "托托伊奇卡片",
+    "location": "托托白銀島",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "2k銀",
+    "npc": "托托長老",
+    "trust": "托托白銀島島之心、知性增加藥水"
+  },
+  {
+    "attention": "5k銀",
+    "friendly": "仇恨的靈魂卡片",
+    "location": "萬籟森林/愛尼茨",
+    "love": "",
+    "maxAffinity": "5900",
+    "normal": "2k銀",
+    "npc": "女鬼蓮",
+    "trust": "膽量增加藥水"
+  },
+  {
+    "attention": "復活羽毛",
+    "friendly": "呂蔚卡片",
+    "location": "港口都市蒼天/愛尼茨",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "3k銀",
+    "npc": "呂蔚",
+    "trust": "魅力增加藥水、體力增加藥水"
+  },
+  {
+    "attention": "6k銀",
+    "friendly": "吉德溫卡片",
+    "location": "拉尼亞村/貝倫北部",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "3k銀",
+    "npc": "吉德溫",
+    "trust": "共通刻印包(高級)、知性增加藥水"
+  },
+  {
+    "attention": "8k銀",
+    "friendly": "歐蕾妲卡片、共通刻印包(稀有)",
+    "location": "琉璃蓮花湖/洛漢德",
+    "love": "",
+    "maxAffinity": "5900",
+    "normal": "3k銀",
+    "npc": "歐蕾妲",
+    "trust": "知性增加藥水、秘密蛋糕食譜"
+  },
+  {
+    "attention": "戰鬥道具選擇箱",
+    "friendly": "知性增加藥水、縫製的背包(共通刻印)",
+    "location": "偉大之城/約恩",
+    "love": "",
+    "maxAffinity": "57800",
+    "normal": "30k銀",
+    "npc": "凱薩爾",
+    "trust": "體力增加藥水、國王凱薩爾卡片"
+  },
+  {
+    "attention": "戰鬥道具選擇箱",
+    "friendly": "膽量增加藥水、偉大之城納莉雅卡片",
+    "location": "偉大之城/約恩",
+    "love": "",
+    "maxAffinity": "57800",
+    "normal": "30k銀",
+    "npc": "納莉雅",
+    "trust": "製作書：餐桌、滿滿的礦車火腿套餐"
+  },
+  {
+    "attention": "復活羽毛、約姆卡片",
+    "friendly": "800金",
+    "location": "尼亞村/帕夫尼卡",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "20k銀",
+    "npc": "松鼠約姆",
+    "trust": "能力值增加藥水"
+  },
+  {
+    "attention": "700金",
+    "friendly": "400金、哈利亞卡片",
+    "location": "尼亞村/帕夫尼卡",
+    "love": "",
+    "maxAffinity": "5900",
+    "normal": "14k銀",
+    "npc": "哈利亞",
+    "trust": "能力值增加藥水"
+  },
+  {
+    "attention": "120k銀、皮革背包(共通刻印)",
+    "friendly": "夏娜卡片、體力增加藥水",
+    "location": "尼亞村/帕夫尼卡",
+    "love": "",
+    "maxAffinity": "57800",
+    "normal": "80k銀",
+    "npc": "夏娜",
+    "trust": "能力值增加藥水、2.7k金"
+  },
+  {
+    "attention": "皮革背包(共通刻印)",
+    "friendly": "能力值增加藥水、娜琪卡片",
+    "location": "尼亞村/帕夫尼卡",
+    "love": "",
+    "maxAffinity": "37900",
+    "normal": "40k銀",
+    "npc": "娜琪",
+    "trust": "親切增加藥水、2.2k金"
+  },
+  {
+    "attention": "狐狸薩皮亞諾卡片、300金",
+    "friendly": "700金",
+    "location": "尼亞村/帕夫尼卡",
+    "love": "",
+    "maxAffinity": "5900",
+    "normal": "14k銀",
+    "npc": "狐狸薩皮亞諾",
+    "trust": "體力增加藥水"
+  },
+  {
+    "attention": "貝貝洛卡片、復活羽毛",
+    "friendly": "800金",
+    "location": "尼亞村/帕夫尼卡",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "20k銀",
+    "npc": "貝貝洛",
+    "trust": "體力增加藥水"
+  },
+  {
+    "attention": "復活羽毛",
+    "friendly": "800金",
+    "location": "尼亞村/帕夫尼卡",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "20k銀",
+    "npc": "艾比恩",
+    "trust": "體力增加藥水、艾比恩卡片"
+  },
+  {
+    "attention": "900金、回復藥水箱",
+    "friendly": "露媞雅卡片、體力增加藥水、900金",
+    "location": "卡拉札村/費伊頓",
+    "love": "",
+    "maxAffinity": "57800",
+    "normal": "40k銀",
+    "npc": "露媞雅",
+    "trust": "流血符文(英雄)、縫製的背包(共通刻印)、1.8k金"
+  },
+  {
+    "attention": "納菲卡片、200金",
+    "friendly": "400金、回復藥水箱",
+    "location": "卡拉札村/費伊頓",
+    "love": "",
+    "maxAffinity": "5900",
+    "normal": "9k銀",
+    "npc": "納菲",
+    "trust": "親切增加藥水"
+  },
+  {
+    "attention": "皮革背包(共通刻印)、120k銀",
+    "friendly": "能力值增加藥水、梅涅里克之書",
+    "location": "貝倫廢墟/貝倫南部",
+    "love": "",
+    "maxAffinity": "57800",
+    "normal": "80k銀",
+    "npc": "拉哈爾特",
+    "trust": "膽量增加藥水、秘密地圖#47、充滿魔力的貝倫白蘭地"
+  },
+  {
+    "attention": "航海幣選擇箱",
+    "friendly": "能力值增加藥水、皮革背包(共通刻印)、航海幣選擇箱",
+    "location": "幻竹島",
+    "love": "",
+    "maxAffinity": "57800",
+    "normal": "80k銀",
+    "npc": "金傑威",
+    "trust": "膽量增加藥水、幻竹島島之心、航海幣選擇箱"
+  },
+  {
+    "attention": "能力值增加藥水",
+    "friendly": "卡爾斯卡片、埃斯托克藍圖",
+    "location": "碎浪港口/盧特蘭東部",
+    "love": "",
+    "maxAffinity": "77700",
+    "normal": "15k銀",
+    "npc": "卡爾斯",
+    "trust": "船員招募書、知性增加藥水"
+  },
+  {
+    "attention": "太初碎片",
+    "friendly": "賈倍倫卡片",
+    "location": "利根斯村/蘇夏爾",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "3k銀",
+    "npc": "曙光團賈倍倫",
+    "trust": "膽量增加藥水、破冰者藍圖"
+  },
+  {
+    "attention": "能力值增加藥水",
+    "friendly": "伊絲拉貝卡片、布拉姆斯藍圖",
+    "location": "至高島",
+    "love": "",
+    "maxAffinity": "37900",
+    "normal": "8k銀",
+    "npc": "伊絲拉貝",
+    "trust": "至高島島之心、300金、航海船帆標誌"
+  },
+  {
+    "attention": "能力值增加藥水",
+    "friendly": "克莉莎卡片、布拉姆斯藍圖",
+    "location": "至高島",
+    "love": "",
+    "maxAffinity": "37900",
+    "normal": "海盜幣*50",
+    "npc": "克莉莎",
+    "trust": "至高島島之心、梅涅里克之書"
+  },
+  {
+    "attention": "復活羽毛",
+    "friendly": "普普卡片、10k銀",
+    "location": "熊貓普普島",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "3k銀",
+    "npc": "熊貓普普",
+    "trust": "熊貓普普島島之心、能力值增加藥水"
+  },
+  {
+    "attention": "海盜幣*400",
+    "friendly": "泰瑪卡片、海盜幣*1000",
+    "location": "白浪島",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "海盜幣*150",
+    "npc": "擱淺的泰瑪",
+    "trust": "白浪島島之心、能力值增加藥水"
+  },
+  {
+    "attention": "緣分石",
+    "friendly": "亨利卡片、緣分石",
+    "location": "里維海因",
+    "love": "",
+    "maxAffinity": "17800",
+    "normal": "3k銀",
+    "npc": "戀愛高手亨利",
+    "trust": "里維海因島之心、緣分石"
+  }
+]

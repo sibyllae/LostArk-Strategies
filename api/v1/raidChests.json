@@ -1,0 +1,67 @@
+{
+  "raids": [
+    {
+      "name": "伐爾坦",
+      "nameEn": "Valtan",
+      "ilvl": 1415,
+      "gates": [
+        { "gate": "關卡 1", "goldReward": 500, "chestCost": 300, "chestContents": "生命碎片、突破石、寶石" },
+        { "gate": "關卡 2", "goldReward": 700, "chestCost": 400, "chestContents": "生命碎片、突破石、寶石、裝備" }
+      ],
+      "totalGold": 1200,
+      "totalChestCost": 700,
+      "netGold": 500,
+      "recommendation": "前期建議開箱取得突破石，後期金幣充裕可不開"
+    },
+    {
+      "name": "維亞奇絲",
+      "nameEn": "Vykas",
+      "ilvl": 1430,
+      "gates": [
+        { "gate": "關卡 1", "goldReward": 500, "chestCost": 300, "chestContents": "生命碎片、突破石、寶石" },
+        { "gate": "關卡 2", "goldReward": 600, "chestCost": 300, "chestContents": "生命碎片、突破石、寶石" },
+        { "gate": "關卡 3", "goldReward": 600, "chestCost": 500, "chestContents": "生命碎片、突破石、寶石、裝備" }
+      ],
+      "totalGold": 1700,
+      "totalChestCost": 1100,
+      "netGold": 600,
+      "recommendation": "建議開最後一關取得裝備材料"
+    },
+    {
+      "name": "庫克賽頓",
+      "nameEn": "Kakul-Saydon",
+      "ilvl": 1475,
+      "gates": [
+        { "gate": "關卡 1", "goldReward": 600, "chestCost": 400, "chestContents": "生命碎片、突破石、寶石" },
+        { "gate": "關卡 2", "goldReward": 800, "chestCost": 600, "chestContents": "生命碎片、突破石、寶石" },
+        { "gate": "關卡 3", "goldReward": 1000, "chestCost": 800, "chestContents": "生命碎片、突破石、寶石、裝備" }
+      ],
+      "totalGold": 2400,
+      "totalChestCost": 1800,
+      "netGold": 600,
+      "recommendation": "開箱成本較高，建議依市場物價判斷是否開箱"
+    },
+    {
+      "name": "布雷夏沙",
+      "nameEn": "Brelshaza",
+      "ilvl": 1490,
+      "gates": [
+        { "gate": "關卡 1", "goldReward": 700, "chestCost": 500, "chestContents": "生命碎片、突破石、寶石" },
+        { "gate": "關卡 2", "goldReward": 700, "chestCost": 500, "chestContents": "生命碎片、突破石、寶石" },
+        { "gate": "關卡 3", "goldReward": 800, "chestCost": 600, "chestContents": "生命碎片、突破石、寶石" },
+        { "gate": "關卡 4", "goldReward": 1200, "chestCost": 900, "chestContents": "生命碎片、突破石、寶石、裝備" }
+      ],
+      "totalGold": 3400,
+      "totalChestCost": 2500,
+      "netGold": 900,
+      "recommendation": "依角色裝分與市場物價評估，高等級角色建議至少開最後一關"
+    }
+  ],
+  "notes": [
+    "金幣獎勵和開箱成本為一般難度數據",
+    "困難難度的金幣獎勵和開箱成本會更高",
+    "開箱是否划算取決於當前市場物價",
+    "資料基於小丑版本 (20240825)",
+    "角色每週最多可獲得 3 個軍團長副本金幣獎勵"
+  ]
+}
