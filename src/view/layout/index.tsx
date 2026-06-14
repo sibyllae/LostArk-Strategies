@@ -7,14 +7,15 @@ interface ContentIn {
 
 const Content: React.FC<ContentIn> = ({ Component }: ContentIn) => {
   return (
-    <div className='w-full h-full flex '>
-      <aside className='h-full w-48 hidden xl:block'>
-        <div className='h-10 w-full'></div>
-        <div className='h-[calc(100%-40px)] w-full'>
+    <div className='w-full h-full flex bg-transparent'>
+      <aside className='h-full w-64 hidden xl:flex flex-col border-r border-zinc-800/50 bg-zinc-950/60 backdrop-blur-xl z-20'>
+        {/* Sidebar Header Space */}
+        <div className='h-16 w-full flex-none'></div>
+        <div className='flex-1 w-full overflow-y-auto p-3'>
           <TheSidebar />
         </div>
       </aside>
-      <section className='h-full w-full xl:w-[calc(100%-192px)] '>
+      <section className='h-full w-full xl:w-[calc(100%-256px)] flex flex-col relative z-0'>
         <TheContent Component={Component} />
       </section>
     </div>

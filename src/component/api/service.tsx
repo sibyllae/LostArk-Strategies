@@ -2,12 +2,7 @@ import { AppDispatch } from '@/store';
 import { setLoading } from '@/store/features/loadingSlice';
 import { useDispatch } from 'react-redux';
 
-const hostname =
-  location.hostname === 'zhong1016.github.io'
-    ? '/LostArk-Strategies'
-    : '/public';
-
-const baseURL = hostname + '/api/v1';
+const baseURL = import.meta.env.BASE_URL + 'api/v1';
 
 const useService = () => {
   /**

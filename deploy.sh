@@ -10,6 +10,6 @@ git init
 git add -A
 git commit -m 'update pages'
 
-git push -f git@github.com:zhong1016/LostArk-Strategies.git master:gh-pages
+git push -f git@github.com:sibyllae/LostArk-Strategies.git master:gh-pages
 
 cd -

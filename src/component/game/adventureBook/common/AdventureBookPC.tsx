@@ -1,46 +1,53 @@
 import { RootState } from '@/store';
-import { Table } from 'antd';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { AdventureBookCompIn } from '../service';
-const { Column } = Table;
+import { Card, Tag } from 'antd';
+import { EnvironmentOutlined } from '@ant-design/icons';
 
 const AdventureBookPC: React.FC<AdventureBookCompIn> = ({
   adventureBookData,
 }: AdventureBookCompIn) => {
-  /**
-   * store
-   */
   const { loading } = useSelector((store: RootState) => store.loading);
 
+  if (loading) return null;
+
   return (
-    <Table
-      dataSource={adventureBookData}
-      pagination={false}
-      className='hidden xl:block w-full'
-      loading={loading}
-    >
-      <Column
-        title=''
-        dataIndex='adventureBook'
-        key='adventureBook'
-        width={120}
-      />
-      <Column title='10%' dataIndex='tenPercent' key='tenPercent' width={1} />
-      <Column
-        title='20%'
-        dataIndex='twentyPercent'
-        key='twentyPercent'
-        width={1}
-      />
-      <Column title='30%' dataIndex='thirtyPercent' key='thirtyPercent' />
-      <Column title='40%' dataIndex='fortyPercent' key='fortyPercent' />
-      <Column title='50%' dataIndex='fiftyPercent' key='fiftyPercent' />
-      <Column title='60%' dataIndex='sixtyPercent' key='sixtyPercent' />
-      <Column title='70%' dataIndex='seventyPercent' key='seventyPercent' />
-      <Column title='80%' dataIndex='eightyPercent' key='eightyPercent' />
-      <Column title='90%' dataIndex='ninetyPercent' key='ninetyPercent' />
-    </Table>
+    <div className='hidden xl:grid grid-cols-2 gap-4 w-full'>
+      {adventureBookData.map((item, idx) => (
+        <Card
+          key={idx}
+          className='!bg-zinc-800/60 !border-zinc-700/50 hover:!border-blue-500/50 transition-colors'
+          title={
+            <div className='flex items-center gap-2'>
+              <EnvironmentOutlined className='text-blue-400 text-lg' />
+              <span className='text-lg font-bold text-zinc-100'>{item.adventureBook}</span>
+            </div>
+          }
+        >
+          <div className='grid grid-cols-2 gap-3'>
+            {[
+              { percent: '10%', val: item.tenPercent },
+              { percent: '20%', val: item.twentyPercent },
+              { percent: '30%', val: item.thirtyPercent },
+              { percent: '40%', val: item.fortyPercent },
+              { percent: '50%', val: item.fiftyPercent },
+              { percent: '60%', val: item.sixtyPercent },
+              { percent: '70%', val: item.seventyPercent },
+              { percent: '80%', val: item.eightyPercent },
+              { percent: '90%', val: item.ninetyPercent },
+            ].map((p) => (
+              p.val && (
+                <div key={p.percent} className='bg-zinc-900/60 rounded-lg p-2 border border-zinc-700/30 flex items-center gap-2'>
+                  <Tag color='blue' className='!m-0 flex-shrink-0 w-12 text-center'>{p.percent}</Tag>
+                  <span className='text-zinc-300 text-sm truncate' title={p.val}>{p.val}</span>
+                </div>
+              )
+            ))}
+          </div>
+        </Card>
+      ))}
+    </div>
   );
 };
 

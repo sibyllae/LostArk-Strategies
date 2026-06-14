@@ -1,64 +1,55 @@
 import { RootState } from '@/store';
-import { Table } from 'antd';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { AdventureBookCompIn, AdventureBookIn } from '../service';
-const { Column } = Table;
+import { AdventureBookCompIn } from '../service';
+import { Card, Tag } from 'antd';
+import { EnvironmentOutlined } from '@ant-design/icons';
 
 const AdventureBookMobile: React.FC<AdventureBookCompIn> = ({
   adventureBookData,
 }: AdventureBookCompIn) => {
-  /**
-   * store
-   */
   const { loading } = useSelector((store: RootState) => store.loading);
 
+  if (loading) return null;
+
   return (
-    <Table
-      dataSource={adventureBookData}
-      pagination={false}
-      className='xl:hidden w-full'
-      loading={loading}
-    >
-      <Column title='' dataIndex='adventureBook' key='adventureBook' />
-      <Column
-        title='百分比'
-        render={(record: AdventureBookIn) => {
-          return (
-            <div>
-              <p className='text-base font-semibold'>
-                ⬩ 10% : {record.tenPercent}
-              </p>
-              <p className='text-base font-semibold'>
-                ⬩ 20% : {record.twentyPercent}
-              </p>
-              <p className='text-base font-semibold'>
-                ⬩ 30% : {record.thirtyPercent}
-              </p>
-              <p className='text-base font-semibold'>
-                ⬩ 40% : {record.fortyPercent}
-              </p>
-              <p className='text-base font-semibold'>
-                ⬩ 50% : {record.fiftyPercent}
-              </p>
-              <p className='text-base font-semibold'>
-                ⬩ 60% : {record.sixtyPercent}
-              </p>
-              <p className='text-base font-semibold'>
-                ⬩ 70% : {record.seventyPercent}
-              </p>
-              <p className='text-base font-semibold'>
-                ⬩ 80% : {record.eightyPercent}
-              </p>
-              <p className='text-base font-semibold'>
-                ⬩ 90% : {record.ninetyPercent}
-              </p>
+    <div className='xl:hidden space-y-4 w-full'>
+      {adventureBookData.map((item, idx) => (
+        <Card
+          key={idx}
+          className='!bg-zinc-800/60 !border-zinc-700/50'
+          title={
+            <div className='flex items-center gap-2'>
+              <EnvironmentOutlined className='text-blue-400 text-lg' />
+              <span className='text-lg font-bold text-zinc-100'>{item.adventureBook}</span>
             </div>
-          );
-        }}
-      />
-    </Table>
+          }
+        >
+          <div className='space-y-2'>
+            {[
+              { percent: '10%', val: item.tenPercent },
+              { percent: '20%', val: item.twentyPercent },
+              { percent: '30%', val: item.thirtyPercent },
+              { percent: '40%', val: item.fortyPercent },
+              { percent: '50%', val: item.fiftyPercent },
+              { percent: '60%', val: item.sixtyPercent },
+              { percent: '70%', val: item.seventyPercent },
+              { percent: '80%', val: item.eightyPercent },
+              { percent: '90%', val: item.ninetyPercent },
+            ].map((p) => (
+              p.val && (
+                <div key={p.percent} className='bg-zinc-900/60 rounded-lg p-2 border border-zinc-700/30 flex items-center justify-between'>
+                  <Tag color='blue' className='!m-0 w-12 text-center flex-shrink-0'>{p.percent}</Tag>
+                  <span className='text-zinc-300 text-sm text-right break-words pl-2'>{p.val}</span>
+                </div>
+              )
+            ))}
+          </div>
+        </Card>
+      ))}
+    </div>
   );
 };
 
 export default AdventureBookMobile;
+

@@ -25,9 +25,19 @@ const useService = () => {
       getItem('好友度', 'game/favorability'),
       getItem('冒險之書', 'game/adventureBook'),
     ]),
+    getItem('收集品', 'collectibles', undefined, [
+      getItem('收集品追蹤', 'game/collectibles'),
+    ]),
+    getItem('攻略工具', 'tools', undefined, [
+      getItem('副本開箱分析', 'game/raidChests'),
+    ]),
+    getItem('參考資料', 'reference', undefined, [
+      getItem('雜項攻略', 'game/miscGuide'),
+    ]),
   ];
 
   return { MenuItems };
 };
 
 export default useService;
+

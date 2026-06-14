@@ -31,15 +31,17 @@ const AdventureBook = () => {
 
   return (
     <div className='w-full'>
-      <div className=' flex flex-wrap'>
+      <div className='flex flex-wrap'>
         <div className='flex-none w-1/2'>
-          <div className='font-bold m-4 text-xl border-l-4 border-red-500'>
+          <div className='font-bold m-4 text-xl border-l-4 border-blue-500'>
             <span className='px-2'>冒險之書</span>
           </div>
         </div>
       </div>
-      <AdventureBookPC adventureBookData={adventureBookData} />
-      <AdventureBookMobile adventureBookData={adventureBookData} />
+      <div className='px-4 pb-6'>
+        <AdventureBookPC adventureBookData={adventureBookData} />
+        <AdventureBookMobile adventureBookData={adventureBookData} />
+      </div>
     </div>
   );
 };

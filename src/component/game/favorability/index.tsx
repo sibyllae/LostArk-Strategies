@@ -35,15 +35,17 @@ const Favorability = () => {
 
   return (
     <div className='w-full'>
-      <div className=' flex flex-wrap'>
+      <div className='flex flex-wrap'>
         <div className='flex-none w-1/2'>
-          <div className='font-bold m-4 text-xl border-l-4 border-red-500'>
-            <span className='px-2'> 好感度 </span>
+          <div className='font-bold m-4 text-xl border-l-4 border-rose-500'>
+            <span className='px-2'>好感度</span>
           </div>
         </div>
       </div>
-      <FavorabilityPC favorabilityData={favorabilityData} />
-      <FavorabilityMobile favorabilityData={favorabilityMobileData} />
+      <div className='px-4 pb-6'>
+        <FavorabilityPC favorabilityData={favorabilityData} />
+        <FavorabilityMobile favorabilityData={favorabilityMobileData} />
+      </div>
     </div>
   );
 };
