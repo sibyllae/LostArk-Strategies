@@ -1,0 +1,81 @@
+/*
+ * 將 Tailwind preflight 放進較低優先級的 cascade layer，
+ * 避免覆蓋 Ant Design 的元件樣式（例如 primary button 背景變透明）。
+ */
+@layer tailwind-base;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply min-h-dvh bg-zinc-950 font-sans text-zinc-100 antialiased;
+  }
+
+  ::selection {
+    @apply bg-indigo-500/30 text-white;
+  }
+
+  kbd {
+    @apply inline-flex min-w-[1.25rem] items-center justify-center rounded border border-white/10 bg-white/5 px-1 font-sans text-[11px] leading-5 text-zinc-400;
+  }
+}
+
+@layer components {
+  /* 主要卡片表面 */
+  .surface {
+    @apply rounded-2xl border border-white/[0.06] bg-zinc-900/60 backdrop-blur-sm;
+  }
+
+  /* 小型標籤 */
+  .chip {
+    @apply inline-flex items-center rounded-md px-2 py-0.5 text-xs ring-1 ring-inset;
+  }
+
+  .icon-btn {
+    @apply grid size-9 place-items-center rounded-lg text-lg text-zinc-400 transition-colors hover:bg-white/5 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full border-2 border-solid border-transparent bg-zinc-700 bg-clip-padding;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-zinc-500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
