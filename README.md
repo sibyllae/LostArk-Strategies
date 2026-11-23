@@ -4,20 +4,21 @@ LostArk Strategies 是一個為《失落的方舟》（Lost Ark）玩家打造�
 
 ## 🌟 主要功能 (Features)
 
-*   **好友度 (Rapport/Favorability):** 提供各個 NPC 的好感度需求、獎勵以及對話/樂譜/表情動作等相關資訊。
-*   **冒險之書 (Adventurer's Tome):** 整理各大陸冒險之書的收集進度與攻略（包含料理、怪物、觀景點、隱藏故事等）。
-*   **收集品 (Collectibles):** 追蹤各類收集品的進度，如島之心、巨人之心、偉大藝術品、摩可可種子等。
-*   **副本開箱收益 (Raid Chests):** 提供各個深淵地牢、討伐星辰護衛與軍團長副本的通關寶箱收益分析，幫助玩家決定是否花費金幣開啟寶箱。
-*   **雜項攻略 (Misc Guide):** 其他實用的小技巧、日常/週常任務建議及各式遊戲相關指南。
+*   **好友度 (Rapport/Favorability):** 提供各大陸 NPC 的好感度需求、階段獎勵查詢，支援地區篩選、需求排序與關鍵獎勵快捷過濾。
+*   **冒險之書 (Adventurer's Tome):** 整理 20 個大陸冒險之書 10%～90% 完成度里程碑獎勵一覽（涵蓋庫爾贊、里姆雷克等後期大陸）。
+*   **收集品 (Collectibles):** 涵蓋島之心、巨人心臟、偉大藝術品、奧菲斯之星、伊格涅亞標誌、航海冒險物、記憶八音盒、血爪海圖與世界樹／摩可可等 9 大類追蹤。
+*   **副本開箱收益 (Raid Chests):** 涵蓋 T3 軍團長／象牙塔至 T4 貝希莫斯／卡札羅斯第 1～4 幕與終幕（普通／困難），提供互動式逐關開箱試算。
+*   **養成與配裝 (Systems & Gear):** T4 飾品研磨詞條、艾利西爾 40 覺、超越／卡爾瑪、單人模式商店與各大洲流浪商人傳說卡攻略。
+*   **雜項攻略 (Misc Guide):** 裝等解鎖路線、T4 方舟星圖速查、副本戰鬥道具、曲譜、技能／悟性點數、符文、T3/T4 屬性卡組、日常限制與艾波娜委託推薦。
+*   **全站快速搜尋 (`Ctrl / ⌘ + K`):** 可直接搜尋功能頁面、NPC、大陸、副本、樂譜與符文並跳轉定位。
 
 ## 🛠️ 技術棧 (Tech Stack)
 
 *   **前端框架:** React 18
-*   **路由管理:** React Router DOM
-*   **狀態管理:** Redux Toolkit & React Redux
-*   **UI 組件庫:** Ant Design & Tailwind CSS
-*   **建構工具:** Vite
-*   **開發語言:** TypeScript
+*   **路由管理:** React Router v7 (Data Router)
+*   **狀態與資料快取:** Redux Toolkit & RTK Query
+*   **UI 組件庫:** Ant Design 6 & Tailwind CSS
+*   **建構與檢查:** Vite 5, TypeScript, ESLint 9
 
 ## 🚀 本地開發 (Local Development)
 
@@ -32,10 +33,11 @@ LostArk Strategies 是一個為《失落的方舟》（Lost Ark）玩家打造�
     ```bash
     npm run dev
     ```
-    伺服器啟動後，預設可在瀏覽器訪問 `http://localhost:5173`。
+    伺服器啟動後，預設可在瀏覽器訪問 `http://localhost:5173/LostArk-Strategies/`。
 
-3.  **編譯打包 (Build for Production)**
+3.  **程式碼檢查與編譯打包 (Lint & Build)**
     ```bash
+    npm run lint
     npm run build
     ```
 

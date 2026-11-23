@@ -8,6 +8,7 @@ import {
   useGetFavorabilitiesQuery,
   useGetMiscGuideQuery,
   useGetRaidChestsQuery,
+  useGetSystemsQuery,
 } from '@/services/gameApi';
 import { cx } from '@/utils/cx';
 import { matchesQuery } from '@/utils/text';
@@ -38,6 +39,7 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
   const { data: adventureBooks = [] } = useGetAdventureBooksQuery(undefined, { skip: !open });
   const { data: raidChests } = useGetRaidChestsQuery(undefined, { skip: !open });
   const { data: miscGuide } = useGetMiscGuideQuery(undefined, { skip: !open });
+  const { data: systems } = useGetSystemsQuery(undefined, { skip: !open });
 
   const results = useMemo<SearchHit[]>(() => {
     const pageHits: SearchHit[] = NAV_ITEMS.filter((item) =>
@@ -85,12 +87,12 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
 
     const raidNav = getNavItem('raidChests');
     const raidHits: SearchHit[] = (raidChests?.raids ?? [])
-      .filter((r) => matchesQuery(trimmed, r.name, r.nameEn, r.ilvl))
+      .filter((r) => matchesQuery(trimmed, r.name, r.nameEn, r.ilvl, r.tier, r.difficulty))
       .slice(0, 4)
       .map((r) => ({
-        id: `raid-${r.nameEn}`,
-        title: `${r.name} (${r.nameEn})`,
-        subtitle: `裝等 ${r.ilvl} · 通關 ${r.totalGold.toLocaleString()}G`,
+        id: `raid-${r.nameEn}-${r.difficulty ?? '普通'}`,
+        title: `${r.name} (${r.difficulty ?? '普通'})`,
+        subtitle: `${r.tier ?? 'T3'} · 裝等 ${r.ilvl} · 通關 ${r.totalGold.toLocaleString()}G`,
         to: `${raidNav.path}?q=${encodeURIComponent(r.name)}`,
         accent: raidNav.accent,
         badge: '副本',
@@ -123,8 +125,22 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
         })),
     ].slice(0, 4);
 
-    return [...pageHits, ...npcHits, ...regionHits, ...raidHits, ...miscHits];
-  }, [query, favorabilities, adventureBooks, raidChests, miscGuide]);
+    const sysNav = getNavItem('systems');
+    const sysHits: SearchHit[] = (systems?.wanderingMerchants ?? [])
+      .filter((m) => matchesQuery(trimmed, m.continent, m.merchant, m.cards))
+      .slice(0, 3)
+      .map((m) => ({
+        id: `merchant-${m.continent}`,
+        title: `${m.continent}流浪商人 (${m.merchant})`,
+        subtitle: m.cards,
+        to: `${sysNav.path}?tab=merchants&q=${encodeURIComponent(m.continent)}`,
+        accent: sysNav.accent,
+        badge: '流浪商人',
+        icon: sysNav.icon,
+      }));
+
+    return [...pageHits, ...npcHits, ...regionHits, ...raidHits, ...sysHits, ...miscHits];
+  }, [query, favorabilities, adventureBooks, raidChests, miscGuide, systems]);
 
   const go = (hit: SearchHit) => {
     onClose();

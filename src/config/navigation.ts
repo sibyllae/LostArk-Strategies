@@ -5,6 +5,7 @@ import {
   GoldOutlined,
   HeartOutlined,
   ReadOutlined,
+  SettingOutlined,
 } from '@ant-design/icons';
 
 export const SITE = {
@@ -70,7 +71,13 @@ export const ACCENTS: Record<Accent, AccentStyle> = {
   },
 };
 
-export type NavKey = 'favorability' | 'adventureBook' | 'collectibles' | 'raidChests' | 'miscGuide';
+export type NavKey =
+  | 'favorability'
+  | 'adventureBook'
+  | 'collectibles'
+  | 'raidChests'
+  | 'systems'
+  | 'miscGuide';
 
 export interface NavItem {
   key: NavKey;
@@ -120,10 +127,20 @@ export const NAV_GROUPS: NavGroup[] = [
         key: 'collectibles',
         path: '/game/collectibles',
         title: '收集品追蹤',
-        description: '巨人心臟、島之心、藝術品等 7 種收集品攻略',
+        description: '巨人心臟、島之心、記憶八音盒、血爪海圖等 9 種收集品攻略',
         icon: CrownOutlined,
         accent: 'emerald',
-        keywords: ['島之心', '巨人心臟', '藝術品', '摩可可', '世界樹', '奧菲斯之星', '航海'],
+        keywords: [
+          '島之心',
+          '巨人心臟',
+          '藝術品',
+          '摩可可',
+          '世界樹',
+          '奧菲斯之星',
+          '航海',
+          '記憶八音盒',
+          '血爪海圖',
+        ],
       },
     ],
   },
@@ -134,10 +151,19 @@ export const NAV_GROUPS: NavGroup[] = [
         key: 'raidChests',
         path: '/game/raidChests',
         title: '副本開箱分析',
-        description: '軍團長副本金幣獎勵與開箱成本試算',
+        description: 'T3 軍團長與 T4 卡札羅斯第 1～4 幕／終幕金幣與開箱試算',
         icon: GoldOutlined,
         accent: 'amber',
-        keywords: ['軍團長', 'raid', '金幣', '寶箱'],
+        keywords: ['軍團長', '卡札羅斯', '阿爾莫切', 'raid', '金幣', '寶箱', 't4'],
+      },
+      {
+        key: 'systems',
+        path: '/game/systems',
+        title: '養成與配裝',
+        description: 'T4 飾品研磨詞條、艾利西爾 40 覺、超越／卡爾瑪與流浪商人傳說卡',
+        icon: SettingOutlined,
+        accent: 'sky',
+        keywords: ['飾品', '研磨', '艾利西爾', '超越', '卡爾瑪', '流浪商人', '韋毅', '巴亨圖爾'],
       },
     ],
   },
@@ -148,10 +174,21 @@ export const NAV_GROUPS: NavGroup[] = [
         key: 'miscGuide',
         path: '/game/miscGuide',
         title: '雜項攻略',
-        description: '樂譜、符文、卡組、技能點與每日任務整理',
+        description: '裝等路線、方舟星圖、戰鬥道具、樂譜、符文、T3/T4 卡組與技能/悟性點數',
         icon: CompassOutlined,
         accent: 'violet',
-        keywords: ['樂譜', '曲譜', '符文', '卡組', '技能點', '每日任務'],
+        keywords: [
+          '樂譜',
+          '曲譜',
+          '符文',
+          '卡組',
+          '技能點',
+          '悟性',
+          '方舟星圖',
+          '戰鬥道具',
+          '裝等',
+          '每日任務',
+        ],
       },
     ],
   },

@@ -117,7 +117,7 @@
     "maxAffinity": "77700",
     "normal": "20k銀",
     "npc": "雅蒂娜",
-    "trust": "雅蒂娜\u0026伊南娜卡片、暴擊藥水"
+    "trust": "雅蒂娜&伊南娜卡片、暴擊藥水"
   },
   {
     "attention": "1.4k金",
@@ -488,5 +488,195 @@
     "normal": "3k銀",
     "npc": "戀愛高手亨利",
     "trust": "里維海因島之心、緣分石"
+  },
+  {
+    "npc": "塞拉斯",
+    "location": "洛溫",
+    "normal": "銀幣、洛溫材料",
+    "attention": "洛溫卡片包",
+    "friendly": "西梅爾水晶",
+    "trust": "能力值增加藥水 (+5)、西梅爾水晶*12000",
+    "love": "",
+    "maxAffinity": "37900"
+  },
+  {
+    "npc": "詹羅德",
+    "location": "洛溫",
+    "normal": "銀幣",
+    "attention": "洛溫卡片包",
+    "friendly": "西梅爾水晶",
+    "trust": "知性增加藥水 (+10)",
+    "love": "",
+    "maxAffinity": "37900"
+  },
+  {
+    "npc": "安珂",
+    "location": "洛溫",
+    "normal": "銀幣",
+    "attention": "洛溫卡片包",
+    "friendly": "共通刻印包(英雄/傳說)",
+    "trust": "體力增加藥水 (+25)、洛溫卡片包",
+    "love": "",
+    "maxAffinity": "37900"
+  },
+  {
+    "npc": "菲葉拉",
+    "location": "洛溫",
+    "normal": "銀幣",
+    "attention": "西梅爾水晶",
+    "friendly": "西梅爾水晶",
+    "trust": "西梅爾水晶",
+    "love": "",
+    "maxAffinity": "17800"
+  },
+  {
+    "npc": "沙伊洛斯",
+    "location": "利齒河流/洛溫",
+    "normal": "銀幣",
+    "attention": "卡牌經驗",
+    "friendly": "能力強化材料",
+    "trust": "洛溫好感度獎勵",
+    "love": "",
+    "maxAffinity": "17800"
+  },
+  {
+    "npc": "蒂埃尼斯",
+    "location": "埃雷奧諾爾/愛迦希亞",
+    "normal": "銀幣",
+    "attention": "卡包/銀幣",
+    "friendly": "共通刻印包(英雄/傳說)",
+    "trust": "體力增加藥水 (+5)",
+    "love": "",
+    "maxAffinity": "14000"
+  },
+  {
+    "npc": "預言家奇爾凱",
+    "location": "赫斯特拉庭園/愛迦希亞",
+    "normal": "銀幣",
+    "attention": "卡包",
+    "friendly": "能力強化材料",
+    "trust": "親切增加藥水 (+10)",
+    "love": "",
+    "maxAffinity": "28000"
+  },
+  {
+    "npc": "預言家歐幾里德",
+    "location": "赫斯特拉庭園/愛迦希亞",
+    "normal": "銀幣",
+    "attention": "卡包",
+    "friendly": "體力增加藥水 (+5)",
+    "trust": "愛迦希亞冒險之書料理、愛迦希亞卡包",
+    "love": "",
+    "maxAffinity": "28000"
+  },
+  {
+    "npc": "帕帕",
+    "location": "菲蘭托斯山/愛迦希亞",
+    "normal": "銀幣",
+    "attention": "卡包",
+    "friendly": "愛迦希亞卡包",
+    "trust": "能力值增加藥水 (+5)",
+    "love": "",
+    "maxAffinity": "14000"
+  },
+  {
+    "npc": "阿方索·韋迪切",
+    "location": "韋迪切莊園/普雷奇亞",
+    "normal": "銀幣",
+    "attention": "卡牌經驗",
+    "friendly": "卡包",
+    "trust": "普雷奇亞區域進度、傳說~英雄卡包",
+    "love": "",
+    "maxAffinity": "37900"
+  },
+  {
+    "npc": "內莉亞",
+    "location": "卡利納爾/伏爾戴克",
+    "normal": "銀幣",
+    "attention": "卡牌經驗",
+    "friendly": "好感度寶箱",
+    "trust": "伏爾戴克冒險之書進度、卡包",
+    "love": "",
+    "maxAffinity": "37900"
+  },
+  {
+    "npc": "澤赫拉德",
+    "location": "賢者之塔/伏爾戴克",
+    "normal": "銀幣",
+    "attention": "卡牌經驗",
+    "friendly": "賢者卡包",
+    "trust": "澤赫拉德卡片",
+    "love": "",
+    "maxAffinity": "37900"
+  },
+  {
+    "npc": "馬里烏",
+    "location": "賢者之塔/伏爾戴克",
+    "normal": "銀幣",
+    "attention": "卡牌經驗",
+    "friendly": "好感度寶箱",
+    "trust": "馬里烏卡片、傳說好感度箱",
+    "love": "",
+    "maxAffinity": "28000"
+  },
+  {
+    "npc": "任 (Ren)",
+    "location": "艾爾涅德/庫爾贊北部",
+    "normal": "銀幣",
+    "attention": "好感度寶箱",
+    "friendly": "傳說好感度寶箱",
+    "trust": "任卡片、庫爾贊專屬劇情獎勵",
+    "love": "",
+    "maxAffinity": "50200"
+  },
+  {
+    "npc": "塔穆特",
+    "location": "庫爾贊北部",
+    "normal": "銀幣",
+    "attention": "卡牌經驗",
+    "friendly": "材料寶箱",
+    "trust": "庫爾贊進度與養成材料",
+    "love": "",
+    "maxAffinity": "17900"
+  },
+  {
+    "npc": "蜜絲提",
+    "location": "謝烏特溪谷/庫爾贊北部",
+    "normal": "銀幣",
+    "attention": "卡牌經驗",
+    "friendly": "材料寶箱",
+    "trust": "庫爾贊進度與養成材料",
+    "love": "",
+    "maxAffinity": "17900"
+  },
+  {
+    "npc": "金 (Ghin)",
+    "location": "延之道/里姆雷克南部",
+    "normal": "銀幣",
+    "attention": "卡包",
+    "friendly": "養成材料",
+    "trust": "血爪海圖碎片#1(第二張)、精製餅乾(世界樹前置)",
+    "love": "",
+    "maxAffinity": "17800"
+  },
+  {
+    "npc": "帕胡",
+    "location": "里姆雷克南部",
+    "normal": "銀幣",
+    "attention": "卡包",
+    "friendly": "養成材料",
+    "trust": "里姆雷克冒險之書進度與獎勵",
+    "love": "",
+    "maxAffinity": "37900"
+  },
+  {
+    "npc": "亞魯茲",
+    "location": "里姆雷克南部",
+    "normal": "銀幣",
+    "attention": "卡包",
+    "friendly": "養成材料",
+    "trust": "里姆雷克冒險之書進度與獎勵",
+    "love": "",
+    "maxAffinity": "37900"
   }
 ]

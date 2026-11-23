@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Alert, Button, Card, Switch, Tag } from 'antd';
+import { Alert, Button, Card, Segmented, Switch, Tag } from 'antd';
 import { GoldOutlined, InfoCircleOutlined, TrophyOutlined } from '@ant-design/icons';
 import EmptyResult from '@/components/ui/EmptyResult';
 import Highlight from '@/components/ui/Highlight';
@@ -14,23 +14,39 @@ import type { RaidInfo } from '@/types/game';
 import { cx } from '@/utils/cx';
 import { matchesQuery } from '@/utils/text';
 
+type TierFilter = 'ALL' | 'T3' | 'T4';
+type DifficultyFilter = 'ALL' | '普通' | '困難';
+
 export default function RaidChestsPage() {
   const { data, isLoading, isError, refetch } = useGetRaidChestsQuery();
   const [query, setQuery] = useSearchQuery();
+  const [tier, setTier] = useState<TierFilter>('ALL');
+  const [difficulty, setDifficulty] = useState<DifficultyFilter>('ALL');
 
   const filteredRaids = useMemo(() => {
     if (!data) return [];
-    return data.raids.filter((raid) =>
-      matchesQuery(
+    return data.raids.filter((raid) => {
+      const matchTier = tier === 'ALL' || raid.tier === tier;
+      const matchDiff = difficulty === 'ALL' || (raid.difficulty ?? '普通') === difficulty;
+      const matchText = matchesQuery(
         query,
         raid.name,
         raid.nameEn,
         raid.ilvl,
+        raid.tier,
+        raid.difficulty,
         raid.recommendation,
         raid.gates.map((g) => g.chestContents)
-      )
-    );
-  }, [data, query]);
+      );
+      return matchTier && matchDiff && matchText;
+    });
+  }, [data, query, tier, difficulty]);
+
+  const resetAll = () => {
+    setQuery('');
+    setTier('ALL');
+    setDifficulty('ALL');
+  };
 
   return (
     <div>
@@ -47,18 +63,38 @@ export default function RaidChestsPage() {
           <SearchInput
             value={query}
             onChange={setQuery}
-            placeholder='搜尋副本名稱、裝等或建議（如：伐爾坦、1490、突破石）…'
+            placeholder='搜尋副本名稱、裝等或建議（如：艾吉爾、卡蒙、1680）…'
           />
         </div>
+        <Segmented
+          size='large'
+          value={tier}
+          onChange={(v) => setTier(v as TierFilter)}
+          options={[
+            { label: '全部階段', value: 'ALL' },
+            { label: 'T3', value: 'T3' },
+            { label: 'T4', value: 'T4' },
+          ]}
+        />
+        <Segmented
+          size='large'
+          value={difficulty}
+          onChange={(v) => setDifficulty(v as DifficultyFilter)}
+          options={[
+            { label: '全部難度', value: 'ALL' },
+            { label: '普通', value: '普通' },
+            { label: '困難', value: '困難' },
+          ]}
+        />
       </Toolbar>
 
       <QueryState isLoading={isLoading} isError={isError} onRetry={refetch}>
         {filteredRaids.length === 0 ? (
-          <EmptyResult query={query} onReset={() => setQuery('')} />
+          <EmptyResult query={query} onReset={resetAll} />
         ) : (
           <div className='space-y-6'>
             {filteredRaids.map((raid) => (
-              <RaidCard key={raid.nameEn} raid={raid} query={query} />
+              <RaidCard key={`${raid.nameEn}-${raid.difficulty ?? '普通'}`} raid={raid} query={query} />
             ))}
 
             {data?.notes && (
@@ -66,7 +102,7 @@ export default function RaidChestsPage() {
                 type='info'
                 showIcon
                 className='!border-white/10 !bg-zinc-900/60 text-zinc-300'
-                title='軍團長副本注意事項'
+                title='軍團長與襲擊戰注意事項'
                 description={
                   <ul className='mt-2 list-disc space-y-1 pl-4 text-xs text-zinc-400'>
                     {data.notes.map((note, idx) => (
@@ -115,7 +151,7 @@ function RaidCard({ raid, query }: { raid: RaidInfo; query: string }) {
       className='rounded-2xl !border-white/10 !bg-zinc-900/60 backdrop-blur-sm'
       title={
         <div className='flex flex-wrap items-center justify-between gap-2 py-1'>
-          <div className='flex items-center gap-3'>
+          <div className='flex flex-wrap items-center gap-2'>
             <TrophyOutlined className='text-xl text-amber-400' />
             <span className='text-lg font-bold text-zinc-100'>
               <Highlight text={raid.name} query={query} />
@@ -123,6 +159,16 @@ function RaidCard({ raid, query }: { raid: RaidInfo; query: string }) {
             <span className='text-xs font-normal text-zinc-500'>
               <Highlight text={raid.nameEn} query={query} />
             </span>
+            {raid.tier && (
+              <Tag color={raid.tier === 'T4' ? 'purple' : 'blue'} className='!m-0'>
+                {raid.tier}
+              </Tag>
+            )}
+            {raid.difficulty && (
+              <Tag color={raid.difficulty === '困難' ? 'red' : 'default'} className='!m-0'>
+                {raid.difficulty}
+              </Tag>
+            )}
           </div>
           <div className='flex items-center gap-2'>
             <Button

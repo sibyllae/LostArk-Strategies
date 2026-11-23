@@ -1,121 +1,813 @@
 {
   "songs": [
-    { "name": "愛之小夜曲", "source": "里維海因支線", "note": "" },
-    { "name": "誘惑之歌", "source": "冒險之書猶迪亞 50%獎勵", "note": "" },
-    { "name": "黃昏安魂曲", "source": "平靜島支線", "note": "" },
-    { "name": "星光之歌", "source": "星光燈塔島法蘭克 吉埃娜幣*3300 兌換", "note": "" },
-    { "name": "永恆之歌", "source": "冒險之書洛漢德 60%獎勵", "note": "" },
-    { "name": "森之小步舞曲", "source": "眠曲島合作任務*3", "note": "需有共鳴之歌" },
-    { "name": "天上和諧曲", "source": "和諧曲島合作任務隨機取得", "note": "" },
-    { "name": "共鳴之歌", "source": "海上樂園佩托寶物獵人伊格蘭 海盜幣*16500 兌換", "note": "" },
-    { "name": "靈魂安息之歌", "source": "冒險之書費伊頓 60%獎勵", "note": "" },
-    { "name": "寂靜輓歌", "source": "破碎冰河島支線", "note": "" },
-    { "name": "春之歌", "source": "桃花源支線", "note": "" },
-    { "name": "羅曼蒂克武器", "source": "冒險之書約恩 50%獎勵", "note": "" },
-    { "name": "和諧之歌", "source": "冒險之書帕夫尼卡 50%獎勵", "note": "" }
+    {
+      "name": "愛之小夜曲",
+      "source": "里維海因支線",
+      "note": ""
+    },
+    {
+      "name": "誘惑之歌",
+      "source": "冒險之書猶迪亞 50%獎勵",
+      "note": ""
+    },
+    {
+      "name": "黃昏安魂曲",
+      "source": "平靜島支線",
+      "note": ""
+    },
+    {
+      "name": "星光之歌",
+      "source": "星光燈塔島法蘭克 吉埃娜幣*3300 兌換",
+      "note": ""
+    },
+    {
+      "name": "永恆之歌",
+      "source": "冒險之書洛漢德 60%獎勵",
+      "note": ""
+    },
+    {
+      "name": "森之小步舞曲",
+      "source": "眠曲島合作任務*3",
+      "note": "需有共鳴之歌"
+    },
+    {
+      "name": "天上和諧曲",
+      "source": "和諧曲島合作任務隨機取得",
+      "note": ""
+    },
+    {
+      "name": "共鳴之歌",
+      "source": "海上樂園佩托寶物獵人伊格蘭 海盜幣*16500 兌換",
+      "note": ""
+    },
+    {
+      "name": "靈魂安息之歌",
+      "source": "冒險之書費伊頓 60%獎勵",
+      "note": ""
+    },
+    {
+      "name": "寂靜輓歌",
+      "source": "破碎冰河島支線",
+      "note": ""
+    },
+    {
+      "name": "春之歌",
+      "source": "桃花源支線",
+      "note": ""
+    },
+    {
+      "name": "羅曼蒂克武器",
+      "source": "冒險之書約恩 50%獎勵",
+      "note": ""
+    },
+    {
+      "name": "和諧之歌",
+      "source": "冒險之書帕夫尼卡 50%獎勵",
+      "note": ""
+    },
+    {
+      "name": "拉傑尼斯之歌",
+      "source": "愛迦希亞大陸主線與冒險進度取得",
+      "note": "愛迦希亞探索與好感度必備曲譜"
+    },
+    {
+      "name": "Sweet Dreams, My Dear",
+      "source": "愛迦希亞主題曲（領地點唱機音源）",
+      "note": "完成愛迦希亞主線／相關成就解鎖"
+    }
   ],
   "skillPoints": [
-    { "task": "在冰封海洋(蘇夏爾)刷老鼠獲得前置任務道具老舊項鍊", "note": "" },
-    { "task": "在寂靜島完成支線任務", "note": "" },
-    { "task": "在盧特蘭城(盧特蘭東部)席利安完成連鎖任務", "note": "" },
-    { "task": "在港口都市蒼天(愛尼茨)卡德利完成連鎖任務", "note": "" },
-    { "task": "在廢城哲納依(洛漢德)完成每日任務*7 以及後續任務", "note": "" },
-    { "task": "在卡拉札村(費伊頓)完成克多爾的支線", "note": "需完成費伊頓主線" },
-    { "task": "在卡拉札村(費伊頓)完成克多爾的連鎖任務(4日)", "note": "" },
-    { "task": "在尼亞村(帕夫尼卡)完成隱藏任務與連鎖任務(5日)", "note": "需完成帕夫尼卡主線" },
-    { "task": "在低語小島完成任務及後續每日任務*10", "note": "" }
+    {
+      "task": "在冰封海洋(蘇夏爾)刷老鼠獲得前置任務道具老舊項鍊 (+3)",
+      "note": ""
+    },
+    {
+      "task": "在寂靜島完成支線任務 (+3)",
+      "note": ""
+    },
+    {
+      "task": "在盧特蘭城(盧特蘭東部)席利安完成連鎖任務 (+3)",
+      "note": ""
+    },
+    {
+      "task": "在港口都市蒼天(愛尼茨)卡德利完成連鎖任務 (+3)",
+      "note": ""
+    },
+    {
+      "task": "在廢城哲納依(洛漢德)完成每日任務*7 以及後續任務 (+3)",
+      "note": ""
+    },
+    {
+      "task": "在卡拉札村(費伊頓)完成克多爾的支線 (+3)",
+      "note": "需完成費伊頓主線"
+    },
+    {
+      "task": "在卡拉札村(費伊頓)完成克多爾的連鎖任務(4日) (+3)",
+      "note": ""
+    },
+    {
+      "task": "在尼亞村(帕夫尼卡)完成隱藏任務與連鎖任務(5日) (+6)",
+      "note": "需完成帕夫尼卡主線，獎勵為高級技能點數藥水"
+    },
+    {
+      "task": "在低語小島完成任務及後續每日任務*10 (+3)",
+      "note": ""
+    },
+    {
+      "task": "冒險之書：盧特蘭東部 70% / 貝倫北部 60% / 蘇夏爾 50% / 洛漢德 70% (+3)",
+      "note": "帕夫尼卡 80% 為高級技能點數藥水 (+6)；里姆雷克南部 40% (+3)"
+    },
+    {
+      "task": "塔系統：暗影之塔 20/50 層、命運之塔 8/20 層、天定之塔高層 (+3/+6)",
+      "note": "高階塔頂樓可取得高級技能點數藥水"
+    },
+    {
+      "task": "收集品進度：20 個島之心 / 8 個伊格涅亞標誌 / 2、6 個奧菲斯之星 (+6)",
+      "note": "以及巨人之心第 6、10、12 顆獎勵 (+3)"
+    }
+  ],
+  "enlightenmentPoints": [
+    {
+      "task": "庫爾贊北部冒險之書 70% 獎勵 (+3 悟性點數)",
+      "note": "T4 方舟被動（Ark Passive）核心強化點數"
+    },
+    {
+      "task": "第一張血爪海圖（Bloodclaw's Chart）5 個碎片全部收集 (+3)",
+      "note": "含庫爾贊南部支線、庫爾贊北部冒險之書 80%、世界王與商船兌換"
+    },
+    {
+      "task": "第二張血爪海圖 5 個碎片全部收集 (+3)",
+      "note": "含里姆雷克金好感度、海盜幣兌換、每日委託「小心輕放」*14、T4 魔方與領地派遣"
+    },
+    {
+      "task": "庫爾贊北部狩獵區首領「賽貝克·阿頓」稀有掉落 (+5)",
+      "note": "高級悟性點數藥水"
+    },
+    {
+      "task": "艾波娜每日委託聲望「未完的戰鬥」完成 (+3)",
+      "note": "於庫爾贊地區完成對應每日委託累積聲望"
+    }
   ],
   "runes": [
-    { "rune": "斷罪", "heroic": "24個偉大的藝術品獎勵", "legendary": "領地商人馬爾特 冒險印章*27000 兌換", "legendaryNote": "坎達里亞商團的邀請函(冒險之書貝倫南部獎勵)" },
-    { "rune": "審判", "heroic": "被孤立的永恆島瑪莉好感度", "legendary": "領地商人馬爾特 冒險印章*27000 兌換、44個偉大的藝術品獎勵", "legendaryNote": "坎達里亞商團的邀請函(冒險之書貝倫南部獎勵)" },
-    { "rune": "集中", "heroic": "13個巨人心臟獎勵、領地商人波爾佳 冒險印章*8100 兌換", "legendary": "42個航海冒險物獎勵、貝禮溫遺跡完整血魔石*1500 兌換", "legendaryNote": "比歐雷的信(冒險之書費伊頓獎勵)" },
-    { "rune": "狂奔", "heroic": "T2混沌之門隨機掉落", "legendary": "T3混沌之門隨機掉落", "legendaryNote": "" },
-    { "rune": "淨化", "heroic": "5個伊格涅亞的標誌獎勵", "legendary": "15個伊格涅亞的標誌獎勵", "legendaryNote": "" },
-    { "rune": "守護", "heroic": "50個島之心獎勵、茂密蘆葦島PVP活動隨機獲得、低語小島卡丹支線", "legendary": "7個奧菲斯之星獎勵", "legendaryNote": "" },
-    { "rune": "壓倒", "heroic": "冒險之書費伊頓獎勵、3個奧菲斯之星獎勵", "legendary": "領地商人波爾佳 冒險印章*27000 兌換、悲嘆島紅線團*3600 兌換", "legendaryNote": "比歐雷的信(冒險之書費伊頓獎勵)" },
-    { "rune": "流血", "heroic": "T2狩獵區首領隨機掉落、費伊頓露媞雅好感度", "legendary": "T3狩獵區首領隨機掉落", "legendaryNote": "" },
-    { "rune": "疾行", "heroic": "命運之塔18層獎勵", "legendary": "", "legendaryNote": "裝分1020" },
-    { "rune": "疾風", "heroic": "等級4、5守護者隨機掉落", "legendary": "等級6守護者隨機掉落", "legendaryNote": "" },
-    { "rune": "豐饒", "heroic": "34個航海冒險物獎勵、藍洞島狩獵區首領隨機掉落", "legendary": "5個奧菲斯之星獎勵", "legendaryNote": "" },
-    { "rune": "鐵壁", "heroic": "", "legendary": "58個偉大的藝術品獎勵", "legendaryNote": "" }
+    {
+      "rune": "斷罪",
+      "heroic": "24個偉大的藝術品獎勵",
+      "legendary": "領地商人馬爾特 冒險印章*27000 兌換",
+      "legendaryNote": "坎達里亞商團的邀請函(冒險之書貝倫南部獎勵)"
+    },
+    {
+      "rune": "審判",
+      "heroic": "被孤立的永恆島瑪莉好感度",
+      "legendary": "領地商人馬爾特 冒險印章*27000 兌換、44個偉大的藝術品獎勵",
+      "legendaryNote": "坎達里亞商團的邀請函(冒險之書貝倫南部獎勵)"
+    },
+    {
+      "rune": "集中",
+      "heroic": "13個巨人心臟獎勵、領地商人波爾佳 冒險印章*8100 兌換",
+      "legendary": "42個航海冒險物獎勵、貝禮溫遺跡完整血魔石*1500 兌換",
+      "legendaryNote": "比歐雷的信(冒險之書費伊頓獎勵)"
+    },
+    {
+      "rune": "狂奔",
+      "heroic": "T2混沌之門隨機掉落",
+      "legendary": "T3混沌之門隨機掉落",
+      "legendaryNote": ""
+    },
+    {
+      "rune": "淨化",
+      "heroic": "5個伊格涅亞的標誌獎勵",
+      "legendary": "15個伊格涅亞的標誌獎勵",
+      "legendaryNote": ""
+    },
+    {
+      "rune": "守護",
+      "heroic": "50個島之心獎勵、茂密蘆葦島PVP活動隨機獲得、低語小島卡丹支線",
+      "legendary": "7個奧菲斯之星獎勵",
+      "legendaryNote": ""
+    },
+    {
+      "rune": "壓倒",
+      "heroic": "冒險之書費伊頓獎勵、3個奧菲斯之星獎勵",
+      "legendary": "領地商人波爾佳 冒險印章*27000 兌換、悲嘆島紅線團*3600 兌換",
+      "legendaryNote": "比歐雷的信(冒險之書費伊頓獎勵)"
+    },
+    {
+      "rune": "流血",
+      "heroic": "T2狩獵區首領隨機掉落、費伊頓露媞雅好感度",
+      "legendary": "T3狩獵區首領隨機掉落",
+      "legendaryNote": ""
+    },
+    {
+      "rune": "疾行",
+      "heroic": "命運之塔18層獎勵",
+      "legendary": "",
+      "legendaryNote": "裝分1020"
+    },
+    {
+      "rune": "疾風",
+      "heroic": "等級4、5守護者隨機掉落",
+      "legendary": "等級6守護者隨機掉落",
+      "legendaryNote": ""
+    },
+    {
+      "rune": "豐饒",
+      "heroic": "34個航海冒險物獎勵、藍洞島狩獵區首領隨機掉落",
+      "legendary": "5個奧菲斯之星獎勵",
+      "legendaryNote": ""
+    },
+    {
+      "rune": "鐵壁",
+      "heroic": "",
+      "legendary": "58個偉大的藝術品獎勵",
+      "legendaryNote": ""
+    }
   ],
   "cardSets": [
     {
-      "setName": "光之救贖",
+      "setName": "光之救贖 (LoS 30覺｜通用/光弱點輸出畢業)",
       "cards": [
-        { "name": "桑迪", "source": "深淵副本" },
-        { "name": "妮娜芙", "source": "好感度、深淵副本" },
-        { "name": "巴亨圖爾", "source": "成就(完成巴亨圖爾的任務)、深淵副本、流浪商人(約恩)" },
-        { "name": "韋毅", "source": "成就(擊殺世界王)、流浪商人(愛尼茨)、偉大的藝術品36個獎勵" },
-        { "name": "雅蒂娜&伊南娜", "source": "好感度、深淵副本、流浪商人(洛漢德)" },
-        { "name": "卡丹", "source": "伊斯特利島任務(須完成前置任務以及每日任務*14)" },
-        { "name": "席利安", "source": "冒險之書(盧特蘭東部)、深淵副本" }
+        {
+          "name": "桑迪",
+          "source": "深淵副本"
+        },
+        {
+          "name": "妮娜芙",
+          "source": "好感度、深淵副本"
+        },
+        {
+          "name": "巴亨圖爾",
+          "source": "成就(完成巴亨圖爾的任務)、深淵副本、流浪商人(約恩)"
+        },
+        {
+          "name": "韋毅",
+          "source": "成就(擊殺世界王)、流浪商人(愛尼茨)、偉大的藝術品36個獎勵"
+        },
+        {
+          "name": "雅蒂娜&伊南娜",
+          "source": "好感度、深淵副本、流浪商人(洛漢德)"
+        },
+        {
+          "name": "卡丹",
+          "source": "伊斯特利島任務(須完成前置任務以及每日任務*14)"
+        },
+        {
+          "name": "席利安",
+          "source": "冒險之書(盧特蘭東部)、深淵副本"
+        }
       ]
     },
     {
-      "setName": "暴擊套",
+      "setName": "暴擊套 / 殘存的風之絕壁 (LWC 12/30覺｜暴擊與輔助光增傷)",
       "cards": [
-        { "name": "阿曼", "source": "深淵副本" },
-        { "name": "賽莉雅", "source": "冒險之書(盧特蘭西部)、流浪商人(盧特蘭東部)" },
-        { "name": "索拉斯", "source": "盧特蘭東部博雷亞領地主線任務" },
-        { "name": "卡邁因", "source": "成就(100場混沌之門)、深淵副本、流浪商人(亞爾特米斯)" },
-        { "name": "國王席利安", "source": "好感度、深淵副本" },
-        { "name": "德隆阿曼", "source": "10個伊格涅亞的標誌獎勵、深淵副本、流浪商人(盧特蘭東部)" }
+        {
+          "name": "阿曼",
+          "source": "深淵副本"
+        },
+        {
+          "name": "賽莉雅",
+          "source": "冒險之書(盧特蘭西部)、流浪商人(盧特蘭東部)"
+        },
+        {
+          "name": "索拉斯",
+          "source": "盧特蘭東部博雷亞領地主線任務"
+        },
+        {
+          "name": "卡邁因",
+          "source": "成就(100場混沌之門)、深淵副本、流浪商人(亞爾特米斯)"
+        },
+        {
+          "name": "國王席利安",
+          "source": "好感度、深淵副本"
+        },
+        {
+          "name": "德隆阿曼",
+          "source": "10個伊格涅亞的標誌獎勵、深淵副本、流浪商人(盧特蘭東部)"
+        }
+      ]
+    },
+    {
+      "setName": "深潛 / 巨人之森 (新手與開荒過渡套)",
+      "cards": [
+        {
+          "name": "深潛套 (Deep Dive)",
+          "source": "12/18/30覺提供無屬性與通用增傷，適合光救 18 覺前的輸出過渡"
+        },
+        {
+          "name": "沉默的巨人之森＋願能活著再見",
+          "source": "新手輔助與高壓開荒期常用的減傷回血組合"
+        }
+      ]
+    },
+    {
+      "setName": "三位下人到來 (背擊職業專用增傷)",
+      "cards": [
+        {
+          "name": "背擊增傷套",
+          "source": "針對背後攻擊判定職業提供高額背擊傷害加成（取代部分情況下的光卡）"
+        }
+      ]
+    },
+    {
+      "setName": "T4 四大屬性剋制套 (火／水／土／雷｜卡札羅斯副本切換)",
+      "cards": [
+        {
+          "name": "火屬性套組",
+          "source": "12覺轉火傷、30覺火屬性增傷 +15%（含對應輔助團隊火易傷套）"
+        },
+        {
+          "name": "水屬性套組",
+          "source": "12覺轉水傷、30覺水屬性增傷 +15%（含對應輔助團隊水易傷套）"
+        },
+        {
+          "name": "土屬性套組",
+          "source": "12覺轉土傷、30覺土屬性增傷 +15%（對應弱土卡札羅斯首領）"
+        },
+        {
+          "name": "雷屬性套組",
+          "source": "12覺轉雷傷、30覺雷屬性增傷 +15%（如卡札羅斯第2幕冰阿布等弱雷首領）"
+        },
+        {
+          "name": "暗屬性套組 (卡札羅斯軍團)",
+          "source": "12覺轉暗傷、30覺暗屬性增傷，對應弱暗首領（如卡楊格爾／天界王）"
+        }
       ]
     }
   ],
   "dailyLimits": [
-    { "content": "狩獵區首領", "limit": "帳號每日1次", "note": "狩獵區首領討伐成功扣除獎勵次數" },
-    { "content": "混沌副本", "limit": "角色每日2次", "note": "只要進入就會扣除次數" },
-    { "content": "守護者副本", "limit": "角色每日1次", "note": "守護者討伐成功扣除獎勵次數，若進場前未選取收集守護者意志則不扣除" },
-    { "content": "混沌之門", "limit": "帳號每日1次", "note": "只要進入就會扣除次數" },
-    { "content": "艾波娜的委託", "limit": "角色每日3次、每週3次", "note": "相同任務不同角色可重複完成，但聲望獎勵最多領取一次" },
-    { "content": "深淵副本", "limit": "角色每週1次(最多6位)", "note": "只計算獲得獎勵次數(每個副本各一次)" },
-    { "content": "軍團長襲擊戰", "limit": "角色每週3次(最多6位)", "note": "只計算獲得獎勵次數(每個副本各一次)" },
-    { "content": "冒險島", "limit": "帳號每日1次", "note": "只要進入就會扣除次數(假日兩個時段各一次)" },
-    { "content": "挑戰守護者副本", "limit": "帳號每週1次", "note": "只計算獲得獎勵次數(每個副本各一次)" },
-    { "content": "挑戰深淵副本", "limit": "帳號每週1次", "note": "只計算獲得獎勵次數(每個副本各一次)" },
-    { "content": "深淵襲擊戰(阿爾戈斯)", "limit": "角色每週1次(最多6位)", "note": "只計算獲得獎勵次數" },
-    { "content": "公會委託", "limit": "不限次數", "note": "可重複完成，但同種類委託的血石獎勵最多領取一次(每週重置)" }
+    {
+      "content": "庫爾贊前線 (T4 混沌)",
+      "limit": "角色每日1次（支援休息獎勵）",
+      "note": "T4 主要產出碎片、強化材料與高階飾品，取代 T3 每日 2 場混沌"
+    },
+    {
+      "content": "混沌副本 (T3)",
+      "limit": "角色每日2次",
+      "note": "進入即扣除次數，前期角色素材來源"
+    },
+    {
+      "content": "守護者討伐 (T3 / T4)",
+      "limit": "角色每日1次",
+      "note": "成功討伐才扣除次數；T4 可產出 T4 突破石與遺物/古代飾品"
+    },
+    {
+      "content": "樂園系統 (Paradise)",
+      "limit": "角色每週結算/限次",
+      "note": "隨庫爾贊改版推出，產出大量 T4 強化與養成素材"
+    },
+    {
+      "content": "軍團長 & 卡札羅斯襲擊戰",
+      "limit": "角色每週3次（遠征隊上限6角）",
+      "note": "超過 3 個副本仍可打材料但不再獲得通關金幣"
+    },
+    {
+      "content": "單人模式 (Solo Mode)",
+      "limit": "與團隊模式共用該副本關卡次數",
+      "note": "提供綁定金幣與專屬代幣兌換養成材料，適合單刷或練習機制"
+    },
+    {
+      "content": "艾波娜的委託",
+      "limit": "角色每日3次、每週3次",
+      "note": "同任務不同角色可重複完成，但聲望獎勵帳號最多領取一次"
+    },
+    {
+      "content": "狩獵區首領 (世界王)",
+      "limit": "帳號每日1次",
+      "note": "討伐成功扣除次數（T4 塞貝克·阿頓可掉落悟性藥水與血爪海圖碎片）"
+    },
+    {
+      "content": "混沌之門",
+      "limit": "帳號每日1次",
+      "note": "進入即扣除次數，產出大量精煉輔助材料與金幣袋"
+    },
+    {
+      "content": "冒險島",
+      "limit": "帳號每日1次（假日2次）",
+      "note": "進入即扣除次數"
+    },
+    {
+      "content": "深淵副本 / 象牙塔",
+      "limit": "角色每週1次",
+      "note": "計算進每週 3 次領金幣副本額度內"
+    },
+    {
+      "content": "公會委託",
+      "limit": "不限次數",
+      "note": "可重複完成，同種類血石獎勵每週領取一次"
+    }
   ],
   "dailyQuests": [
-    { "name": "抓住杜基王", "location": "杜基島", "dailyReward": "銀幣", "reputationReward": "親切增加藥水、巨人心臟#7", "requiredDays": 30 },
-    { "name": "草原臭蟲", "location": "藍風島", "dailyReward": "碎片", "reputationReward": "能力值增加藥水、巨人心臟#11、動作：吹口哨", "requiredDays": 15 },
-    { "name": "淨化儀式", "location": "提卡提卡棲地/帕夫尼卡", "dailyReward": "碎片", "reputationReward": "體力增加藥水、奧菲斯之星#2", "requiredDays": 21 },
-    { "name": "請幫我取得秘法的材料", "location": "影月市場", "dailyReward": "日之祝福", "reputationReward": "巨人心臟#12 前置任務", "requiredDays": 5 },
-    { "name": "為了靈魂們的安息", "location": "梅德林克修道院/猶迪亞", "dailyReward": "突破石*3", "reputationReward": "膽量增加藥水", "requiredDays": 7 },
-    { "name": "防禦戰", "location": "修普諾斯之眼", "dailyReward": "突破石*5", "reputationReward": "能力值增加藥水、膽量增加藥水", "requiredDays": 10 },
-    { "name": "擊退魔盜團", "location": "佩斯納爾高原/蘇夏爾", "dailyReward": "碎片", "reputationReward": "膽量增加藥水", "requiredDays": 7 },
-    { "name": "守護者", "location": "伊斯特利島", "dailyReward": "銀幣", "reputationReward": "某人的信件、伊斯特利島之心(*21)", "requiredDays": 14 },
-    { "name": "吉斯布洛伊下酒菜專家", "location": "吉斯布洛伊", "dailyReward": "結緣石", "reputationReward": "膽量增加藥水、吉斯布洛伊島之心(*20)", "requiredDays": 10 },
-    { "name": "森林保護~鬱鬱蔥蔥~", "location": "貝爾尼森林/貝倫北部", "dailyReward": "碎片", "reputationReward": "知性增加藥水", "requiredDays": 15 },
-    { "name": "放牧飼育", "location": "港口都市蒼天/愛尼茨", "dailyReward": "突破石*3", "reputationReward": "知性增加藥水", "requiredDays": 7 },
-    { "name": "快樂的上課時間", "location": "托托皮亞", "dailyReward": "結緣石", "reputationReward": "知性增加藥水", "requiredDays": 15 },
-    { "name": "準備好的昆蟲偉人", "location": "眠曲島", "dailyReward": "銀幣", "reputationReward": "親切增加藥水", "requiredDays": 15 },
-    { "name": "解放人型機器人", "location": "秘密基地X-301", "dailyReward": "能力石", "reputationReward": "親切增加藥水", "requiredDays": 12 },
-    { "name": "收集廢鐵", "location": "逃亡者村", "dailyReward": "碎片", "reputationReward": "魅力增加藥水", "requiredDays": 15 },
-    { "name": "犯罪者拘捕", "location": "逃亡者村", "dailyReward": "碎片", "reputationReward": "逃亡者村島之心(*6)、能力值增加藥水", "requiredDays": 16 },
-    { "name": "冰封的記憶", "location": "冰蝶峭壁/蘇夏爾", "dailyReward": "日之祝福", "reputationReward": "魅力增加藥水", "requiredDays": 15 },
-    { "name": "馬鈴薯、地瓜和雜草", "location": "希望島", "dailyReward": "突破石*4", "reputationReward": "魅力增加藥水", "requiredDays": 15 },
-    { "name": "合唱團老師", "location": "低語小島", "dailyReward": "結緣石", "reputationReward": "技能點數藥水", "requiredDays": 10 },
-    { "name": "奴隸解放", "location": "凱特海勒茲", "dailyReward": "突破石*5", "reputationReward": "偉大的藝術品#18、能力值增加藥水", "requiredDays": 15 },
-    { "name": "酥脆又閃耀的", "location": "亞拉克勒", "dailyReward": "突破石*5", "reputationReward": "", "requiredDays": 0 },
-    { "name": "快速疾走：普琉馬", "location": "海上樂園佩托", "dailyReward": "突破石*4", "reputationReward": "快速疾走：普琉馬", "requiredDays": 21 },
-    { "name": "酷寒的安身處調查", "location": "酷寒安身處", "dailyReward": "突破石*5", "reputationReward": "體力增加藥水", "requiredDays": 21 },
-    { "name": "封印地恢復作業", "location": "廢城哲納依/洛漢德", "dailyReward": "碎片", "reputationReward": "技能點數藥水 前置任務", "requiredDays": 7 },
-    { "name": "費麥塔真正的經理", "location": "海洋搖籃費麥塔", "dailyReward": "銀幣", "reputationReward": "偉大的藝術品#28", "requiredDays": 15 },
-    { "name": "坎達里亞商團", "location": "坎達里亞領地/貝倫南部", "dailyReward": "能力石", "reputationReward": "傳說~稀有卡片禮包、傳說~英雄卡片禮包", "requiredDays": 15 },
-    { "name": "搗蛋鬼妖精", "location": "風香山丘/洛漢德", "dailyReward": "碎片", "reputationReward": "發酵促進魔法粉末", "requiredDays": 15 },
-    { "name": "又吵、又響、又混亂!", "location": "黑砧作業廠/約恩", "dailyReward": "能力石", "reputationReward": "老舊鞋靴", "requiredDays": 15 },
-    { "name": "烏瑪爾化妝品的新歷史", "location": "偉大之城/約恩", "dailyReward": "能力石、食品原料貿易寶箱", "reputationReward": "烏瑪爾美妝的邀請函", "requiredDays": 26 },
-    { "name": "船隻檢驗", "location": "阿特羅波斯島", "dailyReward": "日之祝福", "reputationReward": "梅德瑞爾邀請函、能力值增加藥水", "requiredDays": 7 },
-    { "name": "貝倫魔法學會", "location": "坎達里亞領地/貝倫南部", "dailyReward": "銀幣", "reputationReward": "秘密地圖#46", "requiredDays": 15 },
-    { "name": "被詛咒的遺跡", "location": "奧茲亨丘陵/猶迪亞", "dailyReward": "結緣石", "reputationReward": "偉大的藝術品#9", "requiredDays": 7 },
-    { "name": "負責港口經營", "location": "碎浪港口/盧特蘭東部", "dailyReward": "碎片", "reputationReward": "偉大的藝術品#10、壓制增加藥水", "requiredDays": 7 },
-    { "name": "考古學家的請託", "location": "自由島", "dailyReward": "日之祝福", "reputationReward": "偉大的藝術品#19、能力值增加藥水(*15)", "requiredDays": 7 },
-    { "name": "勞困的溫泉打工", "location": "星沙海濱/帕夫尼卡", "dailyReward": "碎片", "reputationReward": "偉大的藝術品#48、能力值增加藥水", "requiredDays": 25 },
-    { "name": "父女的旅程", "location": "坎達里亞領地/貝倫南部", "dailyReward": "結緣石", "reputationReward": "偉大的藝術品#50", "requiredDays": 31 },
-    { "name": "海盜之星：阿斯特雷伊", "location": "航海合作任務", "dailyReward": "突破石*4", "reputationReward": "阿斯特雷伊建造設計圖", "requiredDays": 25 },
-    { "name": "擊退臭蟲", "location": "黑牙駐地", "dailyReward": "突破石*4", "reputationReward": "海盜認證書、體力增加藥水", "requiredDays": 15 }
+    {
+      "name": "抓住杜基王",
+      "location": "杜基島",
+      "dailyReward": "銀幣",
+      "reputationReward": "親切增加藥水、巨人心臟#7",
+      "requiredDays": 30
+    },
+    {
+      "name": "草原臭蟲",
+      "location": "藍風島",
+      "dailyReward": "碎片",
+      "reputationReward": "能力值增加藥水、巨人心臟#11、動作：吹口哨",
+      "requiredDays": 15
+    },
+    {
+      "name": "淨化儀式",
+      "location": "提卡提卡棲地/帕夫尼卡",
+      "dailyReward": "碎片",
+      "reputationReward": "體力增加藥水、奧菲斯之星#2",
+      "requiredDays": 21
+    },
+    {
+      "name": "請幫我取得秘法的材料",
+      "location": "影月市場",
+      "dailyReward": "日之祝福",
+      "reputationReward": "巨人心臟#12 前置任務",
+      "requiredDays": 5
+    },
+    {
+      "name": "為了靈魂們的安息",
+      "location": "梅德林克修道院/猶迪亞",
+      "dailyReward": "突破石*3",
+      "reputationReward": "膽量增加藥水",
+      "requiredDays": 7
+    },
+    {
+      "name": "防禦戰",
+      "location": "修普諾斯之眼",
+      "dailyReward": "突破石*5",
+      "reputationReward": "能力值增加藥水、膽量增加藥水",
+      "requiredDays": 10
+    },
+    {
+      "name": "擊退魔盜團",
+      "location": "佩斯納爾高原/蘇夏爾",
+      "dailyReward": "碎片",
+      "reputationReward": "膽量增加藥水",
+      "requiredDays": 7
+    },
+    {
+      "name": "守護者",
+      "location": "伊斯特利島",
+      "dailyReward": "銀幣",
+      "reputationReward": "某人的信件、伊斯特利島之心(*21)",
+      "requiredDays": 14
+    },
+    {
+      "name": "吉斯布洛伊下酒菜專家",
+      "location": "吉斯布洛伊",
+      "dailyReward": "結緣石",
+      "reputationReward": "膽量增加藥水、吉斯布洛伊島之心(*20)",
+      "requiredDays": 10
+    },
+    {
+      "name": "森林保護~鬱鬱蔥蔥~",
+      "location": "貝爾尼森林/貝倫北部",
+      "dailyReward": "碎片",
+      "reputationReward": "知性增加藥水",
+      "requiredDays": 15
+    },
+    {
+      "name": "放牧飼育",
+      "location": "港口都市蒼天/愛尼茨",
+      "dailyReward": "突破石*3",
+      "reputationReward": "知性增加藥水",
+      "requiredDays": 7
+    },
+    {
+      "name": "快樂的上課時間",
+      "location": "托托皮亞",
+      "dailyReward": "結緣石",
+      "reputationReward": "知性增加藥水",
+      "requiredDays": 15
+    },
+    {
+      "name": "準備好的昆蟲偉人",
+      "location": "眠曲島",
+      "dailyReward": "銀幣",
+      "reputationReward": "親切增加藥水",
+      "requiredDays": 15
+    },
+    {
+      "name": "解放人型機器人",
+      "location": "秘密基地X-301",
+      "dailyReward": "能力石",
+      "reputationReward": "親切增加藥水",
+      "requiredDays": 12
+    },
+    {
+      "name": "收集廢鐵",
+      "location": "逃亡者村",
+      "dailyReward": "碎片",
+      "reputationReward": "魅力增加藥水",
+      "requiredDays": 15
+    },
+    {
+      "name": "犯罪者拘捕",
+      "location": "逃亡者村",
+      "dailyReward": "碎片",
+      "reputationReward": "逃亡者村島之心(*6)、能力值增加藥水",
+      "requiredDays": 16
+    },
+    {
+      "name": "冰封的記憶",
+      "location": "冰蝶峭壁/蘇夏爾",
+      "dailyReward": "日之祝福",
+      "reputationReward": "魅力增加藥水",
+      "requiredDays": 15
+    },
+    {
+      "name": "馬鈴薯、地瓜和雜草",
+      "location": "希望島",
+      "dailyReward": "突破石*4",
+      "reputationReward": "魅力增加藥水",
+      "requiredDays": 15
+    },
+    {
+      "name": "合唱團老師",
+      "location": "低語小島",
+      "dailyReward": "結緣石",
+      "reputationReward": "技能點數藥水",
+      "requiredDays": 10
+    },
+    {
+      "name": "奴隸解放",
+      "location": "凱特海勒茲",
+      "dailyReward": "突破石*5",
+      "reputationReward": "偉大的藝術品#18、能力值增加藥水",
+      "requiredDays": 15
+    },
+    {
+      "name": "酥脆又閃耀的",
+      "location": "亞拉克勒",
+      "dailyReward": "突破石*5",
+      "reputationReward": "",
+      "requiredDays": 0
+    },
+    {
+      "name": "快速疾走：普琉馬",
+      "location": "海上樂園佩托",
+      "dailyReward": "突破石*4",
+      "reputationReward": "快速疾走：普琉馬",
+      "requiredDays": 21
+    },
+    {
+      "name": "酷寒的安身處調查",
+      "location": "酷寒安身處",
+      "dailyReward": "突破石*5",
+      "reputationReward": "體力增加藥水",
+      "requiredDays": 21
+    },
+    {
+      "name": "封印地恢復作業",
+      "location": "廢城哲納依/洛漢德",
+      "dailyReward": "碎片",
+      "reputationReward": "技能點數藥水 前置任務",
+      "requiredDays": 7
+    },
+    {
+      "name": "費麥塔真正的經理",
+      "location": "海洋搖籃費麥塔",
+      "dailyReward": "銀幣",
+      "reputationReward": "偉大的藝術品#28",
+      "requiredDays": 15
+    },
+    {
+      "name": "坎達里亞商團",
+      "location": "坎達里亞領地/貝倫南部",
+      "dailyReward": "能力石",
+      "reputationReward": "傳說~稀有卡片禮包、傳說~英雄卡片禮包",
+      "requiredDays": 15
+    },
+    {
+      "name": "搗蛋鬼妖精",
+      "location": "風香山丘/洛漢德",
+      "dailyReward": "碎片",
+      "reputationReward": "發酵促進魔法粉末",
+      "requiredDays": 15
+    },
+    {
+      "name": "又吵、又響、又混亂!",
+      "location": "黑砧作業廠/約恩",
+      "dailyReward": "能力石",
+      "reputationReward": "老舊鞋靴",
+      "requiredDays": 15
+    },
+    {
+      "name": "烏瑪爾化妝品的新歷史",
+      "location": "偉大之城/約恩",
+      "dailyReward": "能力石、食品原料貿易寶箱",
+      "reputationReward": "烏瑪爾美妝的邀請函",
+      "requiredDays": 26
+    },
+    {
+      "name": "船隻檢驗",
+      "location": "阿特羅波斯島",
+      "dailyReward": "日之祝福",
+      "reputationReward": "梅德瑞爾邀請函、能力值增加藥水",
+      "requiredDays": 7
+    },
+    {
+      "name": "貝倫魔法學會",
+      "location": "坎達里亞領地/貝倫南部",
+      "dailyReward": "銀幣",
+      "reputationReward": "秘密地圖#46",
+      "requiredDays": 15
+    },
+    {
+      "name": "被詛咒的遺跡",
+      "location": "奧茲亨丘陵/猶迪亞",
+      "dailyReward": "結緣石",
+      "reputationReward": "偉大的藝術品#9",
+      "requiredDays": 7
+    },
+    {
+      "name": "負責港口經營",
+      "location": "碎浪港口/盧特蘭東部",
+      "dailyReward": "碎片",
+      "reputationReward": "偉大的藝術品#10、壓制增加藥水",
+      "requiredDays": 7
+    },
+    {
+      "name": "考古學家的請託",
+      "location": "自由島",
+      "dailyReward": "日之祝福",
+      "reputationReward": "偉大的藝術品#19、能力值增加藥水(*15)",
+      "requiredDays": 7
+    },
+    {
+      "name": "勞困的溫泉打工",
+      "location": "星沙海濱/帕夫尼卡",
+      "dailyReward": "碎片",
+      "reputationReward": "偉大的藝術品#48、能力值增加藥水",
+      "requiredDays": 25
+    },
+    {
+      "name": "父女的旅程",
+      "location": "坎達里亞領地/貝倫南部",
+      "dailyReward": "結緣石",
+      "reputationReward": "偉大的藝術品#50",
+      "requiredDays": 31
+    },
+    {
+      "name": "海盜之星：阿斯特雷伊",
+      "location": "航海合作任務",
+      "dailyReward": "突破石*4",
+      "reputationReward": "阿斯特雷伊建造設計圖",
+      "requiredDays": 25
+    },
+    {
+      "name": "擊退臭蟲",
+      "location": "黑牙駐地",
+      "dailyReward": "突破石*4",
+      "reputationReward": "海盜認證書、體力增加藥水",
+      "requiredDays": 15
+    },
+    {
+      "name": "一日法官 (普雷奇亞)",
+      "location": "普雷奇亞",
+      "dailyReward": "突破石",
+      "reputationReward": "偉大的藝術品#60",
+      "requiredDays": 15
+    },
+    {
+      "name": "未完的戰鬥 (噩夢之影/再次站起)",
+      "location": "庫爾贊",
+      "dailyReward": "T4 突破石",
+      "reputationReward": "悟性點數藥水 (+3)",
+      "requiredDays": 15
+    },
+    {
+      "name": "小心輕放 (美麗的素材)",
+      "location": "里姆雷克",
+      "dailyReward": "T4 碎片/銀幣",
+      "reputationReward": "血爪海圖碎片#3 (第二張)",
+      "requiredDays": 14
+    }
+  ],
+  "progressionRoadmap": [
+    {
+      "ilvl": "1415–1490",
+      "milestone": "伐爾坦 / 維亞奇絲 / 庫克賽頓 / 布雷夏沙",
+      "system": "T3 遺物～古代套裝與套裝等級提升",
+      "note": "新手與小號可先打單人模式累積材料"
+    },
+    {
+      "ilvl": "1540–1580",
+      "milestone": "卡楊格爾 (1540) / 阿坎 (1580)",
+      "system": "套裝 Lv.3 ＋ 1580 古代裝備繼承",
+      "note": "1580 後製作阿坎裝備再繼續往上強化"
+    },
+    {
+      "ilvl": "1600–1610",
+      "milestone": "象牙塔 (1600) / 卡蒙 (1610)",
+      "system": "艾利西爾（鍊金 40 覺）＆ 防具超越系統",
+      "note": "40 覺與超越星數對傷害影響極大"
+    },
+    {
+      "ilvl": "1620–1640",
+      "milestone": "艾奇德娜 (1620) / 貝希莫斯 (1640)",
+      "system": "進階精煉 1–20、武器超越 ＆ 繼承 T4 裝備",
+      "note": "進 T4 後裝備繼承直接跳升 1640 起跑"
+    },
+    {
+      "ilvl": "1660–1670",
+      "milestone": "艾吉爾 第1幕 (1660) / 布雷夏沙 第2幕 (1670)",
+      "system": "T4 古代裝備（開方舟被動核心）＆ 卡爾瑪系統",
+      "note": "湊齊艾吉爾古代裝是戰力大躍進分水嶺"
+    },
+    {
+      "ilvl": "1680–1690",
+      "milestone": "莫敦 第3幕 (1680)",
+      "system": "T4 進階精煉 21–40 解鎖",
+      "note": "拉高裝等衝向 1700 終局門檻"
+    },
+    {
+      "ilvl": "1700–1730+",
+      "milestone": "阿爾莫切 第4幕 (1700) / 卡札羅斯 終幕 (1710+)",
+      "system": "方舟星圖 (Ark Grid) 核心與星石系統",
+      "note": "透過核心意志力與星石點數啟動職業質變效果"
+    }
+  ],
+  "arkGrid": [
+    {
+      "topic": "系統開啟與快捷鍵",
+      "detail": "獲得任一方舟星圖核心並使用後解鎖（角色獨立），預設快捷鍵 , 開啟介面",
+      "note": "1700 裝等進入第 4 幕與終幕階段的核心養成"
+    },
+    {
+      "topic": "秩序核心 (Order Core)",
+      "detail": "分為日、月、星 3 槽，提供各職業專屬流派核心效果",
+      "note": "需搭配對應的「領悟」方舟被動才會正式生效"
+    },
+    {
+      "topic": "混沌核心 (Chaos Core)",
+      "detail": "分為日、月、星 3 槽，提供全職業通用的戰鬥增傷與機制效果",
+      "note": "同類型核心在星圖中僅能裝備 1 個"
+    },
+    {
+      "topic": "意志力 (Willpower) 上限",
+      "detail": "核心提供意志力以啟用周圍 4 顆星石：英雄 9 / 傳說 12 / 遺物 15 / 古代 17",
+      "note": "星石基礎消耗 8–10，需靠加工把消耗壓低（最低可減至 3）才能全亮"
+    },
+    {
+      "topic": "星石累積點數門檻",
+      "detail": "核心周圍星石合計點數達 10 / 14 / 17 / 18 / 19 / 20 點逐層解鎖效果",
+      "note": "「17 點」為遺物／古代核心最關鍵的質變目標"
+    },
+    {
+      "topic": "核心與星石取得來源",
+      "detail": "核心主要來自卡札羅斯第 4 幕／終幕；星石來自 1700+ 庫爾贊前線、守護者與魔方",
+      "note": "加工星石可洗出攻擊力、追加傷害、Boss 傷害等詞條"
+    }
+  ],
+  "battleItems": [
+    {
+      "name": "旋風手榴彈",
+      "category": "無力化 (Stagger)",
+      "effect": "造成高強度無力化傷害",
+      "timing": "首領出現紫／藍色無力化條且技能不足以打斷時必丟"
+    },
+    {
+      "name": "破壞炸彈",
+      "category": "部位破壞 (Weak Point)",
+      "effect": "造成大量部位破壞傷害",
+      "timing": "首領護甲／外殼需要破壞階段（或與技能配合拆甲）"
+    },
+    {
+      "name": "暗黑手榴彈",
+      "category": "團隊增傷 (DPS)",
+      "effect": "使目標受到全體隊友傷害提高",
+      "timing": "爆發開打前或團隊集火窗口輪流投擲（不疊加，需錯開）"
+    },
+    {
+      "name": "費洛蒙炸彈",
+      "category": "守護者專用",
+      "effect": "阻止守護者逃跑換區並原地重新現身",
+      "timing": "討伐星辰護衛見首領閃光準備轉區前投擲（隊伍多按 1P/2P 輪流）"
+    },
+    {
+      "name": "神聖符咒",
+      "category": "異常解除",
+      "effect": "解除自身與周圍隊友負面／控制狀態",
+      "timing": "石化、恐懼、魅惑疊層或高壓異常機制關卡救援隊友"
+    },
+    {
+      "name": "凝時藥水",
+      "category": "保命無敵",
+      "effect": "短時間內金身無敵並免疫多數傷害與擊飛",
+      "timing": "閃避不及、團滅失誤或開荒硬吃高傷機制保命"
+    },
+    {
+      "name": "萬能藥水 / 淨化藥水",
+      "category": "自身淨化",
+      "effect": "解除自身異常狀態（部分機制適用）",
+      "timing": "隊友分散無法互丟神聖符咒時的自保選擇"
+    },
+    {
+      "name": "進軍旗幟 / 迅捷長袍",
+      "category": "機動增益",
+      "effect": "短時間大幅提升移動速度",
+      "timing": "長距離跑機制、搶點或無位移職業走位保命"
+    }
   ]
 }

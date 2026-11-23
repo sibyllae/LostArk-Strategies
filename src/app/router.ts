@@ -38,6 +38,7 @@ export const router = createBrowserRouter(
             lazyPage('adventureBook', () => import('@/features/adventure-book/AdventureBookPage')),
             lazyPage('collectibles', () => import('@/features/collectibles/CollectiblesPage')),
             lazyPage('raidChests', () => import('@/features/raid-chests/RaidChestsPage')),
+            lazyPage('systems', () => import('@/features/systems/SystemsPage')),
             lazyPage('miscGuide', () => import('@/features/misc-guide/MiscGuidePage')),
             {
               path: '*',

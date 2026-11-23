@@ -3,65 +3,674 @@
     {
       "name": "伐爾坦",
       "nameEn": "Valtan",
+      "tier": "T3",
+      "difficulty": "普通",
       "ilvl": 1415,
       "gates": [
-        { "gate": "關卡 1", "goldReward": 500, "chestCost": 300, "chestContents": "生命碎片、突破石、寶石" },
-        { "gate": "關卡 2", "goldReward": 700, "chestCost": 400, "chestContents": "生命碎片、突破石、寶石、裝備" }
+        {
+          "gate": "關卡 1",
+          "goldReward": 500,
+          "chestCost": 300,
+          "chestContents": "生命碎片、突破石、寶石"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 700,
+          "chestCost": 400,
+          "chestContents": "生命碎片、突破石、寶石、裝備"
+        }
       ],
       "totalGold": 1200,
       "totalChestCost": 700,
       "netGold": 500,
-      "recommendation": "前期建議開箱取得突破石，後期金幣充裕可不開"
+      "recommendation": "前期建議開箱取得突破石；支援單人模式（獎勵為綁定金幣）"
     },
     {
       "name": "維亞奇絲",
       "nameEn": "Vykas",
+      "tier": "T3",
+      "difficulty": "普通",
       "ilvl": 1430,
       "gates": [
-        { "gate": "關卡 1", "goldReward": 500, "chestCost": 300, "chestContents": "生命碎片、突破石、寶石" },
-        { "gate": "關卡 2", "goldReward": 600, "chestCost": 300, "chestContents": "生命碎片、突破石、寶石" },
-        { "gate": "關卡 3", "goldReward": 600, "chestCost": 500, "chestContents": "生命碎片、突破石、寶石、裝備" }
+        {
+          "gate": "關卡 1",
+          "goldReward": 500,
+          "chestCost": 300,
+          "chestContents": "生命碎片、突破石、寶石"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 600,
+          "chestCost": 300,
+          "chestContents": "生命碎片、突破石、寶石"
+        },
+        {
+          "gate": "關卡 3",
+          "goldReward": 600,
+          "chestCost": 500,
+          "chestContents": "生命碎片、突破石、寶石、裝備"
+        }
       ],
       "totalGold": 1700,
       "totalChestCost": 1100,
       "netGold": 600,
-      "recommendation": "建議開最後一關取得裝備材料"
+      "recommendation": "建議開最後一關取得裝備材料；支援單人模式（獎勵為綁定金幣）"
     },
     {
       "name": "庫克賽頓",
       "nameEn": "Kakul-Saydon",
+      "tier": "T3",
+      "difficulty": "普通",
       "ilvl": 1475,
       "gates": [
-        { "gate": "關卡 1", "goldReward": 600, "chestCost": 400, "chestContents": "生命碎片、突破石、寶石" },
-        { "gate": "關卡 2", "goldReward": 800, "chestCost": 600, "chestContents": "生命碎片、突破石、寶石" },
-        { "gate": "關卡 3", "goldReward": 1000, "chestCost": 800, "chestContents": "生命碎片、突破石、寶石、裝備" }
+        {
+          "gate": "關卡 1",
+          "goldReward": 600,
+          "chestCost": 400,
+          "chestContents": "生命碎片、突破石、寶石"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 800,
+          "chestCost": 600,
+          "chestContents": "生命碎片、突破石、寶石"
+        },
+        {
+          "gate": "關卡 3",
+          "goldReward": 1000,
+          "chestCost": 800,
+          "chestContents": "生命碎片、突破石、寶石、裝備"
+        }
       ],
       "totalGold": 2400,
       "totalChestCost": 1800,
       "netGold": 600,
-      "recommendation": "開箱成本較高，建議依市場物價判斷是否開箱"
+      "recommendation": "開箱成本較高，建議依市場物價判斷；支援單人模式"
     },
     {
-      "name": "布雷夏沙",
+      "name": "布雷夏沙 (T3)",
       "nameEn": "Brelshaza",
+      "tier": "T3",
+      "difficulty": "普通",
       "ilvl": 1490,
       "gates": [
-        { "gate": "關卡 1", "goldReward": 700, "chestCost": 500, "chestContents": "生命碎片、突破石、寶石" },
-        { "gate": "關卡 2", "goldReward": 700, "chestCost": 500, "chestContents": "生命碎片、突破石、寶石" },
-        { "gate": "關卡 3", "goldReward": 800, "chestCost": 600, "chestContents": "生命碎片、突破石、寶石" },
-        { "gate": "關卡 4", "goldReward": 1200, "chestCost": 900, "chestContents": "生命碎片、突破石、寶石、裝備" }
+        {
+          "gate": "關卡 1",
+          "goldReward": 700,
+          "chestCost": 500,
+          "chestContents": "生命碎片、突破石、寶石"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 700,
+          "chestCost": 500,
+          "chestContents": "生命碎片、突破石、寶石"
+        },
+        {
+          "gate": "關卡 3",
+          "goldReward": 800,
+          "chestCost": 600,
+          "chestContents": "生命碎片、突破石、寶石"
+        },
+        {
+          "gate": "關卡 4",
+          "goldReward": 1200,
+          "chestCost": 900,
+          "chestContents": "生命碎片、突破石、寶石、裝備"
+        }
       ],
       "totalGold": 3400,
       "totalChestCost": 2500,
       "netGold": 900,
-      "recommendation": "依角色裝分與市場物價評估，高等級角色建議至少開最後一關"
+      "recommendation": "依角色裝分與市場物價評估，高等級角色建議至少開最後一關；支援單人模式"
+    },
+    {
+      "name": "卡楊格爾",
+      "nameEn": "Kayangel",
+      "tier": "T3",
+      "difficulty": "普通",
+      "ilvl": 1540,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 800,
+          "chestCost": 180,
+          "chestContents": "觀照之光、突破石、古代飾品、能力石升級材料"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 1200,
+          "chestCost": 200,
+          "chestContents": "觀照之光、突破石、古代飾品"
+        },
+        {
+          "gate": "關卡 3",
+          "goldReward": 1600,
+          "chestCost": 270,
+          "chestContents": "觀照之光、突破石、套裝升級材料（含綁定金幣比例）"
+        }
+      ],
+      "totalGold": 3600,
+      "totalChestCost": 650,
+      "netGold": 2950,
+      "recommendation": "若需升級套裝等級或收集觀照之光可開箱；支援單人模式"
+    },
+    {
+      "name": "卡楊格爾",
+      "nameEn": "Kayangel",
+      "tier": "T3",
+      "difficulty": "困難",
+      "ilvl": 1580,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 1000,
+          "chestCost": 225,
+          "chestContents": "觀照之光、突破石、古代飾品"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 1600,
+          "chestCost": 350,
+          "chestContents": "觀照之光、突破石、古代飾品"
+        },
+        {
+          "gate": "關卡 3",
+          "goldReward": 2200,
+          "chestCost": 500,
+          "chestContents": "觀照之光、突破石、紅翼坐騎機率"
+        }
+      ],
+      "totalGold": 4800,
+      "totalChestCost": 1075,
+      "netGold": 3725,
+      "recommendation": "開箱成本已大幅調降，仍缺套裝材料可開"
+    },
+    {
+      "name": "阿坎 (瘟疫軍團長)",
+      "nameEn": "Akkan",
+      "tier": "T3",
+      "difficulty": "普通",
+      "ilvl": 1580,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 1750,
+          "chestCost": 190,
+          "chestContents": "衰敗之眼、閃耀名譽突破石、精煉材料"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 2250,
+          "chestCost": 230,
+          "chestContents": "衰敗之眼、閃耀名譽突破石、精煉材料"
+        },
+        {
+          "gate": "關卡 3",
+          "goldReward": 4500,
+          "chestCost": 330,
+          "chestContents": "衰敗之眼、閃耀名譽突破石、裝備製作材料"
+        }
+      ],
+      "totalGold": 8500,
+      "totalChestCost": 750,
+      "netGold": 7750,
+      "recommendation": "1580 裝等製作古代裝備期間建議全開箱；支援單人模式"
+    },
+    {
+      "name": "阿坎 (瘟疫軍團長)",
+      "nameEn": "Akkan",
+      "tier": "T3",
+      "difficulty": "困難",
+      "ilvl": 1600,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 2250,
+          "chestCost": 300,
+          "chestContents": "衰敗之眼、閃耀名譽突破石、精煉材料"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 2750,
+          "chestCost": 500,
+          "chestContents": "衰敗之眼、閃耀名譽突破石、精煉材料"
+        },
+        {
+          "gate": "關卡 3",
+          "goldReward": 6000,
+          "chestCost": 700,
+          "chestContents": "衰敗之眼、閃耀名譽突破石、裝備製作材料"
+        }
+      ],
+      "totalGold": 11000,
+      "totalChestCost": 1500,
+      "netGold": 9500,
+      "recommendation": "製作 T3 1580 古代裝備階段開箱 CP 值極高，成型後可不開純賺金"
+    },
+    {
+      "name": "象牙塔 (伏爾戴克)",
+      "nameEn": "Ivory Tower",
+      "tier": "T3",
+      "difficulty": "普通",
+      "ilvl": 1600,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 1400,
+          "chestCost": 180,
+          "chestContents": "史詩艾利西爾（鍊金）材料、突破石"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 1800,
+          "chestCost": 220,
+          "chestContents": "史詩艾利西爾材料、突破石"
+        },
+        {
+          "gate": "關卡 3",
+          "goldReward": 2280,
+          "chestCost": 300,
+          "chestContents": "史詩艾利西爾材料、突破石（含綁定金幣比例）"
+        }
+      ],
+      "totalGold": 5480,
+      "totalChestCost": 700,
+      "netGold": 4780,
+      "recommendation": "已精簡為 3 關；若目標為傳說艾利西爾建議轉戰困難或直接跨入 T4"
+    },
+    {
+      "name": "象牙塔 (伏爾戴克)",
+      "nameEn": "Ivory Tower",
+      "tier": "T3",
+      "difficulty": "困難",
+      "ilvl": 1610,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 2000,
+          "chestCost": 350,
+          "chestContents": "傳說艾利西爾（鍊金）材料、突破石"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 3000,
+          "chestCost": 500,
+          "chestContents": "傳說艾利西爾材料、突破石"
+        },
+        {
+          "gate": "關卡 3",
+          "goldReward": 4000,
+          "chestCost": 950,
+          "chestContents": "傳說艾利西爾材料、突破石"
+        }
+      ],
+      "totalGold": 9000,
+      "totalChestCost": 1800,
+      "netGold": 7200,
+      "recommendation": "缺少傳說艾利西爾詞條期間建議開箱，40 覺後可不開"
+    },
+    {
+      "name": "卡蒙 (黑暗軍團長)",
+      "nameEn": "Thaemine",
+      "tier": "T3",
+      "difficulty": "普通",
+      "ilvl": 1610,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 2700,
+          "chestCost": 1500,
+          "chestContents": "暗黑火（超越材料）、突破石"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 3300,
+          "chestCost": 1800,
+          "chestContents": "暗黑火（超越材料）、突破石"
+        },
+        {
+          "gate": "關卡 3",
+          "goldReward": 5000,
+          "chestCost": 2500,
+          "chestContents": "暗黑火（超越材料）、突破石"
+        }
+      ],
+      "totalGold": 11000,
+      "totalChestCost": 5800,
+      "netGold": 5200,
+      "recommendation": "超越系統尚未滿級前可開箱加速暗黑火累積；支援單人模式"
+    },
+    {
+      "name": "卡蒙 (黑暗軍團長)",
+      "nameEn": "Thaemine",
+      "tier": "T3",
+      "difficulty": "困難",
+      "ilvl": 1620,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 4400,
+          "chestCost": 2000,
+          "chestContents": "暗黑火（超越材料）、突破石"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 5500,
+          "chestCost": 2400,
+          "chestContents": "暗黑火（超越材料）、突破石"
+        },
+        {
+          "gate": "關卡 3",
+          "goldReward": 8900,
+          "chestCost": 2800,
+          "chestContents": "暗黑火（超越材料）、突破石"
+        },
+        {
+          "gate": "關卡 4",
+          "goldReward": 9800,
+          "chestCost": 3600,
+          "chestContents": "大量暗黑火、突破石（雙週輪替關卡）"
+        }
+      ],
+      "totalGold": 28600,
+      "totalChestCost": 10800,
+      "netGold": 17800,
+      "recommendation": "G4 為雙週制，若防具超越滿 105 星可僅開特定關或全不開賺金"
+    },
+    {
+      "name": "艾奇德娜 (卡札羅斯序幕)",
+      "nameEn": "Echidna",
+      "tier": "T3",
+      "difficulty": "普通",
+      "ilvl": 1620,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 6000,
+          "chestCost": 950,
+          "chestContents": "阿格里斯的鱗片（進階精煉）、突破石"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 10000,
+          "chestCost": 1750,
+          "chestContents": "阿格里斯的鱗片、突破石、卡包機率"
+        }
+      ],
+      "totalGold": 16000,
+      "totalChestCost": 2700,
+      "netGold": 13300,
+      "recommendation": "進階精煉 1–10 階段必打，開箱費用親民建議全開；支援單人模式"
+    },
+    {
+      "name": "艾奇德娜 (卡札羅斯序幕)",
+      "nameEn": "Echidna",
+      "tier": "T3",
+      "difficulty": "困難",
+      "ilvl": 1630,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 7000,
+          "chestCost": 1100,
+          "chestContents": "阿爾基翁的眼（進階精煉 11–20）、突破石"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 12500,
+          "chestCost": 2250,
+          "chestContents": "阿爾基翁的眼、突破石、卡包機率"
+        }
+      ],
+      "totalGold": 19500,
+      "totalChestCost": 3350,
+      "netGold": 16150,
+      "recommendation": "進行進階精煉 11–20 期間建議全開箱"
+    },
+    {
+      "name": "貝希莫斯 (16人史詩副本)",
+      "nameEn": "Behemoth",
+      "tier": "T4",
+      "difficulty": "普通",
+      "ilvl": 1640,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 7000,
+          "chestCost": 2600,
+          "chestContents": "貝希莫斯鱗片（武器超越）、T4 精煉材料"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 11000,
+          "chestCost": 2700,
+          "chestContents": "貝希莫斯鱗片、T4 精煉材料、卡包機率"
+        }
+      ],
+      "totalGold": 18000,
+      "totalChestCost": 5300,
+      "netGold": 12700,
+      "recommendation": "台服門檻 1640（國際服 1620）；武器超越未滿 20 級前建議開箱"
+    },
+    {
+      "name": "艾吉爾 (卡札羅斯第1幕)",
+      "nameEn": "Aegir",
+      "tier": "T4",
+      "difficulty": "普通",
+      "ilvl": 1660,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 3500,
+          "chestCost": 750,
+          "chestContents": "地獄火焰（T4 古代裝備製作）、T4 突破石"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 8000,
+          "chestCost": 1780,
+          "chestContents": "地獄火焰、T4 突破石、T4 卡包機率"
+        }
+      ],
+      "totalGold": 11500,
+      "totalChestCost": 2530,
+      "netGold": 8970,
+      "recommendation": "製作全套 T4 古代防具武器（開啟方舟被動核心）前建議全開箱；部分金幣為綁定"
+    },
+    {
+      "name": "艾吉爾 (卡札羅斯第1幕)",
+      "nameEn": "Aegir",
+      "tier": "T4",
+      "difficulty": "困難",
+      "ilvl": 1680,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 5500,
+          "chestCost": 1820,
+          "chestContents": "地獄火焰*大量、T4 突破石、古代飾品"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 12500,
+          "chestCost": 4150,
+          "chestContents": "地獄火焰*大量、T4 突破石、T4 卡包機率"
+        }
+      ],
+      "totalGold": 18000,
+      "totalChestCost": 5970,
+      "netGold": 12030,
+      "recommendation": "產出雙倍地獄火焰加速 T4 古代裝畢業，成型後可視材料市價決定是否開箱"
+    },
+    {
+      "name": "布雷夏沙 (卡札羅斯第2幕)",
+      "nameEn": "Brelshaza Act 2",
+      "tier": "T4",
+      "difficulty": "普通",
+      "ilvl": 1670,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 9000,
+          "chestCost": 3800,
+          "chestContents": "卡爾瑪（Karma）養成材料、T4 精煉材料"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 18500,
+          "chestCost": 5600,
+          "chestContents": "卡爾瑪養成材料、T4 精煉材料、高階飾品"
+        }
+      ],
+      "totalGold": 27500,
+      "totalChestCost": 9400,
+      "netGold": 18100,
+      "recommendation": "開荒與提升卡爾瑪系統期間建議開箱，若僅需賺金可不開"
+    },
+    {
+      "name": "布雷夏沙 (卡札羅斯第2幕)",
+      "nameEn": "Brelshaza Act 2",
+      "tier": "T4",
+      "difficulty": "困難",
+      "ilvl": 1690,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 11000,
+          "chestCost": 4500,
+          "chestContents": "卡爾瑪養成材料*大量、T4 精煉材料"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 23000,
+          "chestCost": 7200,
+          "chestContents": "卡爾瑪養成材料*大量、T4 精煉材料、古代飾品"
+        }
+      ],
+      "totalGold": 34000,
+      "totalChestCost": 11700,
+      "netGold": 22300,
+      "recommendation": "高金幣收益副本，開箱成本高，建議評估自身卡爾瑪進度與拍賣行物價"
+    },
+    {
+      "name": "莫敦 (卡札羅斯第3幕)",
+      "nameEn": "Mordum Act 3",
+      "tier": "T4",
+      "difficulty": "普通",
+      "ilvl": 1680,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 6000,
+          "chestCost": 1300,
+          "chestContents": "T4 進階精煉 21–40 材料、高階強化素材"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 9500,
+          "chestCost": 2350,
+          "chestContents": "T4 進階精煉 21–40 材料、高階強化素材"
+        },
+        {
+          "gate": "關卡 3",
+          "goldReward": 12500,
+          "chestCost": 3360,
+          "chestContents": "T4 進階精煉 21–40 材料、高階飾品"
+        }
+      ],
+      "totalGold": 28000,
+      "totalChestCost": 7010,
+      "netGold": 20990,
+      "recommendation": "解鎖高階進階精煉（21–40）關鍵素材來源，前期建議開箱"
+    },
+    {
+      "name": "莫敦 (卡札羅斯第3幕)",
+      "nameEn": "Mordum Act 3",
+      "tier": "T4",
+      "difficulty": "困難",
+      "ilvl": 1700,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 7000,
+          "chestCost": 1650,
+          "chestContents": "T4 進階精煉 21–40 材料*大量、強化素材"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 11000,
+          "chestCost": 2640,
+          "chestContents": "T4 進階精煉 21–40 材料*大量、強化素材"
+        },
+        {
+          "gate": "關卡 3",
+          "goldReward": 20000,
+          "chestCost": 4060,
+          "chestContents": "T4 進階精煉 21–40 材料*大量、高階飾品"
+        }
+      ],
+      "totalGold": 38000,
+      "totalChestCost": 8350,
+      "netGold": 29650,
+      "recommendation": "當前頂級金幣副本之一，依突破石與進階材料價格彈性開箱"
+    },
+    {
+      "name": "阿爾莫切 (卡札羅斯第4幕)",
+      "nameEn": "Armoche Act 4",
+      "tier": "T4",
+      "difficulty": "普通",
+      "ilvl": 1700,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 10000,
+          "chestCost": 3200,
+          "chestContents": "方舟星圖核心（英雄～古代）、T4 強化材料"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 17000,
+          "chestCost": 5440,
+          "chestContents": "方舟星圖核心（英雄～古代）、T4 強化材料"
+        }
+      ],
+      "totalGold": 27000,
+      "totalChestCost": 8640,
+      "netGold": 18360,
+      "recommendation": "困難門檻 1720+（收益 42,000G+）；開荒方舟星圖核心期間建議開箱"
+    },
+    {
+      "name": "卡札羅斯 (卡札羅斯終幕)",
+      "nameEn": "Kazeros Denouement",
+      "tier": "T4",
+      "difficulty": "普通",
+      "ilvl": 1710,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 11000,
+          "chestCost": 3520,
+          "chestContents": "方舟星圖核心（英雄～古代）*2、T4 頂級素材"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 21000,
+          "chestCost": 6720,
+          "chestContents": "方舟星圖核心（英雄～古代）*2、T4 頂級素材"
+        }
+      ],
+      "totalGold": 32000,
+      "totalChestCost": 10240,
+      "netGold": 21760,
+      "recommendation": "困難門檻 1730+（收益 48,000G+）；終局產出雙倍核心，缺星圖核心必開箱"
     }
   ],
   "notes": [
-    "金幣獎勵和開箱成本為一般難度數據",
-    "困難難度的金幣獎勵和開箱成本會更高",
-    "開箱是否划算取決於當前市場物價",
-    "資料基於小丑版本 (20240825)",
-    "角色每週最多可獲得 3 個軍團長副本金幣獎勵"
+    "角色每週最多可從 3 個副本獲得金幣獎勵（每個遠征隊上限 6 位角色）",
+    "開箱是否划算取決於當前拍賣行材料價格與自身養成需求（超越、艾利西爾、卡爾瑪、進階精煉）",
+    "部分 T3 與 T4 副本支援「單人模式 (Solo Mode)」，單人模式產出綁定金幣（可用於精煉與養成，不可於交易所使用）",
+    "部分早期／中階副本獎勵中含一定比例的綁定金幣，實際數值可能隨台服與國際服經濟平衡補丁微調",
+    "資料涵蓋 T3 軍團長～T4 卡札羅斯襲擊戰第 4 幕與終幕（2026 進度整理）"
   ]
 }

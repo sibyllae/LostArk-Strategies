@@ -78,9 +78,12 @@ export interface CollectiblesData {
   omniumStars: CollectibleCategory;
   islandTokens: CollectibleCategory;
   seaBounties: CollectibleCategory;
+  memoryOrbs: CollectibleCategory;
+  bloodclawCharts: CollectibleCategory;
   worldTreeMokoko: {
     worldTreeRewards: CollectibleReward[];
     worldTreeNote: string;
+    worldTreeSources?: CollectibleSource[];
     mokokoRewards: CollectibleReward[];
   };
 }
@@ -97,6 +100,8 @@ export interface RaidGate {
 export interface RaidInfo {
   name: string;
   nameEn: string;
+  tier?: 'T3' | 'T4';
+  difficulty?: '普通' | '困難';
   ilvl: number;
   gates: RaidGate[];
   totalGold: number;
@@ -149,11 +154,65 @@ export interface DailyQuestData {
   requiredDays: number;
 }
 
+export interface ProgressionStepData {
+  ilvl: string;
+  milestone: string;
+  system: string;
+  note: string;
+}
+
+export interface ArkGridTopicData {
+  topic: string;
+  detail: string;
+  note: string;
+}
+
+export interface BattleItemData {
+  name: string;
+  category: string;
+  effect: string;
+  timing: string;
+}
+
 export interface MiscGuideData {
   songs: SongData[];
   skillPoints: SkillPointData[];
+  enlightenmentPoints: SkillPointData[];
   runes: RuneData[];
   cardSets: CardSetData[];
   dailyLimits: DailyLimitData[];
   dailyQuests: DailyQuestData[];
+  progressionRoadmap: ProgressionStepData[];
+  arkGrid: ArkGridTopicData[];
+  battleItems: BattleItemData[];
+}
+
+/* ------------------------------- 養成與配裝指南 ------------------------------- */
+
+export interface AccessoryPolishData {
+  slot: string;
+  role: string;
+  primary: string;
+  secondary: string;
+  note: string;
+}
+
+export interface GearSystemData {
+  system: string;
+  unlock: string;
+  goal: string;
+  details: string;
+}
+
+export interface WanderingMerchantData {
+  continent: string;
+  merchant: string;
+  cards: string;
+  note: string;
+}
+
+export interface SystemsData {
+  accessories: AccessoryPolishData[];
+  gearSystems: GearSystemData[];
+  wanderingMerchants: WanderingMerchantData[];
 }

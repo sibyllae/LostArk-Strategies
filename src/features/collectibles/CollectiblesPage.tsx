@@ -21,6 +21,8 @@ const COLLECTIBLE_TABS = [
   { key: 'omniumStars', label: '奧菲斯之星', icon: '⭐' },
   { key: 'igneaTokens', label: '伊格涅亞的標誌', icon: '🏅' },
   { key: 'seaBounties', label: '航海冒險物', icon: '⚓' },
+  { key: 'memoryOrbs', label: '記憶八音盒', icon: '🎵' },
+  { key: 'bloodclawCharts', label: '血爪海圖', icon: '🧭' },
   { key: 'worldTreeMokoko', label: '世界樹&摩可可', icon: '🌳' },
 ] as const;
 
@@ -72,11 +74,14 @@ export default function CollectiblesPage() {
       const wtRewards = data.worldTreeMokoko.worldTreeRewards
         .map((r, i) => ({ ...r, key: i }))
         .filter((r) => matchesQuery(query, r.reward, r.note, String(r.count)));
+      const wtSources = (data.worldTreeMokoko.worldTreeSources ?? [])
+        .map((s, i) => ({ ...s, key: i }))
+        .filter((s) => matchesQuery(query, s.source, s.note, String(s.id ?? '')));
       const mokokoRewards = data.worldTreeMokoko.mokokoRewards
         .map((r, i) => ({ ...r, key: i }))
         .filter((r) => matchesQuery(query, r.reward, r.note, String(r.count)));
 
-      const total = wtRewards.length + mokokoRewards.length;
+      const total = wtRewards.length + wtSources.length + mokokoRewards.length;
       return {
         visibleCount: total,
         content: (
@@ -94,6 +99,9 @@ export default function CollectiblesPage() {
               <>
                 {wtRewards.length > 0 && (
                   <RewardSection title='世界樹之葉 重要獎勵' rewards={wtRewards} query={query} />
+                )}
+                {wtSources.length > 0 && (
+                  <SourceSection title='世界樹之葉 取得攻略' items={wtSources} query={query} />
                 )}
                 {mokokoRewards.length > 0 && (
                   <RewardSection title='摩可可種子 重要獎勵' rewards={mokokoRewards} query={query} />

@@ -7,6 +7,7 @@ import type {
   FavorabilityRaw,
   MiscGuideData,
   RaidChestsData,
+  SystemsData,
 } from '@/types/game';
 import { splitList } from '@/utils/text';
 
@@ -70,6 +71,9 @@ export const gameApi = createApi({
     getMiscGuide: build.query<MiscGuideData, void>({
       query: () => 'miscGuide.json',
     }),
+    getSystems: build.query<SystemsData, void>({
+      query: () => 'systems.json',
+    }),
   }),
 });
 
@@ -79,4 +83,5 @@ export const {
   useGetCollectiblesQuery,
   useGetRaidChestsQuery,
   useGetMiscGuideQuery,
+  useGetSystemsQuery,
 } = gameApi;

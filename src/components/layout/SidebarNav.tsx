@@ -86,16 +86,16 @@ export default function SidebarNav({ onNavigate }: SidebarNavProps) {
         ))}
       </nav>
 
-      <div className='border-t border-white/5 p-4 text-xs text-zinc-500'>
+      <div className='flex items-center justify-between gap-2 border-t border-white/5 px-4 py-3 text-xs text-zinc-500'>
         <a
           href={SITE.repo}
           target='_blank'
           rel='noreferrer'
-          className='focus-ring inline-flex items-center gap-2 rounded-md transition-colors hover:text-zinc-200'
+          className='focus-ring inline-flex shrink-0 items-center gap-1.5 rounded-md transition-colors hover:text-zinc-200'
         >
           <GithubOutlined /> 原始碼
         </a>
-        <p className='mt-2 leading-relaxed text-zinc-600'>資料僅供參考，請以遊戲內實際內容為準。</p>
+        <span className='truncate text-zinc-600'>資料僅供參考</span>
       </div>
     </div>
   );
