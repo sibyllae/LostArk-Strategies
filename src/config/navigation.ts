@@ -11,6 +11,9 @@ import {
 export const SITE = {
   name: 'LostArk Strategies',
   nameZh: '失落的方舟攻略網',
+  url: 'https://sibyllae.github.io/LostArk-Strategies',
+  description:
+    'LostArk Strategies 失落的方舟繁中版攻略資料庫：整理 NPC 好感度獎勵、20 大陸冒險之書、9 大類收集品、T3／T4 軍團長與卡札羅斯副本開箱收益試算、飾品研磨詞條、流浪商人與各類速查表。',
   repo: 'https://github.com/sibyllae/LostArk-Strategies',
   dataSource:
     'https://docs.google.com/spreadsheets/d/1NuLGvFK98id3n835YzO6judXi2ovRSBgszau8gxHJjo/',

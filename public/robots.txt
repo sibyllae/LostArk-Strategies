@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sibyllae.github.io/LostArk-Strategies/sitemap.xml

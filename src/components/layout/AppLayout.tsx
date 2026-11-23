@@ -7,7 +7,7 @@ import {
   useNavigation,
 } from 'react-router-dom';
 import { Drawer, FloatButton } from 'antd';
-import { formatPageTitle } from '@/config/navigation';
+import { useRouteSeo } from '@/hooks/useRouteSeo';
 import type { RouteHandle } from '@/types/router';
 import AppFooter from './AppFooter';
 import AppHeader from './AppHeader';
@@ -23,15 +23,13 @@ export default function AppLayout() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
-  // 以最深層 route 的 handle.title 設定文件標題
-  const title = matches
-    .map((match) => (match.handle as RouteHandle | undefined)?.title)
+  // 以最深層 route 的 handle 設定頁面 SEO metadata（title / description / canonical / JSON-LD）
+  const routeHandle = matches
+    .map((match) => match.handle as RouteHandle | undefined)
     .filter(Boolean)
     .at(-1);
 
-  useEffect(() => {
-    document.title = formatPageTitle(title);
-  }, [title]);
+  useRouteSeo(location.pathname, routeHandle);
 
   // Ctrl/⌘ + K 開啟快速搜尋
   useEffect(() => {
