@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Alert, Tabs, Tag } from 'antd';
+import { Alert, Tabs } from 'antd';
 import EmptyResult from '@/components/ui/EmptyResult';
 import Highlight from '@/components/ui/Highlight';
 import PageHeader from '@/components/ui/PageHeader';
@@ -15,15 +15,15 @@ import type { CollectibleReward, CollectibleSource } from '@/types/game';
 import { matchesQuery } from '@/utils/text';
 
 const COLLECTIBLE_TABS = [
-  { key: 'giantHearts', label: '巨人心臟', icon: '❤️' },
-  { key: 'islandTokens', label: '島之心', icon: '🏝️' },
-  { key: 'masterpieces', label: '偉大的藝術品', icon: '🎨' },
-  { key: 'omniumStars', label: '奧菲斯之星', icon: '⭐' },
-  { key: 'igneaTokens', label: '伊格涅亞的標誌', icon: '🏅' },
-  { key: 'seaBounties', label: '航海冒險物', icon: '⚓' },
-  { key: 'memoryOrbs', label: '記憶八音盒', icon: '🎵' },
-  { key: 'bloodclawCharts', label: '血爪海圖', icon: '🧭' },
-  { key: 'worldTreeMokoko', label: '世界樹&摩可可', icon: '🌳' },
+  { key: 'giantHearts', label: '巨人心臟' },
+  { key: 'islandTokens', label: '島之心' },
+  { key: 'masterpieces', label: '偉大的藝術品' },
+  { key: 'omniumStars', label: '奧菲斯之星' },
+  { key: 'igneaTokens', label: '伊格涅亞的標誌' },
+  { key: 'seaBounties', label: '航海冒險物' },
+  { key: 'memoryOrbs', label: '記憶八音盒' },
+  { key: 'bloodclawCharts', label: '血爪海圖' },
+  { key: 'worldTreeMokoko', label: '世界樹 & 摩可可' },
 ] as const;
 
 type CollectibleTabKey = (typeof COLLECTIBLE_TABS)[number]['key'];
@@ -89,7 +89,7 @@ export default function CollectiblesPage() {
             <Alert
               type='warning'
               showIcon
-              className='!border-amber-500/30 !bg-amber-500/10 text-amber-200'
+              className='!border-gold-500/30 !bg-obsidian-900 text-stone-300'
               title='採集世界樹之葉注意事項'
               description={data.worldTreeMokoko.worldTreeNote}
             />
@@ -134,7 +134,7 @@ export default function CollectiblesPage() {
               <RewardSection title='里程碑累積獎勵' rewards={filteredRewards} query={query} />
             )}
             {filteredItems.length > 0 && (
-              <SourceSection title='取得途徑全指南' items={filteredItems} query={query} />
+              <SourceSection title='取得途徑一覽' items={filteredItems} query={query} />
             )}
           </div>
         ),
@@ -151,6 +151,17 @@ export default function CollectiblesPage() {
         ]}
       />
 
+      <div className='mb-4'>
+        <Tabs
+          activeKey={activeTab}
+          onChange={setActiveTab}
+          items={COLLECTIBLE_TABS.map((t) => ({
+            key: t.key,
+            label: t.label,
+          }))}
+        />
+      </div>
+
       <Toolbar>
         <div className='min-w-[240px] flex-1'>
           <SearchInput
@@ -160,23 +171,6 @@ export default function CollectiblesPage() {
           />
         </div>
       </Toolbar>
-
-      <div className='mb-6'>
-        <Tabs
-          activeKey={activeTab}
-          onChange={setActiveTab}
-          type='card'
-          items={COLLECTIBLE_TABS.map((t) => ({
-            key: t.key,
-            label: (
-              <span className='flex items-center gap-1.5 text-sm'>
-                <span>{t.icon}</span>
-                <span>{t.label}</span>
-              </span>
-            ),
-          }))}
-        />
-      </div>
 
       <QueryState isLoading={isLoading} isError={isError} onRetry={refetch}>
         {content}
@@ -196,7 +190,7 @@ function RewardSection({
 }) {
   return (
     <div>
-      <SectionHeading title={title} count={rewards.length} dotClassName='bg-amber-400' />
+      <SectionHeading title={title} count={rewards.length} />
       <ResponsiveList
         data={rewards}
         columns={[
@@ -204,11 +198,9 @@ function RewardSection({
             title: '數量',
             dataIndex: 'count',
             key: 'count',
-            width: 90,
+            width: 84,
             render: (val: number) => (
-              <Tag color='blue' className='font-mono font-bold'>
-                {val}
-              </Tag>
+              <span className='meta-tag font-mono tabular-nums text-gold-300'>{val}</span>
             ),
           },
           {
@@ -216,7 +208,7 @@ function RewardSection({
             dataIndex: 'reward',
             key: 'reward',
             render: (text: string) => (
-              <span className='font-medium text-zinc-100'>
+              <span className='font-medium text-stone-100'>
                 <Highlight text={text} query={query} />
               </span>
             ),
@@ -227,24 +219,22 @@ function RewardSection({
             key: 'note',
             render: (note: string) =>
               note ? (
-                <span className='text-xs text-zinc-400'>
+                <span className='text-xs text-stone-400'>
                   <Highlight text={note} query={query} />
                 </span>
               ) : null,
           },
         ]}
         renderCard={(r) => (
-          <div className='flex items-center justify-between rounded-xl border border-white/5 bg-zinc-900/60 p-3'>
-            <div className='flex items-center gap-3'>
-              <Tag color='blue' className='!m-0 font-mono font-bold'>
-                {r.count}
-              </Tag>
-              <span className='text-sm font-medium text-zinc-200'>
+          <div className='surface flex items-center justify-between gap-3 p-3'>
+            <div className='flex items-center gap-2.5'>
+              <span className='meta-tag font-mono tabular-nums text-gold-300'>{r.count}</span>
+              <span className='text-sm font-medium text-stone-200'>
                 <Highlight text={r.reward} query={query} />
               </span>
             </div>
             {r.note && (
-              <span className='ml-2 text-xs text-zinc-500'>
+              <span className='text-xs text-stone-500'>
                 <Highlight text={r.note} query={query} />
               </span>
             )}
@@ -266,18 +256,18 @@ function SourceSection({
 }) {
   return (
     <div>
-      <SectionHeading title={title} count={items.length} dotClassName='bg-emerald-400' />
+      <SectionHeading title={title} count={items.length} />
       <ResponsiveList
         data={items}
         columns={[
           {
-            title: '# / 島嶼',
+            title: '編號 / 島嶼',
             key: 'id',
             width: 140,
             render: (_, r) => (
-              <Tag color='cyan' className='font-mono'>
-                {r.island ?? (r.id ? `#${r.id}` : '-')}
-              </Tag>
+              <span className='meta-tag font-mono'>
+                {r.island ?? (r.id ? `#${r.id}` : '—')}
+              </span>
             ),
           },
           {
@@ -285,36 +275,36 @@ function SourceSection({
             dataIndex: 'source',
             key: 'source',
             render: (src: string) => (
-              <span className='text-zinc-200'>
+              <span className='text-stone-200'>
                 <Highlight text={src} query={query} />
               </span>
             ),
           },
           {
-            title: '特別說明',
+            title: '注意事項',
             dataIndex: 'note',
             key: 'note',
             render: (note: string) =>
               note ? (
-                <span className='text-xs text-amber-400/90'>
-                  ⚠ <Highlight text={note} query={query} />
+                <span className='text-xs text-gold-300/90'>
+                  <Highlight text={note} query={query} />
                 </span>
               ) : null,
           },
         ]}
         renderCard={(it) => (
-          <div className='rounded-xl border border-white/5 bg-zinc-900/60 p-3 text-xs'>
-            <div className='mb-1.5 flex items-center gap-2'>
-              <Tag color='cyan' className='!m-0 font-mono'>
-                {it.island ?? (it.id ? `#${it.id}` : '-')}
-              </Tag>
-              <span className='font-medium text-zinc-200'>
+          <div className='surface p-3 text-xs'>
+            <div className='flex items-baseline gap-2'>
+              <span className='meta-tag shrink-0 font-mono'>
+                {it.island ?? (it.id ? `#${it.id}` : '—')}
+              </span>
+              <span className='font-medium text-stone-200'>
                 <Highlight text={it.source} query={query} />
               </span>
             </div>
             {it.note && (
-              <p className='mt-1 border-l border-amber-500/30 pl-2 text-amber-400/80'>
-                {it.note}
+              <p className='mt-2 border-l-2 border-gold-500/50 pl-2 text-gold-300/85'>
+                <Highlight text={it.note} query={query} />
               </p>
             )}
           </div>

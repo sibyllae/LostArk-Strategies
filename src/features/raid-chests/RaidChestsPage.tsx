@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Alert, Button, Card, Segmented, Switch, Tag } from 'antd';
-import { GoldOutlined, InfoCircleOutlined, TrophyOutlined } from '@ant-design/icons';
+import { Alert, Button, Segmented, Switch } from 'antd';
 import EmptyResult from '@/components/ui/EmptyResult';
 import Highlight from '@/components/ui/Highlight';
 import PageHeader from '@/components/ui/PageHeader';
@@ -67,7 +66,7 @@ export default function RaidChestsPage() {
           />
         </div>
         <Segmented
-          size='large'
+          size='middle'
           value={tier}
           onChange={(v) => setTier(v as TierFilter)}
           options={[
@@ -77,7 +76,7 @@ export default function RaidChestsPage() {
           ]}
         />
         <Segmented
-          size='large'
+          size='middle'
           value={difficulty}
           onChange={(v) => setDifficulty(v as DifficultyFilter)}
           options={[
@@ -92,7 +91,7 @@ export default function RaidChestsPage() {
         {filteredRaids.length === 0 ? (
           <EmptyResult query={query} onReset={resetAll} />
         ) : (
-          <div className='space-y-6'>
+          <div className='space-y-5'>
             {filteredRaids.map((raid) => (
               <RaidCard key={`${raid.nameEn}-${raid.difficulty ?? '普通'}`} raid={raid} query={query} />
             ))}
@@ -101,10 +100,10 @@ export default function RaidChestsPage() {
               <Alert
                 type='info'
                 showIcon
-                className='!border-white/10 !bg-zinc-900/60 text-zinc-300'
+                className='!border-obsidian-700 !bg-obsidian-900 text-stone-300'
                 title='軍團長與襲擊戰注意事項'
                 description={
-                  <ul className='mt-2 list-disc space-y-1 pl-4 text-xs text-zinc-400'>
+                  <ul className='mt-2 list-disc space-y-1 pl-4 text-xs text-stone-400'>
                     {data.notes.map((note, idx) => (
                       <li key={idx}>{note}</li>
                     ))}
@@ -147,173 +146,195 @@ function RaidCard({ raid, query }: { raid: RaidInfo; query: string }) {
   }));
 
   return (
-    <Card
-      className='rounded-2xl !border-white/10 !bg-zinc-900/60 backdrop-blur-sm'
-      title={
-        <div className='flex flex-wrap items-center justify-between gap-2 py-1'>
-          <div className='flex flex-wrap items-center gap-2'>
-            <TrophyOutlined className='text-xl text-amber-400' />
-            <span className='text-lg font-bold text-zinc-100'>
-              <Highlight text={raid.name} query={query} />
-            </span>
-            <span className='text-xs font-normal text-zinc-500'>
-              <Highlight text={raid.nameEn} query={query} />
-            </span>
-            {raid.tier && (
-              <Tag color={raid.tier === 'T4' ? 'purple' : 'blue'} className='!m-0'>
-                {raid.tier}
-              </Tag>
-            )}
-            {raid.difficulty && (
-              <Tag color={raid.difficulty === '困難' ? 'red' : 'default'} className='!m-0'>
-                {raid.difficulty}
-              </Tag>
-            )}
-          </div>
-          <div className='flex items-center gap-2'>
-            <Button
-              size='small'
-              type={openCount === raid.gates.length ? 'default' : 'text'}
-              onClick={() => setAll(true)}
-              className='text-xs'
+    <section className='surface overflow-hidden'>
+      {/* 標題列 */}
+      <div className='flex flex-wrap items-center justify-between gap-2 border-b border-obsidian-700/80 bg-obsidian-850/80 px-4 py-3'>
+        <div className='flex flex-wrap items-center gap-2'>
+          <h2 className='text-base font-bold text-stone-100'>
+            <Highlight text={raid.name} query={query} />
+          </h2>
+          <span className='font-mono text-xs text-stone-500'>
+            <Highlight text={raid.nameEn} query={query} />
+          </span>
+          {raid.tier && (
+            <span
+              className={cx(
+                'rounded border px-1.5 py-0 text-[11px] font-mono font-medium',
+                raid.tier === 'T4'
+                  ? 'border-gold-500/40 bg-gold-500/15 text-gold-300'
+                  : 'border-obsidian-700 bg-obsidian-950 text-stone-400'
+              )}
             >
-              全開箱
-            </Button>
-            <Button
-              size='small'
-              type={openCount === 0 ? 'default' : 'text'}
-              onClick={() => setAll(false)}
-              className='text-xs'
+              {raid.tier}
+            </span>
+          )}
+          {raid.difficulty && (
+            <span
+              className={cx(
+                'rounded border px-1.5 py-0 text-[11px] font-medium',
+                raid.difficulty === '困難'
+                  ? 'border-red-500/35 bg-red-500/10 text-red-300'
+                  : 'border-obsidian-700 bg-obsidian-950 text-stone-400'
+              )}
             >
-              全不開
-            </Button>
-            <Tag color='orange' className='!m-0 font-semibold'>
-              裝等 {raid.ilvl}
-            </Tag>
-          </div>
+              {raid.difficulty}
+            </span>
+          )}
+          <span className='meta-tag font-mono text-[11px] tabular-nums'>
+            裝等 {raid.ilvl}
+          </span>
         </div>
-      }
-    >
-      {/* 動態收益指標 */}
-      <div className='mb-6 grid grid-cols-2 gap-3 lg:grid-cols-4'>
-        <div className='rounded-xl border border-white/5 bg-zinc-950/60 p-3'>
-          <p className='mb-1 text-[11px] text-zinc-500'>通關總金幣</p>
-          <p className='flex items-center gap-1.5 font-mono text-lg font-bold text-amber-400'>
-            <GoldOutlined /> {raid.totalGold.toLocaleString()} G
-          </p>
-        </div>
-        <div className='rounded-xl border border-white/5 bg-zinc-950/60 p-3'>
-          <p className='mb-1 text-[11px] text-zinc-500'>
-            開箱成本（{openCount}/{raid.gates.length} 關）
-          </p>
-          <p className='font-mono text-lg font-bold text-red-400'>
-            {selectedChestCost > 0 ? `-${selectedChestCost.toLocaleString()} G` : '0 G'}
-          </p>
-        </div>
-        <div className='rounded-xl border border-white/5 bg-zinc-950/60 p-3'>
-          <p className='mb-1 text-[11px] text-zinc-500'>實得淨收入</p>
-          <p className='font-mono text-lg font-bold text-emerald-400'>
-            +{netGold.toLocaleString()} G
-          </p>
-        </div>
-        <div className='rounded-xl border border-white/5 bg-zinc-950/60 p-3'>
-          <p className='mb-1 text-[11px] text-zinc-500'>金幣留存率</p>
-          <p className='font-mono text-lg font-bold text-sky-400'>{profitRate}%</p>
+
+        <div className='flex items-center gap-1.5'>
+          <Button
+            size='small'
+            type={openCount === raid.gates.length ? 'default' : 'text'}
+            onClick={() => setAll(true)}
+            className='text-xs'
+          >
+            全開箱
+          </Button>
+          <Button
+            size='small'
+            type={openCount === 0 ? 'default' : 'text'}
+            onClick={() => setAll(false)}
+            className='text-xs'
+          >
+            全不開
+          </Button>
         </div>
       </div>
+
+      {/* 橫向帳本式收益摘要 */}
+      <dl className='grid grid-cols-2 divide-x divide-y divide-obsidian-700/70 border-b border-obsidian-700/70 bg-obsidian-950/50 lg:grid-cols-4 lg:divide-y-0'>
+        <div className='px-4 py-2.5'>
+          <dt className='text-[11px] text-stone-500'>通關總金幣</dt>
+          <dd className='mt-0.5 font-mono text-base font-semibold tabular-nums text-gold-300'>
+            {raid.totalGold.toLocaleString()} G
+          </dd>
+        </div>
+        <div className='px-4 py-2.5'>
+          <dt className='text-[11px] text-stone-500'>
+            開箱花費（{openCount}/{raid.gates.length} 關）
+          </dt>
+          <dd className='mt-0.5 font-mono text-base font-semibold tabular-nums text-red-400'>
+            {selectedChestCost > 0 ? `-${selectedChestCost.toLocaleString()} G` : '0 G'}
+          </dd>
+        </div>
+        <div className='px-4 py-2.5'>
+          <dt className='text-[11px] text-stone-500'>實得淨收入</dt>
+          <dd className='mt-0.5 font-mono text-base font-semibold tabular-nums text-emerald-400'>
+            +{netGold.toLocaleString()} G
+          </dd>
+        </div>
+        <div className='px-4 py-2.5'>
+          <dt className='text-[11px] text-stone-500'>金幣留存率</dt>
+          <dd className='mt-0.5 font-mono text-base font-semibold tabular-nums text-stone-200'>
+            {profitRate}%
+          </dd>
+        </div>
+      </dl>
 
       {/* 關卡明細 */}
-      <ResponsiveList
-        data={gates}
-        columns={[
-          { title: '關卡', dataIndex: 'gate', key: 'gate', width: 96 },
-          {
-            title: '通關金幣',
-            dataIndex: 'goldReward',
-            key: 'goldReward',
-            width: 130,
-            render: (v: number) => (
-              <span className='font-mono font-bold text-amber-400'>+{v.toLocaleString()} G</span>
-            ),
-          },
-          {
-            title: '開箱花費',
-            dataIndex: 'chestCost',
-            key: 'chestCost',
-            width: 130,
-            render: (v: number, row) => (
-              <span
-                className={cx(
-                  'font-mono transition-opacity',
-                  row.opened ? 'text-red-400' : 'text-zinc-600 line-through'
-                )}
-              >
-                -{v.toLocaleString()} G
-              </span>
-            ),
-          },
-          {
-            title: '額外寶箱內容',
-            dataIndex: 'chestContents',
-            key: 'chestContents',
-            render: (t: string, row) => (
-              <span className={cx('text-xs', row.opened ? 'text-zinc-300' : 'text-zinc-600')}>
-                <Highlight text={t} query={query} />
-              </span>
-            ),
-          },
-          {
-            title: '開箱',
-            key: 'opened',
-            width: 80,
-            align: 'center',
-            render: (_, row) => (
-              <Switch
-                size='small'
-                checked={row.opened}
-                onChange={(checked) => toggleGate(row.index, checked)}
-                aria-label={`${raid.name} ${row.gate} 開箱切換`}
-              />
-            ),
-          },
-        ]}
-        renderCard={(g) => (
-          <div className='rounded-xl border border-white/5 bg-zinc-950/60 p-3 text-xs'>
-            <div className='mb-2 flex items-center justify-between gap-2'>
-              <div className='flex items-center gap-2'>
-                <Tag color='purple' className='!m-0 font-semibold'>
-                  {g.gate}
-                </Tag>
-                <span className='font-mono font-bold text-amber-400'>+{g.goldReward}G</span>
+      <div className='p-4'>
+        <ResponsiveList
+          data={gates}
+          columns={[
+            {
+              title: '關卡',
+              dataIndex: 'gate',
+              key: 'gate',
+              width: 88,
+              render: (v: string) => <span className='font-mono font-medium text-stone-200'>{v}</span>,
+            },
+            {
+              title: '通關金幣',
+              dataIndex: 'goldReward',
+              key: 'goldReward',
+              width: 120,
+              render: (v: number) => (
+                <span className='font-mono font-medium tabular-nums text-gold-300'>
+                  +{v.toLocaleString()} G
+                </span>
+              ),
+            },
+            {
+              title: '開箱花費',
+              dataIndex: 'chestCost',
+              key: 'chestCost',
+              width: 120,
+              render: (v: number, row) => (
                 <span
                   className={cx(
-                    'font-mono font-bold',
-                    g.opened ? 'text-red-400' : 'text-zinc-600 line-through'
+                    'font-mono tabular-nums transition-opacity',
+                    row.opened ? 'text-red-400' : 'text-stone-600 line-through'
                   )}
                 >
-                  -{g.chestCost}G
+                  -{v.toLocaleString()} G
                 </span>
+              ),
+            },
+            {
+              title: '額外寶箱內容',
+              dataIndex: 'chestContents',
+              key: 'chestContents',
+              render: (t: string, row) => (
+                <span className={cx('text-xs', row.opened ? 'text-stone-300' : 'text-stone-600')}>
+                  <Highlight text={t} query={query} />
+                </span>
+              ),
+            },
+            {
+              title: '開箱',
+              key: 'opened',
+              width: 72,
+              align: 'center',
+              render: (_, row) => (
+                <Switch
+                  size='small'
+                  checked={row.opened}
+                  onChange={(checked) => toggleGate(row.index, checked)}
+                  aria-label={`${raid.name} ${row.gate} 開箱切換`}
+                />
+              ),
+            },
+          ]}
+          renderCard={(g) => (
+            <div className='subsurface p-3 text-xs'>
+              <div className='mb-1.5 flex items-center justify-between gap-2'>
+                <div className='flex items-center gap-2.5'>
+                  <span className='meta-tag font-mono'>{g.gate}</span>
+                  <span className='font-mono font-medium tabular-nums text-gold-300'>
+                    +{g.goldReward}G
+                  </span>
+                  <span
+                    className={cx(
+                      'font-mono tabular-nums',
+                      g.opened ? 'text-red-400' : 'text-stone-600 line-through'
+                    )}
+                  >
+                    -{g.chestCost}G
+                  </span>
+                </div>
+                <Switch
+                  size='small'
+                  checked={g.opened}
+                  onChange={(checked) => toggleGate(g.index, checked)}
+                  aria-label={`${raid.name} ${g.gate} 開箱切換`}
+                />
               </div>
-              <Switch
-                size='small'
-                checked={g.opened}
-                onChange={(checked) => toggleGate(g.index, checked)}
-                aria-label={`${raid.name} ${g.gate} 開箱切換`}
-              />
+              <p className={cx('text-[11px]', g.opened ? 'text-stone-400' : 'text-stone-600')}>
+                <Highlight text={g.chestContents} query={query} />
+              </p>
             </div>
-            <p className={cx('text-[11px]', g.opened ? 'text-zinc-400' : 'text-zinc-600')}>
-              <Highlight text={g.chestContents} query={query} />
-            </p>
-          </div>
-        )}
-      />
+          )}
+        />
 
-      <div className='mt-4 flex items-center gap-2 rounded-xl border border-blue-500/20 bg-blue-500/10 p-3 text-xs text-blue-300'>
-        <InfoCircleOutlined className='shrink-0 text-blue-400' />
-        <span>
-          建議決策：<Highlight text={raid.recommendation} query={query} />
-        </span>
+        <p className='mt-3 border-l-2 border-gold-500/60 bg-obsidian-950/60 px-3 py-2 text-xs text-stone-300'>
+          <span className='mr-1.5 font-semibold text-gold-400'>開箱建議</span>
+          <Highlight text={raid.recommendation} query={query} />
+        </p>
       </div>
-    </Card>
+    </section>
   );
 }

@@ -2,7 +2,7 @@ import { useMemo, useRef, useState, type KeyboardEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Empty, Input, Modal, type InputRef } from 'antd';
 import { EnterOutlined, SearchOutlined } from '@ant-design/icons';
-import { ACCENTS, getNavItem, NAV_ITEMS, type Accent } from '@/config/navigation';
+import { getNavItem, NAV_ITEMS } from '@/config/navigation';
 import {
   useGetAdventureBooksQuery,
   useGetFavorabilitiesQuery,
@@ -23,7 +23,6 @@ interface SearchHit {
   title: string;
   subtitle: string;
   to: string;
-  accent: Accent;
   badge: string;
   icon: (typeof NAV_ITEMS)[number]['icon'];
 }
@@ -49,7 +48,6 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
       title: item.title,
       subtitle: item.description,
       to: item.path,
-      accent: item.accent,
       badge: '頁面',
       icon: item.icon,
     }));
@@ -66,7 +64,6 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
         title: f.npc,
         subtitle: `${f.locations.join(' / ')} · 最大好感度 ${f.maxAffinity.toLocaleString()}`,
         to: `${favorNav.path}?q=${encodeURIComponent(f.npc)}`,
-        accent: favorNav.accent,
         badge: '好友度',
         icon: favorNav.icon,
       }));
@@ -80,7 +77,6 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
         title: b.region,
         subtitle: `冒險之書 · ${b.milestones.length} 項關鍵里程碑`,
         to: `${advNav.path}?q=${encodeURIComponent(b.region)}`,
-        accent: advNav.accent,
         badge: '冒險之書',
         icon: advNav.icon,
       }));
@@ -94,7 +90,6 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
         title: `${r.name} (${r.difficulty ?? '普通'})`,
         subtitle: `${r.tier ?? 'T3'} · 裝等 ${r.ilvl} · 通關 ${r.totalGold.toLocaleString()}G`,
         to: `${raidNav.path}?q=${encodeURIComponent(r.name)}`,
-        accent: raidNav.accent,
         badge: '副本',
         icon: raidNav.icon,
       }));
@@ -105,10 +100,9 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
         .filter((s) => matchesQuery(trimmed, s.name, s.source))
         .map((s) => ({
           id: `song-${s.name}`,
-          title: `🎵 ${s.name}`,
+          title: s.name,
           subtitle: s.source,
           to: `${miscNav.path}?q=${encodeURIComponent(s.name)}`,
-          accent: miscNav.accent,
           badge: '樂譜',
           icon: miscNav.icon,
         })),
@@ -119,7 +113,6 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
           title: `${r.rune}符文`,
           subtitle: r.legendary || r.heroic,
           to: `${miscNav.path}?q=${encodeURIComponent(r.rune)}`,
-          accent: miscNav.accent,
           badge: '符文',
           icon: miscNav.icon,
         })),
@@ -134,7 +127,6 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
         title: `${m.continent}流浪商人 (${m.merchant})`,
         subtitle: m.cards,
         to: `${sysNav.path}?tab=merchants&q=${encodeURIComponent(m.continent)}`,
-        accent: sysNav.accent,
         badge: '流浪商人',
         icon: sysNav.icon,
       }));
@@ -166,7 +158,7 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
       onCancel={onClose}
       footer={null}
       closable={false}
-      width={580}
+      width={560}
       title={null}
       afterOpenChange={(visible) => {
         if (visible) {
@@ -181,8 +173,8 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
         ref={inputRef}
         size='large'
         variant='borderless'
-        prefix={<SearchOutlined className='mr-1 text-zinc-500' />}
-        placeholder='搜尋頁面、NPC、大陸、副本或樂譜（例如：莎夏、伐爾坦、巨人心臟）…'
+        prefix={<SearchOutlined className='mr-1 text-stone-500' />}
+        placeholder='搜尋頁面、NPC、大陸、副本或樂譜（例如：莎夏、艾吉爾、巨人心臟）…'
         value={query}
         onChange={(event) => {
           setQuery(event.target.value);
@@ -191,13 +183,12 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
         onKeyDown={onKeyDown}
         aria-label='全站快速搜尋'
       />
-      <div className='my-2 h-px bg-white/5' />
+      <div className='my-2 h-px bg-obsidian-700/80' />
 
       {results.length > 0 ? (
-        <ul role='listbox' aria-label='搜尋結果' className='max-h-80 space-y-1 overflow-y-auto'>
+        <ul role='listbox' aria-label='搜尋結果' className='max-h-80 space-y-0.5 overflow-y-auto'>
           {results.map((hit, index) => {
             const Icon = hit.icon;
-            const accent = ACCENTS[hit.accent];
             const isActive = index === activeIndex;
             return (
               <li key={hit.id} role='option' aria-selected={isActive}>
@@ -206,32 +197,23 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
                   onMouseEnter={() => setActiveIndex(index)}
                   onClick={() => go(hit)}
                   className={cx(
-                    'flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left transition-colors',
-                    isActive ? 'bg-white/[0.07]' : 'hover:bg-white/[0.04]'
+                    'flex w-full items-center gap-3 rounded-md px-3 py-2 text-left transition-colors',
+                    isActive ? 'bg-obsidian-800' : 'hover:bg-obsidian-850'
                   )}
                 >
-                  <span
-                    className={cx(
-                      'grid size-9 shrink-0 place-items-center rounded-lg ring-1',
-                      accent.iconBg,
-                      accent.text,
-                      accent.ring
-                    )}
-                  >
-                    <Icon />
-                  </span>
+                  <Icon className={cx('shrink-0 text-sm', isActive ? 'text-gold-400' : 'text-stone-500')} />
                   <span className='min-w-0 flex-1'>
                     <span className='flex items-center gap-2'>
-                      <span className='truncate text-sm font-medium text-zinc-100'>
+                      <span className='truncate text-sm font-medium text-stone-100'>
                         {hit.title}
                       </span>
-                      <span className='shrink-0 rounded bg-white/5 px-1.5 py-0.5 text-[10px] text-zinc-400'>
+                      <span className='shrink-0 rounded border border-obsidian-700 bg-obsidian-950 px-1.5 py-0 text-[10px] text-stone-400'>
                         {hit.badge}
                       </span>
                     </span>
-                    <span className='block truncate text-xs text-zinc-500'>{hit.subtitle}</span>
+                    <span className='block truncate text-xs text-stone-500'>{hit.subtitle}</span>
                   </span>
-                  {isActive && <EnterOutlined className='shrink-0 text-zinc-500' />}
+                  {isActive && <EnterOutlined className='shrink-0 text-xs text-gold-400' />}
                 </button>
               </li>
             );
@@ -241,7 +223,7 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
         <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description='找不到符合的功能或攻略項目' />
       )}
 
-      <div className='mt-3 flex flex-wrap gap-4 border-t border-white/5 pt-3 text-[11px] text-zinc-500'>
+      <div className='mt-3 flex flex-wrap gap-4 border-t border-obsidian-700/80 pt-2.5 text-[11px] text-stone-500'>
         <span className='flex items-center gap-1'>
           <kbd>↑</kbd>
           <kbd>↓</kbd> 選擇

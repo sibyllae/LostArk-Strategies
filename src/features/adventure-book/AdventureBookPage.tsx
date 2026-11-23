@@ -1,6 +1,4 @@
 import { useMemo } from 'react';
-import { Card, Tag } from 'antd';
-import { ReadOutlined } from '@ant-design/icons';
 import EmptyResult from '@/components/ui/EmptyResult';
 import Highlight from '@/components/ui/Highlight';
 import PageHeader from '@/components/ui/PageHeader';
@@ -40,7 +38,7 @@ export default function AdventureBookPage() {
           <SearchInput
             value={query}
             onChange={setQuery}
-            placeholder='搜尋大陸名稱或里程碑獎勵（如：表情、無聊、聖物）…'
+            placeholder='搜尋大陸名稱或里程碑獎勵（如：表情、技能點、伊格涅亞）…'
           />
         </div>
       </Toolbar>
@@ -62,31 +60,25 @@ export default function AdventureBookPage() {
 
 function AdventureBookCard({ item, query }: { item: AdventureBook; query: string }) {
   return (
-    <Card
-      className='rounded-2xl !border-white/10 !bg-zinc-900/60 backdrop-blur-sm transition-all hover:!border-sky-500/40'
-      title={
-        <div className='flex items-center justify-between gap-2 py-1'>
-          <div className='flex items-center gap-2'>
-            <ReadOutlined className='text-lg text-sky-400' />
-            <span className='text-base font-bold text-zinc-100'>
-              <Highlight text={item.region} query={query} />
-            </span>
-          </div>
-          <span className='text-xs font-normal text-zinc-500'>
-            {item.milestones.length} 項關鍵里程碑
-          </span>
-        </div>
-      }
-    >
-      <div className='grid grid-cols-1 gap-2 sm:grid-cols-2'>
+    <article className='surface overflow-hidden'>
+      <div className='flex items-center justify-between gap-2 border-b border-obsidian-700/70 bg-obsidian-850/70 px-4 py-3'>
+        <h2 className='text-sm font-bold text-stone-100'>
+          <Highlight text={item.region} query={query} />
+        </h2>
+        <span className='font-mono text-xs tabular-nums text-stone-500'>
+          {item.milestones.length} 項里程碑
+        </span>
+      </div>
+
+      <div className='grid grid-cols-1 gap-2 p-3.5 sm:grid-cols-2'>
         {item.milestones.map((m) => (
           <div
             key={m.percent}
-            className='flex items-center gap-2 rounded-xl border border-zinc-800/80 bg-zinc-950/60 px-3 py-2 text-xs'
+            className='subsurface flex items-center gap-2.5 px-2.5 py-2 text-xs'
           >
-            <Tag color='blue' className='!m-0 w-12 shrink-0 text-center font-mono font-bold'>
+            <span className='w-10 shrink-0 text-right font-mono text-xs font-semibold tabular-nums text-gold-400'>
               {m.percent}%
-            </Tag>
+            </span>
             <span
               title={m.reward}
               className={cx('chip min-w-0 break-words font-medium', rewardTone(m.reward))}
@@ -96,6 +88,6 @@ function AdventureBookCard({ item, query }: { item: AdventureBook; query: string
           </div>
         ))}
       </div>
-    </Card>
+    </article>
   );
 }

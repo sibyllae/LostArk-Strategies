@@ -1,17 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Badge, Collapse, Tag, type CollapseProps } from 'antd';
-import {
-  ApartmentOutlined,
-  CalendarOutlined,
-  ClockCircleOutlined,
-  CustomerServiceOutlined,
-  ExperimentOutlined,
-  FireOutlined,
-  IdcardOutlined,
-  RocketOutlined,
-  StarOutlined,
-  ThunderboltOutlined,
-} from '@ant-design/icons';
+import { Button, Collapse, type CollapseProps } from 'antd';
 import EmptyResult from '@/components/ui/EmptyResult';
 import Highlight from '@/components/ui/Highlight';
 import PageHeader from '@/components/ui/PageHeader';
@@ -21,12 +9,35 @@ import SearchInput from '@/components/ui/SearchInput';
 import Toolbar from '@/components/ui/Toolbar';
 import { useSearchQuery } from '@/hooks/useSearchQuery';
 import { useGetMiscGuideQuery } from '@/services/gameApi';
+import { cx } from '@/utils/cx';
 import { matchesQuery } from '@/utils/text';
+
+const SECTION_SHORT_LABELS: Record<string, string> = {
+  songs: '樂譜',
+  skillPoints: '技能點',
+  enlightenmentPoints: '悟性點',
+  runes: '符文',
+  cardSets: '卡組',
+  dailyLimits: '日常限制',
+  dailyQuests: '艾波娜委託',
+  progressionRoadmap: '裝等路線',
+  arkGrid: '方舟星圖',
+  battleItems: '戰鬥道具',
+};
+
+function PanelHeader({ title, count }: { title: string; count: number }) {
+  return (
+    <span className='flex items-center gap-2 text-sm font-semibold text-stone-100'>
+      <span>{title}</span>
+      <span className='font-mono text-xs font-normal tabular-nums text-stone-500'>({count})</span>
+    </span>
+  );
+}
 
 export default function MiscGuidePage() {
   const { data, isLoading, isError, refetch } = useGetMiscGuideQuery();
   const [query, setQuery] = useSearchQuery();
-  const [activeKeys, setActiveKeys] = useState<string[]>(['songs']);
+  const [activeKeys, setActiveKeys] = useState<string[]>(['songs', 'progressionRoadmap']);
 
   const filtered = useMemo(() => {
     if (!data) return null;
@@ -93,439 +104,15 @@ export default function MiscGuidePage() {
     if (!filtered) return [];
 
     const allSections: NonNullable<CollapseProps['items']> = [
-      ...(filtered.songs.length > 0
-        ? [
-            {
-              key: 'songs',
-              label: (
-                <span className='flex items-center gap-2 font-semibold text-zinc-100'>
-                  <CustomerServiceOutlined className='text-purple-400' />
-                  <span>重要樂譜/曲譜取得一覽</span>
-                  <Badge count={filtered.songs.length} style={{ backgroundColor: '#8b5cf6' }} />
-                </span>
-              ),
-              children: (
-                <ResponsiveList
-                  data={filtered.songs.map((s, i) => ({ ...s, key: i }))}
-                  columns={[
-                    {
-                      title: '樂譜名稱',
-                      dataIndex: 'name',
-                      key: 'name',
-                      width: 180,
-                      render: (t: string) => (
-                        <span className='font-bold text-purple-300'>
-                          🎵 <Highlight text={t} query={query} />
-                        </span>
-                      ),
-                    },
-                    {
-                      title: '取得途徑',
-                      dataIndex: 'source',
-                      key: 'source',
-                      render: (t: string) => <Highlight text={t} query={query} />,
-                    },
-                    {
-                      title: '備註',
-                      dataIndex: 'note',
-                      key: 'note',
-                      render: (n: string) =>
-                        n ? (
-                          <span className='text-xs text-amber-400/90'>
-                            ⚠ <Highlight text={n} query={query} />
-                          </span>
-                        ) : null,
-                    },
-                  ]}
-                  renderCard={(s) => (
-                    <div className='space-y-1 rounded-xl border border-white/5 bg-zinc-900/60 p-3 text-xs'>
-                      <span className='block text-sm font-bold text-purple-300'>
-                        🎵 <Highlight text={s.name} query={query} />
-                      </span>
-                      <p className='text-zinc-300'>
-                        <Highlight text={s.source} query={query} />
-                      </p>
-                      {s.note && (
-                        <p className='text-amber-400/80'>
-                          ⚠ <Highlight text={s.note} query={query} />
-                        </p>
-                      )}
-                    </div>
-                  )}
-                />
-              ),
-            },
-          ]
-        : []),
-      ...(filtered.skillPoints.length > 0
-        ? [
-            {
-              key: 'skillPoints',
-              label: (
-                <span className='flex items-center gap-2 font-semibold text-zinc-100'>
-                  <ThunderboltOutlined className='text-yellow-400' />
-                  <span>技能點數 (+3) 任務清單</span>
-                  <Badge
-                    count={filtered.skillPoints.length}
-                    style={{ backgroundColor: '#eab308' }}
-                  />
-                </span>
-              ),
-              children: (
-                <div className='grid gap-2 sm:grid-cols-2'>
-                  {filtered.skillPoints.map((sp, idx) => (
-                    <div
-                      key={idx}
-                      className='flex items-start gap-3 rounded-xl border border-white/5 bg-zinc-900/60 p-3 text-xs'
-                    >
-                      <Tag color='gold' className='!m-0 shrink-0 font-mono font-bold'>
-                        #{idx + 1}
-                      </Tag>
-                      <div>
-                        <p className='font-medium text-zinc-200'>
-                          <Highlight text={sp.task} query={query} />
-                        </p>
-                        {sp.note && (
-                          <p className='mt-1 text-[11px] text-amber-400/80'>
-                            ⚠ <Highlight text={sp.note} query={query} />
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ),
-            },
-          ]
-        : []),
-      ...(filtered.enlightenmentPoints.length > 0
-        ? [
-            {
-              key: 'enlightenmentPoints',
-              label: (
-                <span className='flex items-center gap-2 font-semibold text-zinc-100'>
-                  <StarOutlined className='text-amber-400' />
-                  <span>T4 悟性點數 (方舟被動) 取得來源</span>
-                  <Badge
-                    count={filtered.enlightenmentPoints.length}
-                    style={{ backgroundColor: '#f59e0b' }}
-                  />
-                </span>
-              ),
-              children: (
-                <div className='grid gap-2 sm:grid-cols-2'>
-                  {filtered.enlightenmentPoints.map((ep, idx) => (
-                    <div
-                      key={idx}
-                      className='flex items-start gap-3 rounded-xl border border-white/5 bg-zinc-900/60 p-3 text-xs'
-                    >
-                      <Tag color='orange' className='!m-0 shrink-0 font-mono font-bold'>
-                        #{idx + 1}
-                      </Tag>
-                      <div>
-                        <p className='font-medium text-zinc-200'>
-                          <Highlight text={ep.task} query={query} />
-                        </p>
-                        {ep.note && (
-                          <p className='mt-1 text-[11px] text-amber-400/80'>
-                            ⚠ <Highlight text={ep.note} query={query} />
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ),
-            },
-          ]
-        : []),
-      ...(filtered.runes.length > 0
-        ? [
-            {
-              key: 'runes',
-              label: (
-                <span className='flex items-center gap-2 font-semibold text-zinc-100'>
-                  <ExperimentOutlined className='text-cyan-400' />
-                  <span>高階技能符文取得方式 (英雄/傳說)</span>
-                  <Badge count={filtered.runes.length} style={{ backgroundColor: '#06b6d4' }} />
-                </span>
-              ),
-              children: (
-                <ResponsiveList
-                  data={filtered.runes.map((r, i) => ({ ...r, key: i }))}
-                  columns={[
-                    {
-                      title: '符文',
-                      dataIndex: 'rune',
-                      key: 'rune',
-                      width: 100,
-                      render: (r: string) => (
-                        <Tag color='cyan' className='font-bold'>
-                          <Highlight text={r} query={query} />
-                        </Tag>
-                      ),
-                    },
-                    {
-                      title: '英雄等級',
-                      dataIndex: 'heroic',
-                      key: 'heroic',
-                      render: (v: string) => (
-                        <span className='text-xs text-purple-300'>
-                          {v ? <Highlight text={v} query={query} /> : '-'}
-                        </span>
-                      ),
-                    },
-                    {
-                      title: '傳說等級',
-                      dataIndex: 'legendary',
-                      key: 'legendary',
-                      render: (v: string) => (
-                        <span className='text-xs font-medium text-amber-300'>
-                          {v ? <Highlight text={v} query={query} /> : '-'}
-                        </span>
-                      ),
-                    },
-                    {
-                      title: '備註說明',
-                      dataIndex: 'legendaryNote',
-                      key: 'legendaryNote',
-                      render: (v: string) => (
-                        <span className='text-xs text-zinc-500'>
-                          {v ? <Highlight text={v} query={query} /> : '-'}
-                        </span>
-                      ),
-                    },
-                  ]}
-                  renderCard={(r) => (
-                    <div className='space-y-1.5 rounded-xl border border-white/5 bg-zinc-900/60 p-3 text-xs'>
-                      <Tag color='cyan' className='!m-0 font-bold'>
-                        <Highlight text={r.rune} query={query} />
-                      </Tag>
-                      {r.heroic && (
-                        <p className='text-purple-300'>
-                          <span className='text-zinc-500'>英雄：</span>
-                          <Highlight text={r.heroic} query={query} />
-                        </p>
-                      )}
-                      {r.legendary && (
-                        <p className='text-amber-300'>
-                          <span className='text-zinc-500'>傳說：</span>
-                          <Highlight text={r.legendary} query={query} />
-                        </p>
-                      )}
-                      {r.legendaryNote && (
-                        <p className='text-[11px] text-zinc-500'>
-                          <Highlight text={r.legendaryNote} query={query} />
-                        </p>
-                      )}
-                    </div>
-                  )}
-                />
-              ),
-            },
-          ]
-        : []),
-      ...(filtered.cardSets.length > 0
-        ? [
-            {
-              key: 'cardSets',
-              label: (
-                <span className='flex items-center gap-2 font-semibold text-zinc-100'>
-                  <IdcardOutlined className='text-rose-400' />
-                  <span>核心實用卡牌組合推薦</span>
-                  <Badge count={filtered.cardSets.length} style={{ backgroundColor: '#f43f5e' }} />
-                </span>
-              ),
-              children: (
-                <div className='space-y-6'>
-                  {filtered.cardSets.map((cs, i) => (
-                    <div key={i} className='rounded-2xl border border-white/5 bg-zinc-900/40 p-4'>
-                      <h3 className='mb-3 flex items-center gap-2 text-base font-bold text-zinc-100'>
-                        <span className='size-2 rounded-full bg-rose-400' />
-                        <Highlight text={cs.setName} query={query} />
-                      </h3>
-                      <div className='grid gap-2 sm:grid-cols-2 lg:grid-cols-3'>
-                        {cs.cards.map((card, ci) => (
-                          <div
-                            key={ci}
-                            className='flex items-center gap-2 rounded-xl border border-white/5 bg-zinc-950/60 p-2.5 text-xs'
-                          >
-                            <Tag color='magenta' className='!m-0 shrink-0 font-medium'>
-                              <Highlight text={card.name} query={query} />
-                            </Tag>
-                            <span className='truncate text-zinc-400' title={card.source}>
-                              <Highlight text={card.source} query={query} />
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ),
-            },
-          ]
-        : []),
-      ...(filtered.dailyLimits.length > 0
-        ? [
-            {
-              key: 'dailyLimits',
-              label: (
-                <span className='flex items-center gap-2 font-semibold text-zinc-100'>
-                  <ClockCircleOutlined className='text-orange-400' />
-                  <span>日常週期與次數限制</span>
-                  <Badge
-                    count={filtered.dailyLimits.length}
-                    style={{ backgroundColor: '#f97316' }}
-                  />
-                </span>
-              ),
-              children: (
-                <ResponsiveList
-                  data={filtered.dailyLimits.map((dl, i) => ({ ...dl, key: i }))}
-                  columns={[
-                    {
-                      title: '遊戲內容',
-                      dataIndex: 'content',
-                      key: 'content',
-                      width: 200,
-                      render: (t: string) => <Highlight text={t} query={query} />,
-                    },
-                    {
-                      title: '次數限制',
-                      dataIndex: 'limit',
-                      key: 'limit',
-                      width: 180,
-                      render: (v: string) => (
-                        <Tag color='orange'>
-                          <Highlight text={v} query={query} />
-                        </Tag>
-                      ),
-                    },
-                    {
-                      title: '說明',
-                      dataIndex: 'note',
-                      key: 'note',
-                      render: (t: string) => <Highlight text={t} query={query} />,
-                    },
-                  ]}
-                  renderCard={(dl) => (
-                    <div className='flex items-center justify-between gap-3 rounded-xl border border-white/5 bg-zinc-900/60 p-3 text-xs'>
-                      <div>
-                        <span className='block font-semibold text-zinc-200'>
-                          <Highlight text={dl.content} query={query} />
-                        </span>
-                        <span className='text-[11px] text-zinc-500'>
-                          <Highlight text={dl.note} query={query} />
-                        </span>
-                      </div>
-                      <Tag color='orange' className='!m-0 shrink-0'>
-                        <Highlight text={dl.limit} query={query} />
-                      </Tag>
-                    </div>
-                  )}
-                />
-              ),
-            },
-          ]
-        : []),
-      ...(filtered.dailyQuests.length > 0
-        ? [
-            {
-              key: 'dailyQuests',
-              label: (
-                <span className='flex items-center gap-2 font-semibold text-zinc-100'>
-                  <CalendarOutlined className='text-emerald-400' />
-                  <span>艾波娜每日委託聲望推薦</span>
-                  <Badge
-                    count={filtered.dailyQuests.length}
-                    style={{ backgroundColor: '#10b981' }}
-                  />
-                </span>
-              ),
-              children: (
-                <ResponsiveList
-                  data={filtered.dailyQuests.map((dq, i) => ({ ...dq, key: i }))}
-                  scrollX={760}
-                  columns={[
-                    {
-                      title: '委託名稱',
-                      dataIndex: 'name',
-                      key: 'name',
-                      width: 180,
-                      render: (t: string) => <Highlight text={t} query={query} />,
-                    },
-                    {
-                      title: '地點',
-                      dataIndex: 'location',
-                      key: 'location',
-                      width: 140,
-                      render: (t: string) => <Highlight text={t} query={query} />,
-                    },
-                    {
-                      title: '每日回報',
-                      dataIndex: 'dailyReward',
-                      key: 'dailyReward',
-                      width: 120,
-                      render: (t: string) => <Highlight text={t} query={query} />,
-                    },
-                    {
-                      title: '聲望終極獎勵',
-                      dataIndex: 'reputationReward',
-                      key: 'reputationReward',
-                      render: (t: string) => <Highlight text={t} query={query} />,
-                    },
-                    {
-                      title: '需求天數',
-                      dataIndex: 'requiredDays',
-                      key: 'requiredDays',
-                      width: 100,
-                      render: (d: number) => (d > 0 ? <Tag color='green'>{d}天</Tag> : '-'),
-                    },
-                  ]}
-                  renderCard={(dq) => (
-                    <div className='space-y-1.5 rounded-xl border border-white/5 bg-zinc-900/60 p-3 text-xs'>
-                      <div className='flex items-center justify-between'>
-                        <span className='font-bold text-emerald-300'>
-                          <Highlight text={dq.name} query={query} />
-                        </span>
-                        {dq.requiredDays > 0 && (
-                          <Tag color='green' className='!m-0'>
-                            {dq.requiredDays}天
-                          </Tag>
-                        )}
-                      </div>
-                      <p className='text-zinc-400'>
-                        📍 <Highlight text={dq.location} query={query} />
-                      </p>
-                      <p className='text-zinc-300'>
-                        每日：<Highlight text={dq.dailyReward} query={query} />
-                      </p>
-                      {dq.reputationReward && (
-                        <p className='font-medium text-amber-300'>
-                          🏆 聲望獎勵：<Highlight text={dq.reputationReward} query={query} />
-                        </p>
-                      )}
-                    </div>
-                  )}
-                />
-              ),
-            },
-          ]
-        : []),
       ...(filtered.progressionRoadmap.length > 0
         ? [
             {
               key: 'progressionRoadmap',
               label: (
-                <span className='flex items-center gap-2 font-semibold text-zinc-100'>
-                  <RocketOutlined className='text-sky-400' />
-                  <span>裝等養成與系統解鎖路線 (1415 → 1730)</span>
-                  <Badge
-                    count={filtered.progressionRoadmap.length}
-                    style={{ backgroundColor: '#0ea5e9' }}
-                  />
-                </span>
+                <PanelHeader
+                  title='裝等養成與系統解鎖路線 (1415 → 1730)'
+                  count={filtered.progressionRoadmap.length}
+                />
               ),
               children: (
                 <ResponsiveList
@@ -535,11 +122,11 @@ export default function MiscGuidePage() {
                       title: '裝等區間',
                       dataIndex: 'ilvl',
                       key: 'ilvl',
-                      width: 130,
+                      width: 120,
                       render: (t: string) => (
-                        <Tag color='blue' className='font-mono font-bold'>
+                        <span className='meta-tag font-mono text-gold-300'>
                           <Highlight text={t} query={query} />
-                        </Tag>
+                        </span>
                       ),
                     },
                     {
@@ -547,7 +134,7 @@ export default function MiscGuidePage() {
                       dataIndex: 'milestone',
                       key: 'milestone',
                       render: (t: string) => (
-                        <span className='font-medium text-zinc-100'>
+                        <span className='font-medium text-stone-100'>
                           <Highlight text={t} query={query} />
                         </span>
                       ),
@@ -567,28 +154,415 @@ export default function MiscGuidePage() {
                       dataIndex: 'note',
                       key: 'note',
                       render: (n: string) => (
-                        <span className='text-xs text-zinc-400'>
+                        <span className='text-xs text-stone-400'>
                           <Highlight text={n} query={query} />
                         </span>
                       ),
                     },
                   ]}
                   renderCard={(p) => (
-                    <div className='space-y-1.5 rounded-xl border border-white/5 bg-zinc-900/60 p-3 text-xs'>
+                    <div className='subsurface space-y-1.5 p-3 text-xs'>
                       <div className='flex items-center justify-between gap-2'>
-                        <Tag color='blue' className='!m-0 font-mono font-bold'>
+                        <span className='meta-tag font-mono text-gold-300'>
                           <Highlight text={p.ilvl} query={query} />
-                        </Tag>
-                        <span className='font-semibold text-sky-300'>
+                        </span>
+                        <span className='font-medium text-sky-300'>
                           <Highlight text={p.system} query={query} />
                         </span>
                       </div>
-                      <p className='font-medium text-zinc-200'>
+                      <p className='font-medium text-stone-200'>
                         <Highlight text={p.milestone} query={query} />
                       </p>
-                      <p className='text-[11px] text-zinc-400'>
+                      <p className='text-[11px] text-stone-400'>
                         <Highlight text={p.note} query={query} />
                       </p>
+                    </div>
+                  )}
+                />
+              ),
+            },
+          ]
+        : []),
+      ...(filtered.songs.length > 0
+        ? [
+            {
+              key: 'songs',
+              label: <PanelHeader title='重要樂譜／曲譜取得一覽' count={filtered.songs.length} />,
+              children: (
+                <ResponsiveList
+                  data={filtered.songs.map((s, i) => ({ ...s, key: i }))}
+                  columns={[
+                    {
+                      title: '樂譜名稱',
+                      dataIndex: 'name',
+                      key: 'name',
+                      width: 180,
+                      render: (t: string) => (
+                        <span className='font-semibold text-stone-100'>
+                          <Highlight text={t} query={query} />
+                        </span>
+                      ),
+                    },
+                    {
+                      title: '取得途徑',
+                      dataIndex: 'source',
+                      key: 'source',
+                      render: (t: string) => (
+                        <span className='text-stone-300'>
+                          <Highlight text={t} query={query} />
+                        </span>
+                      ),
+                    },
+                    {
+                      title: '備註',
+                      dataIndex: 'note',
+                      key: 'note',
+                      render: (n: string) =>
+                        n ? (
+                          <span className='text-xs text-gold-300/90'>
+                            <Highlight text={n} query={query} />
+                          </span>
+                        ) : null,
+                    },
+                  ]}
+                  renderCard={(s) => (
+                    <div className='subsurface space-y-1 p-3 text-xs'>
+                      <span className='block text-sm font-semibold text-stone-100'>
+                        <Highlight text={s.name} query={query} />
+                      </span>
+                      <p className='text-stone-300'>
+                        <Highlight text={s.source} query={query} />
+                      </p>
+                      {s.note && (
+                        <p className='text-gold-300/85'>
+                          <Highlight text={s.note} query={query} />
+                        </p>
+                      )}
+                    </div>
+                  )}
+                />
+              ),
+            },
+          ]
+        : []),
+      ...(filtered.skillPoints.length > 0
+        ? [
+            {
+              key: 'skillPoints',
+              label: <PanelHeader title='技能點數 (+3) 任務清單' count={filtered.skillPoints.length} />,
+              children: (
+                <div className='grid gap-2 sm:grid-cols-2'>
+                  {filtered.skillPoints.map((sp, idx) => (
+                    <div key={idx} className='subsurface flex items-start gap-2.5 p-3 text-xs'>
+                      <span className='meta-tag shrink-0 font-mono text-[11px] tabular-nums'>
+                        #{idx + 1}
+                      </span>
+                      <div>
+                        <p className='font-medium text-stone-200'>
+                          <Highlight text={sp.task} query={query} />
+                        </p>
+                        {sp.note && (
+                          <p className='mt-1 text-[11px] text-gold-300/85'>
+                            <Highlight text={sp.note} query={query} />
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ),
+            },
+          ]
+        : []),
+      ...(filtered.enlightenmentPoints.length > 0
+        ? [
+            {
+              key: 'enlightenmentPoints',
+              label: (
+                <PanelHeader
+                  title='T4 悟性點數 (方舟被動) 取得來源'
+                  count={filtered.enlightenmentPoints.length}
+                />
+              ),
+              children: (
+                <div className='grid gap-2 sm:grid-cols-2'>
+                  {filtered.enlightenmentPoints.map((ep, idx) => (
+                    <div key={idx} className='subsurface flex items-start gap-2.5 p-3 text-xs'>
+                      <span className='meta-tag shrink-0 font-mono text-[11px] tabular-nums text-gold-300'>
+                        #{idx + 1}
+                      </span>
+                      <div>
+                        <p className='font-medium text-stone-200'>
+                          <Highlight text={ep.task} query={query} />
+                        </p>
+                        {ep.note && (
+                          <p className='mt-1 text-[11px] text-gold-300/85'>
+                            <Highlight text={ep.note} query={query} />
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ),
+            },
+          ]
+        : []),
+      ...(filtered.runes.length > 0
+        ? [
+            {
+              key: 'runes',
+              label: <PanelHeader title='高階技能符文取得方式 (英雄／傳說)' count={filtered.runes.length} />,
+              children: (
+                <ResponsiveList
+                  data={filtered.runes.map((r, i) => ({ ...r, key: i }))}
+                  columns={[
+                    {
+                      title: '符文',
+                      dataIndex: 'rune',
+                      key: 'rune',
+                      width: 100,
+                      render: (r: string) => (
+                        <span className='meta-tag font-semibold'>
+                          <Highlight text={r} query={query} />
+                        </span>
+                      ),
+                    },
+                    {
+                      title: '英雄等級',
+                      dataIndex: 'heroic',
+                      key: 'heroic',
+                      render: (v: string) => (
+                        <span className='text-xs text-purple-300'>
+                          {v ? <Highlight text={v} query={query} /> : '—'}
+                        </span>
+                      ),
+                    },
+                    {
+                      title: '傳說等級',
+                      dataIndex: 'legendary',
+                      key: 'legendary',
+                      render: (v: string) => (
+                        <span className='text-xs font-medium text-gold-300'>
+                          {v ? <Highlight text={v} query={query} /> : '—'}
+                        </span>
+                      ),
+                    },
+                    {
+                      title: '備註說明',
+                      dataIndex: 'legendaryNote',
+                      key: 'legendaryNote',
+                      render: (v: string) => (
+                        <span className='text-xs text-stone-500'>
+                          {v ? <Highlight text={v} query={query} /> : '—'}
+                        </span>
+                      ),
+                    },
+                  ]}
+                  renderCard={(r) => (
+                    <div className='subsurface space-y-1.5 p-3 text-xs'>
+                      <span className='meta-tag font-semibold'>
+                        <Highlight text={r.rune} query={query} />
+                      </span>
+                      {r.heroic && (
+                        <p className='text-purple-300'>
+                          <span className='text-stone-500'>英雄：</span>
+                          <Highlight text={r.heroic} query={query} />
+                        </p>
+                      )}
+                      {r.legendary && (
+                        <p className='text-gold-300'>
+                          <span className='text-stone-500'>傳說：</span>
+                          <Highlight text={r.legendary} query={query} />
+                        </p>
+                      )}
+                      {r.legendaryNote && (
+                        <p className='text-[11px] text-stone-500'>
+                          <Highlight text={r.legendaryNote} query={query} />
+                        </p>
+                      )}
+                    </div>
+                  )}
+                />
+              ),
+            },
+          ]
+        : []),
+      ...(filtered.cardSets.length > 0
+        ? [
+            {
+              key: 'cardSets',
+              label: <PanelHeader title='核心實用卡牌組合推薦' count={filtered.cardSets.length} />,
+              children: (
+                <div className='space-y-4'>
+                  {filtered.cardSets.map((cs, i) => (
+                    <div key={i} className='subsurface p-3.5'>
+                      <h3 className='mb-2.5 border-l-2 border-gold-500 pl-2 text-sm font-semibold text-stone-100'>
+                        <Highlight text={cs.setName} query={query} />
+                      </h3>
+                      <div className='grid gap-2 sm:grid-cols-2 lg:grid-cols-3'>
+                        {cs.cards.map((card, ci) => (
+                          <div
+                            key={ci}
+                            className='flex items-center gap-2 rounded border border-obsidian-700/70 bg-obsidian-900 px-2.5 py-2 text-xs'
+                          >
+                            <span className='shrink-0 font-medium text-gold-300'>
+                              <Highlight text={card.name} query={query} />
+                            </span>
+                            <span className='truncate text-stone-400' title={card.source}>
+                              <Highlight text={card.source} query={query} />
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ),
+            },
+          ]
+        : []),
+      ...(filtered.dailyLimits.length > 0
+        ? [
+            {
+              key: 'dailyLimits',
+              label: <PanelHeader title='日常週期與次數限制' count={filtered.dailyLimits.length} />,
+              children: (
+                <ResponsiveList
+                  data={filtered.dailyLimits.map((dl, i) => ({ ...dl, key: i }))}
+                  columns={[
+                    {
+                      title: '遊戲內容',
+                      dataIndex: 'content',
+                      key: 'content',
+                      width: 200,
+                      render: (t: string) => (
+                        <span className='font-medium text-stone-100'>
+                          <Highlight text={t} query={query} />
+                        </span>
+                      ),
+                    },
+                    {
+                      title: '次數限制',
+                      dataIndex: 'limit',
+                      key: 'limit',
+                      width: 170,
+                      render: (v: string) => (
+                        <span className='meta-tag text-gold-300'>
+                          <Highlight text={v} query={query} />
+                        </span>
+                      ),
+                    },
+                    {
+                      title: '說明',
+                      dataIndex: 'note',
+                      key: 'note',
+                      render: (t: string) => (
+                        <span className='text-stone-300'>
+                          <Highlight text={t} query={query} />
+                        </span>
+                      ),
+                    },
+                  ]}
+                  renderCard={(dl) => (
+                    <div className='subsurface flex items-center justify-between gap-3 p-3 text-xs'>
+                      <div>
+                        <span className='block font-semibold text-stone-200'>
+                          <Highlight text={dl.content} query={query} />
+                        </span>
+                        <span className='text-[11px] text-stone-500'>
+                          <Highlight text={dl.note} query={query} />
+                        </span>
+                      </div>
+                      <span className='meta-tag shrink-0 text-gold-300'>
+                        <Highlight text={dl.limit} query={query} />
+                      </span>
+                    </div>
+                  )}
+                />
+              ),
+            },
+          ]
+        : []),
+      ...(filtered.dailyQuests.length > 0
+        ? [
+            {
+              key: 'dailyQuests',
+              label: <PanelHeader title='艾波娜每日委託聲望推薦' count={filtered.dailyQuests.length} />,
+              children: (
+                <ResponsiveList
+                  data={filtered.dailyQuests.map((dq, i) => ({ ...dq, key: i }))}
+                  scrollX={760}
+                  columns={[
+                    {
+                      title: '委託名稱',
+                      dataIndex: 'name',
+                      key: 'name',
+                      width: 180,
+                      render: (t: string) => (
+                        <span className='font-medium text-stone-100'>
+                          <Highlight text={t} query={query} />
+                        </span>
+                      ),
+                    },
+                    {
+                      title: '地點',
+                      dataIndex: 'location',
+                      key: 'location',
+                      width: 140,
+                      render: (t: string) => (
+                        <span className='text-stone-400'>
+                          <Highlight text={t} query={query} />
+                        </span>
+                      ),
+                    },
+                    {
+                      title: '每日回報',
+                      dataIndex: 'dailyReward',
+                      key: 'dailyReward',
+                      width: 120,
+                      render: (t: string) => <Highlight text={t} query={query} />,
+                    },
+                    {
+                      title: '聲望終極獎勵',
+                      dataIndex: 'reputationReward',
+                      key: 'reputationReward',
+                      render: (t: string) => (
+                        <span className='text-gold-300'>
+                          <Highlight text={t} query={query} />
+                        </span>
+                      ),
+                    },
+                    {
+                      title: '需求天數',
+                      dataIndex: 'requiredDays',
+                      key: 'requiredDays',
+                      width: 96,
+                      render: (d: number) =>
+                        d > 0 ? <span className='meta-tag font-mono'>{d} 天</span> : '—',
+                    },
+                  ]}
+                  renderCard={(dq) => (
+                    <div className='subsurface space-y-1 p-3 text-xs'>
+                      <div className='flex items-center justify-between gap-2'>
+                        <span className='font-semibold text-stone-100'>
+                          <Highlight text={dq.name} query={query} />
+                        </span>
+                        {dq.requiredDays > 0 && (
+                          <span className='meta-tag font-mono'>{dq.requiredDays} 天</span>
+                        )}
+                      </div>
+                      <p className='text-stone-400'>
+                        地點：<Highlight text={dq.location} query={query} />
+                      </p>
+                      <p className='text-stone-300'>
+                        每日：<Highlight text={dq.dailyReward} query={query} />
+                      </p>
+                      {dq.reputationReward && (
+                        <p className='font-medium text-gold-300'>
+                          聲望獎勵：<Highlight text={dq.reputationReward} query={query} />
+                        </p>
+                      )}
                     </div>
                   )}
                 />
@@ -600,32 +574,20 @@ export default function MiscGuidePage() {
         ? [
             {
               key: 'arkGrid',
-              label: (
-                <span className='flex items-center gap-2 font-semibold text-zinc-100'>
-                  <ApartmentOutlined className='text-indigo-400' />
-                  <span>T4 方舟星圖 (Ark Grid) 機制速查</span>
-                  <Badge
-                    count={filtered.arkGrid.length}
-                    style={{ backgroundColor: '#6366f1' }}
-                  />
-                </span>
-              ),
+              label: <PanelHeader title='T4 方舟星圖 (Ark Grid) 機制速查' count={filtered.arkGrid.length} />,
               children: (
                 <div className='grid gap-2 sm:grid-cols-2'>
                   {filtered.arkGrid.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className='rounded-xl border border-white/5 bg-zinc-900/60 p-3 text-xs'
-                    >
-                      <span className='mb-1 block font-bold text-indigo-300'>
+                    <div key={idx} className='subsurface p-3 text-xs'>
+                      <span className='mb-1 block font-semibold text-gold-300'>
                         <Highlight text={item.topic} query={query} />
                       </span>
-                      <p className='text-zinc-200'>
+                      <p className='text-stone-200'>
                         <Highlight text={item.detail} query={query} />
                       </p>
                       {item.note && (
-                        <p className='mt-1 text-[11px] text-amber-400/80'>
-                          ⚠ <Highlight text={item.note} query={query} />
+                        <p className='mt-1 text-[11px] text-stone-400'>
+                          <Highlight text={item.note} query={query} />
                         </p>
                       )}
                     </div>
@@ -639,16 +601,7 @@ export default function MiscGuidePage() {
         ? [
             {
               key: 'battleItems',
-              label: (
-                <span className='flex items-center gap-2 font-semibold text-zinc-100'>
-                  <FireOutlined className='text-red-400' />
-                  <span>副本常用戰鬥道具速查表</span>
-                  <Badge
-                    count={filtered.battleItems.length}
-                    style={{ backgroundColor: '#ef4444' }}
-                  />
-                </span>
-              ),
+              label: <PanelHeader title='副本常用戰鬥道具速查表' count={filtered.battleItems.length} />,
               children: (
                 <ResponsiveList
                   data={filtered.battleItems.map((b, i) => ({ ...b, key: i }))}
@@ -657,9 +610,9 @@ export default function MiscGuidePage() {
                       title: '道具名稱',
                       dataIndex: 'name',
                       key: 'name',
-                      width: 170,
+                      width: 160,
                       render: (t: string) => (
-                        <span className='font-bold text-zinc-100'>
+                        <span className='font-semibold text-stone-100'>
                           <Highlight text={t} query={query} />
                         </span>
                       ),
@@ -668,11 +621,11 @@ export default function MiscGuidePage() {
                       title: '類型',
                       dataIndex: 'category',
                       key: 'category',
-                      width: 170,
+                      width: 150,
                       render: (c: string) => (
-                        <Tag color='volcano'>
+                        <span className='meta-tag'>
                           <Highlight text={c} query={query} />
-                        </Tag>
+                        </span>
                       ),
                     },
                     {
@@ -686,27 +639,27 @@ export default function MiscGuidePage() {
                       dataIndex: 'timing',
                       key: 'timing',
                       render: (t: string) => (
-                        <span className='text-xs text-zinc-400'>
+                        <span className='text-xs text-stone-400'>
                           <Highlight text={t} query={query} />
                         </span>
                       ),
                     },
                   ]}
                   renderCard={(b) => (
-                    <div className='space-y-1.5 rounded-xl border border-white/5 bg-zinc-900/60 p-3 text-xs'>
+                    <div className='subsurface space-y-1.5 p-3 text-xs'>
                       <div className='flex items-center justify-between gap-2'>
-                        <span className='font-bold text-zinc-100'>
+                        <span className='font-semibold text-stone-100'>
                           <Highlight text={b.name} query={query} />
                         </span>
-                        <Tag color='volcano' className='!m-0'>
+                        <span className='meta-tag'>
                           <Highlight text={b.category} query={query} />
-                        </Tag>
+                        </span>
                       </div>
-                      <p className='text-zinc-300'>
+                      <p className='text-stone-300'>
                         <Highlight text={b.effect} query={query} />
                       </p>
-                      <p className='text-[11px] text-zinc-400'>
-                        ⏱ <Highlight text={b.timing} query={query} />
+                      <p className='text-[11px] text-stone-400'>
+                        時機：<Highlight text={b.timing} query={query} />
                       </p>
                     </div>
                   )}
@@ -720,7 +673,14 @@ export default function MiscGuidePage() {
     return allSections;
   }, [filtered, query]);
 
-  const effectiveActiveKeys = query.trim() ? items.map((it) => String(it.key)) : activeKeys;
+  const allKeys = useMemo(() => items.map((it) => String(it.key)), [items]);
+  const effectiveActiveKeys = query.trim() ? allKeys : activeKeys;
+
+  const toggleSection = (key: string) => {
+    setActiveKeys((prev) =>
+      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
+    );
+  };
 
   return (
     <div>
@@ -730,6 +690,31 @@ export default function MiscGuidePage() {
           { label: '收錄分類', value: 10 },
           { label: '符合條目', value: filtered?.total ?? 0 },
         ]}
+        extra={
+          allKeys.length > 0 && !query.trim() ? (
+            <div className='flex flex-wrap items-center gap-1.5'>
+              <span className='mr-1 text-xs text-stone-500'>快速切換章節：</span>
+              {allKeys.map((key) => {
+                const isOpen = activeKeys.includes(key);
+                return (
+                  <button
+                    key={key}
+                    type='button'
+                    onClick={() => toggleSection(key)}
+                    className={cx(
+                      'focus-ring rounded border px-2 py-0.5 text-xs transition-colors',
+                      isOpen
+                        ? 'border-gold-500/60 bg-gold-500/15 text-gold-300'
+                        : 'border-obsidian-700 bg-obsidian-900 text-stone-400 hover:border-stone-600 hover:text-stone-200'
+                    )}
+                  >
+                    {SECTION_SHORT_LABELS[key] ?? key}
+                  </button>
+                );
+              })}
+            </div>
+          ) : undefined
+        }
       />
 
       <Toolbar>
@@ -740,6 +725,16 @@ export default function MiscGuidePage() {
             placeholder='搜尋樂譜、技能／悟性點、方舟星圖、裝等路線、戰鬥道具、符文或每日委託…'
           />
         </div>
+        {!query.trim() && allKeys.length > 0 && (
+          <div className='flex items-center gap-1.5'>
+            <Button size='middle' onClick={() => setActiveKeys(allKeys)}>
+              全部展開
+            </Button>
+            <Button size='middle' onClick={() => setActiveKeys([])}>
+              全部收合
+            </Button>
+          </div>
+        )}
       </Toolbar>
 
       <QueryState isLoading={isLoading} isError={isError} onRetry={refetch}>
@@ -749,9 +744,11 @@ export default function MiscGuidePage() {
           <Collapse
             items={items}
             activeKey={effectiveActiveKeys}
-            onChange={(keys) => setActiveKeys(Array.isArray(keys) ? keys.map(String) : [String(keys)])}
+            onChange={(keys) =>
+              setActiveKeys(Array.isArray(keys) ? keys.map(String) : [String(keys)])
+            }
             expandIconPlacement='end'
-            className='!border-white/10 !bg-transparent'
+            className='!border-obsidian-700/80 !bg-transparent'
           />
         )}
       </QueryState>

@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { GithubOutlined, HomeOutlined } from '@ant-design/icons';
 import Logo from '@/components/ui/Logo';
-import { ACCENTS, NAV_GROUPS, SITE } from '@/config/navigation';
+import { NAV_GROUPS, SITE } from '@/config/navigation';
 import { cx } from '@/utils/cx';
 
 interface SidebarNavProps {
@@ -10,52 +10,48 @@ interface SidebarNavProps {
 
 const linkClass = (isActive: boolean) =>
   cx(
-    'focus-ring group relative flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium transition-colors',
+    'focus-ring group relative flex items-center gap-2.5 rounded-md px-3 py-2 text-[13px] font-medium transition-colors',
     isActive
-      ? 'bg-white/[0.06] text-white'
-      : 'text-zinc-400 hover:bg-white/[0.04] hover:text-zinc-100'
-  );
-
-const iconClass = (isActive: boolean, activeTone: string) =>
-  cx(
-    'grid size-7 shrink-0 place-items-center rounded-lg text-sm transition-colors',
-    isActive ? activeTone : 'bg-white/[0.04] text-zinc-500 group-hover:text-zinc-200'
+      ? 'bg-obsidian-800 text-gold-300'
+      : 'text-stone-400 hover:bg-obsidian-850 hover:text-stone-100'
   );
 
 export default function SidebarNav({ onNavigate }: SidebarNavProps) {
   return (
     <div className='flex h-full flex-col'>
-      <div className='flex h-16 shrink-0 items-center px-5'>
-        <Link to='/' onClick={onNavigate} className='focus-ring flex items-center gap-3 rounded-lg'>
-          <Logo />
+      <div className='flex h-14 shrink-0 items-center border-b border-obsidian-700/70 px-4'>
+        <Link to='/' onClick={onNavigate} className='focus-ring flex items-center gap-2.5 rounded'>
+          <Logo size='sm' />
           <div className='leading-tight'>
-            <p className='text-sm font-bold text-zinc-50'>{SITE.name}</p>
-            <p className='text-[11px] text-zinc-500'>{SITE.nameZh}</p>
+            <p className='font-display text-sm font-bold tracking-wide text-stone-100'>
+              {SITE.name}
+            </p>
+            <p className='text-[11px] text-stone-500'>{SITE.nameZh}</p>
           </div>
         </Link>
       </div>
 
-      <nav aria-label='主要導覽' className='flex-1 space-y-6 overflow-y-auto px-3 py-4'>
+      <nav aria-label='主要導覽' className='flex-1 space-y-5 overflow-y-auto px-3 py-4'>
         <NavLink to='/' end onClick={onNavigate} className={({ isActive }) => linkClass(isActive)}>
           {({ isActive }) => (
             <>
-              <span className={iconClass(isActive, 'bg-indigo-500/15 text-indigo-300')}>
-                <HomeOutlined />
-              </span>
-              首頁
+              {isActive && (
+                <span aria-hidden className='absolute inset-y-1.5 left-0 w-0.5 rounded-full bg-gold-400' />
+              )}
+              <HomeOutlined className={isActive ? 'text-gold-400' : 'text-stone-500 group-hover:text-stone-300'} />
+              <span>總覽索引</span>
             </>
           )}
         </NavLink>
 
         {NAV_GROUPS.map((group) => (
           <div key={group.title}>
-            <p className='mb-2 px-3 text-[11px] font-semibold tracking-wider text-zinc-500'>
+            <p className='mb-1.5 px-3 text-[11px] font-medium tracking-wider text-stone-500'>
               {group.title}
             </p>
-            <ul className='space-y-1'>
+            <ul className='space-y-0.5'>
               {group.items.map((item) => {
                 const Icon = item.icon;
-                const accent = ACCENTS[item.accent];
                 return (
                   <li key={item.key}>
                     <NavLink
@@ -68,12 +64,16 @@ export default function SidebarNav({ onNavigate }: SidebarNavProps) {
                           {isActive && (
                             <span
                               aria-hidden
-                              className={cx('absolute inset-y-2 left-0 w-0.5 rounded-full', accent.dot)}
+                              className='absolute inset-y-1.5 left-0 w-0.5 rounded-full bg-gold-400'
                             />
                           )}
-                          <span className={iconClass(isActive, `${accent.iconBg} ${accent.text}`)}>
-                            <Icon />
-                          </span>
+                          <Icon
+                            className={
+                              isActive
+                                ? 'text-gold-400'
+                                : 'text-stone-500 group-hover:text-stone-300'
+                            }
+                          />
                           <span className='truncate'>{item.title}</span>
                         </>
                       )}
@@ -86,16 +86,16 @@ export default function SidebarNav({ onNavigate }: SidebarNavProps) {
         ))}
       </nav>
 
-      <div className='flex items-center justify-between gap-2 border-t border-white/5 px-4 py-3 text-xs text-zinc-500'>
+      <div className='flex items-center justify-between gap-2 border-t border-obsidian-700/70 px-4 py-3 text-xs text-stone-500'>
         <a
           href={SITE.repo}
           target='_blank'
           rel='noreferrer'
-          className='focus-ring inline-flex shrink-0 items-center gap-1.5 rounded-md transition-colors hover:text-zinc-200'
+          className='focus-ring inline-flex shrink-0 items-center gap-1.5 rounded transition-colors hover:text-stone-200'
         >
           <GithubOutlined /> 原始碼
         </a>
-        <span className='truncate text-zinc-600'>資料僅供參考</span>
+        <span className='truncate text-stone-600'>資料僅供參考</span>
       </div>
     </div>
   );

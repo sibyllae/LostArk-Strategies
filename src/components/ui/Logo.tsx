@@ -9,13 +9,13 @@ export default function Logo({ size = 'md' }: LogoProps) {
     <span
       aria-hidden
       className={cx(
-        'relative grid shrink-0 place-items-center rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg shadow-amber-500/20',
-        size === 'sm' ? 'size-8' : 'size-9'
+        'relative grid shrink-0 place-items-center rounded-md border border-gold-500/40 bg-obsidian-850',
+        size === 'sm' ? 'size-7' : 'size-8'
       )}
     >
       <svg viewBox='0 0 24 24' className={size === 'sm' ? 'size-4' : 'size-5'}>
-        <path d='M12 2 20 12 12 22 4 12Z' fill='#0c0c0f' />
-        <path d='M12 7.5 15.6 12 12 16.5 8.4 12Z' fill='#fbbf24' />
+        <path d='M12 2.5 20.5 12 12 21.5 3.5 12Z' fill='none' stroke='#c4984d' strokeWidth='1.75' />
+        <path d='M12 7.5 15.8 12 12 16.5 8.2 12Z' fill='#d8b26e' />
       </svg>
     </span>
   );

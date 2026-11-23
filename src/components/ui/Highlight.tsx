@@ -16,7 +16,7 @@ export default function Highlight({ text, query }: HighlightProps) {
     <>
       {parts.map((part, index) =>
         part.toLowerCase() === keyword.toLowerCase() ? (
-          <mark key={index} className='rounded bg-amber-400/25 px-0.5 text-amber-100'>
+          <mark key={index} className='rounded-sm bg-gold-500/30 px-0.5 text-gold-300'>
             {part}
           </mark>
         ) : (

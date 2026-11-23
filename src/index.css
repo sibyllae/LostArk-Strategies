@@ -22,36 +22,61 @@
   }
 
   body {
-    @apply min-h-dvh bg-zinc-950 font-sans text-zinc-100 antialiased;
+    @apply min-h-dvh bg-obsidian-950 font-sans text-stone-200 antialiased;
   }
 
   ::selection {
-    @apply bg-indigo-500/30 text-white;
+    @apply bg-gold-500/30 text-stone-50;
   }
 
   kbd {
-    @apply inline-flex min-w-[1.25rem] items-center justify-center rounded border border-white/10 bg-white/5 px-1 font-sans text-[11px] leading-5 text-zinc-400;
+    @apply inline-flex min-w-[1.25rem] items-center justify-center rounded border border-obsidian-700 bg-obsidian-900 px-1.5 font-mono text-[11px] leading-5 text-stone-400;
   }
 }
 
 @layer components {
-  /* 主要卡片表面 */
+  /* 主要資料面板：霧面深色底 + 細邊框，不使用毛玻璃與浮誇陰影 */
   .surface {
-    @apply rounded-2xl border border-white/[0.06] bg-zinc-900/60 backdrop-blur-sm;
+    @apply rounded-lg border border-obsidian-700/80 bg-obsidian-900;
+  }
+
+  /* 內層次級區塊（卡片內的子項或指標槽） */
+  .subsurface {
+    @apply rounded-md border border-obsidian-700/60 bg-obsidian-950/70;
   }
 
   /* 小型標籤 */
   .chip {
-    @apply inline-flex items-center rounded-md px-2 py-0.5 text-xs ring-1 ring-inset;
+    @apply inline-flex items-center rounded px-1.5 py-0.5 text-xs ring-1 ring-inset;
+  }
+
+  /* 單色中性標籤（用於次數、編號、地區等結構化資訊） */
+  .meta-tag {
+    @apply inline-flex items-center rounded border border-obsidian-700 bg-obsidian-850 px-2 py-0.5 text-xs font-medium text-stone-300;
   }
 
   .icon-btn {
-    @apply grid size-9 place-items-center rounded-lg text-lg text-zinc-400 transition-colors hover:bg-white/5 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60;
+    @apply grid size-8 place-items-center rounded-md text-base text-stone-400 transition-colors hover:bg-obsidian-800 hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400/60;
   }
 
   .focus-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400/60;
   }
+}
+
+/* Ant Design 細節微調，讓表格與分頁更貼近攻略資料庫風格 */
+.ant-table-wrapper .ant-table-thead > tr > th {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.ant-tabs-top > .ant-tabs-nav::before {
+  border-bottom-color: #2a303c !important;
+}
+
+.ant-collapse > .ant-collapse-item {
+  border-color: #2a303c !important;
 }
 
 /* Scrollbar */
@@ -63,10 +88,10 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply rounded-full border-2 border-solid border-transparent bg-zinc-700 bg-clip-padding;
+  @apply rounded-full border-2 border-solid border-transparent bg-obsidian-700 bg-clip-padding;
 }
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-zinc-500;
+  @apply bg-stone-500;
 }
 
 @media (prefers-reduced-motion: reduce) {

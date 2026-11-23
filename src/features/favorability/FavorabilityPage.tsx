@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Card, Select, Tag } from 'antd';
-import { EnvironmentOutlined, HeartOutlined } from '@ant-design/icons';
+import { Select } from 'antd';
 import EmptyResult from '@/components/ui/EmptyResult';
 import Highlight from '@/components/ui/Highlight';
 import PageHeader from '@/components/ui/PageHeader';
@@ -14,12 +13,12 @@ import { cx } from '@/utils/cx';
 import { rewardTone } from '@/utils/reward';
 import { matchesQuery } from '@/utils/text';
 
-const TIER_CONFIG: Record<FavorTier, { label: string; border: string }> = {
-  normal: { label: '普通', border: 'border-zinc-800' },
-  attention: { label: '關注', border: 'border-zinc-800' },
-  friendly: { label: '友好', border: 'border-zinc-800' },
-  trust: { label: '信賴', border: 'border-rose-500/40' },
-  love: { label: '愛情', border: 'border-pink-500/50 bg-pink-500/5' },
+const TIER_CONFIG: Record<FavorTier, { label: string; border: string; labelColor: string }> = {
+  normal: { label: '普通', border: 'border-obsidian-700/60', labelColor: 'text-stone-500' },
+  attention: { label: '關注', border: 'border-obsidian-700/60', labelColor: 'text-stone-500' },
+  friendly: { label: '友好', border: 'border-obsidian-700/60', labelColor: 'text-stone-400' },
+  trust: { label: '信賴', border: 'border-gold-500/35', labelColor: 'text-gold-400' },
+  love: { label: '愛情', border: 'border-rose-400/35', labelColor: 'text-rose-300' },
 };
 
 const QUICK_REWARDS = ['巨人心臟', '奧菲斯之星', '卡片', '金', '藥水'] as const;
@@ -69,7 +68,7 @@ export default function FavorabilityPage() {
         ]}
         extra={
           <div className='flex flex-wrap items-center gap-1.5'>
-            <span className='mr-1 text-xs text-zinc-500'>快速篩選：</span>
+            <span className='mr-1 text-xs text-stone-500'>快速篩選：</span>
             {QUICK_REWARDS.map((keyword) => {
               const active = query === keyword;
               return (
@@ -78,10 +77,10 @@ export default function FavorabilityPage() {
                   type='button'
                   onClick={() => setQuery(active ? '' : keyword)}
                   className={cx(
-                    'focus-ring rounded-full px-2.5 py-0.5 text-xs transition-colors ring-1 ring-inset',
+                    'focus-ring rounded border px-2 py-0.5 text-xs transition-colors',
                     active
-                      ? 'bg-rose-500/20 text-rose-200 ring-rose-400/40'
-                      : 'bg-white/[0.04] text-zinc-400 ring-white/10 hover:bg-white/[0.08] hover:text-zinc-200'
+                      ? 'border-gold-500/60 bg-gold-500/15 text-gold-300'
+                      : 'border-obsidian-700 bg-obsidian-900 text-stone-400 hover:border-stone-600 hover:text-stone-200'
                   )}
                 >
                   {keyword}
@@ -101,7 +100,7 @@ export default function FavorabilityPage() {
           />
         </div>
         <Select
-          size='large'
+          size='middle'
           value={selectedLocation}
           onChange={setSelectedLocation}
           aria-label='篩選地區'
@@ -112,11 +111,11 @@ export default function FavorabilityPage() {
           ]}
         />
         <Select
-          size='large'
+          size='middle'
           value={sortOrder}
           onChange={setSortOrder}
           aria-label='排序方式'
-          className='w-full sm:w-44'
+          className='w-full sm:w-48'
           options={[
             { label: '預設順序', value: 'default' },
             { label: '好感度需求：低 → 高', value: 'affinityAsc' },
@@ -129,7 +128,7 @@ export default function FavorabilityPage() {
         {filtered.length === 0 ? (
           <EmptyResult query={query} onReset={resetAll} />
         ) : (
-          <div className='grid gap-4 md:grid-cols-2 xl:grid-cols-3'>
+          <div className='grid gap-3.5 md:grid-cols-2 xl:grid-cols-3'>
             {filtered.map((item) => (
               <FavorCard key={item.id} item={item} query={query} />
             ))}
@@ -142,28 +141,22 @@ export default function FavorabilityPage() {
 
 function FavorCard({ item, query }: { item: Favorability; query: string }) {
   return (
-    <Card
-      className='flex h-full flex-col rounded-2xl !border-white/10 !bg-zinc-900/60 backdrop-blur-sm transition-all hover:!border-rose-500/40'
-      title={
-        <div className='flex items-center justify-between gap-2 py-1'>
-          <div className='flex min-w-0 items-center gap-2'>
-            <HeartOutlined className='shrink-0 text-lg text-rose-400' />
-            <span className='truncate text-base font-bold text-zinc-100'>
-              <Highlight text={item.npc} query={query} />
-            </span>
-          </div>
-          <Tag color='red' className='!m-0 shrink-0 font-mono text-xs'>
-            {item.maxAffinity ? item.maxAffinity.toLocaleString() : '-'}
-          </Tag>
+    <article className='surface flex h-full flex-col overflow-hidden'>
+      <div className='flex items-start justify-between gap-2 border-b border-obsidian-700/70 bg-obsidian-850/70 px-4 py-3'>
+        <div className='min-w-0'>
+          <h2 className='truncate text-sm font-bold text-stone-100'>
+            <Highlight text={item.npc} query={query} />
+          </h2>
+          <p className='mt-0.5 truncate text-xs text-stone-500'>
+            {item.locations.join(' / ')}
+          </p>
         </div>
-      }
-    >
-      <div className='flex flex-1 flex-col space-y-4'>
-        <div className='flex items-center gap-1.5 text-xs text-zinc-400'>
-          <EnvironmentOutlined className='text-zinc-500' />
-          <span>{item.locations.join(' / ')}</span>
-        </div>
+        <span className='meta-tag shrink-0 font-mono tabular-nums text-gold-300'>
+          {item.maxAffinity ? item.maxAffinity.toLocaleString() : '-'}
+        </span>
+      </div>
 
+      <div className='flex flex-1 flex-col gap-2.5 p-3.5'>
         <div className='grid flex-1 grid-cols-2 gap-2 text-xs'>
           {(['normal', 'attention', 'friendly', 'trust'] as FavorTier[]).map((tier) => {
             const rewards = item.rewards[tier];
@@ -171,12 +164,11 @@ function FavorCard({ item, query }: { item: Favorability; query: string }) {
             return (
               <div
                 key={tier}
-                className={cx(
-                  'flex flex-col justify-between rounded-xl border bg-zinc-950/60 p-2.5',
-                  cfg.border
-                )}
+                className={cx('flex flex-col rounded-md border bg-obsidian-950/60 p-2', cfg.border)}
               >
-                <span className='mb-1 text-[10px] font-semibold text-zinc-500'>{cfg.label}</span>
+                <span className={cx('mb-1.5 text-[11px] font-medium', cfg.labelColor)}>
+                  {cfg.label}
+                </span>
                 <div className='space-y-1'>
                   {rewards.length > 0 ? (
                     rewards.map((r, idx) => (
@@ -191,7 +183,7 @@ function FavorCard({ item, query }: { item: Favorability; query: string }) {
                       </span>
                     ))
                   ) : (
-                    <span className='text-zinc-600'>-</span>
+                    <span className='text-stone-600'>—</span>
                   )}
                 </div>
               </div>
@@ -200,13 +192,13 @@ function FavorCard({ item, query }: { item: Favorability; query: string }) {
         </div>
 
         {item.rewards.love.length > 0 && (
-          <div className='rounded-xl border border-pink-500/30 bg-pink-500/10 p-2.5 text-xs'>
-            <span className='mb-1 block text-[10px] font-bold text-pink-400'>愛情階段獎勵</span>
+          <div className='rounded-md border border-rose-400/25 bg-rose-500/5 px-2.5 py-2 text-xs'>
+            <span className='mb-1 block text-[11px] font-medium text-rose-300'>愛情階段</span>
             <div className='flex flex-wrap gap-1'>
               {item.rewards.love.map((r, idx) => (
                 <span
                   key={idx}
-                  className='rounded bg-pink-500/20 px-2 py-0.5 text-xs font-semibold text-pink-200'
+                  className='rounded bg-rose-500/15 px-1.5 py-0.5 text-[11px] font-medium text-rose-200'
                 >
                   <Highlight text={r} query={query} />
                 </span>
@@ -215,6 +207,6 @@ function FavorCard({ item, query }: { item: Favorability; query: string }) {
           </div>
         )}
       </div>
-    </Card>
+    </article>
   );
 }

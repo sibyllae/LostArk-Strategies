@@ -50,23 +50,17 @@ export default function AppLayout() {
   const outletContext = useMemo<LayoutContext>(() => ({ openSearch }), [openSearch]);
 
   return (
-    <div className='relative min-h-dvh'>
+    <div className='relative min-h-dvh bg-obsidian-950'>
       <TopProgress active={navigation.state === 'loading'} />
 
-      {/* 背景光暈 */}
-      <div aria-hidden className='pointer-events-none fixed inset-0 -z-10 overflow-hidden'>
-        <div className='absolute -top-40 left-1/3 h-[480px] w-[720px] rounded-full bg-indigo-600/10 blur-[120px]' />
-        <div className='absolute -right-40 top-1/2 h-[420px] w-[520px] rounded-full bg-amber-500/[0.06] blur-[120px]' />
-      </div>
-
-      <aside className='fixed inset-y-0 left-0 z-30 hidden w-64 border-r border-white/5 bg-zinc-950/70 backdrop-blur-xl lg:block'>
+      <aside className='fixed inset-y-0 left-0 z-30 hidden w-60 border-r border-obsidian-700/70 bg-[#111419] lg:block'>
         <SidebarNav />
       </aside>
 
-      <div className='flex min-h-dvh flex-col lg:pl-64'>
+      <div className='flex min-h-dvh flex-col lg:pl-60'>
         <AppHeader onOpenMenu={() => setMenuOpen(true)} onOpenSearch={openSearch} />
-        <main className='mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6 lg:px-8 lg:py-8'>
-          <div key={location.pathname} className='animate-slide-up'>
+        <main className='mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-6 lg:px-8'>
+          <div key={location.pathname} className='animate-fade-in'>
             <Outlet context={outletContext} />
           </div>
         </main>
@@ -78,7 +72,7 @@ export default function AppLayout() {
         open={menuOpen}
         onClose={closeMenu}
         closable={false}
-        size={288}
+        size={264}
         styles={{ body: { padding: 0 } }}
       >
         <SidebarNav onNavigate={closeMenu} />

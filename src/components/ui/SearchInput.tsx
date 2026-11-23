@@ -12,11 +12,11 @@ interface SearchInputProps {
 export default function SearchInput({ value, onChange, placeholder, className }: SearchInputProps) {
   return (
     <Input
-      size='large'
+      size='middle'
       allowClear
       value={value}
       onChange={(event) => onChange(event.target.value)}
-      prefix={<SearchOutlined className='mr-1 text-zinc-500' />}
+      prefix={<SearchOutlined className='mr-1 text-stone-500' />}
       placeholder={placeholder}
       aria-label={placeholder ?? '搜尋'}
       className={cx('w-full', className)}
