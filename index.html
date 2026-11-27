@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#101215" />
+    <meta name="theme-color" content="#08090c" />
     <meta name="author" content="ming" />
     <meta name="robots" content="index, follow" />
-    <title>LostArk Strategies | 失落的方舟攻略網</title>
+    <title>LostArk Strategies | 失落的方舟・戰術與收集法典</title>
     <meta
       name="description"
-      content="LostArk Strategies 失落的方舟繁中版攻略資料庫：整理 NPC 好感度獎勵、20 大陸冒險之書、9 大類收集品、T3／T4 軍團長與卡札羅斯副本開箱收益試算、飾品研磨詞條、流浪商人與各類速查表。"
+      content="失落的方舟繁中版戰術與收集法典：收錄 NPC 好感度追蹤、20 大陸冒險之書、9 大類收集品勾選進度、T3／T4 卡札羅斯至貝爾加丁副本開箱與每週 3 本排程試算、T4 飾品／手鐲詞條、19 洲流浪商人與守護者新職業百科。"
     />
     <meta
       name="keywords"
-      content="失落的方舟, Lost Ark, 失落的方舟攻略, 繁中版攻略, 好感度, 冒險之書, 巨人心臟, 島之心, 收集品, 副本開箱, 卡札羅斯, T4 飾品, 流浪商人, 技能點, 方舟星圖"
+      content="失落的方舟, Lost Ark, 失落的方舟攻略, 繁中版攻略, 好感度, 冒險之書, 巨人心臟, 島之心, 血爪海圖, 副本開箱, 卡札羅斯, 賽爾卡, 貝爾加丁, 地平線大聖堂, T4 飾品, T4 手鐲, 流浪商人, 瓦爾格里斯, 瓦爾坎, 龍騎士, 女聖騎, 幻獸師"
     />
     <link rel="canonical" href="https://sibyllae.github.io/LostArk-Strategies/" />
 
@@ -41,8 +41,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
     />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('lostark_theme');
+          var mode =
+            saved === 'light' || saved === 'dark'
+              ? saved
+              : window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark';
+          document.documentElement.classList.toggle('dark', mode === 'dark');
+          document.documentElement.dataset.theme = mode;
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
 
     <script type="application/ld+json">
       {
@@ -55,10 +72,10 @@
         "description": "失落的方舟繁中版攻略資料庫：NPC 好感度、冒險之書、9 大類收集品、T3／T4 副本開箱試算、飾品詞條與系統速查。"
       }
     </script>
-    <script type="module" crossorigin src="/LostArk-Strategies/assets/index-B5A3-bmq.js"></script>
+    <script type="module" crossorigin src="/LostArk-Strategies/assets/index-C65qWkR2.js"></script>
     <link rel="modulepreload" crossorigin href="/LostArk-Strategies/assets/vendor-redux-CoxKrr7k.js">
-    <link rel="modulepreload" crossorigin href="/LostArk-Strategies/assets/vendor-react-BUitEhfi.js">
-    <link rel="stylesheet" crossorigin href="/LostArk-Strategies/assets/index-Dlh67hx1.css">
+    <link rel="modulepreload" crossorigin href="/LostArk-Strategies/assets/vendor-react-DqYsiT_1.js">
+    <link rel="stylesheet" crossorigin href="/LostArk-Strategies/assets/index-CNTZOISo.css">
   </head>
   <body>
     <div id="root"></div>

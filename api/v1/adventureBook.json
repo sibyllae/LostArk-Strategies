@@ -111,12 +111,12 @@
     "adventureBook": "洛漢德",
     "tenPercent": "",
     "twentyPercent": "",
-    "thirtyPercent": "",
+    "thirtyPercent": "體力增加藥水",
     "fortyPercent": "偉大的藝術品#30",
     "fiftyPercent": "秘密地圖#10",
     "sixtyPercent": "永恆之歌",
-    "seventyPercent": "銀波商團的邀請函",
-    "eightyPercent": "",
+    "seventyPercent": "技能點數藥水、銀波商團的邀請函",
+    "eightyPercent": "領地擺設：希爾瑪爾保護石",
     "ninetyPercent": ""
   },
   {
@@ -124,36 +124,36 @@
     "tenPercent": "",
     "twentyPercent": "",
     "thirtyPercent": "",
-    "fortyPercent": "",
+    "fortyPercent": "偉大的藝術品#31",
     "fiftyPercent": "羅曼蒂克武器",
     "sixtyPercent": "秘密地圖#7",
     "seventyPercent": "偉大鐵器坊的邀請函",
-    "eightyPercent": "",
+    "eightyPercent": "魅力增加藥水",
     "ninetyPercent": "庫亨巴爾石像"
   },
   {
     "adventureBook": "費伊頓",
     "tenPercent": "",
     "twentyPercent": "",
-    "thirtyPercent": "",
+    "thirtyPercent": "壓倒符文(英雄)",
     "fortyPercent": "偉大的藝術品#37",
     "fiftyPercent": "秘密地圖#32",
     "sixtyPercent": "靈魂安息之歌",
-    "seventyPercent": "比歐雷的信",
+    "seventyPercent": "比歐雷的信、膽量增加藥水",
     "eightyPercent": "",
-    "ninetyPercent": ""
+    "ninetyPercent": "領地擺設：卡拉札巨石"
   },
   {
     "adventureBook": "帕夫尼卡",
     "tenPercent": "",
     "twentyPercent": "",
-    "thirtyPercent": "",
+    "thirtyPercent": "體力增加藥水",
     "fortyPercent": "偉大的藝術品#43",
     "fiftyPercent": "和諧之歌",
     "sixtyPercent": "秘密地圖#3",
-    "seventyPercent": "萊依拉商會的邀請函",
-    "eightyPercent": "高級技能點數藥水",
-    "ninetyPercent": ""
+    "seventyPercent": "魅力增加藥水、萊依拉商會的邀請函",
+    "eightyPercent": "高級技能點數藥水(+6)",
+    "ninetyPercent": "領地擺設：妮亞族祭壇"
   },
   {
     "adventureBook": "貝倫南部",
@@ -225,7 +225,7 @@
     "sixtyPercent": "動作：拍灰塵",
     "seventyPercent": "悟性點數藥水(+3)",
     "eightyPercent": "血爪海圖碎片#2(第一張)",
-    "ninetyPercent": ""
+    "ninetyPercent": "領地擺設：庫爾贊北部微縮地圖"
   },
   {
     "adventureBook": "里姆雷克南部",
