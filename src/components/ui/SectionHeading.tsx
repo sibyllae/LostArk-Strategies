@@ -3,18 +3,24 @@ import type { ReactNode } from 'react';
 interface SectionHeadingProps {
   title: ReactNode;
   count?: number;
-  dotClassName?: string;
+  subtitle?: ReactNode;
   extra?: ReactNode;
 }
 
-export default function SectionHeading({ title, count, extra }: SectionHeadingProps) {
+export default function SectionHeading({ title, count, subtitle, extra }: SectionHeadingProps) {
   return (
-    <div className='mb-3 flex items-center gap-2 border-l-2 border-gold-500 pl-2.5'>
-      <h2 className='text-sm font-semibold text-stone-100'>{title}</h2>
-      {count !== undefined && (
-        <span className='font-mono text-xs tabular-nums text-stone-500'>({count})</span>
-      )}
-      {extra && <div className='ml-auto'>{extra}</div>}
+    <div className='mb-4 flex flex-wrap items-center justify-between gap-3'>
+      <div className='flex flex-wrap items-center gap-3'>
+        <span aria-hidden className='h-5 w-1 rounded-full bg-brand' />
+        <h2 className='text-lg font-bold tracking-[0.04em] text-ink'>{title}</h2>
+        {count !== undefined && (
+          <span className='rounded-full border border-line bg-subtle px-2.5 py-0.5 font-mono text-xs font-semibold tabular-nums text-sub'>
+            {count}
+          </span>
+        )}
+        {subtitle && <span className='text-xs text-muted'>{subtitle}</span>}
+      </div>
+      {extra && <div>{extra}</div>}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 /*
  * 將 Tailwind preflight 放進較低優先級的 cascade layer，
- * 避免覆蓋 Ant Design 的元件樣式（例如 primary button 背景變透明）。
+ * 避免覆蓋 Ant Design 的元件樣式。
  */
 @layer tailwind-base;
 
@@ -12,71 +12,147 @@
 @tailwind utilities;
 
 @layer base {
+  /* Light Mode：清爽柔霧灰白底 + 純白卡片層次，長時間查表不刺眼 */
   :root {
+    color-scheme: light;
+    --bg-canvas: 244 246 250;
+    --bg-surface: 255 255 255;
+    --bg-subtle: 248 250 252;
+    --bg-elevated: 241 245 249;
+    --border-line: 226 232 240;
+    --border-strong: 203 213 225;
+    --text-ink: 15 23 42;
+    --text-sub: 64 78 99;
+    --text-muted: 100 116 139;
+    --brand: 180 92 14;
+  }
+
+  /* Dark Mode：參考 d2r.world 沉穩深曜石藍灰底 + 暗金重點色 */
+  html.dark {
     color-scheme: dark;
+    --bg-canvas: 14 17 22;
+    --bg-surface: 23 28 36;
+    --bg-subtle: 18 22 29;
+    --bg-elevated: 31 38 49;
+    --border-line: 39 47 61;
+    --border-strong: 58 69 88;
+    --text-ink: 241 245 249;
+    --text-sub: 173 184 201;
+    --text-muted: 120 133 153;
+    --brand: 229 181 95;
   }
 
   html {
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
+    font-size: 16px;
   }
 
   body {
-    @apply min-h-dvh bg-obsidian-950 font-sans text-stone-200 antialiased;
+    @apply min-h-dvh bg-canvas font-sans text-[15px] leading-[1.72] tracking-[0.03em] text-ink antialiased transition-colors duration-200;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-[0.04em];
   }
 
   ::selection {
-    @apply bg-gold-500/30 text-stone-50;
+    @apply bg-brand/25 text-ink;
   }
 
   kbd {
-    @apply inline-flex min-w-[1.25rem] items-center justify-center rounded border border-obsidian-700 bg-obsidian-900 px-1.5 font-mono text-[11px] leading-5 text-stone-400;
+    @apply inline-flex min-w-[1.5rem] items-center justify-center rounded-md border border-line-strong bg-subtle px-1.5 py-0.5 font-mono text-[11px] font-medium leading-4 tracking-normal text-sub shadow-sm;
   }
 }
 
 @layer components {
-  /* 主要資料面板：霧面深色底 + 細邊框，不使用毛玻璃與浮誇陰影 */
+  /* 主卡片表面：圓潤留白、清楚區隔背景與內容 */
   .surface {
-    @apply rounded-lg border border-obsidian-700/80 bg-obsidian-900;
+    @apply rounded-2xl border border-line bg-surface transition-all duration-150;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 6px 20px -8px rgba(15, 23, 42, 0.05);
   }
 
-  /* 內層次級區塊（卡片內的子項或指標槽） */
+  html.dark .surface {
+    box-shadow: 0 2px 12px -4px rgba(0, 0, 0, 0.45);
+  }
+
+  /* 內層次級區塊：柔和底色不搶戲 */
   .subsurface {
-    @apply rounded-md border border-obsidian-700/60 bg-obsidian-950/70;
+    @apply rounded-xl border border-line/80 bg-subtle;
   }
 
-  /* 小型標籤 */
+  /* 舒適呼吸感的標籤（不再擠成一團） */
   .chip {
-    @apply inline-flex items-center rounded px-1.5 py-0.5 text-xs ring-1 ring-inset;
+    @apply inline-flex items-center rounded-lg px-2.5 py-1 text-[13px] font-medium leading-snug tracking-[0.03em] ring-1 ring-inset;
   }
 
-  /* 單色中性標籤（用於次數、編號、地區等結構化資訊） */
+  /* 結構化編號／裝等膠囊 */
   .meta-tag {
-    @apply inline-flex items-center rounded border border-obsidian-700 bg-obsidian-850 px-2 py-0.5 text-xs font-medium text-stone-300;
+    @apply inline-flex items-center rounded-lg border border-line bg-subtle px-2.5 py-1 text-xs font-semibold leading-none tracking-[0.03em] text-sub;
+  }
+
+  /* 支援 Light & Dark 雙模式高對比度的道具語意色階 */
+  .tone-relic {
+    @apply bg-orange-50 text-orange-800 ring-orange-200 dark:bg-orange-500/15 dark:text-orange-200 dark:ring-orange-400/35;
+  }
+  .tone-gold {
+    @apply bg-amber-50 text-amber-800 ring-amber-200 dark:bg-amber-500/15 dark:text-amber-200 dark:ring-amber-400/35;
+  }
+  .tone-emerald {
+    @apply bg-emerald-50 text-emerald-800 ring-emerald-200 dark:bg-emerald-500/15 dark:text-emerald-200 dark:ring-emerald-400/35;
+  }
+  .tone-sky {
+    @apply bg-sky-50 text-sky-800 ring-sky-200 dark:bg-sky-500/15 dark:text-sky-200 dark:ring-sky-400/35;
+  }
+  .tone-purple {
+    @apply bg-purple-50 text-purple-800 ring-purple-200 dark:bg-purple-500/15 dark:text-purple-200 dark:ring-purple-400/35;
+  }
+  .tone-rose {
+    @apply bg-rose-50 text-rose-800 ring-rose-200 dark:bg-rose-500/15 dark:text-rose-200 dark:ring-rose-400/35;
+  }
+  .tone-teal {
+    @apply bg-teal-50 text-teal-800 ring-teal-200 dark:bg-teal-500/15 dark:text-teal-200 dark:ring-teal-400/35;
+  }
+  .tone-neutral {
+    @apply bg-slate-100 text-slate-700 ring-slate-200/90 dark:bg-slate-800/80 dark:text-slate-200 dark:ring-slate-700;
   }
 
   .icon-btn {
-    @apply grid size-8 place-items-center rounded-md text-base text-stone-400 transition-colors hover:bg-obsidian-800 hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400/60;
+    @apply grid size-9 place-items-center rounded-xl border border-line bg-surface text-base text-sub transition-colors hover:border-brand/50 hover:bg-elevated hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50;
   }
 
   .focus-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400/60;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50;
   }
 }
 
-/* Ant Design 細節微調，讓表格與分頁更貼近攻略資料庫風格 */
+/* Ant Design 表格與控制項留白優化：拉開列高與字距 */
+.ant-table-wrapper .ant-table {
+  background: transparent !important;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+}
+
 .ant-table-wrapper .ant-table-thead > tr > th {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em;
 }
 
-.ant-tabs-top > .ant-tabs-nav::before {
-  border-bottom-color: #2a303c !important;
+.ant-table-wrapper .ant-table-tbody > tr > td {
+  line-height: 1.65;
 }
 
-.ant-collapse > .ant-collapse-item {
-  border-color: #2a303c !important;
+.ant-segmented {
+  padding: 3px !important;
+}
+
+.ant-segmented .ant-segmented-item-label {
+  padding: 2px 12px !important;
+  letter-spacing: 0.03em;
 }
 
 /* Scrollbar */
@@ -88,10 +164,10 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply rounded-full border-2 border-solid border-transparent bg-obsidian-700 bg-clip-padding;
+  @apply rounded-full bg-line-strong/70;
 }
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-stone-500;
+  @apply bg-muted;
 }
 
 @media (prefers-reduced-motion: reduce) {

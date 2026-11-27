@@ -1,11 +1,13 @@
 import { useMemo, useState } from 'react';
-import { Select } from 'antd';
+import { Segmented, Select } from 'antd';
+import { CheckOutlined } from '@ant-design/icons';
 import EmptyResult from '@/components/ui/EmptyResult';
 import Highlight from '@/components/ui/Highlight';
 import PageHeader from '@/components/ui/PageHeader';
 import QueryState from '@/components/ui/QueryState';
 import SearchInput from '@/components/ui/SearchInput';
 import Toolbar from '@/components/ui/Toolbar';
+import { useLocalTracker } from '@/hooks/useLocalTracker';
 import { useSearchQuery } from '@/hooks/useSearchQuery';
 import { useGetFavorabilitiesQuery } from '@/services/gameApi';
 import type { FavorTier, Favorability } from '@/types/game';
@@ -13,22 +15,36 @@ import { cx } from '@/utils/cx';
 import { rewardTone } from '@/utils/reward';
 import { matchesQuery } from '@/utils/text';
 
-const TIER_CONFIG: Record<FavorTier, { label: string; border: string; labelColor: string }> = {
-  normal: { label: '普通', border: 'border-obsidian-700/60', labelColor: 'text-stone-500' },
-  attention: { label: '關注', border: 'border-obsidian-700/60', labelColor: 'text-stone-500' },
-  friendly: { label: '友好', border: 'border-obsidian-700/60', labelColor: 'text-stone-400' },
-  trust: { label: '信賴', border: 'border-gold-500/35', labelColor: 'text-gold-400' },
-  love: { label: '愛情', border: 'border-rose-400/35', labelColor: 'text-rose-300' },
+const TIER_CONFIG: Record<FavorTier, { label: string; dot: string; labelColor: string }> = {
+  normal: { label: '普通', dot: 'bg-slate-400', labelColor: 'text-muted' },
+  attention: { label: '關注', dot: 'bg-slate-400', labelColor: 'text-muted' },
+  friendly: { label: '友好', dot: 'bg-sky-500', labelColor: 'text-sky-600 dark:text-sky-300' },
+  trust: { label: '信賴', dot: 'bg-amber-500', labelColor: 'text-amber-700 dark:text-amber-300' },
+  love: { label: '愛情', dot: 'bg-rose-500', labelColor: 'text-rose-600 dark:text-rose-300' },
 };
 
-const QUICK_REWARDS = ['巨人心臟', '奧菲斯之星', '卡片', '金', '藥水'] as const;
+const QUICK_REWARDS = [
+  '巨人心臟',
+  '奧菲斯之星',
+  '島之心',
+  '血爪海圖',
+  '卡片',
+  '藥水',
+  '金',
+] as const;
+
 type SortOrder = 'default' | 'affinityAsc' | 'affinityDesc';
+type CompletionFilter = 'ALL' | 'TODO' | 'DONE';
 
 export default function FavorabilityPage() {
   const { data = [], isLoading, isError, refetch } = useGetFavorabilitiesQuery();
+  const { state, toggleNpc } = useLocalTracker();
   const [query, setQuery] = useSearchQuery();
   const [selectedLocation, setSelectedLocation] = useState<string>('all');
   const [sortOrder, setSortOrder] = useState<SortOrder>('default');
+  const [completion, setCompletion] = useState<CompletionFilter>('ALL');
+
+  const completedSet = useMemo(() => new Set(state.npcs), [state.npcs]);
 
   const locations = useMemo(() => {
     const set = new Set<string>();
@@ -38,6 +54,10 @@ export default function FavorabilityPage() {
 
   const filtered = useMemo(() => {
     const list = data.filter((item) => {
+      const isDone = completedSet.has(item.id);
+      if (completion === 'TODO' && isDone) return false;
+      if (completion === 'DONE' && !isDone) return false;
+
       const matchLoc = selectedLocation === 'all' || item.locations.includes(selectedLocation);
       const allRewards = Object.values(item.rewards).flat();
       return matchLoc && matchesQuery(query, item.npc, item.locations, allRewards);
@@ -50,12 +70,13 @@ export default function FavorabilityPage() {
       return [...list].sort((a, b) => b.maxAffinity - a.maxAffinity);
     }
     return list;
-  }, [data, query, selectedLocation, sortOrder]);
+  }, [data, query, selectedLocation, sortOrder, completion, completedSet]);
 
   const resetAll = () => {
     setQuery('');
     setSelectedLocation('all');
     setSortOrder('default');
+    setCompletion('ALL');
   };
 
   return (
@@ -64,11 +85,12 @@ export default function FavorabilityPage() {
         navKey='favorability'
         stats={[
           { label: '收錄 NPC', value: data.length },
-          { label: '篩選結果', value: filtered.length },
+          { label: '已滿好感', value: `${completedSet.size}/${data.length}` },
+          { label: '顯示結果', value: filtered.length },
         ]}
         extra={
-          <div className='flex flex-wrap items-center gap-1.5'>
-            <span className='mr-1 text-xs text-stone-500'>快速篩選：</span>
+          <div className='flex flex-wrap items-center gap-2'>
+            <span className='mr-1 text-xs font-medium text-muted'>重點獎勵快篩：</span>
             {QUICK_REWARDS.map((keyword) => {
               const active = query === keyword;
               return (
@@ -77,10 +99,10 @@ export default function FavorabilityPage() {
                   type='button'
                   onClick={() => setQuery(active ? '' : keyword)}
                   className={cx(
-                    'focus-ring rounded border px-2 py-0.5 text-xs transition-colors',
+                    'focus-ring rounded-full border px-3.5 py-1 text-xs font-medium transition-colors',
                     active
-                      ? 'border-gold-500/60 bg-gold-500/15 text-gold-300'
-                      : 'border-obsidian-700 bg-obsidian-900 text-stone-400 hover:border-stone-600 hover:text-stone-200'
+                      ? 'border-brand bg-brand/15 text-brand'
+                      : 'border-line bg-surface text-sub hover:border-brand/45 hover:text-ink'
                   )}
                 >
                   {keyword}
@@ -96,11 +118,11 @@ export default function FavorabilityPage() {
           <SearchInput
             value={query}
             onChange={setQuery}
-            placeholder='搜尋 NPC 名稱、地區或獎勵內容（如：巨人心臟、卡片）…'
+            placeholder='搜尋 NPC 名稱、大陸／島嶼或階段獎勵（如：巴亨圖爾、妮娜芙、血爪海圖）…'
           />
         </div>
         <Select
-          size='middle'
+          size='large'
           value={selectedLocation}
           onChange={setSelectedLocation}
           aria-label='篩選地區'
@@ -111,15 +133,25 @@ export default function FavorabilityPage() {
           ]}
         />
         <Select
-          size='middle'
+          size='large'
           value={sortOrder}
           onChange={setSortOrder}
           aria-label='排序方式'
           className='w-full sm:w-48'
           options={[
             { label: '預設順序', value: 'default' },
-            { label: '好感度需求：低 → 高', value: 'affinityAsc' },
-            { label: '好感度需求：高 → 低', value: 'affinityDesc' },
+            { label: '需求好感：低 → 高', value: 'affinityAsc' },
+            { label: '需求好感：高 → 低', value: 'affinityDesc' },
+          ]}
+        />
+        <Segmented
+          size='large'
+          value={completion}
+          onChange={(v) => setCompletion(v as CompletionFilter)}
+          options={[
+            { label: '全部', value: 'ALL' },
+            { label: '待攻略', value: 'TODO' },
+            { label: '已完成', value: 'DONE' },
           ]}
         />
       </Toolbar>
@@ -128,9 +160,15 @@ export default function FavorabilityPage() {
         {filtered.length === 0 ? (
           <EmptyResult query={query} onReset={resetAll} />
         ) : (
-          <div className='grid gap-3.5 md:grid-cols-2 xl:grid-cols-3'>
+          <div className='grid gap-6 md:grid-cols-2 xl:grid-cols-3'>
             {filtered.map((item) => (
-              <FavorCard key={item.id} item={item} query={query} />
+              <FavorCard
+                key={item.id}
+                item={item}
+                query={query}
+                done={completedSet.has(item.id)}
+                onToggle={() => toggleNpc(item.id)}
+              />
             ))}
           </div>
         )}
@@ -139,74 +177,104 @@ export default function FavorabilityPage() {
   );
 }
 
-function FavorCard({ item, query }: { item: Favorability; query: string }) {
+function FavorCard({
+  item,
+  query,
+  done,
+  onToggle,
+}: {
+  item: Favorability;
+  query: string;
+  done: boolean;
+  onToggle: () => void;
+}) {
+  const costRatio = Math.min(100, Math.round((item.maxAffinity / 104000) * 100));
+  const tiers: FavorTier[] =
+    item.rewards.love.length > 0
+      ? ['normal', 'attention', 'friendly', 'trust', 'love']
+      : ['normal', 'attention', 'friendly', 'trust'];
+
   return (
-    <article className='surface flex h-full flex-col overflow-hidden'>
-      <div className='flex items-start justify-between gap-2 border-b border-obsidian-700/70 bg-obsidian-850/70 px-4 py-3'>
-        <div className='min-w-0'>
-          <h2 className='truncate text-sm font-bold text-stone-100'>
-            <Highlight text={item.npc} query={query} />
-          </h2>
-          <p className='mt-0.5 truncate text-xs text-stone-500'>
-            {item.locations.join(' / ')}
-          </p>
-        </div>
-        <span className='meta-tag shrink-0 font-mono tabular-nums text-gold-300'>
-          {item.maxAffinity ? item.maxAffinity.toLocaleString() : '-'}
-        </span>
-      </div>
-
-      <div className='flex flex-1 flex-col gap-2.5 p-3.5'>
-        <div className='grid flex-1 grid-cols-2 gap-2 text-xs'>
-          {(['normal', 'attention', 'friendly', 'trust'] as FavorTier[]).map((tier) => {
-            const rewards = item.rewards[tier];
-            const cfg = TIER_CONFIG[tier];
-            return (
-              <div
-                key={tier}
-                className={cx('flex flex-col rounded-md border bg-obsidian-950/60 p-2', cfg.border)}
-              >
-                <span className={cx('mb-1.5 text-[11px] font-medium', cfg.labelColor)}>
-                  {cfg.label}
-                </span>
-                <div className='space-y-1'>
-                  {rewards.length > 0 ? (
-                    rewards.map((r, idx) => (
-                      <span
-                        key={idx}
-                        className={cx(
-                          'block rounded px-1.5 py-0.5 text-[11px] font-medium ring-1 ring-inset',
-                          rewardTone(r)
-                        )}
-                      >
-                        <Highlight text={r} query={query} />
-                      </span>
-                    ))
-                  ) : (
-                    <span className='text-stone-600'>—</span>
-                  )}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {item.rewards.love.length > 0 && (
-          <div className='rounded-md border border-rose-400/25 bg-rose-500/5 px-2.5 py-2 text-xs'>
-            <span className='mb-1 block text-[11px] font-medium text-rose-300'>愛情階段</span>
-            <div className='flex flex-wrap gap-1'>
-              {item.rewards.love.map((r, idx) => (
-                <span
-                  key={idx}
-                  className='rounded bg-rose-500/15 px-1.5 py-0.5 text-[11px] font-medium text-rose-200'
-                >
-                  <Highlight text={r} query={query} />
-                </span>
-              ))}
-            </div>
+    <article
+      className={cx(
+        'surface flex h-full flex-col overflow-hidden',
+        done ? 'border-emerald-500/40 opacity-75' : 'hover:border-brand/45'
+      )}
+    >
+      <div className='border-b border-line bg-subtle/60 px-6 py-4'>
+        <div className='flex items-start justify-between gap-3'>
+          <div className='min-w-0 space-y-1'>
+            <h2 className='truncate text-lg font-bold text-ink'>
+              <Highlight text={item.npc} query={query} />
+            </h2>
+            <p className='truncate text-xs text-muted'>
+              <Highlight text={item.locations.join(' · ')} query={query} />
+            </p>
           </div>
-        )}
+
+          <button
+            type='button'
+            onClick={onToggle}
+            aria-pressed={done}
+            className={cx(
+              'focus-ring inline-flex shrink-0 items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-semibold transition-colors',
+              done
+                ? 'border-emerald-500/45 bg-emerald-500/15 text-emerald-700 dark:text-emerald-200'
+                : 'border-line bg-surface text-sub hover:border-brand/50 hover:text-brand'
+            )}
+          >
+            <CheckOutlined className='text-[11px]' />
+            {done ? '已滿' : '標記'}
+          </button>
+        </div>
+
+        <div className='mt-3.5 flex items-center gap-3'>
+          <div className='h-1.5 flex-1 overflow-hidden rounded-full bg-elevated'>
+            <div
+              className={cx(
+                'h-full rounded-full transition-all',
+                item.maxAffinity >= 77000
+                  ? 'bg-rose-500'
+                  : item.maxAffinity >= 37000
+                    ? 'bg-amber-500'
+                    : 'bg-emerald-500'
+              )}
+              style={{ width: `${costRatio}%` }}
+            />
+          </div>
+          <span className='shrink-0 font-mono text-xs font-semibold tabular-nums text-sub'>
+            {item.maxAffinity ? `${item.maxAffinity.toLocaleString()} 點` : '—'}
+          </span>
+        </div>
       </div>
+
+      {/* 寬鬆階段清單，每列留足呼吸空間 */}
+      <ol className='flex-1 divide-y divide-line/60 px-6 py-2'>
+        {tiers.map((tier) => {
+          const rewards = item.rewards[tier];
+          const cfg = TIER_CONFIG[tier];
+          return (
+            <li key={tier} className='flex items-start gap-3 py-3'>
+              <div className='mt-1 flex w-14 shrink-0 items-center gap-2'>
+                <span className={cx('size-2 shrink-0 rounded-full', cfg.dot)} />
+                <span className={cx('text-xs font-semibold', cfg.labelColor)}>{cfg.label}</span>
+              </div>
+
+              <div className='flex min-w-0 flex-1 flex-wrap gap-1.5'>
+                {rewards.length > 0 ? (
+                  rewards.map((r, idx) => (
+                    <span key={idx} className={cx('chip', rewardTone(r))}>
+                      <Highlight text={r} query={query} />
+                    </span>
+                  ))
+                ) : (
+                  <span className='text-xs text-muted'>—</span>
+                )}
+              </div>
+            </li>
+          );
+        })}
+      </ol>
     </article>
   );
 }

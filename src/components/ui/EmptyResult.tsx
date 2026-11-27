@@ -7,16 +7,16 @@ interface EmptyResultProps {
 
 export default function EmptyResult({ query, onReset }: EmptyResultProps) {
   return (
-    <div className='surface py-12'>
+    <div className='surface py-16'>
       <Empty
         image={Empty.PRESENTED_IMAGE_SIMPLE}
         description={
-          <span className='text-zinc-400'>
-            {query ? `找不到符合「${query}」的結果` : '沒有符合條件的結果'}
+          <span className='text-sm text-muted'>
+            {query ? `找不到符合「${query}」的攻略條目` : '目前篩選條件下沒有符合的項目'}
           </span>
         }
       >
-        {onReset && <Button onClick={onReset}>清除篩選</Button>}
+        {onReset && <Button onClick={onReset}>清除篩選條件</Button>}
       </Empty>
     </div>
   );

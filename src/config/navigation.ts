@@ -9,70 +9,17 @@ import {
 } from '@ant-design/icons';
 
 export const SITE = {
-  name: 'LostArk Strategies',
-  nameZh: '失落的方舟攻略網',
+  name: 'ARKESIA CODEX',
+  subName: 'LostArk Strategies',
+  nameZh: '失落的方舟・戰術與收集法典',
+  patchBadge: 'T4 · 2026 卡達魯姆＆暗影襲擊戰紀元',
   url: 'https://sibyllae.github.io/LostArk-Strategies',
   description:
-    'LostArk Strategies 失落的方舟繁中版攻略資料庫：整理 NPC 好感度獎勵、20 大陸冒險之書、9 大類收集品、T3／T4 軍團長與卡札羅斯副本開箱收益試算、飾品研磨詞條、流浪商人與各類速查表。',
+    '失落的方舟繁中版戰術與收集法典：收錄 NPC 好感度追蹤、20 大陸冒險之書、9 大類收集品勾選進度、T3／T4 卡札羅斯至貝爾加丁副本開箱與每週 3 本排程試算、T4 飾品／手鐲詞條、19 洲流浪商人與守護者新職業百科。',
   repo: 'https://github.com/sibyllae/LostArk-Strategies',
   dataSource:
     'https://docs.google.com/spreadsheets/d/1NuLGvFK98id3n835YzO6judXi2ovRSBgszau8gxHJjo/',
 } as const;
-
-export type Accent = 'rose' | 'sky' | 'emerald' | 'amber' | 'violet';
-
-interface AccentStyle {
-  text: string;
-  iconBg: string;
-  ring: string;
-  gradient: string;
-  hoverBorder: string;
-  dot: string;
-}
-
-/** Tailwind 需要完整的 class 字串才能被掃描到，因此集中定義每個主題色 */
-export const ACCENTS: Record<Accent, AccentStyle> = {
-  rose: {
-    text: 'text-rose-300',
-    iconBg: 'bg-rose-500/15',
-    ring: 'ring-rose-400/30',
-    gradient: 'from-rose-500/20 via-rose-500/5 to-transparent',
-    hoverBorder: 'hover:border-rose-400/40',
-    dot: 'bg-rose-400',
-  },
-  sky: {
-    text: 'text-sky-300',
-    iconBg: 'bg-sky-500/15',
-    ring: 'ring-sky-400/30',
-    gradient: 'from-sky-500/20 via-sky-500/5 to-transparent',
-    hoverBorder: 'hover:border-sky-400/40',
-    dot: 'bg-sky-400',
-  },
-  emerald: {
-    text: 'text-emerald-300',
-    iconBg: 'bg-emerald-500/15',
-    ring: 'ring-emerald-400/30',
-    gradient: 'from-emerald-500/20 via-emerald-500/5 to-transparent',
-    hoverBorder: 'hover:border-emerald-400/40',
-    dot: 'bg-emerald-400',
-  },
-  amber: {
-    text: 'text-amber-300',
-    iconBg: 'bg-amber-500/15',
-    ring: 'ring-amber-400/30',
-    gradient: 'from-amber-500/20 via-amber-500/5 to-transparent',
-    hoverBorder: 'hover:border-amber-400/40',
-    dot: 'bg-amber-400',
-  },
-  violet: {
-    text: 'text-violet-300',
-    iconBg: 'bg-violet-500/15',
-    ring: 'ring-violet-400/30',
-    gradient: 'from-violet-500/20 via-violet-500/5 to-transparent',
-    hoverBorder: 'hover:border-violet-400/40',
-    dot: 'bg-violet-400',
-  },
-};
 
 export type NavKey =
   | 'favorability'
@@ -84,12 +31,14 @@ export type NavKey =
 
 export interface NavItem {
   key: NavKey;
+  roman: string;
   /** 相對於 basename 的路徑 */
   path: string;
   title: string;
+  shortTitle: string;
+  subtitleEn: string;
   description: string;
   icon: ComponentType<{ className?: string }>;
-  accent: Accent;
   keywords: string[];
 }
 
@@ -98,41 +47,47 @@ export interface NavGroup {
   items: NavItem[];
 }
 
-/** 導覽的唯一資料來源：側邊欄、首頁卡片、快速搜尋、路由標題都由此產生 */
+/** 導覽的唯一資料來源：頂部星盤指揮列、行動抽屜、首頁章節矩陣、快速搜尋、路由 SEO 皆由此產生 */
 export const NAV_GROUPS: NavGroup[] = [
   {
-    title: '遊戲資訊',
+    title: '探索與好感圖鑑',
     items: [
       {
         key: 'favorability',
+        roman: 'I',
         path: '/game/favorability',
-        title: '好友度',
-        description: 'NPC 好感度各階段獎勵與最大好感度一覽',
+        title: 'NPC 好友度',
+        shortTitle: '好友度',
+        subtitleEn: 'RAPPORT ARCHIVE',
+        description: '各大陸與島嶼 NPC 五階好感度獎勵、需求量排序與完成度標記',
         icon: HeartOutlined,
-        accent: 'rose',
-        keywords: ['好感度', 'npc', 'rapport', '卡片', '巨人心臟'],
+        keywords: ['好感度', 'npc', 'rapport', '卡片', '巨人心臟', '巴亨圖爾', '妮娜芙'],
       },
       {
         key: 'adventureBook',
+        roman: 'II',
         path: '/game/adventureBook',
-        title: '冒險之書',
-        description: '各大陸冒險之書完成度對應的獎勵',
+        title: '大陸冒險之書',
+        shortTitle: '冒險之書',
+        subtitleEn: "ADVENTURER'S TOME",
+        description: '20 座大陸 10%～90% 里程碑獎勵橫軸與伊格涅亞標誌連動追蹤',
         icon: ReadOutlined,
-        accent: 'sky',
-        keywords: ['tome', '大陸', '完成度'],
+        keywords: ['tome', '大陸', '完成度', '伊格涅亞', '庫爾贊', '里姆雷克'],
       },
     ],
   },
   {
-    title: '收集品',
+    title: '遠征隊橫向收集',
     items: [
       {
         key: 'collectibles',
+        roman: 'III',
         path: '/game/collectibles',
         title: '收集品追蹤',
-        description: '巨人心臟、島之心、記憶八音盒、血爪海圖等 9 種收集品攻略',
+        shortTitle: '收集品',
+        subtitleEn: 'RELIC COLLECTIBLES',
+        description: '巨人心臟、島之心、記憶八音盒、血爪海圖等 9 大類收集勾選與進度記憶',
         icon: CrownOutlined,
-        accent: 'emerald',
         keywords: [
           '島之心',
           '巨人心臟',
@@ -148,41 +103,59 @@ export const NAV_GROUPS: NavGroup[] = [
     ],
   },
   {
-    title: '攻略工具',
+    title: '終局戰術與配裝',
     items: [
       {
         key: 'raidChests',
+        roman: 'IV',
         path: '/game/raidChests',
-        title: '副本開箱分析',
-        description: 'T3 軍團長與 T4 卡札羅斯第 1～4 幕／終幕金幣與開箱試算',
+        title: '副本開箱與週收',
+        shortTitle: '副本帳本',
+        subtitleEn: 'RAID GOLD LEDGER',
+        description: 'T3 軍團長至 T4 卡札羅斯終幕、賽爾卡、大聖堂與貝爾加丁開箱試算＆每週 3 本排程',
         icon: GoldOutlined,
-        accent: 'amber',
-        keywords: ['軍團長', '卡札羅斯', '阿爾莫切', 'raid', '金幣', '寶箱', 't4'],
+        keywords: ['軍團長', '卡札羅斯', '阿爾莫切', '賽爾卡', '貝爾加丁', '地平線大聖堂', '金幣', '寶箱', 't4'],
       },
       {
         key: 'systems',
+        roman: 'V',
         path: '/game/systems',
-        title: '養成與配裝',
-        description: 'T4 飾品研磨詞條、艾利西爾 40 覺、超越／卡爾瑪與流浪商人傳說卡',
+        title: '養成與配裝戰術',
+        shortTitle: '養成配裝',
+        subtitleEn: 'ARK PASSIVE & GEAR',
+        description: 'T4 飾品研磨數值、手鐲 S 級詞條、進階精煉／護腕／寶石與 19 洲流浪商人傳說卡',
         icon: SettingOutlined,
-        accent: 'sky',
-        keywords: ['飾品', '研磨', '艾利西爾', '超越', '卡爾瑪', '流浪商人', '韋毅', '巴亨圖爾'],
+        keywords: [
+          '飾品',
+          '手鐲',
+          '研磨',
+          '艾利西爾',
+          '超越',
+          '卡爾瑪',
+          '護腕',
+          '流浪商人',
+          '韋毅',
+          '巴亨圖爾',
+          '瓦爾格里斯',
+          '瓦爾坎',
+        ],
       },
     ],
   },
   {
-    title: '參考資料',
+    title: '全境百科速查',
     items: [
       {
         key: 'miscGuide',
+        roman: 'VI',
         path: '/game/miscGuide',
-        title: '雜項攻略',
-        description: '裝等路線、方舟星圖、戰鬥道具、樂譜、符文、T3/T4 卡組與技能/悟性點數',
+        title: '百科速查台',
+        shortTitle: '百科速查',
+        subtitleEn: 'TACTICAL ENCYCLOPEDIA',
+        description: '1415→1780 裝等路線、T4 守護者討伐、龍騎士／女聖騎／幻獸師、星圖、悟性點、卡組與符文',
         icon: CompassOutlined,
-        accent: 'violet',
         keywords: [
           '樂譜',
-          '曲譜',
           '符文',
           '卡組',
           '技能點',
@@ -190,7 +163,10 @@ export const NAV_GROUPS: NavGroup[] = [
           '方舟星圖',
           '戰鬥道具',
           '裝等',
-          '每日任務',
+          '守護者',
+          '龍騎士',
+          '女聖騎',
+          '幻獸師',
         ],
       },
     ],
@@ -206,4 +182,4 @@ export const getNavItem = (key: NavKey): NavItem => {
 };
 
 export const formatPageTitle = (title?: string): string =>
-  title ? `${title} | ${SITE.name} ${SITE.nameZh}` : `${SITE.name} | ${SITE.nameZh}`;
+  title ? `${title} | ${SITE.subName} ${SITE.nameZh}` : `${SITE.subName} | ${SITE.nameZh}`;

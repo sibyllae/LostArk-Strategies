@@ -16,6 +16,12 @@ import SidebarNav from './SidebarNav';
 import TopProgress from './TopProgress';
 import type { LayoutContext } from './layoutContext';
 
+function isEditableTarget(target: EventTarget | null): boolean {
+  if (!(target instanceof HTMLElement)) return false;
+  const tag = target.tagName;
+  return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || target.isContentEditable;
+}
+
 export default function AppLayout() {
   const location = useLocation();
   const navigation = useNavigation();
@@ -23,7 +29,6 @@ export default function AppLayout() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
-  // 以最深層 route 的 handle 設定頁面 SEO metadata（title / description / canonical / JSON-LD）
   const routeHandle = matches
     .map((match) => match.handle as RouteHandle | undefined)
     .filter(Boolean)
@@ -31,12 +36,23 @@ export default function AppLayout() {
 
   useRouteSeo(location.pathname, routeHandle);
 
-  // Ctrl/⌘ + K 開啟快速搜尋
+  // 支援 Ctrl/⌘ + K，以及效仿 d2r.world 在非輸入狀態按下 Q 或 / 直接喚醒全站快搜
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
         event.preventDefault();
         setSearchOpen((open) => !open);
+        return;
+      }
+      if (
+        !event.metaKey &&
+        !event.ctrlKey &&
+        !event.altKey &&
+        !isEditableTarget(event.target) &&
+        (event.key.toLowerCase() === 'q' || event.key === '/')
+      ) {
+        event.preventDefault();
+        setSearchOpen(true);
       }
     };
     window.addEventListener('keydown', onKeyDown);
@@ -48,29 +64,25 @@ export default function AppLayout() {
   const outletContext = useMemo<LayoutContext>(() => ({ openSearch }), [openSearch]);
 
   return (
-    <div className='relative min-h-dvh bg-obsidian-950'>
+    <div className='flex min-h-dvh flex-col bg-canvas'>
       <TopProgress active={navigation.state === 'loading'} />
 
-      <aside className='fixed inset-y-0 left-0 z-30 hidden w-60 border-r border-obsidian-700/70 bg-[#111419] lg:block'>
-        <SidebarNav />
-      </aside>
+      <AppHeader onOpenMenu={() => setMenuOpen(true)} onOpenSearch={openSearch} />
 
-      <div className='flex min-h-dvh flex-col lg:pl-60'>
-        <AppHeader onOpenMenu={() => setMenuOpen(true)} onOpenSearch={openSearch} />
-        <main className='mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-6 lg:px-8'>
-          <div key={location.pathname} className='animate-fade-in'>
-            <Outlet context={outletContext} />
-          </div>
-        </main>
-        <AppFooter />
-      </div>
+      <main className='mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6 sm:py-10 lg:px-10'>
+        <div key={location.pathname} className='animate-fade-in'>
+          <Outlet context={outletContext} />
+        </div>
+      </main>
+
+      <AppFooter />
 
       <Drawer
         placement='left'
         open={menuOpen}
         onClose={closeMenu}
         closable={false}
-        size={264}
+        size={296}
         styles={{ body: { padding: 0 } }}
       >
         <SidebarNav onNavigate={closeMenu} />

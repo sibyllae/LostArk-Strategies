@@ -5,6 +5,8 @@
       "nameEn": "Valtan",
       "tier": "T3",
       "difficulty": "普通",
+      "partySize": "8人",
+      "soloAvailable": true,
       "ilvl": 1415,
       "gates": [
         {
@@ -30,6 +32,8 @@
       "nameEn": "Vykas",
       "tier": "T3",
       "difficulty": "普通",
+      "partySize": "8人",
+      "soloAvailable": true,
       "ilvl": 1430,
       "gates": [
         {
@@ -61,6 +65,8 @@
       "nameEn": "Kakul-Saydon",
       "tier": "T3",
       "difficulty": "普通",
+      "partySize": "4人",
+      "soloAvailable": true,
       "ilvl": 1475,
       "gates": [
         {
@@ -92,6 +98,8 @@
       "nameEn": "Brelshaza",
       "tier": "T3",
       "difficulty": "普通",
+      "partySize": "8人",
+      "soloAvailable": true,
       "ilvl": 1490,
       "gates": [
         {
@@ -129,6 +137,9 @@
       "nameEn": "Kayangel",
       "tier": "T3",
       "difficulty": "普通",
+      "partySize": "4人",
+      "soloAvailable": true,
+      "weakness": "弱暗",
       "ilvl": 1540,
       "gates": [
         {
@@ -191,6 +202,9 @@
       "nameEn": "Akkan",
       "tier": "T3",
       "difficulty": "普通",
+      "partySize": "8人",
+      "soloAvailable": true,
+      "weakness": "弱光",
       "ilvl": 1580,
       "gates": [
         {
@@ -253,6 +267,8 @@
       "nameEn": "Ivory Tower",
       "tier": "T3",
       "difficulty": "普通",
+      "partySize": "4人",
+      "soloAvailable": true,
       "ilvl": 1600,
       "gates": [
         {
@@ -315,6 +331,9 @@
       "nameEn": "Thaemine",
       "tier": "T3",
       "difficulty": "普通",
+      "partySize": "8人",
+      "soloAvailable": true,
+      "weakness": "弱光",
       "ilvl": 1610,
       "gates": [
         {
@@ -383,6 +402,9 @@
       "nameEn": "Echidna",
       "tier": "T3",
       "difficulty": "普通",
+      "partySize": "8人",
+      "soloAvailable": true,
+      "weakness": "弱光",
       "ilvl": 1620,
       "gates": [
         {
@@ -433,6 +455,8 @@
       "nameEn": "Behemoth",
       "tier": "T4",
       "difficulty": "普通",
+      "partySize": "16人",
+      "weakness": "弱水 (G2)",
       "ilvl": 1640,
       "gates": [
         {
@@ -458,6 +482,9 @@
       "nameEn": "Aegir",
       "tier": "T4",
       "difficulty": "普通",
+      "partySize": "8人",
+      "soloAvailable": true,
+      "weakness": "弱光 (G1) / 弱古神",
       "ilvl": 1660,
       "gates": [
         {
@@ -483,6 +510,8 @@
       "nameEn": "Aegir",
       "tier": "T4",
       "difficulty": "困難",
+      "partySize": "8人",
+      "weakness": "弱光 (G1)",
       "ilvl": 1680,
       "gates": [
         {
@@ -508,6 +537,9 @@
       "nameEn": "Brelshaza Act 2",
       "tier": "T4",
       "difficulty": "普通",
+      "partySize": "8人",
+      "soloAvailable": true,
+      "weakness": "弱火 (G1) / 弱雷 (G2)",
       "ilvl": 1670,
       "gates": [
         {
@@ -533,6 +565,8 @@
       "nameEn": "Brelshaza Act 2",
       "tier": "T4",
       "difficulty": "困難",
+      "partySize": "8人",
+      "weakness": "弱火 (G1) / 弱雷 (G2)",
       "ilvl": 1690,
       "gates": [
         {
@@ -558,6 +592,8 @@
       "nameEn": "Mordum Act 3",
       "tier": "T4",
       "difficulty": "普通",
+      "partySize": "8人",
+      "weakness": "弱土",
       "ilvl": 1680,
       "gates": [
         {
@@ -589,6 +625,8 @@
       "nameEn": "Mordum Act 3",
       "tier": "T4",
       "difficulty": "困難",
+      "partySize": "8人",
+      "weakness": "弱土",
       "ilvl": 1700,
       "gates": [
         {
@@ -620,13 +658,15 @@
       "nameEn": "Armoche Act 4",
       "tier": "T4",
       "difficulty": "普通",
+      "partySize": "8人",
+      "weakness": "弱光 / 弱神聖",
       "ilvl": 1700,
       "gates": [
         {
           "gate": "關卡 1",
           "goldReward": 10000,
           "chestCost": 3200,
-          "chestContents": "方舟星圖核心（英雄～古代）、T4 強化材料"
+          "chestContents": "方舟星圖核心（英雄～遺物）、T4 強化材料"
         },
         {
           "gate": "關卡 2",
@@ -638,13 +678,123 @@
       "totalGold": 27000,
       "totalChestCost": 8640,
       "netGold": 18360,
-      "recommendation": "困難門檻 1720+（收益 42,000G+）；開荒方舟星圖核心期間建議開箱"
+      "recommendation": "首次進入方舟星圖核心養成階段，缺秩序／混沌核心必開箱"
+    },
+    {
+      "name": "阿爾莫切 (卡札羅斯第4幕)",
+      "nameEn": "Armoche Act 4",
+      "tier": "T4",
+      "difficulty": "困難",
+      "partySize": "8人",
+      "weakness": "弱光 / 弱神聖",
+      "ilvl": 1720,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 13500,
+          "chestCost": 4320,
+          "chestContents": "方舟星圖核心（傳說～古代）、高階 T4 強化材料"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 24500,
+          "chestCost": 7840,
+          "chestContents": "方舟星圖核心（遺物～古代機率提高）、古代飾品"
+        }
+      ],
+      "totalGold": 38000,
+      "totalChestCost": 12160,
+      "netGold": 25840,
+      "recommendation": "遺物與古代級星圖核心掉率顯著提升，核心未畢業前建議開箱"
+    },
+    {
+      "name": "地平線大聖堂 (卡達魯姆深淵 1階)",
+      "nameEn": "Horizon Cathedral S1",
+      "tier": "T4",
+      "difficulty": "普通",
+      "partySize": "4人",
+      "boundGoldNote": "全額角色綁定金幣",
+      "ilvl": 1700,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 13500,
+          "chestCost": 4320,
+          "chestContents": "T4 突破石、精煉材料、星石 (Astrogems)"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 16500,
+          "chestCost": 5280,
+          "chestContents": "T4 突破石、精煉材料、星石、卡包機率"
+        }
+      ],
+      "totalGold": 30000,
+      "totalChestCost": 9600,
+      "netGold": 20400,
+      "recommendation": "卡達魯姆群島 4 人深淵副本，產出高額「角色綁定金幣」，極適合衝刺本尊精煉！"
+    },
+    {
+      "name": "地平線大聖堂 (卡達魯姆深淵 2階)",
+      "nameEn": "Horizon Cathedral S2",
+      "tier": "T4",
+      "difficulty": "困難",
+      "partySize": "4人",
+      "boundGoldNote": "全額角色綁定金幣",
+      "ilvl": 1720,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 16000,
+          "chestCost": 5120,
+          "chestContents": "高階 T4 精煉材料、星石、古代飾品"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 24000,
+          "chestCost": 7680,
+          "chestContents": "高階 T4 精煉材料、高品星石、卡包機率"
+        }
+      ],
+      "totalGold": 40000,
+      "totalChestCost": 12800,
+      "netGold": 27200,
+      "recommendation": "1720 階段高收益 4 人週常，全額角色綁定金可直接投入進階精煉與星石加工"
+    },
+    {
+      "name": "地平線大聖堂 (卡達魯姆深淵 3階)",
+      "nameEn": "Horizon Cathedral S3",
+      "tier": "T4",
+      "difficulty": "惡夢",
+      "partySize": "4人",
+      "boundGoldNote": "全額角色綁定金幣",
+      "ilvl": 1750,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 20000,
+          "chestCost": 6400,
+          "chestContents": "頂級 T4 突破石、星石與強化素材"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 30000,
+          "chestCost": 9600,
+          "chestContents": "頂級 T4 突破石、高階星石、遺物刻印書機率"
+        }
+      ],
+      "totalGold": 50000,
+      "totalChestCost": 16000,
+      "netGold": 34000,
+      "recommendation": "1750 頂層 4 人聖堂，單場高達 5 萬角色綁金，自用衝裝角色開箱價值高"
     },
     {
       "name": "卡札羅斯 (卡札羅斯終幕)",
       "nameEn": "Kazeros Denouement",
       "tier": "T4",
       "difficulty": "普通",
+      "partySize": "8人",
+      "weakness": "弱光",
       "ilvl": 1710,
       "gates": [
         {
@@ -663,14 +813,171 @@
       "totalGold": 32000,
       "totalChestCost": 10240,
       "netGold": 21760,
-      "recommendation": "困難門檻 1730+（收益 48,000G+）；終局產出雙倍核心，缺星圖核心必開箱"
+      "recommendation": "第一部深淵之主終局決戰，產出雙倍星圖核心，缺古代核心期間必開箱"
+    },
+    {
+      "name": "卡札羅斯 (卡札羅斯終幕)",
+      "nameEn": "Kazeros Denouement",
+      "tier": "T4",
+      "difficulty": "困難",
+      "partySize": "8人",
+      "weakness": "弱光",
+      "ilvl": 1730,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 16000,
+          "chestCost": 5120,
+          "chestContents": "方舟星圖核心（遺物～古代）*2、頂級強化素材"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 32000,
+          "chestCost": 10240,
+          "chestContents": "方舟星圖核心（遺物～古代）*2、專屬坐騎／遺物書機率"
+        }
+      ],
+      "totalGold": 48000,
+      "totalChestCost": 15360,
+      "netGold": 32640,
+      "recommendation": "1730 頂級流通金幣來源（另設 The First 競速模式），星圖畢業後可不開純領 4.8 萬金"
+    },
+    {
+      "name": "賽爾卡 (暗影襲擊戰：痛苦魔女)",
+      "nameEn": "Shadow Raid: Serca",
+      "tier": "T4",
+      "difficulty": "普通",
+      "partySize": "4人",
+      "ilvl": 1710,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 13000,
+          "chestCost": 4160,
+          "chestContents": "方舟星圖核心、高階 T4 突破石與精煉素材"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 21000,
+          "chestCost": 6720,
+          "chestContents": "方舟星圖核心、T4 精煉素材、傳說～遺物卡包機率"
+        }
+      ],
+      "totalGold": 34000,
+      "totalChestCost": 10880,
+      "netGold": 23120,
+      "recommendation": "2026 全新 4 人暗影襲擊戰（含團隊共享復活池與動態匹配練習），組隊彈性極高！"
+    },
+    {
+      "name": "賽爾卡 (暗影襲擊戰：痛苦魔女)",
+      "nameEn": "Shadow Raid: Serca",
+      "tier": "T4",
+      "difficulty": "困難",
+      "partySize": "4人",
+      "ilvl": 1730,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 17500,
+          "chestCost": 5600,
+          "chestContents": "高階方舟星圖核心、大量 T4 突破石與素材"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 26500,
+          "chestCost": 8480,
+          "chestContents": "高階方舟星圖核心、古代飾品、遺物刻印書機率"
+        }
+      ],
+      "totalGold": 44000,
+      "totalChestCost": 14080,
+      "netGold": 29920,
+      "recommendation": "4 人快節奏高金幣副本，開箱費率固定 32%，可視核心與突破石市價決定"
+    },
+    {
+      "name": "賽爾卡 (暗影襲擊戰：痛苦魔女)",
+      "nameEn": "Shadow Raid: Serca",
+      "tier": "T4",
+      "difficulty": "惡夢",
+      "partySize": "4人",
+      "ilvl": 1740,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 21000,
+          "chestCost": 6720,
+          "chestContents": "遺物～古代星圖核心、頂級 T4 強化素材"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 33000,
+          "chestCost": 10560,
+          "chestContents": "遺物～古代星圖核心、專屬榮譽外觀／遺物書機率"
+        }
+      ],
+      "totalGold": 54000,
+      "totalChestCost": 17280,
+      "netGold": 36720,
+      "recommendation": "1740 惡夢難度單場高達 54,000G，為 1740 區間最高效的 4 人週常金庫！"
+    },
+    {
+      "name": "貝爾加丁 (暗影襲擊戰：死亡仲裁者)",
+      "nameEn": "Shadow Raid: Belgardin",
+      "tier": "T4",
+      "difficulty": "普通",
+      "partySize": "8人",
+      "ilvl": 1750,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 20000,
+          "chestCost": 6400,
+          "chestContents": "幽魂之影（護腕精煉素材）、T4 頂級強化材料"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 30000,
+          "chestCost": 9600,
+          "chestContents": "史詩級「護腕 (Bracers)」新部位裝備、幽魂之影*大量"
+        }
+      ],
+      "totalGold": 50000,
+      "totalChestCost": 16000,
+      "netGold": 34000,
+      "recommendation": "2026 Q4 最新終局 8 人副本！解鎖全新裝備槽「護腕」，拓荒期務必全開箱加速成型"
+    },
+    {
+      "name": "貝爾加丁 (暗影襲擊戰：死亡仲裁者)",
+      "nameEn": "Shadow Raid: Belgardin",
+      "tier": "T4",
+      "difficulty": "困難",
+      "partySize": "8人",
+      "ilvl": 1770,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "goldReward": 25000,
+          "chestCost": 8000,
+          "chestContents": "死亡之手（護腕高階突破素材）、頂級強化材料"
+        },
+        {
+          "gate": "關卡 2",
+          "goldReward": 37500,
+          "chestCost": 12000,
+          "chestContents": "死亡之手*大量、高階護腕與古代星石／遺物書機率"
+        }
+      ],
+      "totalGold": 62500,
+      "totalChestCost": 20000,
+      "netGold": 42500,
+      "recommendation": "1770 頂尖梯隊專屬（1780 另設惡夢難度），產出護腕突破史詩品級必備的「死亡之手」"
     }
   ],
   "notes": [
-    "角色每週最多可從 3 個副本獲得金幣獎勵（每個遠征隊上限 6 位角色）",
-    "開箱是否划算取決於當前拍賣行材料價格與自身養成需求（超越、艾利西爾、卡爾瑪、進階精煉）",
-    "部分 T3 與 T4 副本支援「單人模式 (Solo Mode)」，單人模式產出綁定金幣（可用於精煉與養成，不可於交易所使用）",
-    "部分早期／中階副本獎勵中含一定比例的綁定金幣，實際數值可能隨台服與國際服經濟平衡補丁微調",
-    "資料涵蓋 T3 軍團長～T4 卡札羅斯襲擊戰第 4 幕與終幕（2026 進度整理）"
+    "角色每週最多可從 3 個副本獲得金幣獎勵（每個遠征隊上限指定 6 位領金角色）",
+    "後期 T4 襲擊戰額外寶箱費用統一為該關卡通關金幣的 32%，可利用上方「每週 3 本排程試算」快速比對淨利",
+    "T3 軍團長與前期卡札羅斯幕次廣泛支援「單人模式 (Solo Mode)」，產出綁定金幣與單人商店代幣",
+    "地平線大聖堂（1～3階）通關獎勵為「角色綁定金幣」，非常適合本尊自用精煉與點星石",
+    "資料完整涵蓋 T3 軍團長 → 卡札羅斯第 1～4 幕與終幕 → 2026 卡達魯姆大聖堂與暗影襲擊戰（賽爾卡、貝爾加丁）"
   ]
 }

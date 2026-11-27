@@ -1,79 +1,70 @@
 import { theme, type ThemeConfig } from 'antd';
+import type { ThemeMode } from '@/hooks/useThemeMode';
 
-export const FONT_FAMILY = "Inter, 'Noto Sans TC', system-ui, -apple-system, sans-serif";
+export const FONT_FAMILY =
+  "'Plus Jakarta Sans', 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei UI', system-ui, -apple-system, sans-serif";
 
-export const appTheme: ThemeConfig = {
-  algorithm: theme.darkAlgorithm,
-  token: {
-    colorPrimary: '#c4984d',
-    colorInfo: '#60a5fa',
-    colorSuccess: '#4ade80',
-    colorWarning: '#d8b26e',
-    colorError: '#f87171',
-    colorBgBase: '#0e1013',
-    colorBgContainer: '#14171c',
-    colorBgElevated: '#191d24',
-    colorBorder: '#2a303c',
-    colorBorderSecondary: '#20252f',
-    colorText: '#e7e5e4',
-    colorTextSecondary: '#a8a29e',
-    borderRadius: 6,
-    fontFamily: FONT_FAMILY,
-    wireframe: false,
-  },
-  components: {
-    Table: {
-      headerBg: '#191d24',
-      headerColor: '#a8a29e',
-      rowHoverBg: '#1d222b',
-      colorBgContainer: 'transparent',
-      borderColor: '#232833',
-      cellPaddingBlockMD: 10,
-      cellPaddingInlineMD: 14,
+export function getAppTheme(mode: ThemeMode): ThemeConfig {
+  const isDark = mode === 'dark';
+
+  return {
+    algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm,
+    token: {
+      colorPrimary: isDark ? '#e5b55f' : '#b45c0e',
+      colorInfo: isDark ? '#38bdf8' : '#0284c7',
+      colorSuccess: isDark ? '#34d399' : '#059669',
+      colorWarning: isDark ? '#f59e0b' : '#d97706',
+      colorError: isDark ? '#f87171' : '#dc2626',
+      colorBgBase: isDark ? '#0e1116' : '#f4f6fa',
+      colorBgContainer: isDark ? '#171c24' : '#ffffff',
+      colorBgElevated: isDark ? '#1f2631' : '#ffffff',
+      colorBorder: isDark ? '#272f3d' : '#e2e8f0',
+      colorBorderSecondary: isDark ? '#202734' : '#edf2f7',
+      colorText: isDark ? '#f1f5f9' : '#0f172a',
+      colorTextSecondary: isDark ? '#adb8c9' : '#475569',
+      borderRadius: 10,
+      fontSize: 14,
+      fontFamily: FONT_FAMILY,
+      wireframe: false,
     },
-    Tabs: {
-      itemColor: '#a8a29e',
-      itemHoverColor: '#e7e5e4',
-      itemSelectedColor: '#ebd09a',
-      inkBarColor: '#c4984d',
-      titleFontSize: 14,
+    components: {
+      Table: {
+        headerBg: isDark ? '#131820' : '#f8fafc',
+        headerColor: isDark ? '#adb8c9' : '#475569',
+        rowHoverBg: isDark ? 'rgba(229, 181, 95, 0.05)' : '#f8fafc',
+        colorBgContainer: 'transparent',
+        borderColor: isDark ? '#232a37' : '#edf2f7',
+        cellPaddingBlockMD: 15,
+        cellPaddingInlineMD: 18,
+      },
+      Segmented: {
+        trackBg: isDark ? '#11151c' : '#eef2f6',
+        itemSelectedBg: isDark ? '#242c3a' : '#ffffff',
+        itemSelectedColor: isDark ? '#f8fafc' : '#0f172a',
+        itemColor: isDark ? '#8e9bb0' : '#64748b',
+      },
+      Modal: {
+        contentBg: isDark ? '#171c24' : '#ffffff',
+      },
+      Drawer: {
+        colorBgElevated: isDark ? '#141820' : '#ffffff',
+      },
+      Input: {
+        colorBgContainer: isDark ? '#12161e' : '#f8fafc',
+        activeBorderColor: isDark ? '#e5b55f' : '#b45c0e',
+        hoverBorderColor: isDark ? '#3a4558' : '#cbd5e1',
+        paddingBlock: 8,
+        paddingInline: 12,
+      },
+      Select: {
+        colorBgContainer: isDark ? '#12161e' : '#f8fafc',
+        activeBorderColor: isDark ? '#e5b55f' : '#b45c0e',
+        hoverBorderColor: isDark ? '#3a4558' : '#cbd5e1',
+      },
+      Switch: {
+        colorPrimary: isDark ? '#d9a441' : '#b45c0e',
+        colorPrimaryHover: isDark ? '#e5b55f' : '#92400e',
+      },
     },
-    Segmented: {
-      trackBg: '#14171c',
-      itemSelectedBg: '#252b36',
-      itemSelectedColor: '#f5f5f4',
-      itemColor: '#a8a29e',
-    },
-    Card: {
-      colorBgContainer: '#14171c',
-      colorBorderSecondary: '#232833',
-      headerBg: '#171b22',
-    },
-    Collapse: {
-      headerBg: '#171b22',
-      contentBg: '#12151a',
-      headerPadding: '12px 16px',
-      contentPadding: '16px',
-    },
-    Modal: {
-      contentBg: '#14171c',
-    },
-    Drawer: {
-      colorBgElevated: '#111419',
-    },
-    Input: {
-      colorBgContainer: '#14171c',
-      activeBorderColor: '#c4984d',
-      hoverBorderColor: '#3a4252',
-    },
-    Select: {
-      colorBgContainer: '#14171c',
-      activeBorderColor: '#c4984d',
-      hoverBorderColor: '#3a4252',
-    },
-    Switch: {
-      colorPrimary: '#c4984d',
-      colorPrimaryHover: '#d8b26e',
-    },
-  },
-};
+  };
+}

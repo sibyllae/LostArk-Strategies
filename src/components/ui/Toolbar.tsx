@@ -1,6 +1,10 @@
 import type { ReactNode } from 'react';
 
-/** 頁面篩選工具列：行動版直排、桌面版橫排 */
+/** 篩選工具列：寬鬆間距讓搜尋框與條件切換互不擁擠 */
 export default function Toolbar({ children }: { children: ReactNode }) {
-  return <div className='mb-5 flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center'>{children}</div>;
+  return (
+    <div className='surface mb-7 flex flex-col gap-3.5 p-4 md:flex-row md:flex-wrap md:items-center'>
+      {children}
+    </div>
+  );
 }

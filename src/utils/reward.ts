@@ -1,9 +1,25 @@
-/** 依獎勵內容給予克制的語意色調（貼近 Lost Ark 道具稀有度語意） */
+/** 依獎勵語意回傳支援 Light & Dark 雙主題的道具色階樣式 */
 export const rewardTone = (reward: string): string => {
-  if (/巨人心臟|血爪海圖/.test(reward)) return 'bg-gold-500/15 text-gold-300 ring-gold-500/35';
-  if (/技能點數|悟性點數/.test(reward)) return 'bg-emerald-500/10 text-emerald-300 ring-emerald-500/30';
-  if (reward.includes('卡片')) return 'bg-sky-500/10 text-sky-300 ring-sky-500/25';
-  if (/表情|動作|樂譜|曲譜|之歌/.test(reward)) return 'bg-purple-500/10 text-purple-300 ring-purple-500/25';
-  if (/金$|\d+(\.\d+)?k?金/.test(reward)) return 'bg-amber-500/10 text-amber-200 ring-amber-500/25';
-  return 'bg-obsidian-850 text-stone-300 ring-obsidian-700';
+  if (/巨人心臟|血爪海圖|奧菲斯之星|伊格涅亞/.test(reward)) {
+    return 'tone-relic';
+  }
+  if (/技能點數|悟性點數/.test(reward)) {
+    return 'tone-emerald';
+  }
+  if (/傳說|遺物|古代|梅內利克|梅涅里克/.test(reward)) {
+    return 'tone-gold';
+  }
+  if (reward.includes('卡片') || reward.includes('卡包')) {
+    return 'tone-sky';
+  }
+  if (/表情|動作|樂譜|曲譜|之歌|擺設|石像|坐騎|寵物/.test(reward)) {
+    return 'tone-purple';
+  }
+  if (/金$|\d+(\.\d+)?k?金/.test(reward)) {
+    return 'tone-gold';
+  }
+  if (/藥水/.test(reward)) {
+    return 'tone-teal';
+  }
+  return 'tone-neutral';
 };

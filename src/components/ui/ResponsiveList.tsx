@@ -8,10 +8,7 @@ interface ResponsiveListProps<T extends { key: Key }> {
   scrollX?: number;
 }
 
-/**
- * md 以上顯示表格、行動裝置顯示卡片。
- * 以 CSS 切換（而非 JS 偵測螢幕）避免首次渲染閃爍。
- */
+/** md 以上顯示寬鬆表格、行動裝置顯示獨立留白卡片 */
 export default function ResponsiveList<T extends { key: Key }>({
   data,
   columns,
@@ -29,7 +26,7 @@ export default function ResponsiveList<T extends { key: Key }>({
           scroll={scrollX ? { x: scrollX } : undefined}
         />
       </div>
-      <ul className='space-y-2 md:hidden'>
+      <ul className='space-y-3.5 md:hidden'>
         {data.map((item) => (
           <li key={item.key}>{renderCard(item)}</li>
         ))}

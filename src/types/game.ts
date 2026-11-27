@@ -97,11 +97,17 @@ export interface RaidGate {
   chestContents: string;
 }
 
+export type RaidDifficulty = '普通' | '困難' | '惡夢';
+
 export interface RaidInfo {
   name: string;
   nameEn: string;
   tier?: 'T3' | 'T4';
-  difficulty?: '普通' | '困難';
+  difficulty?: RaidDifficulty;
+  partySize?: string;
+  weakness?: string;
+  soloAvailable?: boolean;
+  boundGoldNote?: string;
   ilvl: number;
   gates: RaidGate[];
   totalGold: number;
@@ -174,6 +180,22 @@ export interface BattleItemData {
   timing: string;
 }
 
+export interface GuardianRaidData {
+  name: string;
+  ilvl: string;
+  weakness: string;
+  battleItems: string;
+  mechanics: string;
+}
+
+export interface ClassGuideData {
+  className: string;
+  archetype: string;
+  releaseTag: string;
+  arkPassiveBuilds: string;
+  highlights: string;
+}
+
 export interface MiscGuideData {
   songs: SongData[];
   skillPoints: SkillPointData[];
@@ -185,6 +207,8 @@ export interface MiscGuideData {
   progressionRoadmap: ProgressionStepData[];
   arkGrid: ArkGridTopicData[];
   battleItems: BattleItemData[];
+  guardianRaids?: GuardianRaidData[];
+  newClasses?: ClassGuideData[];
 }
 
 /* ------------------------------- 養成與配裝指南 ------------------------------- */
@@ -194,6 +218,15 @@ export interface AccessoryPolishData {
   role: string;
   primary: string;
   secondary: string;
+  rolls?: string;
+  note: string;
+}
+
+export interface BraceletRollData {
+  name: string;
+  role: '輸出 (DPS)' | '輔助 (Support)' | '通用核心';
+  tier: 'S' | 'A';
+  effect: string;
   note: string;
 }
 
@@ -207,12 +240,14 @@ export interface GearSystemData {
 export interface WanderingMerchantData {
   continent: string;
   merchant: string;
+  priority?: '必蹲傳說' | '圖鑑核心' | '區域收集';
   cards: string;
   note: string;
 }
 
 export interface SystemsData {
   accessories: AccessoryPolishData[];
+  bracelets?: BraceletRollData[];
   gearSystems: GearSystemData[];
   wanderingMerchants: WanderingMerchantData[];
 }
