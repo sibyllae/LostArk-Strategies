@@ -2,16 +2,17 @@ import { Fragment } from 'react';
 import { escapeRegExp } from '@/utils/text';
 
 interface HighlightProps {
-  text: string;
+  text?: string | null;
   query: string;
 }
 
-/** 將文字中符合搜尋關鍵字的部分以高對比雙主題 <mark> 標示 */
+/** 將文字中符合搜尋關鍵字的部分以高對比雙主題 <mark> 標示（具空值防護） */
 export default function Highlight({ text, query }: HighlightProps) {
+  const safeText = text ?? '';
   const keyword = query.trim();
-  if (!keyword) return <>{text}</>;
+  if (!keyword || !safeText) return <>{safeText}</>;
 
-  const parts = text.split(new RegExp(`(${escapeRegExp(keyword)})`, 'gi'));
+  const parts = safeText.split(new RegExp(`(${escapeRegExp(keyword)})`, 'gi'));
   return (
     <>
       {parts.map((part, index) =>

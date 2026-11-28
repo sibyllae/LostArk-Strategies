@@ -1,11 +1,15 @@
-import { useMemo, useState } from 'react';
-import { Segmented } from 'antd';
+import { useMemo } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { CheckOutlined } from '@ant-design/icons';
+import AnchorJumpCloud from '@/components/ui/AnchorJumpCloud';
+import DataCard3Zone from '@/components/ui/DataCard3Zone';
 import EmptyResult from '@/components/ui/EmptyResult';
+import GlyphIcon from '@/components/ui/GlyphIcon';
 import Highlight from '@/components/ui/Highlight';
 import PageHeader from '@/components/ui/PageHeader';
 import QueryState from '@/components/ui/QueryState';
 import SearchInput from '@/components/ui/SearchInput';
+import StatRangeText from '@/components/ui/StatRangeText';
 import Toolbar from '@/components/ui/Toolbar';
 import { useLocalTracker } from '@/hooks/useLocalTracker';
 import { useSearchQuery } from '@/hooks/useSearchQuery';
@@ -13,7 +17,7 @@ import { useGetAdventureBooksQuery } from '@/services/gameApi';
 import type { AdventureBook } from '@/types/game';
 import { cx } from '@/utils/cx';
 import { rewardTone } from '@/utils/reward';
-import { matchesQuery } from '@/utils/text';
+import { matchesWithAliases, toAnchorId } from '@/utils/slug';
 
 const T4_REGIONS = new Set(['庫爾贊南部', '庫爾贊北部', '里姆雷克南部']);
 const MID_REGIONS = new Set([
@@ -23,11 +27,15 @@ const MID_REGIONS = new Set([
   '帕夫尼卡',
   '貝倫南部',
   '洛溫',
+  '普雷奇亞',
   '愛迦希亞',
   '伏爾戴克',
 ]);
 
 type EraFilter = 'ALL' | 'EARLY' | 'MID' | 'T4';
+type IgneaFilter = 'ALL' | 'TODO' | 'DONE';
+
+const QUICK_REWARDS = ['技能點數', '悟性點數', '藝術品', '秘密地圖', '血爪海圖', '之歌', '卡片'] as const;
 
 const getRegionEra = (region: string): Exclude<EraFilter, 'ALL'> => {
   if (T4_REGIONS.has(region)) return 'T4';
@@ -35,21 +43,78 @@ const getRegionEra = (region: string): Exclude<EraFilter, 'ALL'> => {
   return 'EARLY';
 };
 
+/** SKILL.md Section 4G：點擊冒險書獎勵膠囊直接導向對應收集品／百科視圖 */
+function getMilestoneCrossLink(reward: string): string | null {
+  if (reward.includes('血爪海圖')) return '/game/collectibles?tab=bloodclawCharts';
+  if (reward.includes('藝術品')) return '/game/collectibles?tab=masterpieces';
+  if (reward.includes('秘密地圖')) return '/game/collectibles?tab=seaBounties';
+  if (reward.includes('悟性點數')) return '/game/miscGuide?section=enlightenmentPoints';
+  if (reward.includes('技能點數')) return '/game/miscGuide?section=skillPoints';
+  if (reward.includes('之歌') || reward.includes('武器')) return '/game/miscGuide?section=songs';
+  if (reward.includes('符文')) return '/game/miscGuide?section=runes';
+  if (reward.includes('卡片')) return '/game/miscGuide?section=cardSets';
+  return null;
+}
+
 export default function AdventureBookPage() {
   const { data = [], isLoading, isError, refetch } = useGetAdventureBooksQuery();
   const { state, toggleIgneaRegion } = useLocalTracker();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useSearchQuery();
-  const [era, setEra] = useState<EraFilter>('ALL');
+
+  const eraParam = searchParams.get('era');
+  const igneaParam = searchParams.get('ignea');
+
+  const era: EraFilter =
+    eraParam === 'EARLY' || eraParam === 'MID' || eraParam === 'T4' ? eraParam : 'ALL';
+  const igneaFilter: IgneaFilter =
+    igneaParam === 'TODO' || igneaParam === 'DONE' ? igneaParam : 'ALL';
+
+  const setParam = (key: string, value: string) => {
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        if (value === 'ALL') next.delete(key);
+        else next.set(key, value);
+        return next;
+      },
+      { replace: true }
+    );
+  };
 
   const igneaSet = useMemo(() => new Set(state.igneaRegions), [state.igneaRegions]);
 
   const filtered = useMemo(() => {
     return data.filter((item) => {
+      const done = igneaSet.has(item.region);
+      if (igneaFilter === 'TODO' && done) return false;
+      if (igneaFilter === 'DONE' && !done) return false;
       if (era !== 'ALL' && getRegionEra(item.region) !== era) return false;
       const rewards = item.milestones.map((m) => m.reward);
-      return matchesQuery(query, item.region, rewards);
+      return matchesWithAliases(query, item.region, rewards);
     });
-  }, [data, query, era]);
+  }, [data, query, era, igneaFilter, igneaSet]);
+
+  const activeFilters = useMemo(() => {
+    const tags: string[] = [];
+    if (query.trim()) tags.push(`關鍵字: ${query.trim()}`);
+    if (era !== 'ALL') tags.push(`分區: ${era === 'T4' ? 'T4 大陸' : era === 'MID' ? '中後期' : '初期'}`);
+    if (igneaFilter !== 'ALL') tags.push(igneaFilter === 'TODO' ? '100%未完成' : '100%已取得');
+    return tags;
+  }, [query, era, igneaFilter]);
+
+  const anchorItems = useMemo(
+    () =>
+      filtered.map((item) => ({
+        id: toAnchorId('tome', item.region),
+        label: item.region,
+      })),
+    [filtered]
+  );
+
+  const resetAll = () => {
+    setSearchParams({}, { replace: true });
+  };
 
   return (
     <div>
@@ -58,44 +123,101 @@ export default function AdventureBookPage() {
         stats={[
           { label: '收錄大陸', value: data.length },
           { label: '伊格涅亞標誌', value: `${igneaSet.size}/${data.length}` },
-          { label: '顯示大陸', value: filtered.length },
+          { label: '顯示筆數', value: filtered.length },
         ]}
       />
 
-      <Toolbar>
-        <div className='min-w-[240px] flex-1'>
-          <SearchInput
-            value={query}
-            onChange={setQuery}
-            placeholder='搜尋大陸名稱或完成度獎勵（如：技能點、悟性點、血爪海圖、秘密地圖）…'
-          />
-        </div>
-        <Segmented
-          size='large'
-          value={era}
-          onChange={(v) => setEra(v as EraFilter)}
-          options={[
-            { label: '全部大陸', value: 'ALL' },
-            { label: '吉埃娜初期', value: 'EARLY' },
-            { label: '中後期大陸', value: 'MID' },
-            { label: 'T4 大陸', value: 'T4' },
-          ]}
+      <div className='surface section-bar-category mb-4 px-3.5 py-2.5 text-xs text-sub'>
+        <strong className='font-semibold text-gold'>2026 版本說明：</strong>
+        「卡達魯姆群島」為通往薩克利亞的過渡篇章，官方未設置大陸冒險之書與伊格涅亞標誌（其隱藏摩可可、薩克利亞香爐海圖與{' '}
+        <Link to='/game/raidChests?q=地平線大聖堂' className='font-medium text-magic hover:underline'>
+          地平線大聖堂
+        </Link>{' '}
+        已收錄於對應專區）。
+      </div>
+
+      <Toolbar
+        shownCount={filtered.length}
+        totalCount={data.length}
+        activeFilters={activeFilters}
+        onReset={resetAll}
+      >
+        <SearchInput
+          value={query}
+          onChange={setQuery}
+          placeholder='搜尋大陸名稱或里程碑獎勵（如：技能點、悟性點、血爪海圖、微縮地圖）…'
         />
+
+        <div className='flex flex-wrap items-center justify-between gap-2 text-xs'>
+          <div className='flex flex-wrap items-center gap-1.5'>
+            <span className='font-semibold text-muted'>分區：</span>
+            {(
+              [
+                ['ALL', '全部大陸'],
+                ['EARLY', '吉埃娜初期'],
+                ['MID', '中後期大陸'],
+                ['T4', 'T4 終局大陸'],
+              ] as const
+            ).map(([val, label]) => (
+              <button
+                key={val}
+                type='button'
+                onClick={() => setParam('era', val)}
+                className={cx('filter-chip focus-ring', era === val && 'filter-chip-active')}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
+          <div className='flex flex-wrap items-center gap-1.5'>
+            <span className='font-semibold text-muted'>獎勵快篩：</span>
+            {QUICK_REWARDS.map((kw) => {
+              const active = query === kw;
+              return (
+                <button
+                  key={kw}
+                  type='button'
+                  onClick={() => setQuery(active ? '' : kw)}
+                  className={cx('filter-chip focus-ring', active && 'filter-chip-active')}
+                >
+                  {kw}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className='flex flex-wrap items-center gap-1.5'>
+            <span className='font-semibold text-muted'>100% 標誌：</span>
+            {(
+              [
+                ['ALL', '全部'],
+                ['TODO', '未完成'],
+                ['DONE', '已取得'],
+              ] as const
+            ).map(([val, label]) => (
+              <button
+                key={val}
+                type='button'
+                onClick={() => setParam('ignea', val)}
+                className={cx('filter-chip focus-ring', igneaFilter === val && 'filter-chip-active')}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
       </Toolbar>
+
+      <AnchorJumpCloud items={anchorItems} title='大陸直達索引' />
 
       <QueryState isLoading={isLoading} isError={isError} onRetry={refetch}>
         {filtered.length === 0 ? (
-          <EmptyResult
-            query={query}
-            onReset={() => {
-              setQuery('');
-              setEra('ALL');
-            }}
-          />
+          <EmptyResult query={query} activeFilters={activeFilters} onReset={resetAll} />
         ) : (
-          <div className='space-y-6'>
+          <div className='space-y-3'>
             {filtered.map((item, idx) => (
-              <AdventureBookStrip
+              <TomeCard3Zone
                 key={item.id}
                 index={idx + 1}
                 item={item}
@@ -111,7 +233,7 @@ export default function AdventureBookPage() {
   );
 }
 
-function AdventureBookStrip({
+function TomeCard3Zone({
   index,
   item,
   query,
@@ -125,58 +247,100 @@ function AdventureBookStrip({
   onToggleIgnea: () => void;
 }) {
   const era = getRegionEra(item.region);
+  const anchorId = toAnchorId('tome', item.region);
 
   return (
-    <article
-      className={cx(
-        'surface overflow-hidden',
-        igneaDone ? 'border-emerald-500/45' : 'hover:border-brand/45'
-      )}
-    >
-      <div className='flex flex-wrap items-center justify-between gap-3 border-b border-line bg-subtle/60 px-6 py-4'>
-        <div className='flex items-center gap-3.5'>
-          <span className='font-mono text-xs font-semibold text-muted tabular-nums'>
-            #{String(index).padStart(2, '0')}
-          </span>
-          <h2 className='text-lg font-bold text-ink'>
-            <Highlight text={item.region} query={query} />
-          </h2>
-          {era === 'T4' && (
-            <span className='chip tone-gold px-2 py-0.5 text-xs'>T4 大陸</span>
-          )}
-        </div>
-
+    <DataCard3Zone
+      id={anchorId}
+      highlighted={igneaDone}
+      titleTone={igneaDone ? 'set' : 'gold'}
+      scopeBadge={
+        era === 'T4'
+          ? { label: 'T4 大陸', tone: 'warning' }
+          : igneaDone
+            ? { label: '100% 完成', tone: 'group' }
+            : undefined
+      }
+      title={<Highlight text={item.region} query={query} />}
+      subtitleEn={`Adventurer's Tome · #${String(index).padStart(2, '0')}`}
+      headerActions={
         <button
           type='button'
           onClick={onToggleIgnea}
           aria-pressed={igneaDone}
-          className={cx(
-            'focus-ring inline-flex items-center gap-1.5 rounded-xl border px-3.5 py-1.5 text-xs font-semibold transition-colors',
-            igneaDone
-              ? 'border-emerald-500/45 bg-emerald-500/15 text-emerald-700 dark:text-emerald-200'
-              : 'border-line bg-surface text-sub hover:border-brand/50 hover:text-brand'
-          )}
+          className={cx('filter-chip focus-ring py-1 text-xs', igneaDone && 'filter-chip-active')}
         >
-          <CheckOutlined className='text-[11px]' />
-          {igneaDone ? '100% 伊格涅亞已取' : '標記 100% 完成'}
+          <CheckOutlined className='text-[10px]' />
+          <span>{igneaDone ? '100% 伊格涅亞已取' : '標記 100% 完成'}</span>
         </button>
-      </div>
-
-      <div className='grid grid-cols-1 gap-3.5 p-6 sm:grid-cols-2 lg:grid-cols-3'>
-        {item.milestones.map((m) => (
-          <div
-            key={m.percent}
-            className='subsurface flex items-center gap-3.5 px-4 py-3'
-          >
-            <span className='w-11 shrink-0 font-mono text-sm font-bold tabular-nums text-brand'>
-              {m.percent}%
-            </span>
+      }
+      visual={
+        <div className='flex flex-col items-center justify-center gap-0.5 text-center'>
+          <GlyphIcon
+            name='tome'
+            className={era === 'T4' ? 'size-5 text-gold' : 'size-5 text-magic'}
+          />
+          <span className='font-mono text-[11px] font-semibold tabular-nums text-sub'>
+            #{String(index).padStart(2, '0')}
+          </span>
+        </div>
+      }
+      baseSpecs={[
+        {
+          label: '大陸分區',
+          value: era === 'T4' ? 'T4 終局大陸' : era === 'MID' ? '中後期大陸' : '吉埃娜初期',
+        },
+        { label: '收錄獎勵', value: `${item.milestones.length} 個里程碑`, highlight: true },
+        {
+          label: '好感 NPC',
+          value: (
+            <Link
+              to={`/game/favorability?loc=${encodeURIComponent(item.region)}`}
+              className='text-magic hover:underline'
+            >
+              查本區好感 →
+            </Link>
+          ),
+        },
+        {
+          label: '100% 標誌',
+          value: (
+            <Link to='/game/collectibles?tab=igneaTokens' className='text-magic hover:underline'>
+              伊格涅亞獎勵 →
+            </Link>
+          ),
+        },
+      ]}
+      footerMeta={`TOME · #${anchorId} · MILESTONES:${item.milestones.length} · IGNEA:${igneaDone ? 'DONE' : 'TODO'}`}
+    >
+      <div className='grid grid-cols-1 gap-1.5 sm:grid-cols-2'>
+        {item.milestones.map((m) => {
+          const crossTo = getMilestoneCrossLink(m.reward);
+          const badge = (
             <span className={cx('chip min-w-0 break-words', rewardTone(m.reward))}>
-              <Highlight text={m.reward} query={query} />
+              <StatRangeText text={m.reward} query={query} />
             </span>
-          </div>
-        ))}
+          );
+          return (
+            <div key={m.percent} className='subsurface flex items-center gap-2 px-2.5 py-1.5'>
+              <span className='w-9 shrink-0 font-mono text-xs font-semibold tabular-nums text-roll'>
+                {m.percent}%
+              </span>
+              {crossTo ? (
+                <Link
+                  to={crossTo}
+                  title='前往對應圖鑑或速查表'
+                  className='focus-ring min-w-0 rounded-sm transition-opacity hover:opacity-85'
+                >
+                  {badge}
+                </Link>
+              ) : (
+                badge
+              )}
+            </div>
+          );
+        })}
       </div>
-    </article>
+    </DataCard3Zone>
   );
 }

@@ -12,10 +12,10 @@ interface SidebarNavProps {
 
 const linkClass = (isActive: boolean) =>
   cx(
-    'focus-ring flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium tracking-[0.03em] transition-colors',
+    'focus-ring flex min-h-[44px] items-center gap-2.5 rounded-md border px-3 py-2 text-[13.5px] font-medium transition-colors duration-fast',
     isActive
-      ? 'bg-brand/12 font-semibold text-brand'
-      : 'text-sub hover:bg-elevated hover:text-ink'
+      ? 'border-active bg-active/[0.14] font-semibold text-ink'
+      : 'border-transparent text-sub hover:bg-hover hover:text-ink'
   );
 
 export default function SidebarNav({ onNavigate }: SidebarNavProps) {
@@ -26,40 +26,45 @@ export default function SidebarNav({ onNavigate }: SidebarNavProps) {
 
   return (
     <div className='flex h-full flex-col bg-surface text-ink'>
-      <div className='border-b border-line p-5'>
-        <Link to='/' onClick={onNavigate} className='focus-ring flex items-center gap-3 rounded-xl'>
+      <div className='border-b border-line p-4'>
+        <Link to='/' onClick={onNavigate} className='focus-ring flex items-center gap-2.5 rounded-md'>
           <Logo size='md' />
-          <div className='leading-snug'>
-            <p className='text-sm font-bold tracking-[0.05em] text-ink'>{SITE.subName}</p>
-            <p className='text-xs text-muted'>失落的方舟資料庫</p>
+          <div className='leading-tight'>
+            <p className='text-[14px] font-semibold text-gold'>ARKESIA CODEX</p>
+            <p className='text-xs text-muted'>失落的方舟快查手冊</p>
           </div>
         </Link>
 
-        <div className='mt-4 grid grid-cols-2 gap-2.5 rounded-xl border border-line bg-subtle p-3 text-xs'>
+        <div className='mt-3 grid grid-cols-2 gap-2 rounded-md border border-line bg-well p-2.5 text-xs'>
           <div>
-            <span className='block text-muted'>已標記進度</span>
-            <strong className='mt-0.5 block font-mono text-sm text-ink tabular-nums'>
-              {trackedTotal} 項
-            </strong>
+            <span className='block text-muted'>已勾選收集</span>
+            <strong className='font-mono text-sm tabular-nums text-gold'>{trackedTotal} 項</strong>
           </div>
           <div>
             <span className='block text-muted'>週常排程</span>
-            <strong className='mt-0.5 block font-mono text-sm text-ink tabular-nums'>
+            <strong className='font-mono text-sm tabular-nums text-setgreen'>
               {state.pinnedRaids.length} / 3 本
             </strong>
           </div>
         </div>
       </div>
 
-      <nav aria-label='行動版導覽選單' className='flex-1 space-y-6 overflow-y-auto p-4'>
+      <nav aria-label='行動版分類選單' className='flex-1 space-y-4 overflow-y-auto p-3.5'>
         <NavLink to='/' end onClick={onNavigate} className={({ isActive }) => linkClass(isActive)}>
           <HomeOutlined />
-          <span>資料庫首頁</span>
+          <span>工具啟動台首頁</span>
         </NavLink>
 
-        {NAV_GROUPS.map((group) => (
+        {NAV_GROUPS.map((group, idx) => (
           <div key={group.title} className='space-y-1.5'>
-            <p className='px-3 text-xs font-semibold tracking-wider text-muted'>{group.title}</p>
+            <p
+              className={cx(
+                idx < 2 ? 'section-bar-primary' : 'section-bar-category',
+                'text-xs font-semibold text-ink'
+              )}
+            >
+              {group.title}
+            </p>
             <ul className='space-y-1'>
               {group.items.map((item) => {
                 const Icon = item.icon;
@@ -70,8 +75,9 @@ export default function SidebarNav({ onNavigate }: SidebarNavProps) {
                       onClick={onNavigate}
                       className={({ isActive }) => linkClass(isActive)}
                     >
-                      <Icon />
+                      <Icon className='text-gold' />
                       <span className='truncate'>{item.title}</span>
+                      <span className='ml-auto font-mono text-[11px] text-muted'>{item.roman}</span>
                     </NavLink>
                   </li>
                 );
@@ -81,11 +87,14 @@ export default function SidebarNav({ onNavigate }: SidebarNavProps) {
         ))}
       </nav>
 
-      <div className='flex items-center justify-between gap-2 border-t border-line p-4 text-xs text-sub'>
+      <div
+        className='flex items-center justify-between gap-2 border-t border-line p-3.5 text-xs text-sub'
+        style={{ paddingBottom: 'calc(14px + env(safe-area-inset-bottom, 0px))' }}
+      >
         <button
           type='button'
           onClick={toggleTheme}
-          className='focus-ring rounded-lg border border-line bg-subtle px-3 py-1.5 font-medium text-ink transition-colors hover:border-brand/50'
+          className='focus-ring min-h-[44px] rounded-md border border-line-strong bg-well px-3.5 py-2 font-medium text-ink transition-colors hover:border-active'
         >
           {isDark ? '☀ 切換淺色模式' : '☾ 切換深色模式'}
         </button>
@@ -94,7 +103,7 @@ export default function SidebarNav({ onNavigate }: SidebarNavProps) {
           href={SITE.repo}
           target='_blank'
           rel='noreferrer'
-          className='focus-ring inline-flex items-center gap-1.5 text-muted transition-colors hover:text-ink'
+          className='focus-ring inline-flex min-h-[44px] items-center gap-1.5 px-2 text-muted transition-colors hover:text-ink'
         >
           <GithubOutlined /> GitHub
         </a>

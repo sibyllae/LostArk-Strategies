@@ -23,7 +23,7 @@ function applyTheme(mode: ThemeMode) {
   document.documentElement.dataset.theme = mode;
   const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
   if (meta) {
-    meta.setAttribute('content', mode === 'dark' ? '#0e1116' : '#f4f6f9');
+    meta.setAttribute('content', mode === 'dark' ? '#121212' : '#f2f4f7');
   }
   try {
     window.localStorage.setItem(STORAGE_KEY, mode);

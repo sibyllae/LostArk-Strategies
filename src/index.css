@@ -1,6 +1,6 @@
 /*
- * 將 Tailwind preflight 放進較低優先級的 cascade layer，
- * 避免覆蓋 Ant Design 的元件樣式。
+ * Obsidian Lookup UI/UX Design System (.agents/skills/uiux/SKILL.md)
+ * 低眩光黑曜石雙螢幕快查系統（預設 Dark + 對稱語意 Light 切換）
  */
 @layer tailwind-base;
 
@@ -12,159 +12,269 @@
 @tailwind utilities;
 
 @layer base {
-  /* Light Mode：清爽柔霧灰白底 + 純白卡片層次，長時間查表不刺眼 */
   :root {
     color-scheme: light;
-    --bg-canvas: 244 246 250;
-    --bg-surface: 255 255 255;
-    --bg-subtle: 248 250 252;
-    --bg-elevated: 241 245 249;
-    --border-line: 226 232 240;
-    --border-strong: 203 213 225;
-    --text-ink: 15 23 42;
-    --text-sub: 64 78 99;
-    --text-muted: 100 116 139;
-    --brand: 180 92 14;
+
+    /* 4. Spacing, Radius & Motion (SKILL.md Section 2) */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 10px;
+    --header-height: 52px;
+    --transition-fast: 120ms cubic-bezier(0.2, 0, 0, 1);
+    --transition-normal: 180ms cubic-bezier(0.2, 0, 0, 1);
+
+    /* Light Mode 對稱色票 */
+    --bg-canvas: 242 244 247;            /* #f2f4f7 */
+    --bg-surface: 255 255 255;           /* #ffffff */
+    --bg-surface-elevated: 237 240 245;  /* #edf0f5 */
+    --bg-surface-hover: 229 234 242;     /* #e5eaf2 */
+    --bg-media-well: 245 247 250;        /* #f5f7fa */
+
+    --border-subtle: 221 226 234;        /* #dde2ea */
+    --border-strong: 192 200 212;        /* #c0c8d4 */
+    --border-active: 66 99 235;          /* #4263eb */
+    --focus-ring: rgba(66, 99, 235, 0.38);
+
+    --accent-section-primary: 201 42 42;    /* #c92a2a */
+    --accent-section-secondary: 15 157 142; /* #0f9d8e */
+
+    --text-primary: 28 33 41;            /* #1c2129 */
+    --text-secondary: 85 95 110;         /* #555f6e */
+    --text-muted: 125 135 150;           /* #7d8796 */
+
+    --semantic-highlight: 146 108 26;    /* #926c1a */
+    --semantic-attribute: 54 79 199;     /* #364fc7 */
+    --semantic-group: 24 138 74;         /* #188a4a */
+    --semantic-warning: 179 116 0;       /* #b37400 */
+    --semantic-range: 180 83 9;          /* #b45309 */
+    --semantic-danger: 217 48 37;        /* #d93025 */
+    --semantic-diff-bg: rgba(241, 196, 15, 0.16);
   }
 
-  /* Dark Mode：參考 d2r.world 沉穩深曜石藍灰底 + 暗金重點色 */
+  /* Dark Mode：嚴格對齊 obsidian-lookup-uiux SKILL.md Section 2 色票 */
   html.dark {
     color-scheme: dark;
-    --bg-canvas: 14 17 22;
-    --bg-surface: 23 28 36;
-    --bg-subtle: 18 22 29;
-    --bg-elevated: 31 38 49;
-    --border-line: 39 47 61;
-    --border-strong: 58 69 88;
-    --text-ink: 241 245 249;
-    --text-sub: 173 184 201;
-    --text-muted: 120 133 153;
-    --brand: 229 181 95;
+
+    /* 1. Surface Luminance Ramp (Low-Glare Dark) */
+    --bg-canvas: 18 18 18;               /* #121212 Primary viewport background */
+    --bg-surface: 28 28 28;              /* #1c1c1c Cards, filter bars, header shell */
+    --bg-surface-elevated: 36 36 36;     /* #242424 Interactive tiles, dropdowns, modals */
+    --bg-surface-hover: 44 44 44;        /* #2c2c2c Hover state for clickable tiles & rows */
+    --bg-media-well: 14 14 14;           /* #0e0e0e Recessed container for thumbnails/icons */
+
+    /* 2. Hairline Borders & Structural Accents */
+    --border-subtle: 43 43 43;           /* #2b2b2b Card dividers, table gridlines */
+    --border-strong: 62 62 62;           /* #3e3e3e Inputs, inactive chips, modal frames */
+    --border-active: 92 124 250;         /* #5c7cfa Selected filter chip or active category tile */
+    --focus-ring: rgba(92, 124, 250, 0.45);
+
+    /* Section Left Accent Bars (3px solid left border on section headers) */
+    --accent-section-primary: 217 72 72;   /* #d94848 Primary navigation / core catalog groups */
+    --accent-section-secondary: 38 166 154;/* #26a69a Sub-category headers / reference utilities */
+
+    /* 3. Typography & Semantic Data Palette */
+    --text-primary: 232 232 232;         /* #e8e8e8 Main readable text (never harsh #ffffff) */
+    --text-secondary: 166 166 166;       /* #a6a6a6 Spec keys, secondary labels, timestamps */
+    --text-muted: 110 110 110;           /* #6e6e6e Technical metadata, IDs, footer hints */
+
+    --semantic-highlight: 199 179 119;   /* #c7b377 Primary / featured entity titles */
+    --semantic-attribute: 116 143 252;   /* #748ffc Structured modifiers, attributes, deep links */
+    --semantic-group: 46 204 113;        /* #2ecc71 Collection / grouped set indicators */
+    --semantic-warning: 241 196 15;      /* #f1c40f Scoped constraints, limited/conditional flags */
+    --semantic-range: 230 184 92;        /* #e6b85c Variable min-max numeric bounds inside text */
+    --semantic-danger: 255 107 107;      /* #ff6b6b Negative modifiers, penalties, deprecated flags */
+    --semantic-diff-bg: rgba(241, 196, 15, 0.14); /* Row highlight for delta tables */
   }
 
   html {
-    scroll-behavior: smooth;
-    -webkit-tap-highlight-color: transparent;
     font-size: 16px;
+    -webkit-tap-highlight-color: transparent;
   }
 
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* SKILL.md Typography: Data Specs & Attributes 13px-14px, line-height: 1.55 */
   body {
-    @apply min-h-dvh bg-canvas font-sans text-[15px] leading-[1.72] tracking-[0.03em] text-ink antialiased transition-colors duration-200;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    @apply tracking-[0.04em];
+    @apply min-h-dvh bg-canvas font-sans text-[13.5px] leading-[1.55] tracking-[0.015em] text-ink antialiased sm:text-[14px];
   }
 
   ::selection {
-    @apply bg-brand/25 text-ink;
+    @apply bg-active/30 text-ink;
   }
 
   kbd {
-    @apply inline-flex min-w-[1.5rem] items-center justify-center rounded-md border border-line-strong bg-subtle px-1.5 py-0.5 font-mono text-[11px] font-medium leading-4 tracking-normal text-sub shadow-sm;
+    @apply inline-flex min-w-[1.35rem] items-center justify-center rounded-sm border border-line-strong bg-well px-1.5 py-0.5 font-mono text-[11px] font-semibold leading-4 tracking-normal tabular-nums text-sub;
   }
 }
 
 @layer components {
-  /* 主卡片表面：圓潤留白、清楚區隔背景與內容 */
+  /* 無模糊厚重陰影：純靠表面亮度階層 + 1px 銳利細邊線區分層級 */
   .surface {
-    @apply rounded-2xl border border-line bg-surface transition-all duration-150;
-    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 6px 20px -8px rgba(15, 23, 42, 0.05);
+    border-radius: var(--radius-md);
+    @apply border border-line bg-surface;
   }
 
-  html.dark .surface {
-    box-shadow: 0 2px 12px -4px rgba(0, 0, 0, 0.45);
-  }
-
-  /* 內層次級區塊：柔和底色不搶戲 */
   .subsurface {
-    @apply rounded-xl border border-line/80 bg-subtle;
+    border-radius: var(--radius-sm);
+    @apply border border-line bg-well;
   }
 
-  /* 舒適呼吸感的標籤（不再擠成一團） */
+  /* 視覺凹槽 (--bg-media-well) */
+  .media-well {
+    border-radius: var(--radius-md);
+    @apply grid place-items-center border border-line bg-well;
+  }
+
+  /* Section Header 3px solid left border + 10px left padding (SKILL.md Section 2) */
+  .section-bar-primary {
+    border-left: 3px solid rgb(var(--accent-section-primary));
+    padding-left: 10px;
+  }
+
+  .section-bar-category {
+    border-left: 3px solid rgb(var(--accent-section-secondary));
+    padding-left: 10px;
+  }
+
+  /* 多維度堆疊切換晶片 (SKILL.md Section 4C & 4E: rgba(92,124,250,0.14) + --border-active) */
+  .filter-chip {
+    border-radius: var(--radius-sm);
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      color var(--transition-fast);
+    @apply inline-flex items-center gap-1.5 border border-line-strong/75 bg-surface px-2.5 py-1 text-[12.5px] font-medium leading-tight text-sub hover:border-line-strong hover:bg-hover hover:text-ink;
+  }
+
+  .filter-chip-active {
+    border-color: rgb(var(--border-active)) !important;
+    background-color: rgb(var(--border-active) / 0.14) !important;
+    @apply font-semibold text-ink;
+  }
+
+  /* 語意化資料膠囊 */
   .chip {
-    @apply inline-flex items-center rounded-lg px-2.5 py-1 text-[13px] font-medium leading-snug tracking-[0.03em] ring-1 ring-inset;
+    border-radius: var(--radius-sm);
+    @apply inline-flex items-center px-2 py-0.5 text-[12.5px] font-medium leading-snug ring-1 ring-inset;
   }
 
-  /* 結構化編號／裝等膠囊 */
+  /* 三段式結構化索引徽章 (Label · Code · #Index) 與技術中繼標籤 */
   .meta-tag {
-    @apply inline-flex items-center rounded-lg border border-line bg-subtle px-2.5 py-1 text-xs font-semibold leading-none tracking-[0.03em] text-sub;
+    border-radius: var(--radius-sm);
+    @apply inline-flex items-center gap-1 border border-line bg-well px-1.5 py-0.5 font-mono text-[11.5px] font-medium tabular-nums text-sub;
   }
 
-  /* 支援 Light & Dark 雙模式高對比度的道具語意色階 */
   .tone-relic {
-    @apply bg-orange-50 text-orange-800 ring-orange-200 dark:bg-orange-500/15 dark:text-orange-200 dark:ring-orange-400/35;
+    @apply bg-orange-500/10 text-orange-700 ring-orange-500/30 dark:bg-orange-500/15 dark:text-orange-300 dark:ring-orange-400/35;
   }
   .tone-gold {
-    @apply bg-amber-50 text-amber-800 ring-amber-200 dark:bg-amber-500/15 dark:text-amber-200 dark:ring-amber-400/35;
+    @apply bg-amber-500/10 text-gold ring-gold/35 dark:bg-gold/15;
   }
   .tone-emerald {
-    @apply bg-emerald-50 text-emerald-800 ring-emerald-200 dark:bg-emerald-500/15 dark:text-emerald-200 dark:ring-emerald-400/35;
+    @apply bg-emerald-500/10 text-setgreen ring-setgreen/35 dark:bg-setgreen/15;
   }
   .tone-sky {
-    @apply bg-sky-50 text-sky-800 ring-sky-200 dark:bg-sky-500/15 dark:text-sky-200 dark:ring-sky-400/35;
+    @apply bg-blue-500/10 text-magic ring-magic/35 dark:bg-magic/15;
   }
   .tone-purple {
-    @apply bg-purple-50 text-purple-800 ring-purple-200 dark:bg-purple-500/15 dark:text-purple-200 dark:ring-purple-400/35;
+    @apply bg-purple-500/10 text-purple-700 ring-purple-400/35 dark:bg-purple-500/15 dark:text-purple-300;
   }
   .tone-rose {
-    @apply bg-rose-50 text-rose-800 ring-rose-200 dark:bg-rose-500/15 dark:text-rose-200 dark:ring-rose-400/35;
+    @apply bg-red-500/10 text-danger ring-danger/35 dark:bg-danger/15;
+  }
+  .tone-warning {
+    @apply bg-yellow-500/10 text-rare ring-rare/40 dark:bg-rare/15;
   }
   .tone-teal {
-    @apply bg-teal-50 text-teal-800 ring-teal-200 dark:bg-teal-500/15 dark:text-teal-200 dark:ring-teal-400/35;
+    @apply bg-teal-500/10 text-tealbar ring-tealbar/35 dark:bg-tealbar/15;
   }
   .tone-neutral {
-    @apply bg-slate-100 text-slate-700 ring-slate-200/90 dark:bg-slate-800/80 dark:text-slate-200 dark:ring-slate-700;
+    @apply bg-elevated text-sub ring-line;
   }
 
+  /* 桌面圖示鈕 (34px) 與行動版拇指觸控鈕 (強制最小 44x44px, SKILL.md Section 4A) */
   .icon-btn {
-    @apply grid size-9 place-items-center rounded-xl border border-line bg-surface text-base text-sub transition-colors hover:border-brand/50 hover:bg-elevated hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50;
+    border-radius: var(--radius-md);
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      color var(--transition-fast);
+    @apply grid size-[34px] place-items-center border border-line bg-surface text-sm text-sub hover:border-line-strong hover:bg-hover hover:text-ink focus-visible:outline-none;
   }
 
-  .focus-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50;
+  .touch-btn {
+    border-radius: var(--radius-md);
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      color var(--transition-fast);
+    @apply grid min-h-[44px] min-w-[44px] place-items-center border border-line bg-surface text-base text-sub hover:border-line-strong hover:bg-hover hover:text-ink focus-visible:outline-none;
+  }
+
+  .focus-ring:focus-visible,
+  .icon-btn:focus-visible,
+  .touch-btn:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 1px;
   }
 }
 
-/* Ant Design 表格與控制項留白優化：拉開列高與字距 */
+/* Deep-Link 錨點偏移 (SKILL.md Section 5: calc(var(--header-height) + 16px)) */
+.anchor-card {
+  scroll-margin-top: calc(var(--header-height) + 16px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .anchor-pulse {
+    border-color: rgb(var(--border-active)) !important;
+    animation: card-pulse 1.1s cubic-bezier(0.2, 0, 0, 1) 1;
+  }
+}
+
+/* 緊湊斑馬紋與差異高亮比較表 (SKILL.md Section 4G: tabular-nums + --semantic-diff-bg) */
 .ant-table-wrapper .ant-table {
   background: transparent !important;
-  font-size: 14px;
-  letter-spacing: 0.03em;
+  font-size: 13.5px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.55;
 }
 
 .ant-table-wrapper .ant-table-thead > tr > th {
-  font-size: 13px !important;
+  font-size: 12px !important;
   font-weight: 600 !important;
-  letter-spacing: 0.05em;
-}
-
-.ant-table-wrapper .ant-table-tbody > tr > td {
-  line-height: 1.65;
-}
-
-.ant-segmented {
-  padding: 3px !important;
-}
-
-.ant-segmented .ant-segmented-item-label {
-  padding: 2px 12px !important;
   letter-spacing: 0.03em;
 }
 
-/* Scrollbar */
+.ant-table-wrapper .ant-table-tbody > tr:nth-child(even) > td {
+  background-color: rgb(var(--bg-media-well) / 0.42);
+}
+
+.ant-table-wrapper .ant-table-tbody > tr.diff-highlight-row > td {
+  background-color: var(--semantic-diff-bg) !important;
+}
+
+.ant-table-wrapper .ant-table-tbody > tr.diff-highlight-row:hover > td {
+  background-color: rgba(241, 196, 15, 0.22) !important;
+}
+
+.diff-card-highlight {
+  background-color: var(--semantic-diff-bg);
+  border-color: rgb(var(--semantic-warning) / 0.45);
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply rounded-full bg-line-strong/70;
+  @apply rounded-sm bg-line-strong;
 }
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-muted;

@@ -3,22 +3,20 @@ import { NAV_ITEMS, SITE } from '@/config/navigation';
 
 export default function AppFooter() {
   return (
-    <footer className='mt-16 border-t border-line bg-surface/60'>
-      <div className='mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-10'>
-        <div className='flex flex-col justify-between gap-5 border-b border-line pb-6 md:flex-row md:items-center'>
-          <div className='space-y-1'>
-            <p className='text-sm font-bold tracking-[0.05em] text-ink'>{SITE.subName}</p>
-            <p className='text-xs leading-relaxed text-muted'>
-              失落的方舟玩家快查資料庫 · 收集品與每週副本排程紀錄皆自動保存在您的瀏覽器本機
-            </p>
-          </div>
+    <footer className='mt-8 border-t border-line bg-surface'>
+      <div className='mx-auto max-w-7xl px-4 py-4 sm:px-6'>
+        <div className='flex flex-col justify-between gap-2.5 sm:flex-row sm:items-center'>
+          <p className='text-xs text-muted'>
+            <strong className='font-semibold text-gold'>ARKESIA CODEX</strong> ·{' '}
+            LostArk Strategies 非官方失落的方舟快查手冊（勾選進度自動儲存於本機）
+          </p>
 
-          <nav aria-label='頁尾導覽' className='flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium'>
+          <nav aria-label='頁尾快速連結' className='flex flex-wrap gap-x-3.5 gap-y-1 text-xs'>
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.key}
                 to={item.path}
-                className='focus-ring text-sub transition-colors hover:text-brand'
+                className='focus-ring text-sub transition-colors duration-fast hover:text-gold'
               >
                 {item.shortTitle}
               </Link>
@@ -26,21 +24,18 @@ export default function AppFooter() {
           </nav>
         </div>
 
-        <div className='mt-5 flex flex-col gap-2 text-xs text-muted sm:flex-row sm:items-center sm:justify-between'>
-          <p>© {new Date().getFullYear()} LostArk Strategies · 非官方玩家社群整理網站</p>
-          <p>
-            資料整理參考：
-            <a
-              href={SITE.dataSource}
-              target='_blank'
-              rel='noreferrer'
-              className='focus-ring text-sub underline-offset-4 transition-colors hover:text-brand hover:underline'
-            >
-              LOAlazybro 試算表
-            </a>
-            、Maxroll、Inven 與繁中／國際服玩家社群
-          </p>
-        </div>
+        <p className='mt-2 text-[11px] text-muted'>
+          資料來源：
+          <a
+            href={SITE.dataSource}
+            target='_blank'
+            rel='noreferrer'
+            className='focus-ring text-sub underline-offset-4 hover:text-magic hover:underline'
+          >
+            LOAlazybro 試算表
+          </a>
+          、Maxroll、Lost Ark Nexus、Inven 與繁中／國際服社群實測整理
+        </p>
       </div>
     </footer>
   );

@@ -28,6 +28,7 @@ const toFavorability = (item: FavorabilityRaw, index: number): Favorability => (
   npc: item.npc,
   locations: splitList(item.location, '/'),
   maxAffinity: Number(item.maxAffinity) || 0,
+  virtueReq: item.virtueReq?.trim() || undefined,
   rewards: {
     normal: splitList(item.normal),
     attention: splitList(item.attention),
@@ -45,10 +46,6 @@ const toAdventureBook = (item: AdventureBookRaw, index: number): AdventureBook =
   ),
 });
 
-/**
- * 所有遊戲資料皆為 public/api/v1 下的靜態 JSON。
- * 使用 RTK Query 取得快取、載入/錯誤狀態與重新請求，取代手動 fetch + 全域 loading。
- */
 export const gameApi = createApi({
   reducerPath: 'gameApi',
   baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.BASE_URL}api/v1/` }),

@@ -1,0 +1,19 @@
+{
+  "name": "LostArk Strategies 失落的方舟快查手冊",
+  "short_name": "方舟手冊",
+  "description": "失落的方舟 T3/T4 副本帳本、收集品追蹤、配裝詞條與全境快查手冊",
+  "start_url": "/LostArk-Strategies/",
+  "scope": "/LostArk-Strategies/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "lang": "zh-Hant-TW",
+  "icons": [
+    {
+      "src": "/LostArk-Strategies/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

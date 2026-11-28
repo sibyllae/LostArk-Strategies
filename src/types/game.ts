@@ -10,6 +10,7 @@ export interface FavorabilityRaw {
   trust: string;
   love: string;
   maxAffinity: string;
+  virtueReq?: string;
 }
 
 export const FAVOR_TIERS = ['normal', 'attention', 'friendly', 'trust', 'love'] as const;
@@ -21,6 +22,7 @@ export interface Favorability {
   npc: string;
   locations: string[];
   maxAffinity: number;
+  virtueReq?: string;
   rewards: Record<FavorTier, string[]>;
 }
 
@@ -85,16 +87,19 @@ export interface CollectiblesData {
     worldTreeNote: string;
     worldTreeSources?: CollectibleSource[];
     mokokoRewards: CollectibleReward[];
+    mokokoNote?: string;
   };
 }
 
-/* --------------------------------- 副本開箱 --------------------------------- */
+/* ------------------------------- 副本開箱與機制 ------------------------------- */
 
 export interface RaidGate {
   gate: string;
+  boss?: string;
   goldReward: number;
   chestCost: number;
   chestContents: string;
+  mechanics?: string[];
 }
 
 export type RaidDifficulty = '普通' | '困難' | '惡夢';
@@ -108,6 +113,8 @@ export interface RaidInfo {
   weakness?: string;
   soloAvailable?: boolean;
   boundGoldNote?: string;
+  sidereals?: string;
+  battleItems?: string;
   ilvl: number;
   gates: RaidGate[];
   totalGold: number;
@@ -121,7 +128,7 @@ export interface RaidChestsData {
   notes: string[];
 }
 
-/* --------------------------------- 雜項攻略 --------------------------------- */
+/* --------------------------------- 百科速查 --------------------------------- */
 
 export interface SongData {
   name: string;
@@ -144,6 +151,15 @@ export interface RuneData {
 export interface CardSetData {
   setName: string;
   cards: { name: string; source: string }[];
+}
+
+export interface CardRaceBonusData {
+  race: string;
+  raceEn: string;
+  maxBonus: string;
+  targetRaids: string;
+  keyCards: string;
+  highlight?: boolean;
 }
 
 export interface DailyLimitData {
@@ -196,12 +212,39 @@ export interface ClassGuideData {
   highlights: string;
 }
 
+export interface ShipSailorData {
+  ship: string;
+  shipEn: string;
+  unlock: string;
+  strengths: string;
+  coreSailors: string;
+  note: string;
+}
+
+export interface TerminologyMappingData {
+  category: string;
+  twTerm: string;
+  globalEn: string;
+  communityAlias: string;
+  t4ChangeNote: string;
+  changed?: boolean;
+}
+
+export interface LifeSkillData {
+  skill: string;
+  skillEn: string;
+  t4Material: string;
+  toolStats: string;
+  note: string;
+}
+
 export interface MiscGuideData {
   songs: SongData[];
   skillPoints: SkillPointData[];
   enlightenmentPoints: SkillPointData[];
   runes: RuneData[];
   cardSets: CardSetData[];
+  cardRaceBonuses?: CardRaceBonusData[];
   dailyLimits: DailyLimitData[];
   dailyQuests: DailyQuestData[];
   progressionRoadmap: ProgressionStepData[];
@@ -209,6 +252,9 @@ export interface MiscGuideData {
   battleItems: BattleItemData[];
   guardianRaids?: GuardianRaidData[];
   newClasses?: ClassGuideData[];
+  shipsAndSailors?: ShipSailorData[];
+  terminologyMap?: TerminologyMappingData[];
+  lifeSkills?: LifeSkillData[];
 }
 
 /* ------------------------------- 養成與配裝指南 ------------------------------- */
@@ -230,11 +276,44 @@ export interface BraceletRollData {
   note: string;
 }
 
+export interface T4EngravingData {
+  name: string;
+  nameEn: string;
+  role: '輸出 (DPS)' | '輔助 (Support)' | '通用';
+  tier: 'S+' | 'S' | 'A';
+  baseEffect: string;
+  legendaryBonus: string;
+  relicBonus: string;
+  stoneBonus: string;
+  highlight?: boolean;
+  note: string;
+}
+
+export interface T4GemRow {
+  level: number;
+  doomfireDmg: string;
+  blazingCdr: string;
+  baseAtkPower: string;
+  supportBonus: string;
+  conversionNote: string;
+  highlight?: boolean;
+}
+
+export interface HoningBreakpointRow {
+  targetIlvl: string;
+  normalHone: string;
+  advancedHone: string;
+  unlockedContent: string;
+  strategy: string;
+  highlight?: boolean;
+}
+
 export interface GearSystemData {
   system: string;
   unlock: string;
   goal: string;
   details: string;
+  relatedRaid?: string;
 }
 
 export interface WanderingMerchantData {
@@ -248,6 +327,9 @@ export interface WanderingMerchantData {
 export interface SystemsData {
   accessories: AccessoryPolishData[];
   bracelets?: BraceletRollData[];
+  engravings?: T4EngravingData[];
+  t4Gems?: T4GemRow[];
+  honingBreakpoints?: HoningBreakpointRow[];
   gearSystems: GearSystemData[];
   wanderingMerchants: WanderingMerchantData[];
 }

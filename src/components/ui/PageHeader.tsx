@@ -12,32 +12,32 @@ interface PageHeaderProps {
   extra?: ReactNode;
 }
 
+/** 工具優先精簡頁首：3px 緋紅左側條 + 雙語對照標題 + tabular-nums 指標 */
 export default function PageHeader({ navKey, stats, extra }: PageHeaderProps) {
   const item = getNavItem(navKey);
-  const Icon = item.icon;
 
   return (
-    <header className='mb-8 border-b border-line pb-7'>
-      <div className='flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between'>
-        <div className='min-w-0 space-y-2.5'>
-          <div className='inline-flex items-center gap-2 rounded-full border border-brand/25 bg-brand/10 px-3 py-1 text-xs font-semibold tracking-wider text-brand'>
-            <Icon className='text-xs' />
-            <span>{item.subtitleEn}</span>
+    <header id='page-top-filter' className='anchor-card mb-3.5 border-b border-line pb-3.5'>
+      <div className='flex flex-col gap-2.5 md:flex-row md:items-center md:justify-between'>
+        <div className='section-bar-primary min-w-0'>
+          <div className='flex flex-wrap items-baseline gap-2'>
+            <h1 className='text-[18px] font-semibold text-ink sm:text-[20px]'>{item.title}</h1>
+            <span className='font-mono text-xs uppercase tracking-wider text-muted'>
+              ({item.subtitleEn})
+            </span>
           </div>
-
-          <h1 className='text-2xl font-bold tracking-[0.04em] text-ink sm:text-3xl'>
-            {item.title}
-          </h1>
-
-          <p className='max-w-2xl text-[15px] leading-relaxed text-sub'>{item.description}</p>
+          <p className='mt-0.5 text-[13px] text-sub'>{item.description}</p>
         </div>
 
         {stats && stats.length > 0 && (
-          <dl className='surface flex shrink-0 flex-wrap divide-x divide-line px-2 py-3'>
+          <dl className='flex shrink-0 flex-wrap items-center gap-2'>
             {stats.map((stat) => (
-              <div key={stat.label} className='px-5 py-0.5'>
-                <dt className='text-xs font-medium text-muted'>{stat.label}</dt>
-                <dd className='mt-1 font-mono text-xl font-bold tabular-nums text-ink'>
+              <div
+                key={stat.label}
+                className='surface flex items-baseline gap-2 px-2.5 py-1 text-xs'
+              >
+                <dt className='text-sub'>{stat.label}</dt>
+                <dd className='font-mono text-[13.5px] font-semibold tabular-nums text-gold'>
                   {stat.value}
                 </dd>
               </div>
@@ -46,7 +46,7 @@ export default function PageHeader({ navKey, stats, extra }: PageHeaderProps) {
         )}
       </div>
 
-      {extra && <div className='mt-5'>{extra}</div>}
+      {extra && <div className='mt-2.5'>{extra}</div>}
     </header>
   );
 }
