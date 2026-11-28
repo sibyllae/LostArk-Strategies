@@ -1,1 +1,0 @@
-const e=t=>/巨人心臟|血爪海圖|奧菲斯之星|伊格涅亞/.test(t)?"tone-relic":/技能點數|悟性點數/.test(t)?"tone-emerald":/傳說|遺物|古代|梅內利克|梅涅里克/.test(t)?"tone-gold":t.includes("卡片")||t.includes("卡包")?"tone-sky":/表情|動作|樂譜|曲譜|之歌|擺設|石像|坐騎|寵物/.test(t)?"tone-purple":/金$|\d+(\.\d+)?k?金/.test(t)?"tone-gold":/藥水/.test(t)?"tone-teal":"tone-neutral";export{e as r};

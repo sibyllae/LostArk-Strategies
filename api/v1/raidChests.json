@@ -1,91 +1,142 @@
 {
   "raids": [
     {
-      "name": "伐爾坦",
+      "name": "伐爾坦 (魔獸軍團長)",
       "nameEn": "Valtan",
       "tier": "T3",
       "difficulty": "普通",
       "partySize": "8人",
       "soloAvailable": true,
+      "sidereals": "韋毅 (G1 x30/x15 吃球無力) · 巴亨圖爾 (G2 x130/x16 金身免死) · 席利安 (G2 x0 幽靈收頭)",
+      "battleItems": "G1: 旋風手榴彈、萬能藥水 ｜ G2: 破壞炸彈、暗黑手榴彈、凝時藥水",
       "ilvl": 1415,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "黑山捕食者 盧加魯",
           "goldReward": 500,
           "chestCost": 300,
-          "chestContents": "生命碎片、突破石、寶石"
+          "chestContents": "生命碎片、突破石、寶石",
+          "mechanics": [
+            "x45 雙狼合體：紅藍雙狼融合，注意流血疊層達 3 層時用萬能藥水／淨化解除",
+            "x30 / x15 紅藍吃球＋無力化：依編號 1–8 依序引導吃球，或直接交艾斯特「韋毅」秒破無力條"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "魔獸軍團長 伐爾坦",
           "goldReward": 700,
           "chestCost": 400,
-          "chestContents": "生命碎片、突破石、寶石、裝備"
+          "chestContents": "生命碎片、突破石、寶石、裝備",
+          "mechanics": [
+            "x160 撞柱破甲：引導紅衝鋒撞柱暈眩後，全體丟破壞炸彈拆掉 2 層護甲",
+            "x130 全場滅團披薩：隊長交「巴亨圖爾」獲得不死護盾硬吃，或吃 3 藍球跑安全扇形",
+            "x110 / x30 躲柱震波：被點紅標者站柱前碎柱，其餘人躲完好石柱後方避開全屏黃震",
+            "x85 / x35 地形崩塌＋x65 反制：留意左右地板碎裂防墜落；x0 進入幽靈階段反制靈魂減傷層數"
+          ]
         }
       ],
       "totalGold": 1200,
       "totalChestCost": 700,
       "netGold": 500,
-      "recommendation": "前期建議開箱取得突破石；支援單人模式（獎勵為綁定金幣）"
+      "recommendation": "前期建議開箱取得突破石；支援單人模式（獎勵為綁定金幣，單人無須湊 8 人吃球）"
     },
     {
-      "name": "維亞奇絲",
+      "name": "維亞奇絲 (慾望軍團長)",
       "nameEn": "Vykas",
       "tier": "T3",
       "difficulty": "普通",
       "partySize": "8人",
       "soloAvailable": true,
+      "sidereals": "妮娜芙 (G1/G2 爆發壓血) · 韋毅 (G3 x102 青蛙無力／x0 最終破條)",
+      "battleItems": "G1-G2: 旋風手榴彈、迅捷長袍 ｜ G3: 旋風手榴彈、睡眠炸彈、凝時藥水",
       "ilvl": 1430,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "慾望吞噬者 莫爾菲",
           "goldReward": 500,
           "chestCost": 300,
-          "chestContents": "生命碎片、突破石、寶石"
+          "chestContents": "生命碎片、突破石、寶石",
+          "mechanics": [
+            "雙世界分隊：1 隊與 2 隊分處人魔兩界，x35 交換場地",
+            "五色球進門＋安全點：引導變色球進對應顏色傳送門；魔界報黑白圈位置協助全隊站位"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "強慾的維亞奇絲",
           "goldReward": 600,
           "chestCost": 300,
-          "chestContents": "生命碎片、突破石、寶石"
+          "chestContents": "生命碎片、突破石、寶石",
+          "mechanics": [
+            "x120 紫紅殘影記憶：中間記住 3 個分身紫／紅翅膀開闔順序，去外圈對應位置連踩 3 次",
+            "x65 紅黑吃球：外圈 3 個點位依 5 顆球中紅黑順序分工攔截（同人勿連吃兩顆黑球）"
+          ]
         },
         {
           "gate": "關卡 3",
+          "boss": "慾望軍團長 維亞奇絲",
           "goldReward": 600,
           "chestCost": 500,
-          "chestContents": "生命碎片、突破石、寶石、裝備"
+          "chestContents": "生命碎片、突破石、寶石、裝備",
+          "mechanics": [
+            "x170 / x75 沼澤泥巴橋：2 名減速沼澤排 9 點鐘連成泥橋，快走者繞外圍避開全屏魅惑",
+            "x152 排劍＋看石像｜x135 吃球控慾望值｜x120 全體魅惑＋QTE 打字檢定",
+            "x102 雙青蛙無力化｜x55 八爪觸手（吃紅圈至魅惑＞70% 才能打觸手）｜x0 真身殘影找背打無力（交韋毅）"
+          ]
         }
       ],
       "totalGold": 1700,
       "totalChestCost": 1100,
       "netGold": 600,
-      "recommendation": "建議開最後一關取得裝備材料；支援單人模式（獎勵為綁定金幣）"
+      "recommendation": "建議開最後一關取得裝備材料；支援單人模式（獎勵為綁定金幣，移除雙人報點限制）"
     },
     {
-      "name": "庫克賽頓",
+      "name": "庫克賽頓 (狂氣軍團長)",
       "nameEn": "Kakul-Saydon",
       "tier": "T3",
       "difficulty": "普通",
       "partySize": "4人",
       "soloAvailable": true,
+      "sidereals": "伊南娜 (G3 Showtime 雙圈減傷解咒) · 妮娜芙 (G2 望遠鏡／G3 壓過馬力歐) · 韋毅 (G3 無力化)",
+      "battleItems": "G1-G2: 旋風手榴彈、神聖符咒 ｜ G3: 旋風手榴彈、神聖符咒、迅捷長袍／暗黑手榴彈",
       "ilvl": 1475,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "賽頓",
           "goldReward": 600,
           "chestCost": 400,
-          "chestContents": "生命碎片、突破石、寶石"
+          "chestContents": "生命碎片、突破石、寶石",
+          "mechanics": [
+            "x130 反射紫盾無力化：避開首領正面或背面紫光反傷盾打無力",
+            "x110 找假小丑報點：四角站位觀察哪一隻小丑做「愛心」而非大笑，Ping 點讓隊友背對",
+            "x85 跳舞機模仿＋x60 轉盤丟牌配花色"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "庫克",
           "goldReward": 800,
           "chestCost": 600,
-          "chestContents": "生命碎片、突破石、寶石"
+          "chestContents": "生命碎片、突破石、寶石",
+          "mechanics": [
+            "x125 / x55 翻牌找真身：避開巨錘震飛落海，反制藍牌翻開找出紅小丑真身",
+            "x95 迷宮找花色：1 人留中場看望遠鏡報點，3 人入迷宮打滿各自 3 個撲克花色"
+          ]
         },
         {
           "gate": "關卡 3",
+          "boss": "狂氣軍團長 庫克賽頓",
           "goldReward": 1000,
           "chestCost": 800,
-          "chestContents": "生命碎片、突破石、寶石、裝備"
+          "chestContents": "生命碎片、突破石、寶石、裝備",
+          "mechanics": [
+            "x155 / x125 / x85 / x55 四輪馬力歐：1～4P 依序變小丑進橫向卷軸，外場負責跑電鋸救被綁隊友＋打無力",
+            "x90 Showtime 轉盤轟炸：集合放「伊南娜」繞圈引炸彈並引導雙黃瞄準破盾",
+            "x0 賓果棋盤 (Bingo)：每第 3 顆炸彈務必連成一直線暈眩首領重置全滅倒數"
+          ]
         }
       ],
       "totalGold": 2400,
@@ -94,71 +145,111 @@
       "recommendation": "開箱成本較高，建議依市場物價判斷；支援單人模式"
     },
     {
-      "name": "布雷夏沙 (T3)",
+      "name": "布雷夏沙 (夢幻軍團長 T3)",
       "nameEn": "Brelshaza",
       "tier": "T3",
       "difficulty": "普通",
       "partySize": "8人",
       "soloAvailable": true,
+      "weakness": "弱光 (G4)",
+      "sidereals": "阿潔娜 (G1 清怪爆發) · 韋毅 (G2/G3 無力化) · 桑迪 (G4 x112 減速隕石與零度空間)",
+      "battleItems": "G1-G2: 旋風手榴彈、睡眠炸彈 ｜ G3: 旋風、凝時藥水 ｜ G4: 旋風、迅捷長袍、凝時藥水",
       "ilvl": 1490,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "吉埃娜銅像 ／ 煉獄犬",
           "goldReward": 700,
           "chestCost": 500,
-          "chestContents": "生命碎片、突破石、寶石"
+          "chestContents": "生命碎片、突破石、寶石",
+          "mechanics": [
+            "開局 4 房清怪拆雕像保護罩後合流",
+            "x85 八角安全區站位｜x45 六連反制（失敗者勿亂揮，由下一位補反制或交巴亨圖爾）"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "阿斯塔羅特",
           "goldReward": 700,
           "chestCost": 500,
-          "chestContents": "生命碎片、突破石、寶石"
+          "chestContents": "生命碎片、突破石、寶石",
+          "mechanics": [
+            "x145 劍與紅圈跑位＋中場無力化",
+            "x100 美杜莎凝視（白眼看／紅眼背對，依睜眼支數決定幾人轉頭）",
+            "x42 幾何圖形拆星（鑽石／方塊／星形分工清乾淨後進內圈無力）"
+          ]
         },
         {
           "gate": "關卡 3",
+          "boss": "太初夢魘 (魔方)",
           "goldReward": 800,
           "chestCost": 600,
-          "chestContents": "生命碎片、突破石、寶石"
+          "chestContents": "生命碎片、突破石、寶石",
+          "mechanics": [
+            "依王顏色變化觸發大機制：黃魔方 x190/x55 打球吃防護罩｜藍魔方踩格擋隕石｜紅魔方四角無力化",
+            "x95 雙星無力破盾｜x25 連續反制與清球"
+          ]
         },
         {
           "gate": "關卡 4",
+          "boss": "夢幻軍團長 布雷夏沙",
           "goldReward": 1200,
           "chestCost": 900,
-          "chestContents": "生命碎片、突破石、寶石、裝備"
+          "chestContents": "生命碎片、突破石、寶石、裝備",
+          "mechanics": [
+            "全場控隕石鐵則：黃隕石必放 12 點或 6 點（3 藍碎一塊地），嚴禁同時炸碎中場與過多外格！",
+            "x188 夢幻記憶圖案｜x137 黑洞放逐（進內場打球報安全符號）｜x112 八顆藍隕石＋讚美分身（交桑迪）｜x7 藍盾打破收頭"
+          ]
         }
       ],
       "totalGold": 3400,
       "totalChestCost": 2500,
       "netGold": 900,
-      "recommendation": "依角色裝分與市場物價評估，高等級角色建議至少開最後一關；支援單人模式"
+      "recommendation": "精簡為 4 關後節奏順暢，高等級角色建議至少開最後一關；支援單人模式"
     },
     {
-      "name": "卡楊格爾",
+      "name": "卡楊格爾 (天界深淵副本)",
       "nameEn": "Kayangel",
       "tier": "T3",
       "difficulty": "普通",
       "partySize": "4人",
       "soloAvailable": true,
-      "weakness": "弱暗",
+      "weakness": "弱暗 (卡札羅斯軍團 30覺)",
+      "battleItems": "G1: 旋風手榴彈、萬能藥水 ｜ G2: 破壞炸彈、旋風 ｜ G3: 凝時藥水、暗黑手榴彈、神聖符咒",
       "ilvl": 1540,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "蒂亞馬特",
           "goldReward": 800,
           "chestCost": 180,
-          "chestContents": "觀照之光、突破石、古代飾品、能力石升級材料"
+          "chestContents": "觀照之光、突破石、古代飾品、能力石升級材料",
+          "mechanics": [
+            "x60 飛劍劍雨走位（繞外圈引導落劍後進內圈輸出）",
+            "x20 連線吃球無力化：依自身光圈顏色吃同色球後集中打無力"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "普莉娜",
           "goldReward": 1200,
           "chestCost": 200,
-          "chestContents": "觀照之光、突破石、古代飾品"
+          "chestContents": "觀照之光、突破石、古代飾品",
+          "mechanics": [
+            "屬性剋制循環（火→冰→自然→火）：踩正確剋制法陣消層數",
+            "x60 三角形拉線結冰｜x40 旋轉冰環吃同色球（切勿漏球回血）"
+          ]
         },
         {
           "gate": "關卡 3",
+          "boss": "勞里埃爾",
           "goldReward": 1600,
           "chestCost": 270,
-          "chestContents": "觀照之光、突破石、套裝升級材料（含綁定金幣比例）"
+          "chestContents": "觀照之光、突破石、套裝升級材料（含綁定金幣比例）",
+          "mechanics": [
+            "x180 十字雷射吃光球｜x140 分身砸地找安全影子躲太陽盲區",
+            "x100 推太陽球進黑洞＋連吃 20 顆光球｜x60 鏡子折射反制真身（按空白鍵連按防拉進雷射）"
+          ]
         }
       ],
       "totalGold": 3600,
@@ -167,35 +258,50 @@
       "recommendation": "若需升級套裝等級或收集觀照之光可開箱；支援單人模式"
     },
     {
-      "name": "卡楊格爾",
+      "name": "卡楊格爾 (天界深淵副本)",
       "nameEn": "Kayangel",
       "tier": "T3",
       "difficulty": "困難",
+      "partySize": "4人",
+      "weakness": "弱暗 (卡札羅斯軍團 30覺)",
+      "battleItems": "G1: 旋風手榴彈 ｜ G2: 破壞炸彈、旋風 ｜ G3: 凝時藥水、暗黑手榴彈、神聖符咒",
       "ilvl": 1580,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "蒂亞馬特",
           "goldReward": 1000,
           "chestCost": 225,
-          "chestContents": "觀照之光、突破石、古代飾品"
+          "chestContents": "觀照之光、突破石、古代飾品",
+          "mechanics": [
+            "x60 強化劍雨｜x20 同色吃球＋高門檻無力化"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "普莉娜",
           "goldReward": 1600,
           "chestCost": 350,
-          "chestContents": "觀照之光、突破石、古代飾品"
+          "chestContents": "觀照之光、突破石、古代飾品",
+          "mechanics": [
+            "x60 三人拉冰柱圍困首領破甲｜x40 外圈跑圈吃同色元素球"
+          ]
         },
         {
           "gate": "關卡 3",
+          "boss": "勞里埃爾",
           "goldReward": 2200,
           "chestCost": 500,
-          "chestContents": "觀照之光、突破石、紅翼坐騎機率"
+          "chestContents": "觀照之光、突破石、紅翼／白翼翅膀外觀機率",
+          "mechanics": [
+            "x180 雷射吃球｜x140 影子躲盲｜x100 推球吃光｜x60 四面鏡折射反制真身（翅膀外觀熱門農本）"
+          ]
         }
       ],
       "totalGold": 4800,
       "totalChestCost": 1075,
       "netGold": 3725,
-      "recommendation": "開箱成本已大幅調降，仍缺套裝材料可開"
+      "recommendation": "開箱成本已大幅調降，仍缺套裝材料或刷紅黑翅膀外觀可打"
     },
     {
       "name": "阿坎 (瘟疫軍團長)",
@@ -205,25 +311,42 @@
       "partySize": "8人",
       "soloAvailable": true,
       "weakness": "弱光",
+      "sidereals": "伊南娜 (G1 x112 解水毒護盾) · 席利安 (G2/G3 削血破甲) · 韋毅 (G3 x140 雕像無力) · 隱藏伊南娜 (G3 清場地綠水)",
+      "battleItems": "G1: 神聖符咒、旋風手榴彈 ｜ G2: 暗黑手榴彈、神聖符咒、腐蝕／破壞 ｜ G3: 旋風、神聖符咒、暗黑",
       "ilvl": 1580,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "悲嘆之主 莫爾格",
           "goldReward": 1750,
           "chestCost": 190,
-          "chestContents": "衰敗之眼、閃耀名譽突破石、精煉材料"
+          "chestContents": "衰敗之眼、閃耀名譽突破石、精煉材料",
+          "mechanics": [
+            "x140 黃綠球淨化｜x112 漲潮淹水（站高台放伊南娜消水毒疊層）",
+            "x75 投矛解救被插隊友｜x50 / x20 黑綠雙罩依 Debuff 顏色站入並連按空白鍵"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "衰敗君主 阿坎",
           "goldReward": 2250,
           "chestCost": 230,
-          "chestContents": "衰敗之眼、閃耀名譽突破石、精煉材料"
+          "chestContents": "衰敗之眼、閃耀名譽突破石、精煉材料",
+          "mechanics": [
+            "x160 提燈捉迷藏（躲首領背後扇形陰影連躲 3 波即死紅眼）",
+            "x110 血池長觸手清怪＋腐蝕破壞｜x55 旋轉大紅鐮刀走位＋雙連反制幽靈｜x0 逃離自爆或席利安斬殺"
+          ]
         },
         {
           "gate": "關卡 3",
+          "boss": "瘟疫軍團長 伊利亞坎",
           "goldReward": 4500,
           "chestCost": 330,
-          "chestContents": "衰敗之眼、閃耀名譽突破石、裝備製作材料"
+          "chestContents": "衰敗之眼、閃耀名譽突破石、裝備製作材料",
+          "mechanics": [
+            "提燈清潔工：專人撿燈（Q 清綠水／W 照隊友隱身躲屍潮），嚴防瘟疫條滿變殭屍！",
+            "x200 四角祭壇吃符文無力｜x165 四座雕像轉雷射連成六芒星／四角形｜x140 內外場無力（交韋毅）｜x30 斷橋碎地大亂鬥"
+          ]
         }
       ],
       "totalGold": 8500,
@@ -236,25 +359,42 @@
       "nameEn": "Akkan",
       "tier": "T3",
       "difficulty": "困難",
+      "partySize": "8人",
+      "weakness": "弱光",
+      "sidereals": "伊南娜 (G1 x112) · 席利安 (G2/G3 壓血) · 韋毅 (G3 x140 & 隱藏關卡破甲無力)",
+      "battleItems": "G1: 神聖符咒、旋風 ｜ G2: 暗黑、神聖符咒、破壞 ｜ G3: 旋風、破壞炸彈、神聖符咒",
       "ilvl": 1600,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "悲嘆之主 莫爾格",
           "goldReward": 2250,
           "chestCost": 300,
-          "chestContents": "衰敗之眼、閃耀名譽突破石、精煉材料"
+          "chestContents": "衰敗之眼、閃耀名譽突破石、精煉材料",
+          "mechanics": [
+            "x140 淨化球｜x112 淹水放伊南娜｜x50 / x20 黑綠罩＋連按空白鍵"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "衰敗君主 阿坎",
           "goldReward": 2750,
           "chestCost": 500,
-          "chestContents": "衰敗之眼、閃耀名譽突破石、精煉材料"
+          "chestContents": "衰敗之眼、閃耀名譽突破石、精煉材料",
+          "mechanics": [
+            "x160 躲紅眼捉迷藏｜x110 清觸手破甲｜x55 大鐮刀＋反制幽靈（困難 x0 需內場單挑或席利安斬殺）"
+          ]
         },
         {
           "gate": "關卡 3",
+          "boss": "瘟疫軍團長 ＆ 毀滅之主阿坎 (G3-2)",
           "goldReward": 6000,
           "chestCost": 700,
-          "chestContents": "衰敗之眼、閃耀名譽突破石、裝備製作材料"
+          "chestContents": "衰敗之眼*雙倍、閃耀名譽突破石、裝備製作材料",
+          "mechanics": [
+            "前半同普通（x200 祭壇／x165 雷射連星／x140 內外場）",
+            "x0 進入困難專屬巨人二階段（x300）：全體打部位破壞拆雙臂＋反制隕石觸發「隱藏韋毅」超巨量破防！"
+          ]
         }
       ],
       "totalGold": 11000,
@@ -263,68 +403,98 @@
       "recommendation": "製作 T3 1580 古代裝備階段開箱 CP 值極高，成型後可不開純賺金"
     },
     {
-      "name": "象牙塔 (伏爾戴克)",
+      "name": "象牙塔 (混亂象牙塔・伏爾戴克)",
       "nameEn": "Ivory Tower",
       "tier": "T3",
       "difficulty": "普通",
       "partySize": "4人",
       "soloAvailable": true,
+      "battleItems": "G1: 旋風手榴彈、睡眠／萬能 ｜ G2: 拘束手榴彈、破壞炸彈、旋風 ｜ G3: 破壞炸彈、旋風、暗黑手榴彈",
       "ilvl": 1600,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "卡爾塔亞 (荊棘花女)",
           "goldReward": 1400,
           "chestCost": 180,
-          "chestContents": "史詩艾利西爾（鍊金）材料、突破石"
+          "chestContents": "史詩艾利西爾（鍊金）材料、突破石",
+          "mechanics": [
+            "藤蔓纏繞管理：紅黑薔薇花田需利用火球燒毀避免全場滿花",
+            "x105 / x50 中心花苞無力化＋部位破壞檢定"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "拉卡圖斯 (狂暴巨龍)",
           "goldReward": 1800,
           "chestCost": 220,
-          "chestContents": "史詩艾利西爾材料、突破石"
+          "chestContents": "史詩艾利西爾材料、突破石",
+          "mechanics": [
+            "龍血球減CD Buff：踩血球大幅縮短技能冷卻瘋狂傾瀉輸出，但勿超過負荷爆炸",
+            "x110 / x30 拘束手榴彈定身尾巴信標→全隊集火破壞與無力化"
+          ]
         },
         {
           "gate": "關卡 3",
+          "boss": "拉扎拉姆 (混沌守護者)",
           "goldReward": 2280,
           "chestCost": 300,
-          "chestContents": "史詩艾利西爾材料、突破石（含綁定金幣比例）"
+          "chestContents": "史詩艾利西爾材料、突破石（含綁定金幣比例）",
+          "mechanics": [
+            "x160 鏡面雷射引導碎柱｜x110 真假分身反制（觀察地面裂痕與劍光順序）",
+            "x60 禁錮抓人＋高強度部位破壞＆無力化｜x40 碎地狂暴階段緊貼安全格反制"
+          ]
         }
       ],
       "totalGold": 5480,
       "totalChestCost": 700,
       "netGold": 4780,
-      "recommendation": "已精簡為 3 關；若目標為傳說艾利西爾建議轉戰困難或直接跨入 T4"
+      "recommendation": "已移除舊 3 關火角精簡為 3 關；現行銀幣減負鍊金極易滿 40 覺，支援單人模式"
     },
     {
-      "name": "象牙塔 (伏爾戴克)",
+      "name": "象牙塔 (混亂象牙塔・伏爾戴克)",
       "nameEn": "Ivory Tower",
       "tier": "T3",
       "difficulty": "困難",
+      "partySize": "4人",
+      "battleItems": "G1: 旋風手榴彈、萬能 ｜ G2: 拘束手榴彈、破壞炸彈 ｜ G3: 破壞炸彈、旋風、凝時／阿特羅品",
       "ilvl": 1610,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "卡爾塔亞",
           "goldReward": 2000,
           "chestCost": 350,
-          "chestContents": "傳說艾利西爾（鍊金）材料、突破石"
+          "chestContents": "傳說艾利西爾（鍊金）材料、突破石",
+          "mechanics": [
+            "x105 / x50 荊棘花核無力＋破壞，注意流血與纏繞及時互救"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "拉卡圖斯",
           "goldReward": 3000,
           "chestCost": 500,
-          "chestContents": "傳說艾利西爾材料、突破石"
+          "chestContents": "傳說艾利西爾材料、突破石",
+          "mechanics": [
+            "x110 / x30 拘束球定標＋雙重破壞無力，善用龍血減 CD 高頻爆發"
+          ]
         },
         {
           "gate": "關卡 3",
+          "boss": "拉扎拉姆",
           "goldReward": 4000,
           "chestCost": 950,
-          "chestContents": "傳說艾利西爾材料、突破石"
+          "chestContents": "傳說艾利西爾材料、突破石",
+          "mechanics": [
+            "x160 引雷射｜x110 連續四方反制｜x60 抓人破甲無力｜x40 內圈碎地高傷反制"
+          ]
         }
       ],
       "totalGold": 9000,
       "totalChestCost": 1800,
       "netGold": 7200,
-      "recommendation": "缺少傳說艾利西爾詞條期間建議開箱，40 覺後可不開"
+      "recommendation": "缺少傳說艾利西爾詞條期間可開箱，滿 40 覺後直接跨 T4 不開箱"
     },
     {
       "name": "卡蒙 (黑暗軍團長)",
@@ -333,91 +503,142 @@
       "difficulty": "普通",
       "partySize": "8人",
       "soloAvailable": true,
-      "weakness": "弱光",
+      "weakness": "弱光 (G3)",
+      "sidereals": "阿潔娜／席利安 (G1/G2 爆發) · 巴亨圖爾 (G2 跑酷容錯／G3 碎地保命) · 妮娜芙／席利安 (G3 破劍／收頭)",
+      "battleItems": "G1: 破壞炸彈、旋風手榴彈 ｜ G2: 迅捷長袍、旋風、閃光／暗黑 ｜ G3: 凝時藥水、暗黑手榴彈、神聖符咒",
       "ilvl": 1610,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "基利內薩 (蜘蛛魅魔)",
           "goldReward": 2700,
           "chestCost": 1500,
-          "chestContents": "暗黑火（超越材料）、突破石"
+          "chestContents": "暗黑火（超越材料）、突破石",
+          "mechanics": [
+            "x135 眼睛抓取無力化＋部位破壞拆螯肢",
+            "x90 變身真身轉場｜x50 黑霧找安全光圈＋協同反制"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "瓦爾卡利斯 (魔龍騎士)",
           "goldReward": 3300,
           "chestCost": 1800,
-          "chestContents": "暗黑火（超越材料）、突破石"
+          "chestContents": "暗黑火（超越材料）、突破石",
+          "mechanics": [
+            "中場長廊跑酷：全隊開迅捷長袍躲雷電衝刺並沿途完成反制",
+            "x135 藍球連續協同反制｜x65 8 人分點接劍氣連線無力化｜x30 終局拼刀 (Clash QTE)"
+          ]
         },
         {
           "gate": "關卡 3",
+          "boss": "黑暗軍團長 卡蒙",
           "goldReward": 5000,
           "chestCost": 2500,
-          "chestContents": "暗黑火（超越材料）、突破石"
+          "chestContents": "暗黑火（超越材料）、突破石",
+          "mechanics": [
+            "關鍵拼刀 (Clash QTE)：C1～C5 專人按 G 接刀精準輸入 Q/W/E/R，接刀瞬間全隊貼背喝藥灌滿爆發！",
+            "x255 魔劍現身（優先拆劍或交席利安）｜x210 / x90 紅劍碎地轉場（記安全格）｜x155 迷霧紅光記憶安全區｜x55 地下室反轉地形（慎防擊飛墜崖）"
+          ]
         }
       ],
       "totalGold": 11000,
       "totalChestCost": 5800,
       "netGold": 5200,
-      "recommendation": "超越系統尚未滿級前可開箱加速暗黑火累積；支援單人模式"
+      "recommendation": "超越系統尚未滿 105 星前可開箱加速暗黑火累積；支援單人模式"
     },
     {
       "name": "卡蒙 (黑暗軍團長)",
       "nameEn": "Thaemine",
       "tier": "T3",
       "difficulty": "困難",
+      "partySize": "8人",
+      "weakness": "弱光 (G3/G4)",
+      "sidereals": "巴亨圖爾 (G3/G4 容錯) · 席利安／妮娜芙 (C1/C3 拼刀爆發) · 卡丹 (G4 4-2 黑暗領域破盾斬殺)",
+      "battleItems": "G1-G2: 破壞、迅捷長袍、旋風 ｜ G3: 暗黑、阿特羅品／凝時 ｜ G4: 凝時藥水、阿特羅品、暗黑、神聖符咒",
       "ilvl": 1620,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "基利內薩",
           "goldReward": 4400,
           "chestCost": 2000,
-          "chestContents": "暗黑火（超越材料）、突破石"
+          "chestContents": "暗黑火（超越材料）、突破石",
+          "mechanics": [
+            "x135 破甲無力｜x90 真身轉場｜x50 黑霧反制檢定"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "瓦爾卡利斯",
           "goldReward": 5500,
           "chestCost": 2400,
-          "chestContents": "暗黑火（超越材料）、突破石"
+          "chestContents": "暗黑火（超越材料）、突破石",
+          "mechanics": [
+            "長廊閃電反制跑酷｜x135 接球連反｜x65 八方無力｜x30 拼刀收尾"
+          ]
         },
         {
           "gate": "關卡 3",
+          "boss": "黑暗軍團長 卡蒙",
           "goldReward": 8900,
           "chestCost": 2800,
-          "chestContents": "暗黑火（超越材料）、突破石"
+          "chestContents": "暗黑火（超越材料）、突破石",
+          "mechanics": [
+            "x255 魔劍處理｜x225 阿爾比恩紅地板記憶｜x210 / x90 地形劈裂｜5 輪高壓 Clash 拼刀＋x55 地下室無邊界防摔"
+          ]
         },
         {
           "gate": "關卡 4",
+          "boss": "征服星辰者 卡蒙 (4-1 / 4-2 / 4-3 雙週制)",
           "goldReward": 9800,
           "chestCost": 3600,
-          "chestContents": "大量暗黑火、突破石（雙週輪替關卡）"
+          "chestContents": "大量暗黑火、突破石（雙週輪替關卡）",
+          "mechanics": [
+            "4-1 (x350→x0)：x280 劍陣無力｜x210 雙排拼刀｜x175 禁錮破劍｜x87 分身紅藍半月斬",
+            "4-2 & 4-3 領域展開：x210 星蝕轉場，全場高密度即死劍氣、協力反制與「卡丹」終極對決"
+          ]
         }
       ],
       "totalGold": 28600,
       "totalChestCost": 10800,
       "netGold": 17800,
-      "recommendation": "G4 為雙週制，若防具超越滿 105 星可僅開特定關或全不開賺金"
+      "recommendation": "G4 為雙週制，若防具超越滿 105 星可全不開箱純賺高金"
     },
     {
-      "name": "艾奇德娜 (卡札羅斯序幕)",
+      "name": "艾奇德娜 (卡札羅斯序幕：紅蓮慾望)",
       "nameEn": "Echidna",
       "tier": "T3",
       "difficulty": "普通",
       "partySize": "8人",
       "soloAvailable": true,
-      "weakness": "弱光",
+      "weakness": "弱光 (G2)",
+      "sidereals": "聯手技：盧特蘭／席利安 (G1 削血破盾) · 阿潔娜／愛妲琳 (G2 花園清蛇與增傷) · 桑迪 (減速容錯)",
+      "battleItems": "G1: 旋風手榴彈、破壞炸彈、神聖符咒 ｜ G2: 睡眠炸彈（救魅惑隊友必帶！）、旋風、神聖符咒、暗黑",
       "ilvl": 1620,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "紅災 納爾基爾 ＆ 達爾基爾",
           "goldReward": 6000,
           "chestCost": 950,
-          "chestContents": "阿格里斯的鱗片（進階精煉）、突破石"
+          "chestContents": "阿格里斯的鱗片（進階精煉 1–10）、突破石",
+          "mechanics": [
+            "x155 雙區換場：兩隊分別對抗紅龍與黑騎士並透過香爐淨化黑火",
+            "x115 紅藍連線拉開破盾｜x50 香爐集火無力化與部位破壞"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "慾望主人 艾奇德娜",
           "goldReward": 10000,
           "chestCost": 1750,
-          "chestContents": "阿格里斯的鱗片、突破石、卡包機率"
+          "chestContents": "阿格里斯的鱗片、突破石、卡包機率",
+          "mechanics": [
+            "魅惑花瓣管理：滿 3 朵花瓣變敵對，隊友務必秒丟「睡眠炸彈」敲醒！",
+            "x212 蝴蝶粉地板連線（勿讓紅粉連向首領回血，連向花朵綻放安全區）",
+            "x137 巨蛇花園轉場（聯手技清小蛇＋8 鏡面反光連通中心無力化）｜x55 巨蛇纏身反制破甲"
+          ]
         }
       ],
       "totalGold": 16000,
@@ -426,50 +647,77 @@
       "recommendation": "進階精煉 1–10 階段必打，開箱費用親民建議全開；支援單人模式"
     },
     {
-      "name": "艾奇德娜 (卡札羅斯序幕)",
+      "name": "艾奇德娜 (卡札羅斯序幕：紅蓮慾望)",
       "nameEn": "Echidna",
       "tier": "T3",
       "difficulty": "困難",
+      "partySize": "8人",
+      "weakness": "弱光 (G2)",
+      "sidereals": "聯手技：席利安 · 阿潔娜 (G2 x137 清蛇／G2 地下室破盾) · 愛妲琳 (團隊暴率增傷)",
+      "battleItems": "G1: 旋風、破壞、神聖符咒 ｜ G2: 睡眠炸彈、神聖符咒、暗黑手榴彈、阿特羅品",
       "ilvl": 1630,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "紅災 納爾基爾",
           "goldReward": 7000,
           "chestCost": 1100,
-          "chestContents": "阿爾基翁的眼（進階精煉 11–20）、突破石"
+          "chestContents": "阿爾基翁的眼（進階精煉 11–20）、突破石",
+          "mechanics": [
+            "x155 雙場香爐｜x115 連線破盾｜x50 全力無力＋破壞"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "艾奇德娜 ＆ 地下室蛇神真身 (G2-2)",
           "goldReward": 12500,
           "chestCost": 2250,
-          "chestContents": "阿爾基翁的眼、突破石、卡包機率"
+          "chestContents": "阿爾基翁的眼、突破石、卡包機率",
+          "mechanics": [
+            "x212 排花連線｜x137 鏡面折射清巨蛇｜x55 破甲轉入困難專屬「地下室 (x135→x0)」",
+            "地下室 x80 / x50 石化蛇眼凝視反制＋Clash 拼刀，失敗直接石化團滅！"
+          ]
         }
       ],
       "totalGold": 19500,
       "totalChestCost": 3350,
       "netGold": 16150,
-      "recommendation": "進行進階精煉 11–20 期間建議全開箱"
+      "recommendation": "進行進階精煉 11–20（直衝 1660+ 捷徑）期間建議全開箱"
     },
     {
-      "name": "貝希莫斯 (16人史詩副本)",
+      "name": "貝希莫斯 (16人暴風史詩副本)",
       "nameEn": "Behemoth",
       "tier": "T4",
       "difficulty": "普通",
       "partySize": "16人",
-      "weakness": "弱水 (G2)",
+      "weakness": "弱水 (G2 水套 +10%~15%)",
+      "sidereals": "聯手技：馬克圖／阿潔娜／任 (破部位後集火頭部巨額增傷)",
+      "battleItems": "G1-G2: 破壞炸彈（全員必帶！）、旋風手榴彈、暗黑手榴彈、阿特羅品／神聖符咒",
       "ilvl": 1640,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "暴風指揮官 貝希莫斯",
           "goldReward": 7000,
           "chestCost": 2600,
-          "chestContents": "貝希莫斯鱗片（武器超越）、T4 精煉材料"
+          "chestContents": "貝希莫斯鱗片（武器超越）、T4 精煉材料",
+          "mechanics": [
+            "四部位拆甲系統：優先打碎「雙翼 → 身體 → 尾部」觸發倒地大破防，再全力灌「頭部（2 倍傷害弱點）」！",
+            "四大守護龍柱（火／冰／雷／風）：4 個小隊依編號分進 4 角打碎晶體阻止全場滅團風暴",
+            "全場復活池共享（8 次復活幣），注意水龍捲疊滿感電暈眩"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "覺醒暴風 貝希莫斯",
           "goldReward": 11000,
           "chestCost": 2700,
-          "chestContents": "貝希莫斯鱗片、T4 精煉材料、卡包機率"
+          "chestContents": "貝希莫斯鱗片、T4 精煉材料、卡包機率",
+          "mechanics": [
+            "x390 / x190 暴風龍捲大機制：外圈引導黑風或吃藍風珠消散滅團紅龍捲，切勿撞碎隊友安全風眼！",
+            "x295 四方聯合反制：4 隊分別站首領四肢方向同步反制幻影",
+            "雙翼部位破壞：每次倒地起身雙翼重生，留破壞炸彈與超覺醒快速拆雙翼壓進倒地木樁"
+          ]
         }
       ],
       "totalGold": 18000,
@@ -478,53 +726,76 @@
       "recommendation": "台服門檻 1640（國際服 1620）；武器超越未滿 20 級前建議開箱"
     },
     {
-      "name": "艾吉爾 (卡札羅斯第1幕)",
+      "name": "艾吉爾 (卡札羅斯第1幕：破碎大地)",
       "nameEn": "Aegir",
       "tier": "T4",
       "difficulty": "普通",
       "partySize": "8人",
       "soloAvailable": true,
-      "weakness": "弱光 (G1) / 弱古神",
+      "weakness": "弱光 (G1) ／ 弱古神圖鑑 (G2)",
+      "sidereals": "聯手技：席利安／伊南娜 (G1) · 韋毅／巴亨圖爾／愛妲琳 (G2 巨人核心無力與增傷)",
+      "battleItems": "G1: 神聖符咒、旋風手榴彈、破壞炸彈 ｜ G2: 旋風手榴彈、破壞炸彈、暗黑手榴彈、凝時／阿特羅品",
       "ilvl": 1660,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "深淵歸來 伊利亞坎 ＆ 伐爾坦亡靈",
           "goldReward": 3500,
           "chestCost": 750,
-          "chestContents": "地獄火焰（T4 古代裝備製作）、T4 突破石"
+          "chestContents": "地獄火焰（T4 古代裝備製作）、T4 突破石",
+          "mechanics": [
+            "G 鍵精準格擋 (Just Guard) 實戰首秀：看見黃光閃爍瞬間按 G 格擋免傷並防擊飛！",
+            "x195 投石車破盾轉場｜x170 協同無力反制｜x143 亡靈伐爾坦亂入撞柱｜x85 無力＋破壞｜x30 雙王夾擊衝刺"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "業火巨人 艾吉爾",
           "goldReward": 8000,
           "chestCost": 1780,
-          "chestContents": "地獄火焰、T4 突破石、T4 卡包機率"
+          "chestContents": "地獄火焰、T4 突破石、T4 卡包機率",
+          "mechanics": [
+            "x260 進入巨人體內轉場｜x215 熔爐心臟連線切割與火柱引導",
+            "x165 雙手巨錘砸地＋精準格擋 (G) ＆ 部位破壞拆心臟護殼",
+            "x95 胸腔崩塌逃脫→決戰平台高頻黃光 G 格擋與圓環安全區"
+          ]
         }
       ],
       "totalGold": 11500,
       "totalChestCost": 2530,
       "netGold": 8970,
-      "recommendation": "製作全套 T4 古代防具武器（開啟方舟被動核心）前建議全開箱；部分金幣為綁定"
+      "recommendation": "製作全套 T4 古代防具武器（完整解鎖方舟被動第 4 層）前務必全開箱；支援單人模式"
     },
     {
-      "name": "艾吉爾 (卡札羅斯第1幕)",
+      "name": "艾吉爾 (卡札羅斯第1幕：破碎大地)",
       "nameEn": "Aegir",
       "tier": "T4",
       "difficulty": "困難",
       "partySize": "8人",
-      "weakness": "弱光 (G1)",
+      "weakness": "弱光 (G1) ／ 弱古神圖鑑 (G2)",
+      "sidereals": "聯手技：席利安 (G1) · 巴亨圖爾／愛妲琳 (G2 x95 & x0 處決階段)",
+      "battleItems": "G1: 神聖符咒、旋風、破壞 ｜ G2: 旋風、破壞、暗黑手榴彈、阿特羅品藥水",
       "ilvl": 1680,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "深淵伊利亞坎",
           "goldReward": 5500,
           "chestCost": 1820,
-          "chestContents": "地獄火焰*大量、T4 突破石、古代飾品"
+          "chestContents": "地獄火焰*大量、T4 突破石、古代飾品",
+          "mechanics": [
+            "x195 投石破盾｜x143 伐爾坦亂入雙重 G 格擋｜x85 高門檻破壞無力｜x30 狂暴鐮刀雨"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "業火巨人 艾吉爾",
           "goldReward": 12500,
           "chestCost": 4150,
-          "chestContents": "地獄火焰*大量、T4 突破石、T4 卡包機率"
+          "chestContents": "地獄火焰*大量、T4 突破石、T4 卡包機率",
+          "mechanics": [
+            "x260 / x215 體內心臟破壞｜x165 連續 G 鍵格擋檢定｜x95 窄台決戰｜困難專屬 x0 終極拼刀與全隊破核斬殺！"
+          ]
         }
       ],
       "totalGold": 18000,
@@ -533,53 +804,75 @@
       "recommendation": "產出雙倍地獄火焰加速 T4 古代裝畢業，成型後可視材料市價決定是否開箱"
     },
     {
-      "name": "布雷夏沙 (卡札羅斯第2幕)",
+      "name": "布雷夏沙 (卡札羅斯第2幕：冰封夢魘)",
       "nameEn": "Brelshaza Act 2",
       "tier": "T4",
       "difficulty": "普通",
       "partySize": "8人",
       "soloAvailable": true,
-      "weakness": "弱火 (G1) / 弱雷 (G2)",
+      "weakness": "弱火 (G1 火套) ／ 弱雷 (G2 雷套 +10%~15%)",
+      "sidereals": "聯手技：阿潔娜 (G1 破冰增傷) · 盧特蘭／妮娜芙／桑迪 (G2 破夢魘護盾與減速)",
+      "battleItems": "G1: 火焰／旋風手榴彈、神聖符咒（解凍傷） ｜ G2: 旋風、破壞炸彈、暗黑手榴彈、凝時藥水",
       "ilvl": 1670,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "極寒領主 納羅克",
           "goldReward": 9000,
           "chestCost": 3800,
-          "chestContents": "卡爾瑪（Karma）養成材料、T4 精煉材料"
+          "chestContents": "卡爾瑪（Karma）養成材料、T4 精煉材料",
+          "mechanics": [
+            "凍傷體溫條管理：站火盆或隊友火圈消寒氣，疊滿結冰需隊友打碎或丟火焰彈救人",
+            "x180 冰暴風眼分界配對符號｜x120 連續協同反制＋無力化｜x60 冰柱部位破壞找掩體躲全屏暴風雪"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "極寒夢幻 布雷夏沙",
           "goldReward": 18500,
           "chestCost": 5600,
-          "chestContents": "卡爾瑪養成材料、T4 精煉材料、高階飾品"
+          "chestContents": "卡爾瑪養成材料、T4 精煉材料、高階飾品",
+          "mechanics": [
+            "x335 冰晶次元轉場｜x250 幻象鏡面雷射與黃光 G 鍵精準格擋",
+            "x180 夢境棋盤配色吃球＋內外場同步無力化｜x70 極零度碎冰舞台（留超覺醒與阿特羅品 Rush 狂暴血條）"
+          ]
         }
       ],
       "totalGold": 27500,
       "totalChestCost": 9400,
       "netGold": 18100,
-      "recommendation": "開荒與提升卡爾瑪系統期間建議開箱，若僅需賺金可不開"
+      "recommendation": "提升卡爾瑪三樹（領悟／飛躍／進化）必打副本；支援單人模式"
     },
     {
-      "name": "布雷夏沙 (卡札羅斯第2幕)",
+      "name": "布雷夏沙 (卡札羅斯第2幕：冰封夢魘)",
       "nameEn": "Brelshaza Act 2",
       "tier": "T4",
       "difficulty": "困難",
       "partySize": "8人",
-      "weakness": "弱火 (G1) / 弱雷 (G2)",
+      "weakness": "弱火 (G1) ／ 弱雷 (G2)",
+      "sidereals": "聯手技：阿潔娜 (G1) · 妮娜芙／桑迪 (G2 x180 & x70 終局階段)",
+      "battleItems": "G1: 旋風、神聖符咒、暗黑 ｜ G2: 破壞炸彈、旋風、暗黑、阿特羅品",
       "ilvl": 1690,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "極寒領主 納羅克",
           "goldReward": 11000,
           "chestCost": 4500,
-          "chestContents": "卡爾瑪養成材料*大量、T4 精煉材料"
+          "chestContents": "卡爾瑪養成材料*大量、T4 精煉材料",
+          "mechanics": [
+            "x180 符號冰牢｜x120 高速連反＋無力｜x60 拆冰核躲全屏寒潮（嚴禁凍傷連環傳染）"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "極寒夢幻 布雷夏沙",
           "goldReward": 23000,
           "chestCost": 7200,
-          "chestContents": "卡爾瑪養成材料*大量、T4 精煉材料、古代飾品"
+          "chestContents": "卡爾瑪養成材料*大量、T4 精煉材料、古代飾品",
+          "mechanics": [
+            "x335 轉場｜x180 幻境球無力｜x70 冰封王座零容錯 G 格擋＋x0 困難限定破盾斬殺"
+          ]
         }
       ],
       "totalGold": 34000,
@@ -588,31 +881,46 @@
       "recommendation": "高金幣收益副本，開箱成本高，建議評估自身卡爾瑪進度與拍賣行物價"
     },
     {
-      "name": "莫敦 (卡札羅斯第3幕)",
+      "name": "莫敦 (卡札羅斯第3幕：漆黑雷鳴之夜)",
       "nameEn": "Mordum Act 3",
       "tier": "T4",
       "difficulty": "普通",
       "partySize": "8人",
-      "weakness": "弱土",
+      "weakness": "弱土 (G3 土屬性套組 +10%~15%)",
+      "sidereals": "聯手技：卡丹／席利安 (G1 暗影對決) · 巴亨圖爾 (G3 隱藏聯手技抓準時機直接削 ~20 條血！)",
+      "battleItems": "G1: 凝時藥水、旋風、暗黑 ｜ G2: 破壞炸彈、神聖符咒、旋風 ｜ G3: 旋風、破壞、暗黑、阿特羅品",
       "ilvl": 1680,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "黑騎士 卡蒙再臨",
           "goldReward": 6000,
           "chestCost": 1300,
-          "chestContents": "T4 進階精煉 21–40 材料、高階強化素材"
+          "chestContents": "T4 進階精煉 21–40 材料、高階強化素材",
+          "mechanics": [
+            "暗影分身連斬＋Clash 拼刀檢定：留意紅藍劍光安全側，及時反制殘影防止全場黑水擴散"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "混沌守護獸 奈特雷亞",
           "goldReward": 9500,
           "chestCost": 2350,
-          "chestContents": "T4 進階精煉 21–40 材料、高階強化素材"
+          "chestContents": "T4 進階精煉 21–40 材料、高階強化素材",
+          "mechanics": [
+            "元素吸收破甲：依首領吞噬屬性進行定點部位破壞與雙隊協同無力化標記"
+          ]
         },
         {
           "gate": "關卡 3",
+          "boss": "深淵懲罰者 雷神莫敦",
           "goldReward": 12500,
           "chestCost": 3360,
-          "chestContents": "T4 進階精煉 21–40 材料、高階飾品"
+          "chestContents": "T4 進階精煉 21–40 材料、高階飾品",
+          "mechanics": [
+            "巨型定點首領（高木樁覆蓋率＋極致 G 鍵格擋節奏）：成功在雷錘碎地按出 G 精準格擋會觸發高額反擊傷害！",
+            "雷砧碎台與導雷針排位：被點落雷標記者排外沿，抓準破防窗口交「隱藏巴亨圖爾聯手技」巨幅削血"
+          ]
         }
       ],
       "totalGold": 28000,
@@ -621,58 +929,84 @@
       "recommendation": "解鎖高階進階精煉（21–40）關鍵素材來源，前期建議開箱"
     },
     {
-      "name": "莫敦 (卡札羅斯第3幕)",
+      "name": "莫敦 (卡札羅斯第3幕：漆黑雷鳴之夜)",
       "nameEn": "Mordum Act 3",
       "tier": "T4",
       "difficulty": "困難",
       "partySize": "8人",
-      "weakness": "弱土",
+      "weakness": "弱土 (G3 土套)",
+      "sidereals": "聯手技：卡丹 (G1) · 巴亨圖爾／席利安 (G3 隱藏聯手破防與終局 Rush)",
+      "battleItems": "G1: 旋風、暗黑 ｜ G2: 破壞、神聖符咒 ｜ G3: 破壞、旋風、暗黑手榴彈、阿特羅品",
       "ilvl": 1700,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "黑騎士 卡蒙再臨",
           "goldReward": 7000,
           "chestCost": 1650,
-          "chestContents": "T4 進階精煉 21–40 材料*大量、強化素材"
+          "chestContents": "T4 進階精煉 21–40 材料*大量、強化素材",
+          "mechanics": [
+            "高速雙重劍影反制＋高壓 Clash 拼刀，外場需同步清黑球"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "奈特雷亞",
           "goldReward": 11000,
           "chestCost": 2640,
-          "chestContents": "T4 進階精煉 21–40 材料*大量、強化素材"
+          "chestContents": "T4 進階精煉 21–40 材料*大量、強化素材",
+          "mechanics": [
+            "四屬性輪轉破核＋零失誤協同無力檢定"
+          ]
         },
         {
           "gate": "關卡 3",
+          "boss": "深淵懲罰者 雷神莫敦",
           "goldReward": 20000,
           "chestCost": 4060,
-          "chestContents": "T4 進階精煉 21–40 材料*大量、高階飾品"
+          "chestContents": "T4 進階精煉 21–40 材料*大量、高階飾品",
+          "mechanics": [
+            "全場碎台窄邊戰＋連續 G 鍵格擋連段，嚴格 DPS 檢定下務必對齊輔助雙增傷＋阿特羅品"
+          ]
         }
       ],
       "totalGold": 38000,
       "totalChestCost": 8350,
       "netGold": 29650,
-      "recommendation": "當前頂級金幣副本之一，依突破石與進階材料價格彈性開箱"
+      "recommendation": "頂級金幣效率副本之一，依突破石與進階材料價格彈性開箱"
     },
     {
-      "name": "阿爾莫切 (卡札羅斯第4幕)",
+      "name": "阿爾莫切 (卡札羅斯第4幕：毀滅要塞)",
       "nameEn": "Armoche Act 4",
       "tier": "T4",
       "difficulty": "普通",
       "partySize": "8人",
       "weakness": "弱光 / 弱神聖",
+      "sidereals": "聯手技：席利安／妮娜芙 (破甲後灌傷) · 伊南娜 (G2 流血高壓階段護盾穩血)",
+      "battleItems": "G1: 旋風手榴彈、破壞炸彈、神聖符咒 ｜ G2: 破壞炸彈、旋風、暗黑手榴彈、凝時／阿特羅品",
       "ilvl": 1700,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "要塞守門將",
           "goldReward": 10000,
           "chestCost": 3200,
-          "chestContents": "方舟星圖核心（英雄～遺物）、T4 強化材料"
+          "chestContents": "方舟星圖核心（英雄～遺物）、T4 強化材料",
+          "mechanics": [
+            "x285 開場無力與扇形安全區｜x240 審判試煉分位無力化｜x220 點名分散排毒｜x150 要塞結構部位破壞｜x30 終局狂暴 Rush"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "深淵哨兵 阿爾莫切",
           "goldReward": 17000,
           "chestCost": 5440,
-          "chestContents": "方舟星圖核心（英雄～古代）、T4 強化材料"
+          "chestContents": "方舟星圖核心（英雄～古代）、T4 強化材料",
+          "mechanics": [
+            "不可淨化流血疊層：中招會疊永久流血，需靠走位與 G 鍵精準格擋維持低層數！",
+            "x420 黃金飛盾拆甲（攔截飛盾按 G 撿起投回首領剝除護甲層數）｜x360 全力無力化",
+            "x290 空間安全格解謎｜x240 8 人同步協作檢定｜x160 隕石坑部位破壞｜x60 石柱掩體躲終極滅團砲"
+          ]
         }
       ],
       "totalGold": 27000,
@@ -681,25 +1015,35 @@
       "recommendation": "首次進入方舟星圖核心養成階段，缺秩序／混沌核心必開箱"
     },
     {
-      "name": "阿爾莫切 (卡札羅斯第4幕)",
+      "name": "阿爾莫切 (卡札羅斯第4幕：毀滅要塞)",
       "nameEn": "Armoche Act 4",
       "tier": "T4",
       "difficulty": "困難",
       "partySize": "8人",
       "weakness": "弱光 / 弱神聖",
+      "sidereals": "聯手技：席利安 (G1/G2 爆發) · 伊南娜 (G2 x110~x60 狂暴流血期保命)",
+      "battleItems": "G1: 旋風、破壞、神聖符咒 ｜ G2: 破壞、旋風、暗黑手榴彈、阿特羅品",
       "ilvl": 1720,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "要塞守門將",
           "goldReward": 13500,
           "chestCost": 4320,
-          "chestContents": "方舟星圖核心（傳說～古代）、高階 T4 強化材料"
+          "chestContents": "方舟星圖核心（傳說～古代）、高階 T4 強化材料",
+          "mechanics": [
+            "x285 / x240 審判分位無力｜x150 雙倍結構破壞｜x30 高壓衝刺"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "深淵哨兵 阿爾莫切",
           "goldReward": 24500,
           "chestCost": 7840,
-          "chestContents": "方舟星圖核心（遺物～古代機率提高）、古代飾品"
+          "chestContents": "方舟星圖核心（遺物～古代機率提高）、古代飾品",
+          "mechanics": [
+            "x420 黃金盾投擲拆甲｜x360 無力｜x290 安全區｜x160 隕石坑破壞｜x110 轉入狂暴紅場＋x60 石柱安全點"
+          ]
         }
       ],
       "totalGold": 38000,
@@ -714,19 +1058,30 @@
       "difficulty": "普通",
       "partySize": "4人",
       "boundGoldNote": "全額角色綁定金幣",
+      "battleItems": "G1: 旋風手榴彈、暗黑手榴彈 ｜ G2: 旋風手榴彈、神聖符咒、凝時藥水",
       "ilvl": 1700,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "聖堂鐘樓審判官",
           "goldReward": 13500,
           "chestCost": 4320,
-          "chestContents": "T4 突破石、精煉材料、星石 (Astrogems)"
+          "chestContents": "T4 突破石、精煉材料、星石 (Astrogems)",
+          "mechanics": [
+            "x180 聖鐘衝鋒＋空白鍵震波連躲｜x160 DPS 檢定＋G 鍵精準格擋",
+            "x100 聖光護盾＋閃光背對｜x60 連續反制＋G 鍵格擋收尾"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "大聖堂共鳴主教",
           "goldReward": 16500,
           "chestCost": 5280,
-          "chestContents": "T4 突破石、精煉材料、星石、卡包機率"
+          "chestContents": "T4 突破石、精煉材料、星石、卡包機率",
+          "mechanics": [
+            "50% 聖堂能量條：重疊音波圈連續 G 鍵精準格擋（勿重疊站位互炸）",
+            "100% 聖堂能量條：四角「音叉共鳴 (Tuning Forks)」依聲波頻率順序敲擊調音破除滅團詠唱"
+          ]
         }
       ],
       "totalGold": 30000,
@@ -741,19 +1096,28 @@
       "difficulty": "困難",
       "partySize": "4人",
       "boundGoldNote": "全額角色綁定金幣",
+      "battleItems": "G1: 旋風、暗黑手榴彈 ｜ G2: 旋風、神聖符咒、阿特羅品",
       "ilvl": 1720,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "聖堂鐘樓審判官",
           "goldReward": 16000,
           "chestCost": 5120,
-          "chestContents": "高階 T4 精煉材料、星石、古代飾品"
+          "chestContents": "高階 T4 精煉材料、星石、古代飾品",
+          "mechanics": [
+            "x180 聖鐘震波｜x160 壓盾＋G 格擋｜x100 背對閃光破盾｜x60 反制＋格擋"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "大聖堂共鳴主教",
           "goldReward": 24000,
           "chestCost": 7680,
-          "chestContents": "高階 T4 精煉材料、高品星石、卡包機率"
+          "chestContents": "高階 T4 精煉材料、高品星石、卡包機率",
+          "mechanics": [
+            "50% 雙重音波 G 格擋｜100% 四角音叉配頻共鳴無力化"
+          ]
         }
       ],
       "totalGold": 40000,
@@ -768,19 +1132,28 @@
       "difficulty": "惡夢",
       "partySize": "4人",
       "boundGoldNote": "全額角色綁定金幣",
+      "battleItems": "G1-G2: 旋風手榴彈、暗黑手榴彈、神聖符咒、阿特羅品藥水",
       "ilvl": 1750,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "聖堂鐘樓審判官 (惡夢)",
           "goldReward": 20000,
           "chestCost": 6400,
-          "chestContents": "頂級 T4 突破石、星石與強化素材"
+          "chestContents": "頂級 T4 突破石、星石與強化素材",
+          "mechanics": [
+            "x180 / x160 / x100 / x60 全機制加速且移除個人復活容錯，G 鍵格擋失誤即重傷"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "大聖堂共鳴主教 (惡夢)",
           "goldReward": 30000,
           "chestCost": 9600,
-          "chestContents": "頂級 T4 突破石、高階星石、遺物刻印書機率"
+          "chestContents": "頂級 T4 突破石、高階星石、遺物刻印書機率",
+          "mechanics": [
+            "50% 連鎖 G 格擋＋100% 變奏音叉同步敲擊，緊湊 DPS 檢定"
+          ]
         }
       ],
       "totalGold": 50000,
@@ -789,25 +1162,39 @@
       "recommendation": "1750 頂層 4 人聖堂，單場高達 5 萬角色綁金，自用衝裝角色開箱價值高"
     },
     {
-      "name": "卡札羅斯 (卡札羅斯終幕)",
+      "name": "卡札羅斯 (卡札羅斯終幕：深淵終焉)",
       "nameEn": "Kazeros Denouement",
       "tier": "T4",
       "difficulty": "普通",
       "partySize": "8人",
-      "weakness": "弱光",
+      "weakness": "弱光 (光救 30覺)",
+      "sidereals": "聯手技 (Ctrl+Z/X/C)：盧特蘭／席利安 (壓 DPS 檢定) · 伊南娜 (x500/監獄重疊招保命) · 卡丹／阿曼 (終幕覺醒破防)",
+      "battleItems": "G1: 暗黑手榴彈、神聖符咒、凝時／阿特羅品 ｜ G2: 旋風手榴彈、破壞炸彈、暗黑、凝時藥水",
       "ilvl": 1710,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "深淵之主 卡札羅斯 (多階段 900 條)",
           "goldReward": 11000,
           "chestCost": 3520,
-          "chestContents": "方舟星圖核心（英雄～古代）*2、T4 頂級素材"
+          "chestContents": "方舟星圖核心（英雄～古代）*2、T4 頂級素材",
+          "mechanics": [
+            "P1 (x900 / x700)：團隊深淵能量條控管，被點名黑火務必排向場地最外緣防縮圈",
+            "P2 (x660 / x500 / x380)：x660 空間碎裂轉場｜x500 大規模分位消圈｜x380 高強度無力化＋連續協同反制",
+            "P3 (x100→x0)：終局狂暴燃燒階段，扣好聯手技與阿特羅品一波壓死"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "真神形態 卡札羅斯 (終極決戰)",
           "goldReward": 21000,
           "chestCost": 6720,
-          "chestContents": "方舟星圖核心（英雄～古代）*2、T4 頂級素材"
+          "chestContents": "方舟星圖核心（英雄～古代）*2、T4 頂級素材",
+          "mechanics": [
+            "x900 外沿排黑池｜石牆旋轉披薩安全區記憶",
+            "半管能量全團無力大檢定（全員秒交旋風＋高無力技，慢一拍即團滅）",
+            "巨石甜甜圈 Clash 拼刀＋荒漠監獄救援（G 鍵精準格擋＋集火拆牢籠，亂流重疊交伊南娜）"
+          ]
         }
       ],
       "totalGold": 32000,
@@ -816,25 +1203,35 @@
       "recommendation": "第一部深淵之主終局決戰，產出雙倍星圖核心，缺古代核心期間必開箱"
     },
     {
-      "name": "卡札羅斯 (卡札羅斯終幕)",
+      "name": "卡札羅斯 (卡札羅斯終幕：深淵終焉)",
       "nameEn": "Kazeros Denouement",
       "tier": "T4",
       "difficulty": "困難",
       "partySize": "8人",
-      "weakness": "弱光",
+      "weakness": "弱光 (光救 30覺)",
+      "sidereals": "聯手技：席利安／卡丹 (3x DPS 檢定爆發) · 伊南娜 (重疊機制穩場)",
+      "battleItems": "G1-G2: 旋風手榴彈、破壞炸彈、暗黑手榴彈、阿特羅品／凝時藥水",
       "ilvl": 1730,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "深淵之主 卡札羅斯",
           "goldReward": 16000,
           "chestCost": 5120,
-          "chestContents": "方舟星圖核心（遺物～古代）*2、頂級強化素材"
+          "chestContents": "方舟星圖核心（遺物～古代）*2、頂級強化素材",
+          "mechanics": [
+            "x900 / x700 / x500 / x380 / x100 全階段附帶高傷深淵侵蝕，反制失誤直接觸發懲罰"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "真神卡札羅斯 (含 2-2 終焉神域)",
           "goldReward": 32000,
           "chestCost": 10240,
-          "chestContents": "方舟星圖核心（遺物～古代）*2、專屬坐騎／遺物書機率"
+          "chestContents": "方舟星圖核心（遺物～古代）*2、專屬坐騎／遺物書機率",
+          "mechanics": [
+            "多段嚴苛 3x DPS 檢定、連續 Clash 拼刀與雙重 G 鍵格擋，星圖 17 點隊伍主力週常大金庫"
+          ]
         }
       ],
       "totalGold": 48000,
@@ -848,25 +1245,36 @@
       "tier": "T4",
       "difficulty": "普通",
       "partySize": "4人",
+      "weakness": "G1 無特定弱點 ／ G2 弱光 (LoS 30覺)",
+      "battleItems": "G1: 旋風手榴彈、神聖符咒、暗黑手榴彈 ｜ G2: 旋風、破壞炸彈、凝時／阿特羅品",
       "ilvl": 1710,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "苦痛拷問官",
           "goldReward": 13000,
           "chestCost": 4160,
-          "chestContents": "方舟星圖核心、高階 T4 突破石與精煉素材"
+          "chestContents": "方舟星圖核心、高階 T4 突破石與精煉素材",
+          "mechanics": [
+            "x270 雷射與橫移黃刺陷阱｜x240 / x195 / x175 四人同步站位解鎖鎖鏈",
+            "x105 & x90 全力無力化檢定＋定時惡夢炸彈外排生存"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "痛苦魔女 賽爾卡",
           "goldReward": 21000,
           "chestCost": 6720,
-          "chestContents": "方舟星圖核心、T4 精煉素材、傳說～遺物卡包機率"
+          "chestContents": "方舟星圖核心、T4 精煉素材、傳說～遺物卡包機率",
+          "mechanics": [
+            "弱光首領（記得切回光卡！）：團隊共享復活計時池，注意暗影荊棘連線切斷與 G 鍵格擋反擊"
+          ]
         }
       ],
       "totalGold": 34000,
       "totalChestCost": 10880,
       "netGold": 23120,
-      "recommendation": "2026 全新 4 人暗影襲擊戰（含團隊共享復活池與動態匹配練習），組隊彈性極高！"
+      "recommendation": "2026 全新 4 人暗影襲擊戰（含團隊共享復活池），組隊彈性極高！"
     },
     {
       "name": "賽爾卡 (暗影襲擊戰：痛苦魔女)",
@@ -874,19 +1282,29 @@
       "tier": "T4",
       "difficulty": "困難",
       "partySize": "4人",
+      "weakness": "G2 弱光",
+      "battleItems": "G1: 旋風、神聖符咒、暗黑 ｜ G2: 旋風、破壞、暗黑、阿特羅品",
       "ilvl": 1730,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "苦痛拷問官",
           "goldReward": 17500,
           "chestCost": 5600,
-          "chestContents": "高階方舟星圖核心、大量 T4 突破石與素材"
+          "chestContents": "高階方舟星圖核心、大量 T4 突破石與素材",
+          "mechanics": [
+            "x270 雷射黃刺｜x240 / x195 / x175 同步序列走位｜x105 / x90 高無力＋排炸彈"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "痛苦魔女 賽爾卡",
           "goldReward": 26500,
           "chestCost": 8480,
-          "chestContents": "高階方舟星圖核心、古代飾品、遺物刻印書機率"
+          "chestContents": "高階方舟星圖核心、古代飾品、遺物刻印書機率",
+          "mechanics": [
+            "共享復活次數縮減，強化版暗影鎖鏈破盾與雙重 G 格擋"
+          ]
         }
       ],
       "totalGold": 44000,
@@ -900,19 +1318,29 @@
       "tier": "T4",
       "difficulty": "惡夢",
       "partySize": "4人",
+      "weakness": "G2 弱光",
+      "battleItems": "G1-G2: 旋風手榴彈、破壞炸彈、暗黑手榴彈、阿特羅品藥水",
       "ilvl": 1740,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "苦痛拷問官 (惡夢)",
           "goldReward": 21000,
           "chestCost": 6720,
-          "chestContents": "遺物～古代星圖核心、頂級 T4 強化素材"
+          "chestContents": "遺物～古代星圖核心、頂級 T4 強化素材",
+          "mechanics": [
+            "惡夢難度取消個人復活容錯；x270 / x195 / x105 全程附帶暗影侵蝕疊層"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "痛苦魔女 賽爾卡 (惡夢)",
           "goldReward": 33000,
           "chestCost": 10560,
-          "chestContents": "遺物～古代星圖核心、專屬榮譽外觀／遺物書機率"
+          "chestContents": "遺物～古代星圖核心、專屬榮譽外觀／遺物書機率",
+          "mechanics": [
+            "極限 4 人輸出檢定＋惡夢專屬幻影處決階段，通關單場直領 5.4 萬流通金"
+          ]
         }
       ],
       "totalGold": 54000,
@@ -926,25 +1354,37 @@
       "tier": "T4",
       "difficulty": "普通",
       "partySize": "8人",
+      "sidereals": "聯手技：破防窗口增傷爆發 · 輔助護盾與伊南娜（洞察紫地重傷保命）",
+      "battleItems": "G1: 旋風手榴彈、神聖符咒、暗黑手榴彈 ｜ G2: 旋風、破壞炸彈、暗黑、凝時／阿特羅品",
       "ilvl": 1750,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "冥府審判執行者",
           "goldReward": 20000,
           "chestCost": 6400,
-          "chestContents": "幽魂之影（護腕精煉素材）、T4 頂級強化材料"
+          "chestContents": "幽魂之影（護腕精煉素材）、T4 頂級強化材料",
+          "mechanics": [
+            "洞察攻擊預警（畫面閃爍故障特效＋紫色地板）：準備接連續協同反制與無力化",
+            "長按方向型精準格擋 (Holding Just Guard)：面向地面箭頭提示方向「按住 G 鍵」完成多段格擋！"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "死亡仲裁者 貝爾加丁",
           "goldReward": 30000,
           "chestCost": 9600,
-          "chestContents": "史詩級「護腕 (Bracers)」新部位裝備、幽魂之影*大量"
+          "chestContents": "史詩級「護腕 (Bracers)」新部位裝備、幽魂之影*大量",
+          "mechanics": [
+            "x360 四目標同步定標｜x320 複合無力化＋DPS 雙重檢定｜x280 血紅競技場地形轉換",
+            "x240 / x140 三連抓技救援（精準格擋＋無力解救）｜x195 橫向卷軸轉場跑酷｜x95 彈弓投射破盾收尾"
+          ]
         }
       ],
       "totalGold": 50000,
       "totalChestCost": 16000,
       "netGold": 34000,
-      "recommendation": "2026 Q4 最新終局 8 人副本！解鎖全新裝備槽「護腕」，拓荒期務必全開箱加速成型"
+      "recommendation": "2026 終局 8 人副本！解鎖第 7 裝備槽「護腕」，拓荒期務必全開箱加速成型"
     },
     {
       "name": "貝爾加丁 (暗影襲擊戰：死亡仲裁者)",
@@ -952,32 +1392,78 @@
       "tier": "T4",
       "difficulty": "困難",
       "partySize": "8人",
+      "sidereals": "聯手技：x320 / x95 爆發壓血 · 輔助雙大盾覆蓋長按 G 格擋失誤",
+      "battleItems": "G1-G2: 旋風手榴彈、破壞炸彈、暗黑手榴彈、阿特羅品藥水",
       "ilvl": 1770,
       "gates": [
         {
           "gate": "關卡 1",
+          "boss": "冥府審判執行者",
           "goldReward": 25000,
           "chestCost": 8000,
-          "chestContents": "死亡之手（護腕高階突破素材）、頂級強化材料"
+          "chestContents": "死亡之手（護腕高階突破素材）、頂級強化材料",
+          "mechanics": [
+            "高頻洞察紫地攻擊＋變向長按 G 鍵格擋，漏擋即瀕死需輔助同步套大盾"
+          ]
         },
         {
           "gate": "關卡 2",
+          "boss": "死亡仲裁者 貝爾加丁",
           "goldReward": 37500,
           "chestCost": 12000,
-          "chestContents": "死亡之手*大量、高階護腕與古代星石／遺物書機率"
+          "chestContents": "死亡之手*大量、高階護腕與古代星石／遺物書機率",
+          "mechanics": [
+            "x360 四標｜x320 嚴苛無力＋DPS｜x280 紅場｜x240/x140 三抓｜x195 橫向轉場｜x95 彈弓終局檢定"
+          ]
         }
       ],
       "totalGold": 62500,
       "totalChestCost": 20000,
       "netGold": 42500,
-      "recommendation": "1770 頂尖梯隊專屬（1780 另設惡夢難度），產出護腕突破史詩品級必備的「死亡之手」"
+      "recommendation": "1770 頂尖梯隊專屬，產出護腕突破史詩品級必備的「死亡之手」"
+    },
+    {
+      "name": "貝爾加丁 (暗影襲擊戰：死亡仲裁者)",
+      "nameEn": "Shadow Raid: Belgardin",
+      "tier": "T4",
+      "difficulty": "惡夢",
+      "partySize": "8人",
+      "sidereals": "聯手技：極限 DPS 檢定全開爆發",
+      "battleItems": "G1-G2: 旋風手榴彈、破壞炸彈、暗黑手榴彈、阿特羅品藥水",
+      "ilvl": 1780,
+      "gates": [
+        {
+          "gate": "關卡 1",
+          "boss": "冥府審判執行者 (惡夢)",
+          "goldReward": 29000,
+          "chestCost": 9280,
+          "chestContents": "死亡之手*特大、古代星石、遺物刻印書機率",
+          "mechanics": [
+            "1780 無個人復活模式：長按方向 G 鍵格擋零容錯，洞察紫地附帶即死裁決"
+          ]
+        },
+        {
+          "gate": "關卡 2",
+          "boss": "死亡仲裁者 貝爾加丁 (惡夢)",
+          "goldReward": 43000,
+          "chestCost": 13760,
+          "chestContents": "死亡之手*特大、榮譽稱號／坐騎、古代核心與遺物書機率",
+          "mechanics": [
+            "x360～x95 全階段強化＋x0 惡夢仲裁處決階段，全遊戲當前最高單本金幣收益（72,000 G）！"
+          ]
+        }
+      ],
+      "totalGold": 72000,
+      "totalChestCost": 23040,
+      "netGold": 48960,
+      "recommendation": "1780 巔峰惡夢挑戰，兼顧榮譽外觀與全服最高單本 7.2 萬金幣產出"
     }
   ],
   "notes": [
     "角色每週最多可從 3 個副本獲得金幣獎勵（每個遠征隊上限指定 6 位領金角色）",
-    "後期 T4 襲擊戰額外寶箱費用統一為該關卡通關金幣的 32%，可利用上方「每週 3 本排程試算」快速比對淨利",
-    "T3 軍團長與前期卡札羅斯幕次廣泛支援「單人模式 (Solo Mode)」，產出綁定金幣與單人商店代幣",
-    "地平線大聖堂（1～3階）通關獎勵為「角色綁定金幣」，非常適合本尊自用精煉與點星石",
-    "資料完整涵蓋 T3 軍團長 → 卡札羅斯第 1～4 幕與終幕 → 2026 卡達魯姆大聖堂與暗影襲擊戰（賽爾卡、貝爾加丁）"
+    "後期 T4 襲擊戰額外寶箱費用統一為該關卡通關金幣的 32%，可利用上方「每週 3 本排程試算」即時比對開箱淨利",
+    "T3 軍團長與前期卡札羅斯幕次（艾吉爾、布雷夏沙第 2 幕）支援「單人模式 (Solo Mode)」，產出綁定金幣與單人代幣",
+    "地平線大聖堂（1～3階）通關獎勵為「全額角色綁定金幣」，極適合本尊自用衝精煉、超越與加工星石",
+    "惡夢（Nightmare）與極限難度全面移除個人復活羽毛容錯，開荒務必熟記各關 x 血條機制與 G 鍵精準格擋（含貝爾加丁長按方向格擋）"
   ]
 }

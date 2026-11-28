@@ -2,10 +2,13 @@
 <html lang="zh-Hant-TW">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#08090c" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#121212" />
     <meta name="author" content="ming" />
     <meta name="robots" content="index, follow" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="/LostArk-Strategies/manifest.webmanifest" />
     <title>雜項攻略 | LostArk Strategies 失落的方舟攻略網</title>
     <meta name="description" content="裝等解鎖路線、T4 方舟星圖、副本戰鬥道具、樂譜、符文、T3／T4 卡組與技能／悟性點數整理。" />
     <meta name="keywords" content="失落的方舟, 裝等路線, 方舟星圖, 戰鬥道具, 樂譜, 符文, 卡組, 技能點" />
@@ -14,7 +17,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
-    <meta property="og:site_name" content="LostArk Strategies 失落的方舟攻略網" />
+    <meta property="og:site_name" content="LostArk Strategies 失落的方舟快查手冊" />
     <meta property="og:url" content="https://sibyllae.github.io/LostArk-Strategies/game/miscGuide" />
     <meta property="og:title" content="雜項攻略 | LostArk Strategies 失落的方舟攻略網" />
     <meta property="og:description" content="裝等解鎖路線、T4 方舟星圖、副本戰鬥道具、樂譜、符文、T3／T4 卡組與技能／悟性點數整理。" />
@@ -29,18 +32,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
     />
     <script>
       (function () {
         try {
           var saved = localStorage.getItem('lostark_theme');
-          var mode =
-            saved === 'light' || saved === 'dark'
-              ? saved
-              : window.matchMedia('(prefers-color-scheme: light)').matches
-                ? 'light'
-                : 'dark';
+          var mode = saved === 'light' ? 'light' : 'dark';
           document.documentElement.classList.toggle('dark', mode === 'dark');
           document.documentElement.dataset.theme = mode;
         } catch (e) {
@@ -53,32 +51,33 @@
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "LostArk Strategies 失落的方舟攻略網",
-        "alternateName": ["LostArk Strategies", "失落的方舟攻略網"],
+        "name": "LostArk Strategies 失落的方舟快查手冊",
+        "alternateName": ["ARKESIA CODEX", "LostArk Strategies", "失落的方舟攻略網"],
         "url": "https://sibyllae.github.io/LostArk-Strategies/",
         "inLanguage": "zh-Hant-TW",
-        "description": "失落的方舟繁中版攻略資料庫：NPC 好感度、冒險之書、9 大類收集品、T3／T4 副本開箱試算、飾品詞條與系統速查。"
+        "description": "失落的方舟繁中版戰術與收集快查資料庫：全副本血條機制與週收試算、NPC 好感度、20 大陸冒險之書、9 大收集品、T4 刻印寶石飾品與跨服術語速查。"
       }
     </script>
-    <script type="module" crossorigin src="/LostArk-Strategies/assets/index-C65qWkR2.js"></script>
-    <link rel="modulepreload" crossorigin href="/LostArk-Strategies/assets/vendor-redux-CoxKrr7k.js">
-    <link rel="modulepreload" crossorigin href="/LostArk-Strategies/assets/vendor-react-DqYsiT_1.js">
-    <link rel="stylesheet" crossorigin href="/LostArk-Strategies/assets/index-CNTZOISo.css">
+    <script type="module" crossorigin src="/LostArk-Strategies/assets/index-B5RkDExi.js"></script>
+    <link rel="modulepreload" crossorigin href="/LostArk-Strategies/assets/vendor-antd-Dv9LCHLh.js">
+    <link rel="modulepreload" crossorigin href="/LostArk-Strategies/assets/vendor-redux-DOgjHeqI.js">
+    <link rel="modulepreload" crossorigin href="/LostArk-Strategies/assets/vendor-react-64F4xo6x.js">
+    <link rel="stylesheet" crossorigin href="/LostArk-Strategies/assets/index-CRVe1MPV.css">
       <script id="seo-breadcrumb-jsonld" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"失落的方舟攻略網","item":"https://sibyllae.github.io/LostArk-Strategies/"},{"@type":"ListItem","position":2,"name":"雜項攻略","item":"https://sibyllae.github.io/LostArk-Strategies/game/miscGuide"}]}</script>
   </head>
   <body>
     <div id="root"></div>
     <noscript>
-      <main style="max-width: 720px; margin: 40px auto; padding: 0 16px; color: #e7e5e4; font-family: sans-serif;">
-        <h1>LostArk Strategies | 失落的方舟攻略網</h1>
-        <p>本網站需要啟用 JavaScript 以使用互動查詢與副本開箱試算功能。收錄攻略分類：</p>
+      <main style="max-width: 720px; margin: 40px auto; padding: 0 16px; color: #e8e8e8; font-family: sans-serif;">
+        <h1>LostArk Strategies | 失落的方舟・戰術與收集快查手冊</h1>
+        <p>本網站需要啟用 JavaScript 以使用零延遲多維度篩選、Q 鍵全站快搜與副本開箱試算功能。收錄分類：</p>
         <ul>
-          <li><a href="/LostArk-Strategies/game/favorability">好友度 — NPC 好感度各階段獎勵與需求</a></li>
-          <li><a href="/LostArk-Strategies/game/adventureBook">冒險之書 — 20 個大陸完成度獎勵</a></li>
-          <li><a href="/LostArk-Strategies/game/collectibles">收集品追蹤 — 巨人心臟、島之心、記憶八音盒、血爪海圖等 9 種收集品</a></li>
-          <li><a href="/LostArk-Strategies/game/raidChests">副本開箱分析 — T3 軍團長與 T4 卡札羅斯金幣與開箱試算</a></li>
-          <li><a href="/LostArk-Strategies/game/systems">養成與配裝 — T4 飾品研磨、艾利西爾、超越／卡爾瑪與流浪商人</a></li>
-          <li><a href="/LostArk-Strategies/game/miscGuide">雜項攻略 — 裝等路線、方舟星圖、戰鬥道具、樂譜、符文與卡組</a></li>
+          <li><a href="/LostArk-Strategies/game/favorability">NPC 好友度 — 各階段獎勵、四維門檻與需求上限篩選</a></li>
+          <li><a href="/LostArk-Strategies/game/adventureBook">大陸冒險之書 — 20 座大陸里程碑與伊格涅亞連動</a></li>
+          <li><a href="/LostArk-Strategies/game/collectibles">收集品追蹤 — 巨人心臟、島之心、記憶八音盒、血爪海圖與世界樹 120 片</a></li>
+          <li><a href="/LostArk-Strategies/game/raidChests">副本機制與帳本 — T3 軍團長至 T4 卡札羅斯、賽爾卡、貝爾加丁血條機制與週收試算</a></li>
+          <li><a href="/LostArk-Strategies/game/systems">養成與配裝戰術 — T4 飾品研磨、手鐲詞條、遺物刻印書、T4 寶石與精煉斷點、流浪商人</a></li>
+          <li><a href="/LostArk-Strategies/game/miscGuide">百科速查台 — 裝等路線、守護者、全職業流派、方舟星圖、大航海船員、跨服譯名與生活製作</a></li>
         </ul>
       </main>
     </noscript>
